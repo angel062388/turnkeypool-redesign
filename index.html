@@ -1021,7 +1021,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     function countUp(el){
       var target = parseInt(el.getAttribute('data-count'), 10);
       var suffix = el.getAttribute('data-suffix') || '';
-      var t0 = null, dur = 1900;
+      var t0 = null, dur = 3400;
       function tick(ts){
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / dur, 1);
