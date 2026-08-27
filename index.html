@@ -235,12 +235,17 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .trust{position:relative;overflow:hidden;background:var(--ink-deep)}
 .trust-bg{position:absolute;inset:0;background:url(https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg) center/cover no-repeat}
 .trust-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,71,126,.5),rgba(2,31,53,.66))}
-.trust .wrap{position:relative;z-index:2;padding-top:44px;padding-bottom:44px}
+.trust .wrap{position:relative;z-index:2;padding-top:112px;padding-bottom:44px}
+.trust .wave-top{top:-1px;bottom:auto;z-index:1;transform:scaleY(-1)}
 .trust-card{width:max-content;max-width:100%;margin:0 auto;background:#fff;border-radius:14px;padding:18px 34px;text-align:center;box-shadow:0 22px 55px rgba(1,19,33,.45)}
-.tc-brands{display:flex;align-items:center;justify-content:center;gap:30px;font-family:var(--font-sans);font-weight:800;font-size:1.3rem;letter-spacing:-.01em}
+.tc-brands{display:flex;align-items:center;justify-content:center;gap:30px;margin-top:12px;font-family:var(--font-sans);font-weight:800;font-size:1.3rem;letter-spacing:-.01em}
 .tc-g b:nth-child(1){color:#4285F4}.tc-g b:nth-child(2){color:#EA4335}.tc-g b:nth-child(3){color:#FBBC05}.tc-g b:nth-child(4){color:#4285F4}.tc-g b:nth-child(5){color:#34A853}.tc-g b:nth-child(6){color:#EA4335}
 .tc-fb{color:#1877F2}
-.tc-line{margin-top:10px;font-size:.88rem;color:var(--ink)}
+.tc-brands span{opacity:0;transform:translateY(14px);transition:opacity .6s ease .35s,transform .7s cubic-bezier(.16,1,.3,1) .35s}
+.trust.is-in .tc-brands span{opacity:1;transform:none;animation:brandBob 3.6s ease-in-out 1.3s infinite}
+.trust.is-in .tc-brands .tc-fb{transition-delay:.55s;animation-delay:1.6s}
+@keyframes brandBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tc-line{font-size:.88rem;color:var(--ink)}
 .tc-line .stars{margin-right:8px}
 .trust-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
 .tr-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(6px);border-radius:14px;padding:16px 18px;color:var(--paper)}
@@ -349,13 +354,13 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .abt-lede2{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.6;color:var(--paper);max-width:900px;margin:34px auto 0;text-align:center;opacity:0;transform:translateY(24px);filter:blur(6px);transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1),filter .9s ease}
 .abt.is-in .abt-lede2{opacity:1;transform:none;filter:blur(0)}
 .abt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:46px}
-.abt-card{background:rgba(0,48,74,.5);backdrop-filter:blur(6px);border:1px solid rgba(77,151,210,.3);border-top:3px solid var(--accent);border-radius:14px;padding:30px 28px;opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
-.abt.is-in .abt-card{opacity:1;transform:none}
+.abt-card{background:linear-gradient(180deg,#EAF4FC,#D9EBF9);border:1px solid rgba(35,136,218,.4);border-top:3px solid var(--accent-bright);border-radius:14px;padding:30px 28px;box-shadow:0 16px 40px rgba(1,19,33,.35);opacity:0;transform:translateY(42px) scale(.93);filter:blur(5px);transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1),filter .75s ease}
+.abt.is-in .abt-card{opacity:1;transform:none;filter:blur(0)}
 .abt.is-in .abt-card:nth-child(2){transition-delay:.18s}
 .abt.is-in .abt-card:nth-child(3){transition-delay:.36s}
 .abt.is-in .abt-card:nth-child(4){transition-delay:.54s}
 .abt-card::before{content:"";display:block;width:11px;height:15px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:linear-gradient(180deg,#7BD0F2,#2E96DE);box-shadow:0 0 12px rgba(77,151,210,.5);margin-bottom:16px}
-.abt-card p{font-size:.98rem;color:rgba(248,247,242,.86)}
+.abt-card p{font-size:.98rem;color:var(--ink-2)}
 @media (max-width:900px){.abt-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){
   .abt-glow::before,.abt-glow::after,.abt-bub{animation:none}
@@ -415,10 +420,10 @@ html:not(.js) .cap-more{height:auto}
 .cap-more-in{padding-top:12px}
 .cap-toggle{margin-top:auto;align-self:flex-start;background:none;border:1px solid rgba(77,151,210,.45);border-radius:4px;color:var(--accent);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:border-color .25s ease,color .25s ease}
 .cap-toggle:hover{border-color:var(--accent);color:var(--accent-bright)}
-.cap-cards .cap-card{opacity:0;transform:translateX(-70px);transition:opacity .7s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.cap-cards .cap-card{opacity:0;transform:translateX(-130px);transition:opacity 1.15s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
 .capvid.is-in .cap-card{opacity:1;transform:none}
-.capvid.is-in .cap-card:nth-child(2){transition-delay:.16s}
-.capvid.is-in .cap-card:nth-child(3){transition-delay:.32s}
+.capvid.is-in .cap-card:nth-child(2){transition-delay:.28s}
+.capvid.is-in .cap-card:nth-child(3){transition-delay:.56s}
 @media (prefers-reduced-motion:reduce){.cap-more{transition:none}.cap-cards .cap-card{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.cap-cards{grid-template-columns:1fr}}
 
@@ -670,13 +675,17 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <!-- trust band -->
 <section class="trust" aria-label="Ratings, licenses, and guarantees">
   <div class="trust-bg" aria-hidden="true"></div>
+  <div class="wave-sep wave-top" aria-hidden="true">
+    <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#F8F7F2" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
+    <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#F8F7F2" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
+  </div>
   <div class="wrap">
     <div class="trust-card">
+      <div class="tc-line"><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i><b>5 Star Customer Rating</b> &middot; Verified Google &amp; Facebook Reviews</div>
       <div class="tc-brands">
         <span class="tc-g" aria-label="Google"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span>
         <span class="tc-fb">facebook</span>
       </div>
-      <div class="tc-line"><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i><b>5 Star Customer Rating</b> &middot; Verified Google &amp; Facebook Reviews</div>
     </div>
     <div class="trust-stats">
       <div class="tr-item">
