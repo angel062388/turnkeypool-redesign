@@ -369,19 +369,11 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
   .svc-rows li.is-in{opacity:1;transform:none}
 }
 @media (prefers-reduced-motion:reduce){.svc-rows li,.svc-rows li.is-in{opacity:1;transform:none;transition:none}}
-/* dark services variant */
-.svcdark{background:var(--ink-deep)}
-.svcdark .svc-sub{color:rgba(248,247,242,.78)}
-.svcdark .svc-sub a{color:var(--accent)}
-.svcdark .svc-rows{border-top-color:var(--border-dark)}
-.svcdark .svc-rows li{border-bottom-color:var(--border-dark)}
-.svcdark .svc-tag{color:rgba(248,247,242,.55)}
-.svcdark .svc-name a{color:var(--paper)}
-.svcdark .svc-rows li:hover .svc-name a{color:var(--accent)}
-.svcdark .svc-desc{color:rgba(248,247,242,.72)}
-.svcdark .svc-arrow{color:var(--accent)}
-.svcdark .btn-ghost.on-light{border-color:var(--accent);color:var(--paper)}
-.svcdark .btn-ghost.on-light:hover{border-color:var(--accent-bright);color:var(--accent-bright)}
+/* dark heading band above the light services rows */
+.svc-headband{background:var(--ink);color:var(--paper);padding:56px 24px 50px}
+.svc-headband .wrap{max-width:1160px;margin:0 auto}
+.svc-headband .svc-sub{color:rgba(248,247,242,.78)}
+.svc-headband .svc-sub a{color:var(--accent)}
 
 /* ---------- about (dark editorial) ---------- */
 .about-lede{font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.6;color:var(--paper);max-width:860px;margin-top:34px}
@@ -810,13 +802,17 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 </section>
 
 <!-- 02 SERVICES -->
-<section class="section dark svcdark has-wave" style="padding-top:48px">
+<div class="svc-headband dark">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head center" style="margin-bottom:0">
       <div class="eyebrow">Services</div>
       <h2>Pool Designs <em>Services</em></h2>
       <p class="svc-sub">Don&#39;t wait any longer to make your dream pool a reality. <a href="contact.html">Contact us today</a> to schedule a consultation and learn more about our services!</p>
     </div>
+  </div>
+</div>
+<section class="section light tint has-wave" style="padding-top:24px">
+  <div class="wrap">
     <ul class="svc-rows">
       <li data-svc-row data-href="custom-pool-design.html">
         <div class="svc-img"><img src="https://images.unsplash.com/photo-1635108201418-0996823f4cc3?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt=""></div>
