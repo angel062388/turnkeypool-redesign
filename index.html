@@ -151,6 +151,11 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .hero .btn-row{margin-bottom:24px}
 .hero-rated{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,247,242,.5)}
 .hero-rated b{color:var(--accent);font-weight:600}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 22px;max-width:600px}
+.hs{background:rgba(0,48,74,.55);border:1px solid var(--border-dark);border-top:2px solid var(--accent);border-radius:10px;padding:12px 12px 11px}
+.hs b{display:block;font-family:var(--font-sans);font-weight:900;font-size:1.3rem;color:var(--paper);line-height:1}
+.hs span{display:block;margin-top:6px;font-family:var(--font-mono);font-weight:600;font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:640px){.hero-stats{grid-template-columns:1fr 1fr;max-width:none}}
 
 /* ---------- credibility strip ---------- */
 .strip{background:var(--ink-deep);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:16px 24px;text-align:center}
@@ -439,6 +444,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
         <a class="btn btn-ghost" href="tel:+15043863724">or call (504) 386-3724</a>
       </div>
+      <div class="hero-stats">
+        <div class="hs"><b>24/7</b><span>Reliable Support</span></div>
+        <div class="hs"><b>5</b><span>Step Design Process</span></div>
+        <div class="hs"><b>13</b><span>Communities Served</span></div>
+        <div class="hs"><b>FREE</b><span>Estimates</span></div>
+      </div>
       <p class="hero-rated">Rated by <b>Hundreds</b> of Satisfied Customers</p>
     </div>
     <div class="hero-media">
@@ -457,86 +468,11 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   <p>Residential License <b>#890459</b> &middot; Commercial License <b>#3667</b> &middot; Serving New Orleans &amp; Surrounding Areas</p>
 </div>
 
-<!-- 02 RELIABLE + STATS -->
-<section class="section light">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">02 &middot; New Orleans</div>
-      <h2>Your <em>Reliable</em> Pool Designers in New Orleans</h2>
-    </div>
-    <p style="max-width:860px;margin-top:26px">TurnKey Pool Designers, located in NOLA, is your premier pool services contractor, specializing in the design and maintenance of your personal paradise. We understand that your pool is more than just a place to cool off; it&#39;s the setting for countless memories, a haven for relaxation, and the focal point of your home.</p>
-    <div class="stats">
-      <div class="stat">
-        <div class="num" data-count="24" data-suffix="/7">24/7</div>
-        <div class="lbl">Reliable Support</div>
-        <div class="sup">for New Orleans pool owners</div>
-      </div>
-      <div class="stat">
-        <div class="num" data-count="5">5</div>
-        <div class="lbl">Step Design Process</div>
-        <div class="sup">from consultation to construction</div>
-      </div>
-      <div class="stat">
-        <div class="num" data-count="13">13</div>
-        <div class="lbl">Communities Served</div>
-        <div class="sup">across New Orleans and surrounding areas</div>
-      </div>
-      <div class="stat">
-        <div class="num">FREE</div>
-        <div class="lbl">Estimates</div>
-        <div class="sup">for homeowners</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 PROCESS -->
-<section class="section dark">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">03 &middot; Process</div>
-      <h2>Our <em>5-Step</em> Pool Design Process</h2>
-    </div>
-    <div class="proc-grid">
-      <div class="proc-card">
-        <div class="proc-num">01</div>
-        <div class="step-tag">Step &middot; 01</div>
-        <h3>Schedule A Consultation</h3>
-        <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">02</div>
-        <div class="step-tag">Step &middot; 02</div>
-        <h3>Design Your Pool</h3>
-        <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">03</div>
-        <div class="step-tag">Step &middot; 03</div>
-        <h3>Visualize and Revise</h3>
-        <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">04</div>
-        <div class="step-tag">Step &middot; 04</div>
-        <h3>Construction</h3>
-        <p>Once you have approved the design of your pool, our team of skilled workers will begin construction.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">05</div>
-        <div class="step-tag">Step &middot; 05</div>
-        <h3>Open Communication</h3>
-        <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 SERVICES -->
+<!-- 02 SERVICES -->
 <section class="section light tint">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">04 &middot; Services</div>
+      <div class="eyebrow">02 &middot; Services</div>
       <h2>Pool Designs <em>Services</em></h2>
     </div>
     <ul class="svc-rows">
@@ -588,11 +524,53 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 05 ABOUT -->
+<!-- 03 PROCESS -->
 <section class="section dark">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">05 &middot; About Us</div>
+      <div class="eyebrow">03 &middot; Process</div>
+      <h2>Our <em>5-Step</em> Pool Design Process</h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card">
+        <div class="proc-num">01</div>
+        <div class="step-tag">Step &middot; 01</div>
+        <h3>Schedule A Consultation</h3>
+        <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">02</div>
+        <div class="step-tag">Step &middot; 02</div>
+        <h3>Design Your Pool</h3>
+        <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">03</div>
+        <div class="step-tag">Step &middot; 03</div>
+        <h3>Visualize and Revise</h3>
+        <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">04</div>
+        <div class="step-tag">Step &middot; 04</div>
+        <h3>Construction</h3>
+        <p>Once you have approved the design of your pool, our team of skilled workers will begin construction.</p>
+      </div>
+      <div class="proc-card">
+        <div class="proc-num">05</div>
+        <div class="step-tag">Step &middot; 05</div>
+        <h3>Open Communication</h3>
+        <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ABOUT -->
+<section class="section dark" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04 &middot; About Us</div>
       <h2>About Our <em>Passion</em> For Pool Designs</h2>
       <div class="kicker">Proud To Be Serving The Expertise You Can Trust</div>
     </div>
@@ -606,7 +584,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 06 CAPABILITIES (cards over pool video) -->
+<!-- 05 CAPABILITIES (cards over pool video) -->
 <section class="section dark capvid">
   <div class="cap-bg">
     <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/47286/47286-thumb-720-0.jpg" aria-hidden="true">
@@ -615,7 +593,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">06 &middot; Capabilities</div>
+      <div class="eyebrow">05 &middot; Capabilities</div>
       <h2>Design, build, <em>renew</em></h2>
     </div>
     <div class="cap-cards">
@@ -652,11 +630,11 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 07 WHERE WE WORK -->
+<!-- 06 WHERE WE WORK -->
 <section class="section light">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">07 &middot; Service Areas</div>
+      <div class="eyebrow">06 &middot; Service Areas</div>
       <h2>Where We <em>Work</em></h2>
     </div>
     <div class="wwl">
@@ -702,11 +680,11 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 08 TESTIMONIALS -->
+<!-- 07 TESTIMONIALS -->
 <section class="section dark">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">08 &middot; Testimonials</div>
+      <div class="eyebrow">07 &middot; Testimonials</div>
       <h2>What Our <em>Clients</em> Say</h2>
     </div>
     <div class="t-wall">
@@ -746,11 +724,11 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 09 GALLERY -->
+<!-- 08 GALLERY -->
 <section class="section light">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">09 &middot; Gallery</div>
+      <div class="eyebrow">08 &middot; Gallery</div>
       <h2>Our <em>Gallery</em></h2>
     </div>
     <div class="gal-marquee" aria-label="TurnKey Pool Designers project photos">
@@ -875,17 +853,22 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     setTimeout(function(){
       s.classList.add('hide');
       document.body.classList.remove('splash-lock');
+      if (window.__armPills) setTimeout(window.__armPills, 250);
       setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 900);
     }, reduce ? 400 : 3000);
   })();
 
-  /* Arm the pills after first paint; index 1 gets the sentence-order delay. */
+  /* Arm the pills after first paint, or once the splash reveals the page. */
   (function(){
     var pills = document.querySelectorAll('h1 em');
     pills.forEach(function(el,i){ if (i === 1) el.classList.add('is-2'); });
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      pills.forEach(function(el){ el.classList.add('animate'); });
-    });});
+    function arm(){
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        pills.forEach(function(el){ el.classList.add('animate'); });
+      });});
+    }
+    if (document.getElementById('splash')) { window.__armPills = arm; }
+    else { arm(); }
   })();
 
   /* Respect reduced motion for all ambient videos. */
