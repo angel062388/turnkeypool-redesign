@@ -157,6 +157,23 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 @media (max-width:640px){.fab-quote .fab-tel{display:none}}
 @media (prefers-reduced-motion:reduce){.fab-quote{transition:none}}
 
+/* ---------- faqs ---------- */
+.faq-list{max-width:820px;margin:40px auto 0;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:#fff;border:1px solid var(--border-light);border-radius:14px;overflow:hidden;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.faq.is-in .faq-item{opacity:1;transform:none}
+.faq.is-in .faq-item:nth-child(2){transition-delay:.1s}
+.faq.is-in .faq-item:nth-child(3){transition-delay:.2s}
+.faq.is-in .faq-item:nth-child(4){transition-delay:.3s}
+.faq.is-in .faq-item:nth-child(5){transition-delay:.4s}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;background:none;border:0;cursor:pointer;text-align:left;padding:20px 24px;font-family:var(--font-serif);font-weight:700;font-size:1.08rem;color:var(--ink-2)}
+.faq-q .fx{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid rgba(35,136,218,.5);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);font-weight:700;line-height:1;transition:transform .35s ease,background .3s ease,border-color .3s ease,color .3s ease}
+.faq-item.open .fx{transform:rotate(45deg);background:var(--accent-bright);border-color:var(--accent-bright);color:#fff}
+.faq-a{height:0;overflow:hidden;transition:height .45s cubic-bezier(.16,1,.3,1)}
+.faq-a-in{padding:0 24px 22px;color:var(--muted);font-size:.97rem}
+html:not(.js) .faq-a{height:auto}
+.faq-sub{max-width:640px;margin:18px auto 0;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.faq-item,.faq.is-in .faq-item{opacity:1;transform:none;transition:none}.faq-a,.faq-q .fx{transition:none}}
+
 /* ---------- estimate form band ---------- */
 .lead-band{background:var(--accent-tint);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light)}
 .lead-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;max-width:980px;margin:38px auto 0}
@@ -1094,6 +1111,39 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
+<!-- FAQS -->
+<section class="section light faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">FAQs</div>
+      <h2>Frequently Asked <em>Questions</em></h2>
+      <p class="faq-sub">Have another question? <a href="contact.html">Contact us</a> or call <a href="tel:+15043863724">(504) 386-3724</a>.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">What pool services do you offer? <span class="fx">+</span></button>
+        <div class="faq-a"><div class="faq-a-in">We handle custom pool design, new pool construction, and pool renovation and remodeling. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How does your pool design process work? <span class="fx">+</span></button>
+        <div class="faq-a"><div class="faq-a-in">Our 5-Step Pool Design Process runs from consultation to construction. We start by hearing about your vision and using state-of-the-art technologies to make it a reality, then refine the design with you before our team of skilled workers begins construction.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Where do you build and renovate pools? <span class="fx">+</span></button>
+        <div class="faq-a"><div class="faq-a-in">We serve New Orleans and surrounding areas, including Metairie, Kenner, Gretna, Harahan, River Ridge, St. Rose, LaPlace, Slidell, Mandeville, Madisonville, Covington, Hammond, and Baton Rouge.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How do I get a free estimate? <span class="fx">+</span></button>
+        <div class="faq-a"><div class="faq-a-in">Estimates are free for homeowners. Call (504) 386-3724 or reach us through the contact page to get started on your dream pool.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Is TurnKey Pool Designers licensed? <span class="fx">+</span></button>
+        <div class="faq-a"><div class="faq-a-in">Yes. We hold Residential License #890459 and Commercial License #3667, and our work is backed by a 100% satisfaction guarantee.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -1318,6 +1368,50 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       });
     }, { rootMargin: '0px 0px -18% 0px' });
     io.observe(sec);
+  })();
+
+  /* FAQs: staggered reveal + one-open accordion with height animation. */
+  (function(){
+    var sec = document.querySelector('.faq');
+    if (!sec) return;
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
+        });
+      }, { rootMargin: '0px 0px -12% 0px' });
+      io.observe(sec);
+    } else { sec.classList.add('is-in'); }
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = [].slice.call(sec.querySelectorAll('.faq-item'));
+    function setPane(node, want){
+      var b = node.querySelector('.faq-q'), p = node.querySelector('.faq-a');
+      node.classList.toggle('open', want);
+      b.setAttribute('aria-expanded', want ? 'true' : 'false');
+      if (reduce) { p.style.height = want ? 'auto' : '0'; return; }
+      if (want) {
+        p.style.height = p.scrollHeight + 'px';
+        p.addEventListener('transitionend', function h(ev){
+          if (ev.propertyName === 'height') {
+            if (node.classList.contains('open')) p.style.height = 'auto';
+            p.removeEventListener('transitionend', h);
+          }
+        });
+      } else {
+        p.style.height = p.scrollHeight + 'px';
+        void p.offsetHeight;
+        p.style.height = '0';
+      }
+    }
+    items.forEach(function(it){
+      var btn = it.querySelector('.faq-q');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.addEventListener('click', function(){
+        var open = it.classList.contains('open');
+        items.forEach(function(o){ if (o !== it && o.classList.contains('open')) setPane(o, false); });
+        setPane(it, !open);
+      });
+    });
   })();
 
   /* Testimonials carousel: arrows and auto-advance slide one card at a time. */
