@@ -161,16 +161,19 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .t-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
 
 /* ---------- city ledger ---------- */
-.ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-light);border:1px solid var(--border-light);margin-top:44px}
-.ledger a{background:var(--card);text-decoration:none;padding:20px 18px;display:flex;align-items:baseline;gap:12px;transition:background .25s ease}
-.ledger a:hover{background:var(--accent-tint)}
-.ledger .idx{font-family:var(--font-mono);font-weight:600;font-size:.6rem;letter-spacing:.1em;color:var(--muted)}
-.ledger .city{font-family:var(--font-serif);font-weight:700;font-size:1.02rem;color:var(--ink)}
-.ledger a:hover .city{color:var(--accent-deep)}
-.ledger .hub{grid-column:1/-1;justify-content:center;background:var(--accent-tint)}
-.ledger .hub .city{color:var(--accent-deep)}
-@media (max-width:900px){.ledger{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:535px){.ledger{grid-template-columns:1fr}}
+.area-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.area-tile{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;text-decoration:none;display:block;background:var(--ink-2)}
+.area-tile img{width:100%;height:100%;object-fit:cover;filter:saturate(.55) brightness(.66);transform:scale(1.02);transition:filter .7s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
+.area-tile:hover img{filter:saturate(1) brightness(.85);transform:scale(1.07)}
+.area-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,19,33,.05) 40%,rgba(1,19,33,.86) 100%);z-index:1}
+.area-tile .tile-label{position:absolute;left:16px;right:12px;bottom:13px;z-index:2;display:flex;align-items:baseline;gap:10px}
+.area-tile .idx{font-family:var(--font-mono);font-weight:600;font-size:.6rem;letter-spacing:.1em;color:rgba(248,247,242,.7)}
+.area-tile .city{font-family:var(--font-serif);font-weight:700;font-size:1.18rem;color:var(--paper);letter-spacing:.01em}
+.area-hub{grid-column:1/-1;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);border:1px solid var(--border-light);border-radius:4px;padding:20px 18px;text-decoration:none;transition:background .25s ease}
+.area-hub:hover{background:#DFEDF9}
+.area-hub .city{font-family:var(--font-serif);font-weight:700;font-size:1.05rem;color:var(--accent-deep)}
+@media (max-width:900px){.area-tiles{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:535px){.area-tiles{grid-template-columns:1fr}.area-tile{aspect-ratio:16/9}}
 
 /* ---------- CTA band ---------- */
 .cta-band{position:relative;overflow:hidden;padding:120px 24px;text-align:center;background:var(--ink-deep)}
@@ -489,21 +492,21 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <div class="eyebrow">08 &middot; Service Areas</div>
       <h2>Where We <em>Work</em></h2>
     </div>
-    <div class="ledger">
-      <a href="baton-rouge.html"><span class="idx">01</span><span class="city">Baton Rouge</span></a>
-      <a href="covington.html"><span class="idx">02</span><span class="city">Covington</span></a>
-      <a href="gretna.html"><span class="idx">03</span><span class="city">Gretna</span></a>
-      <a href="hammond.html"><span class="idx">04</span><span class="city">Hammond</span></a>
-      <a href="harahan.html"><span class="idx">05</span><span class="city">Harahan</span></a>
-      <a href="kenner.html"><span class="idx">06</span><span class="city">Kenner</span></a>
-      <a href="laplace.html"><span class="idx">07</span><span class="city">Laplace</span></a>
-      <a href="madisonville.html"><span class="idx">08</span><span class="city">Madisonville</span></a>
-      <a href="mandeville.html"><span class="idx">09</span><span class="city">Mandeville</span></a>
-      <a href="metairie.html"><span class="idx">10</span><span class="city">Metairie</span></a>
-      <a href="river-ridge.html"><span class="idx">11</span><span class="city">River Ridge</span></a>
-      <a href="slidell.html"><span class="idx">12</span><span class="city">Slidell</span></a>
-      <a href="st-rose.html"><span class="idx">13</span><span class="city">St. Rose</span></a>
-      <a class="hub" href="service-areas.html"><span class="city">All Service Areas &rarr;</span></a>
+    <div class="area-tiles">
+      <a class="area-tile" href="baton-rouge.html"><img src="https://images.unsplash.com/photo-1536745511564-a5fa6e596e7b?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">01</span><span class="city">Baton Rouge</span></span></a>
+      <a class="area-tile" href="covington.html"><img src="https://images.unsplash.com/photo-1652878856832-887df545cb0c?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">02</span><span class="city">Covington</span></span></a>
+      <a class="area-tile" href="gretna.html"><img src="https://images.unsplash.com/photo-1534009502677-4e5080efa8c6?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">03</span><span class="city">Gretna</span></span></a>
+      <a class="area-tile" href="hammond.html"><img src="https://images.unsplash.com/photo-1634923295030-730da9900a2d?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">04</span><span class="city">Hammond</span></span></a>
+      <a class="area-tile" href="harahan.html"><img src="https://images.unsplash.com/photo-1557459325-b6733cbeae9c?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">05</span><span class="city">Harahan</span></span></a>
+      <a class="area-tile" href="kenner.html"><img src="https://images.unsplash.com/photo-1724660583299-2356fe880e54?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">06</span><span class="city">Kenner</span></span></a>
+      <a class="area-tile" href="laplace.html"><img src="https://images.unsplash.com/photo-1657399179505-12205ea153a9?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">07</span><span class="city">Laplace</span></span></a>
+      <a class="area-tile" href="madisonville.html"><img src="https://images.unsplash.com/photo-1557459310-ea39155bd081?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">08</span><span class="city">Madisonville</span></span></a>
+      <a class="area-tile" href="mandeville.html"><img src="https://images.unsplash.com/photo-1592345965963-cde4e1c83608?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">09</span><span class="city">Mandeville</span></span></a>
+      <a class="area-tile" href="metairie.html"><img src="https://images.unsplash.com/photo-1530115638250-8f7f42475f5e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">10</span><span class="city">Metairie</span></span></a>
+      <a class="area-tile" href="river-ridge.html"><img src="https://images.unsplash.com/photo-1746057717075-5d3303a91918?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">11</span><span class="city">River Ridge</span></span></a>
+      <a class="area-tile" href="slidell.html"><img src="https://images.unsplash.com/photo-1695996472807-bf0763dd23ea?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">12</span><span class="city">Slidell</span></span></a>
+      <a class="area-tile" href="st-rose.html"><img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">13</span><span class="city">St. Rose</span></span></a>
+      <a class="area-hub" href="service-areas.html"><span class="city">All Service Areas &rarr;</span></a>
     </div>
   </div>
 </section>
