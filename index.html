@@ -415,7 +415,11 @@ html:not(.js) .cap-more{height:auto}
 .cap-more-in{padding-top:12px}
 .cap-toggle{margin-top:auto;align-self:flex-start;background:none;border:1px solid rgba(77,151,210,.45);border-radius:4px;color:var(--accent);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:border-color .25s ease,color .25s ease}
 .cap-toggle:hover{border-color:var(--accent);color:var(--accent-bright)}
-@media (prefers-reduced-motion:reduce){.cap-more{transition:none}}
+.cap-cards .cap-card{opacity:0;transform:translateX(-70px);transition:opacity .7s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.capvid.is-in .cap-card{opacity:1;transform:none}
+.capvid.is-in .cap-card:nth-child(2){transition-delay:.16s}
+.capvid.is-in .cap-card:nth-child(3){transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){.cap-more{transition:none}.cap-cards .cap-card{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.cap-cards{grid-template-columns:1fr}}
 
 /* ---------- city ledger ---------- */
@@ -1291,6 +1295,19 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
       });
     }, { rootMargin: '0px 0px -12% 0px' });
+    io.observe(sec);
+  })();
+
+  /* Capability cards: slide in from the left when the section scrolls into view. */
+  (function(){
+    var sec = document.querySelector('.capvid');
+    if (!sec) return;
+    if (!('IntersectionObserver' in window)) { sec.classList.add('is-in'); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
+      });
+    }, { rootMargin: '0px 0px -18% 0px' });
     io.observe(sec);
   })();
 
