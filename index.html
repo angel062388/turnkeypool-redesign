@@ -105,6 +105,8 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 @keyframes splashDrift{from{transform:translate3d(-2.5%,-2%,0) scale(1)}to{transform:translate3d(2.5%,2%,0) scale(1.06)}}
 .splash-water::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 30% 40%,transparent 0 46px,rgba(77,151,210,.055) 46px 49px),repeating-radial-gradient(circle at 72% 62%,transparent 0 66px,rgba(77,151,210,.05) 66px 69px);animation:splashDrift2 11s ease-in-out infinite alternate}
 @keyframes splashDrift2{from{transform:translate3d(2%,1.6%,0)}to{transform:translate3d(-2%,-1.6%,0)}}
+.splash-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.9) contrast(1.05)}
+.splash-shade{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(1,19,33,.22),rgba(1,19,33,.74) 80%)}
 .splash-glow{position:absolute;inset:0;background:radial-gradient(52% 42% at 50% 46%,rgba(77,151,210,.13),transparent 70%);filter:blur(2px);animation:splashPulse 3.5s ease-in-out infinite alternate}
 @keyframes splashPulse{from{opacity:.65}to{opacity:1}}
 .splash-inner{position:relative;text-align:center;padding:0 24px}
@@ -309,9 +311,11 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 </head>
 <body>
 
-<!-- intro splash: close-up water shimmer + logo, fades into the site -->
+<!-- intro splash: close-up pool water + logo, fades into the site -->
 <div class="splash" id="splash" aria-hidden="true">
   <div class="splash-water"></div>
+  <video class="splash-vid" autoplay muted loop playsinline preload="auto" poster="https://assets.mixkit.co/videos/43064/43064-thumb-1080-0.jpg"><source src="https://assets.mixkit.co/videos/43064/43064-720.mp4" type="video/mp4"></video>
+  <div class="splash-shade"></div>
   <div class="splash-glow"></div>
   <div class="splash-inner">
     <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/logowhite.png" alt="">
@@ -759,11 +763,13 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     if (!s) return;
     document.body.classList.add('splash-lock');
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sv = s.querySelector('.splash-vid');
+    if (reduce && sv) { sv.removeAttribute('autoplay'); try { sv.pause(); } catch (e) {} }
     setTimeout(function(){
       s.classList.add('hide');
       document.body.classList.remove('splash-lock');
       setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 900);
-    }, reduce ? 400 : 2100);
+    }, reduce ? 400 : 2400);
   })();
 
   /* Arm the pills after first paint; index 1 gets the sentence-order delay. */
