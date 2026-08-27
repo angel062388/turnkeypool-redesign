@@ -140,12 +140,12 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 }
 
 
-/* ---------- wave section dividers ---------- */
-.has-wave{position:relative;padding-bottom:150px !important}
-.wave-sep{position:absolute;left:0;right:0;bottom:-1px;height:74px;pointer-events:none;overflow:hidden}
-.wave-sep svg{display:block;width:calc(100% + 80px);height:100%;margin-left:-40px;animation:waveDrift 9s ease-in-out infinite alternate}
-.wave-sep svg.back{position:absolute;inset:0;opacity:.35;animation-duration:12s;animation-direction:alternate-reverse}
-@keyframes waveDrift{from{transform:translateX(-24px)}to{transform:translateX(24px)}}
+/* ---------- rolling wave section dividers ---------- */
+.has-wave{position:relative;padding-bottom:170px !important}
+.wave-sep{position:absolute;left:0;right:0;bottom:-1px;height:90px;pointer-events:none;overflow:hidden}
+.wave-sep svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:waveFlow 13s linear infinite}
+.wave-sep svg.back{opacity:.35;animation-duration:21s;animation-direction:reverse;transform:translateY(4px)}
+@keyframes waveFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.wave-sep svg{animation:none}}
 
 /* ---------- floating quote capsule ---------- */
@@ -346,23 +346,23 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
   .abt-lede2,.abt.is-in .abt-lede2,.abt-card,.abt.is-in .abt-card{opacity:1;transform:none;filter:none;transition:none}
 }
 
-/* ---------- testimonial marquee ---------- */
-.tstm{position:relative;overflow:hidden;margin-top:44px}
-.tstm::before,.tstm::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
-.tstm::before{left:0;background:linear-gradient(90deg,var(--ink),rgba(2,31,53,0))}
-.tstm::after{right:0;background:linear-gradient(270deg,var(--ink),rgba(2,31,53,0))}
-.tst-track{display:flex;gap:18px;width:max-content;padding:4px 0;animation:galSlide 62s linear infinite}
-.tst-track.row2{animation-direction:reverse;animation-duration:74s;margin-top:18px}
-.tstm:hover .tst-track{animation-play-state:paused}
-.tst-card{width:440px;flex:none;background:rgba(0,48,74,.55);backdrop-filter:blur(6px);border:1px solid rgba(77,151,210,.3);border-radius:14px;padding:26px;margin:0}
-.tst-card blockquote{font-style:italic;font-size:.98rem;line-height:1.65;color:rgba(248,247,242,.88)}
-.tst-card figcaption{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:14px}
-@media (max-width:640px){.tst-card{width:320px}}
-@media (prefers-reduced-motion:reduce){
-  .tst-track{animation:none;width:auto;flex-wrap:wrap}
-  .tst-card{width:100%}
-  .tst-track figure.dup{display:none}
-}
+/* ---------- testimonials: backyard photo + sliding review carousel ---------- */
+.tsec{position:relative;overflow:hidden}
+.tsec-bg{position:absolute;inset:0;z-index:0}
+.tsec-bg img{width:100%;height:100%;object-fit:cover}
+.tsec-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,19,33,.78),rgba(1,19,33,.42) 45%,rgba(1,19,33,.66))}
+.tsec .wrap{position:relative;z-index:2}
+.tsl{display:flex;align-items:stretch;gap:14px;margin-top:44px}
+.tsl-view{overflow:hidden;flex:1}
+.tsl-track{display:flex;gap:18px;align-items:stretch;transition:transform .75s cubic-bezier(.16,1,.3,1)}
+.tsl-card{flex:0 0 calc((100% - 36px)/3);background:var(--accent-tint);border:1px solid rgba(77,151,210,.5);border-radius:14px;padding:28px 26px;margin:0;display:flex;flex-direction:column;box-shadow:0 18px 40px rgba(1,19,33,.35)}
+.tsl-card blockquote{font-style:italic;font-size:.94rem;line-height:1.65;color:var(--ink)}
+.tsl-card figcaption{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-top:auto;padding-top:16px}
+.tsl-arrow{align-self:center;flex:none;width:46px;height:46px;border-radius:50%;border:1px solid rgba(248,247,242,.55);background:rgba(1,19,33,.4);color:var(--paper);font-size:1.05rem;line-height:1;cursor:pointer;transition:background .3s ease,border-color .3s ease,transform .3s ease}
+.tsl-arrow:hover{background:var(--accent-bright);border-color:var(--accent-bright);transform:scale(1.08)}
+@media (max-width:980px){.tsl-card{flex-basis:calc((100% - 18px)/2)}}
+@media (max-width:640px){.tsl-card{flex-basis:100%}.tsl-arrow{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.tsl-track{transition:none}}
 
 /* ---------- stat cards ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
@@ -470,10 +470,10 @@ html:not(.js) .cap-more{height:auto}
 .gal-track{display:flex;gap:16px;width:max-content;animation:galSlide 46s linear infinite}
 .gal-track.row2{animation-direction:reverse;animation-duration:56s;margin-top:16px}
 .gal-marquee:hover .gal-track{animation-play-state:paused}
-.gal-track img{width:280px;aspect-ratio:466/380;object-fit:cover;border-radius:14px;filter:saturate(.85);transition:filter .5s ease}
+.gal-track img{width:380px;aspect-ratio:466/380;object-fit:cover;border-radius:14px;filter:saturate(.85);transition:filter .5s ease}
 .gal-track img:hover{filter:saturate(1)}
 @keyframes galSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (max-width:640px){.gal-track img{width:190px}}
+@media (max-width:640px){.gal-track img{width:250px}}
 @media (prefers-reduced-motion:reduce){
   .gal-track{animation:none;flex-wrap:wrap;width:auto}
   .gal-track img.dup{display:none}
@@ -666,6 +666,53 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </div>
 
+<!-- 02 GALLERY SHOWCASE -->
+<section class="section light" style="padding-top:56px;padding-bottom:64px">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow">Gallery</div>
+      <h2>Wondering What <em>Your Pool</em> Could Become?</h2>
+      <p class="svc-sub">Picture a custom pool in your own backyard. Share a few details and our designers will bring it to life in 3D before we ever break ground.</p>
+    </div>
+    <div class="gal-marquee" aria-label="TurnKey Pool Designers project photos">
+      <div class="gal-track">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-1-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-2-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-3-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-4-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-5-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-6-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-7-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-1-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-2-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-3-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-4-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-5-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-6-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-7-466x520.jpg" alt="">
+      </div>
+      <div class="gal-track row2">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-8-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-9-e1762314177185.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-10-e1745853579746-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-11-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-12-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-13-e1757562162417-466x520.jpg" alt="TurnKey Pool Designers project pool">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-8-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-9-e1762314177185.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-10-e1745853579746-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-11-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-12-466x520.jpg" alt="">
+        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-13-e1757562162417-466x520.jpg" alt="">
+      </div>
+    </div>
+    <div class="g-links">
+      <a class="btn btn-ghost on-light" href="gallery.html">View More Gallery &rarr;</a>
+      <a class="btn btn-ghost on-light" href="https://www.instagram.com/turnkeypooldesigners/">Follow Us on Instagram</a>
+    </div>
+  </div>
+</section>
+
 <!-- 02 SERVICES -->
 <section class="section light tint has-wave" style="padding-top:48px">
   <div class="wrap">
@@ -722,8 +769,8 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     </div>
   </div>
   <div class="wave-sep" aria-hidden="true">
-    <svg class="back" viewBox="0 0 1440 74" preserveAspectRatio="none"><path fill="#021F35" d="M0,42 C240,10 480,64 720,36 C960,10 1200,58 1440,26 L1440,74 L0,74 Z"/></svg>
-    <svg viewBox="0 0 1440 74" preserveAspectRatio="none"><path fill="#021F35" d="M0,30 C240,70 480,6 720,28 C960,50 1200,10 1440,44 L1440,74 L0,74 Z"/></svg>
+    <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
+    <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
   </div>
 </section>
 
@@ -830,7 +877,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 </section>
 
 <!-- 05 WHERE WE WORK -->
-<section class="section light wwlvid">
+<section class="section light wwlvid has-wave">
   <div class="wwl-bg">
     <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true">
       <source src="https://assets.mixkit.co/videos/13195/13195-720.mp4" type="video/mp4">
@@ -882,55 +929,9 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <a class="btn btn-ghost on-light" href="tel:+15043863724">or call (504) 386-3724</a>
     </div>
   </div>
-</section>
-
-<!-- 06 GALLERY -->
-<section class="section light has-wave" style="padding-top:24px">
-  <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow">Gallery</div>
-      <h2>Our <em>Gallery</em></h2>
-    </div>
-    <div class="gal-marquee" aria-label="TurnKey Pool Designers project photos">
-      <div class="gal-track">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-1-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-2-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-3-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-4-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-5-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-6-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-7-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-1-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-2-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-3-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-4-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-5-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-6-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-7-466x520.jpg" alt="">
-      </div>
-      <div class="gal-track row2">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-8-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-9-e1762314177185.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-10-e1745853579746-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-11-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-12-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-13-e1757562162417-466x520.jpg" alt="TurnKey Pool Designers project pool">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-8-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-9-e1762314177185.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-10-e1745853579746-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-11-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-12-466x520.jpg" alt="">
-        <img class="dup" src="https://www.turnkeypooldesigners.com/wp-content/uploads/2024/04/WebImages-13-e1757562162417-466x520.jpg" alt="">
-      </div>
-    </div>
-    <div class="g-links">
-      <a class="btn btn-ghost on-light" href="gallery.html">View More Gallery &rarr;</a>
-      <a class="btn btn-ghost on-light" href="https://www.instagram.com/turnkeypooldesigners/">Follow Us on Instagram</a>
-    </div>
-  </div>
   <div class="wave-sep" aria-hidden="true">
-    <svg class="back" viewBox="0 0 1440 74" preserveAspectRatio="none"><path fill="#021F35" d="M0,42 C240,10 480,64 720,36 C960,10 1200,58 1440,26 L1440,74 L0,74 Z"/></svg>
-    <svg viewBox="0 0 1440 74" preserveAspectRatio="none"><path fill="#021F35" d="M0,30 C240,70 480,6 720,28 C960,50 1200,10 1440,44 L1440,74 L0,74 Z"/></svg>
+    <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
+    <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
   </div>
 </section>
 
@@ -958,100 +959,72 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- LEAD FORM BAND -->
-<section class="section light lead-band">
-  <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow">Get a FREE Estimate!</div>
-      <h2>Get FREE Estimate For Your <em>Pool Build</em> Service</h2>
-    </div>
-    <form class="lead-form" action="contact.html" method="get">
-      <input type="text" name="name" placeholder="Your Name" aria-label="Your Name">
-      <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number">
-      <input type="email" name="email" placeholder="Email Address" aria-label="Email Address">
-      <button class="btn btn-primary" type="submit">Get My Free Estimate <span>&rarr;</span></button>
-    </form>
-    <p class="lead-note">Free Quotes &middot; No Obligation &middot; (504) 386-3724</p>
-  </div>
-</section>
-
 <!-- 08 TESTIMONIALS -->
-<section class="section dark" style="padding-top:24px">
+<section class="section dark tsec">
+  <div class="tsec-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1592345965963-cde4e1c83608?q=80&amp;w=1920&amp;auto=format&amp;fit=crop" alt="">
+  </div>
   <div class="wrap">
     <div class="section-head center">
       <div class="eyebrow">Testimonials</div>
       <h2>What Our <em>Clients</em> Say</h2>
     </div>
+    <div class="tsl" aria-label="Client testimonials">
+      <button class="tsl-arrow prev" type="button" aria-label="Previous reviews">&larr;</button>
+      <div class="tsl-view">
+        <div class="tsl-track">
+          <figure class="tsl-card">
+            <blockquote>&ldquo;Our pool was in desperate need of a makeover, and TurnKey Pool Designers exceeded our expectations with their pool renovation service. Our backyard oasis now looks brand new and inviting. Thank you for the incredible transformation!&rdquo;</blockquote>
+            <figcaption>Sophia Johnson</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;This company&#39;s pool design was nothing short of spectacular. They listened to our ideas and turned them into breathtaking realities. Our custom pool design is the envy of the neighborhood!&rdquo;</blockquote>
+            <figcaption>Benjamin Miller</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;We recently had our pool remodeled by them, and the results are stunning. The team was professional and efficient throughout the entire process. We couldn&#39;t be happier with the outcome!&rdquo;</blockquote>
+            <figcaption>Evelyn Wilson</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;They transformed our outdated pool into a modern masterpiece. The pool renovation they performed was nothing short of incredible. They paid attention to every detail, and the result speaks for itself. Our backyard oasis has gone from drab to fab, and we couldn&#39;t be happier with the transformation.&rdquo;</blockquote>
+            <figcaption>Lucas Jackson</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;If you&#39;re looking for top-notch pool design, look no further than TurnKey Pool Designers. Their attention to detail and creativity in custom pool design are second to none. We are beyond impressed with our new pool.&rdquo;</blockquote>
+            <figcaption>Olivia Moore</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;Our experience with them during our pool remodel was exceptional. The entire process was efficient, and the outcome was a pool that felt like a brand-new addition to our home. It&#39;s like having a resort in our own backyard, and we couldn&#39;t be happier with the results.&rdquo;</blockquote>
+            <figcaption>William Thompson</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;I had been putting off renovating my pool for years, worried about the cost and hassle. But when I contacted them, they put my fears to rest. Their pool renovation service was a breeze from start to finish. My pool now looks better than it did when it was first built. I highly recommend their services to anyone looking to breathe new life into their pool!&rdquo;</blockquote>
+            <figcaption>Bella Harris</figcaption>
+          </figure>
+          <figure class="tsl-card">
+            <blockquote>&ldquo;They made our dream of a custom pool a reality. Their attention to detail and commitment to delivering a high-quality product are unmatched. We are so grateful for our beautiful new pool!&rdquo;</blockquote>
+            <figcaption>Nathan Green</figcaption>
+          </figure>
+        </div>
+      </div>
+      <button class="tsl-arrow next" type="button" aria-label="Next reviews">&rarr;</button>
+    </div>
   </div>
-  <div class="tstm" aria-label="Client testimonials">
-    <div class="tst-track">
-      <figure class="tst-card">
-        <blockquote>&ldquo;Our pool was in desperate need of a makeover, and TurnKey Pool Designers exceeded our expectations with their pool renovation service. Our backyard oasis now looks brand new and inviting. Thank you for the incredible transformation!&rdquo;</blockquote>
-        <figcaption>Sophia Johnson</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;This company&#39;s pool design was nothing short of spectacular. They listened to our ideas and turned them into breathtaking realities. Our custom pool design is the envy of the neighborhood!&rdquo;</blockquote>
-        <figcaption>Benjamin Miller</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;We recently had our pool remodeled by them, and the results are stunning. The team was professional and efficient throughout the entire process. We couldn&#39;t be happier with the outcome!&rdquo;</blockquote>
-        <figcaption>Evelyn Wilson</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;They transformed our outdated pool into a modern masterpiece. The pool renovation they performed was nothing short of incredible. They paid attention to every detail, and the result speaks for itself. Our backyard oasis has gone from drab to fab, and we couldn&#39;t be happier with the transformation.&rdquo;</blockquote>
-        <figcaption>Lucas Jackson</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;Our pool was in desperate need of a makeover, and TurnKey Pool Designers exceeded our expectations with their pool renovation service. Our backyard oasis now looks brand new and inviting. Thank you for the incredible transformation!&rdquo;</blockquote>
-        <figcaption>Sophia Johnson</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;This company&#39;s pool design was nothing short of spectacular. They listened to our ideas and turned them into breathtaking realities. Our custom pool design is the envy of the neighborhood!&rdquo;</blockquote>
-        <figcaption>Benjamin Miller</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;We recently had our pool remodeled by them, and the results are stunning. The team was professional and efficient throughout the entire process. We couldn&#39;t be happier with the outcome!&rdquo;</blockquote>
-        <figcaption>Evelyn Wilson</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;They transformed our outdated pool into a modern masterpiece. The pool renovation they performed was nothing short of incredible. They paid attention to every detail, and the result speaks for itself. Our backyard oasis has gone from drab to fab, and we couldn&#39;t be happier with the transformation.&rdquo;</blockquote>
-        <figcaption>Lucas Jackson</figcaption>
-      </figure>
+</section>
+
+<!-- NEWSLETTER BAND -->
+<section class="section light lead-band">
+  <div class="wrap">
+    <div class="section-head center">
+      <h2>Get The Latest Update, Subscribe To <em>Our Newsletter</em> Now!</h2>
     </div>
-    <div class="tst-track row2">
-      <figure class="tst-card">
-        <blockquote>&ldquo;If you&#39;re looking for top-notch pool design, look no further than TurnKey Pool Designers. Their attention to detail and creativity in custom pool design are second to none. We are beyond impressed with our new pool.&rdquo;</blockquote>
-        <figcaption>Olivia Moore</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;Our experience with them during our pool remodel was exceptional. The entire process was efficient, and the outcome was a pool that felt like a brand-new addition to our home. It&#39;s like having a resort in our own backyard, and we couldn&#39;t be happier with the results.&rdquo;</blockquote>
-        <figcaption>William Thompson</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;I had been putting off renovating my pool for years, worried about the cost and hassle. But when I contacted them, they put my fears to rest. Their pool renovation service was a breeze from start to finish. My pool now looks better than it did when it was first built. I highly recommend their services to anyone looking to breathe new life into their pool!&rdquo;</blockquote>
-        <figcaption>Bella Harris</figcaption>
-      </figure>
-      <figure class="tst-card">
-        <blockquote>&ldquo;They made our dream of a custom pool a reality. Their attention to detail and commitment to delivering a high-quality product are unmatched. We are so grateful for our beautiful new pool!&rdquo;</blockquote>
-        <figcaption>Nathan Green</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;If you&#39;re looking for top-notch pool design, look no further than TurnKey Pool Designers. Their attention to detail and creativity in custom pool design are second to none. We are beyond impressed with our new pool.&rdquo;</blockquote>
-        <figcaption>Olivia Moore</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;Our experience with them during our pool remodel was exceptional. The entire process was efficient, and the outcome was a pool that felt like a brand-new addition to our home. It&#39;s like having a resort in our own backyard, and we couldn&#39;t be happier with the results.&rdquo;</blockquote>
-        <figcaption>William Thompson</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;I had been putting off renovating my pool for years, worried about the cost and hassle. But when I contacted them, they put my fears to rest. Their pool renovation service was a breeze from start to finish. My pool now looks better than it did when it was first built. I highly recommend their services to anyone looking to breathe new life into their pool!&rdquo;</blockquote>
-        <figcaption>Bella Harris</figcaption>
-      </figure>
-      <figure class="tst-card dup" aria-hidden="true">
-        <blockquote>&ldquo;They made our dream of a custom pool a reality. Their attention to detail and commitment to delivering a high-quality product are unmatched. We are so grateful for our beautiful new pool!&rdquo;</blockquote>
-        <figcaption>Nathan Green</figcaption>
-      </figure>
-    </div>
+    <form class="lead-form" action="contact.html" method="get">
+      <input type="text" name="name" placeholder="Your Name" aria-label="Your Name">
+      <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number">
+      <input type="email" name="email" placeholder="Email Address" aria-label="Email Address">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    <p class="lead-note">Free Quotes &middot; (504) 386-3724</p>
   </div>
 </section>
 
@@ -1270,6 +1243,40 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         }
       });
     });
+  })();
+
+  /* Testimonials carousel: arrows and auto-advance slide one card at a time. */
+  (function(){
+    var tsl = document.querySelector('.tsl');
+    if (!tsl) return;
+    var view = tsl.querySelector('.tsl-view');
+    var track = tsl.querySelector('.tsl-track');
+    var cards = track.children;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var idx = 0, timer = null;
+    function maxIdx(){
+      var over = track.scrollWidth - view.clientWidth;
+      if (over <= 0) return 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].offsetLeft >= over - 1) return i;
+      }
+      return cards.length - 1;
+    }
+    function go(n){
+      var m = maxIdx();
+      idx = n > m ? 0 : (n < 0 ? m : n);
+      track.style.transform = 'translateX(-' + cards[idx].offsetLeft + 'px)';
+    }
+    function restart(){
+      if (timer) clearInterval(timer);
+      if (!reduce) timer = setInterval(function(){ go(idx + 1); }, 5500);
+    }
+    tsl.querySelector('.tsl-arrow.next').addEventListener('click', function(){ go(idx + 1); restart(); });
+    tsl.querySelector('.tsl-arrow.prev').addEventListener('click', function(){ go(idx - 1); restart(); });
+    tsl.addEventListener('mouseenter', function(){ if (timer) clearInterval(timer); });
+    tsl.addEventListener('mouseleave', restart);
+    window.addEventListener('resize', function(){ go(idx); });
+    restart();
   })();
 
   /* Ambient section videos play only while on screen. */
