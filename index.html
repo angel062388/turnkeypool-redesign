@@ -207,23 +207,32 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 
 /* ---------- process grid ---------- */
 .step-tag{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
-.proc-card{background:var(--ink-2);border:1px solid var(--border-dark);border-top:3px solid var(--accent);border-radius:14px;padding:26px 22px}
-.proc-num{font-family:var(--font-sans);font-weight:900;font-size:2.4rem;line-height:1;-webkit-text-stroke:1px rgba(77,151,210,.55);color:transparent;margin-bottom:14px}
-.proc-card h3{font-family:var(--font-serif);font-weight:700;font-size:1.18rem;color:var(--paper);margin-bottom:10px}
-.proc-card p{font-size:.92rem}
-@media (max-width:1100px){
-  .proc-grid{grid-template-columns:1fr 1fr}
-  .proc-grid .proc-card:last-child{grid-column:1/-1}
+
+/* ---------- process player ---------- */
+.proc-play{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center;margin-top:52px}
+.pp-left{text-align:left}
+.pp-num{display:block;font-family:var(--font-sans);font-weight:900;font-size:clamp(7rem,15vw,12rem);line-height:.85;-webkit-text-stroke:2px rgba(77,151,210,.75);color:transparent;text-shadow:0 0 60px rgba(77,151,210,.25)}
+.pp-num.pop{animation:ppPop .7s cubic-bezier(.22,1,.36,1) both}
+@keyframes ppPop{0%{opacity:0;transform:translateY(26px) scale(.92);filter:blur(6px)}100%{opacity:1;transform:none;filter:blur(0)}}
+.pp-bar{width:min(300px,80%);height:3px;background:rgba(77,151,210,.2);border-radius:3px;overflow:hidden;margin:30px 0 24px}
+.pp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-bright));border-radius:3px}
+.pp-dots{display:flex;gap:10px}
+.pp-dots button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(77,151,210,.45);background:none;color:rgba(248,247,242,.6);font-family:var(--font-mono);font-weight:600;font-size:.6rem;cursor:pointer;transition:background .3s ease,color .3s ease,border-color .3s ease,transform .3s ease}
+.pp-dots button:hover{border-color:var(--accent);color:var(--accent)}
+.pp-dots button.on{background:var(--accent);border-color:var(--accent);color:var(--ink-deep);transform:scale(1.12)}
+.pp-right{position:relative}
+.pp-pane{position:absolute;inset:0;opacity:0;transform:translateX(46px);transition:opacity .55s ease,transform .65s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.pp-pane.on{position:relative;opacity:1;transform:none;pointer-events:auto;transition-delay:.12s}
+.pp-pane.out{transform:translateX(-36px)}
+.pp-pane h3{font-family:var(--font-serif);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);color:var(--paper);margin-bottom:14px}
+.pp-pane p{font-size:1.02rem;max-width:560px}
+.pp-hint{font-family:var(--font-mono);font-weight:600;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,247,242,.4);margin-top:26px}
+@media (max-width:900px){.proc-play{grid-template-columns:1fr;gap:34px}.pp-num{font-size:6rem}}
+@media (prefers-reduced-motion:reduce){
+  .pp-num.pop{animation:none;opacity:1}
+  .pp-pane{transition:none}
+  .pp-bar{display:none}
 }
-@media (max-width:640px){.proc-grid{grid-template-columns:1fr}.proc-grid .proc-card:last-child{grid-column:auto}}
-.proc-grid .proc-card{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1)}
-.proc-grid.is-in .proc-card{opacity:1;transform:none}
-.proc-grid.is-in .proc-card:nth-child(2){transition-delay:.15s}
-.proc-grid.is-in .proc-card:nth-child(3){transition-delay:.3s}
-.proc-grid.is-in .proc-card:nth-child(4){transition-delay:.45s}
-.proc-grid.is-in .proc-card:nth-child(5){transition-delay:.6s}
-@media (prefers-reduced-motion:reduce){.proc-grid .proc-card,.proc-grid.is-in .proc-card{opacity:1;transform:none;transition:none}}
 
 /* ---------- service rows ---------- */
 .svc-rows{list-style:none;margin-top:48px;border-top:1px solid var(--border-light)}
@@ -756,36 +765,45 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <div class="eyebrow">06 &middot; Process</div>
       <h2>Our <em>5-Step</em> Pool Design Process</h2>
     </div>
-    <div class="proc-grid">
-      <div class="proc-card">
-        <div class="proc-num">01</div>
-        <div class="step-tag">Step &middot; 01</div>
-        <h3>Schedule A Consultation</h3>
-        <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences.</p>
+    <div class="proc-play" id="procPlay">
+      <div class="pp-left">
+        <span class="pp-num" id="ppNum">01</span>
+        <div class="pp-bar"><i id="ppBar"></i></div>
+        <div class="pp-dots" id="ppDots">
+          <button type="button" class="on" aria-label="Step 1">01</button>
+          <button type="button" aria-label="Step 2">02</button>
+          <button type="button" aria-label="Step 3">03</button>
+          <button type="button" aria-label="Step 4">04</button>
+          <button type="button" aria-label="Step 5">05</button>
+        </div>
+        <div class="pp-hint">Auto-playing &middot; Hover to pause</div>
       </div>
-      <div class="proc-card">
-        <div class="proc-num">02</div>
-        <div class="step-tag">Step &middot; 02</div>
-        <h3>Design Your Pool</h3>
-        <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">03</div>
-        <div class="step-tag">Step &middot; 03</div>
-        <h3>Visualize and Revise</h3>
-        <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">04</div>
-        <div class="step-tag">Step &middot; 04</div>
-        <h3>Construction</h3>
-        <p>Once you have approved the design of your pool, our team of skilled workers will begin construction.</p>
-      </div>
-      <div class="proc-card">
-        <div class="proc-num">05</div>
-        <div class="step-tag">Step &middot; 05</div>
-        <h3>Open Communication</h3>
-        <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded.</p>
+      <div class="pp-right" id="ppPanes">
+        <div class="pp-pane on">
+          <div class="step-tag">Step &middot; 01</div>
+          <h3>Schedule A Consultation</h3>
+          <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 02</div>
+          <h3>Design Your Pool</h3>
+          <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 03</div>
+          <h3>Visualize and Revise</h3>
+          <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 04</div>
+          <h3>Construction</h3>
+          <p>Once you have approved the design of your pool, our team of skilled workers will begin construction.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 05</div>
+          <h3>Open Communication</h3>
+          <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1092,17 +1110,86 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   })();
 
 
-  /* Process grid cards rise in when scrolled into view. */
+  /* Process player: auto-advances the 5 steps; dots jump; hover pauses. */
   (function(){
-    var grid = document.querySelector('.proc-grid');
-    if (!grid) return;
-    if (!('IntersectionObserver' in window)) { grid.classList.add('is-in'); return; }
+    var root = document.getElementById('procPlay');
+    if (!root) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var num = document.getElementById('ppNum');
+    var bar = document.getElementById('ppBar');
+    var dots = Array.prototype.slice.call(document.getElementById('ppDots').children);
+    var panes = Array.prototype.slice.call(document.getElementById('ppPanes').children);
+    var STEP_MS = 4600;
+    var cur = 0, timer = null, paused = false, started = false;
+
+    // lock the pane area to the tallest pane so the layout never jumps
+    function sizePanes(){
+      var h = 0;
+      panes.forEach(function(p){
+        var was = p.className;
+        p.className = 'pp-pane on';
+        h = Math.max(h, p.offsetHeight);
+        p.className = was;
+      });
+      if (h) document.getElementById('ppPanes').style.minHeight = h + 'px';
+    }
+
+    function restartBar(){
+      if (reduce || !bar) return;
+      bar.style.transition = 'none';
+      bar.style.width = '0';
+      void bar.offsetWidth;
+      bar.style.transition = 'width ' + STEP_MS + 'ms linear';
+      bar.style.width = '100%';
+    }
+
+    function goTo(i){
+      cur = (i + panes.length) % panes.length;
+      panes.forEach(function(p, k){
+        p.classList.remove('out');
+        if (k === cur) { p.classList.add('on'); }
+        else { if (p.classList.contains('on')) p.classList.add('out'); p.classList.remove('on'); }
+      });
+      dots.forEach(function(d, k){ d.className = (k === cur) ? 'on' : ''; });
+      num.textContent = '0' + (cur + 1);
+      num.classList.remove('pop');
+      void num.offsetWidth;
+      num.classList.add('pop');
+      restartBar();
+    }
+
+    function tick(){
+      if (!paused) goTo(cur + 1);
+      timer = setTimeout(tick, STEP_MS);
+    }
+
+    function start(initial){
+      if (started) return;
+      started = true;
+      sizePanes();
+      goTo(typeof initial === 'number' ? initial : 0);
+      if (!reduce) timer = setTimeout(tick, STEP_MS);
+    }
+
+    dots.forEach(function(d, k){
+      d.addEventListener('click', function(){
+        if (!started) { start(k); return; }
+        goTo(k);
+        if (timer) { clearTimeout(timer); }
+        if (!reduce) timer = setTimeout(tick, STEP_MS);
+      });
+    });
+    root.addEventListener('mouseenter', function(){ paused = true; });
+    root.addEventListener('mouseleave', function(){ paused = false; });
+    window.addEventListener('resize', function(){ if (started) sizePanes(); });
+
+    if (!('IntersectionObserver' in window)) { start(); return; }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) { grid.classList.add('is-in'); io.disconnect(); }
+        if (e.isIntersecting) { start(); io.disconnect(); }
       });
     }, { rootMargin: '0px 0px -20% 0px' });
-    io.observe(grid);
+    io.observe(root);
   })();
 
   /* Service rows glide in from alternating sides. */
