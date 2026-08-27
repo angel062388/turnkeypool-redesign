@@ -99,6 +99,24 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 .media-frame.bright video{filter:saturate(1.04) brightness(.97) contrast(1.03)}
 .media-frame.bright::after{background:linear-gradient(180deg,rgba(1,19,33,.1),transparent 45%,rgba(1,19,33,.22))}
 
+/* ---------- water hero (light) ---------- */
+.hero-water{background:var(--paper)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg video{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(248,247,242,.93) 0%,rgba(248,247,242,.7) 45%,rgba(248,247,242,.9) 100%)}
+.hero.hero-water h1{color:var(--ink)}
+.hero-water h1 em.animate{animation:none;color:#021F35}
+.hero-water .hero-checks li{color:var(--body-dark)}
+.hero-water .hero-checks li::before{color:var(--accent-deep)}
+.hero-water .btn-ghost{border-color:var(--border-light);color:var(--accent-deep)}
+.hero-water .btn-ghost:hover{border-color:var(--accent-deep);color:var(--accent-deep)}
+.hero-water .hero-rated{color:var(--muted)}
+.hero-water .hero-rated b{color:var(--accent-deep)}
+.hero-water .hs{background:rgba(255,255,255,.74);border:1px solid rgba(77,151,210,.5);border-top:2px solid var(--accent);box-shadow:0 8px 22px rgba(21,71,126,.16)}
+.hero-water .hs b{color:var(--ink)}
+.hero-water .hs span{color:var(--accent-deep)}
+.hero-water .media-frame{border-color:var(--border-light);box-shadow:0 26px 60px rgba(21,71,126,.28),0 8px 24px rgba(21,71,126,.14)}
+
 /* ---------- intro splash ---------- */
 .splash{position:fixed;inset:0;z-index:200;background:var(--ink-deep);display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:1;transition:opacity .8s ease}
 .splash.hide{opacity:0;pointer-events:none}
@@ -465,8 +483,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <main>
 
 <!-- 01 HERO -->
-<section class="hero dark">
-  <div class="hero-grid"></div>
+<section class="hero hero-water">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="auto" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true">
+      <source src="https://assets.mixkit.co/videos/13195/13195-720.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-split">
     <div class="hero-copy">
       <div class="eyebrow">01 &middot; New Orleans &middot; Pool Design Contractor</div>
@@ -895,6 +917,8 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     setTimeout(function(){
       s.classList.add('hide');
       document.body.classList.remove('splash-lock');
+      var hv = document.querySelector('.hero-bg video');
+      if (hv && !reduce) { try { hv.play(); } catch (e) {} }
       if (window.__armPills) setTimeout(window.__armPills, 250);
       setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 900);
     }, reduce ? 400 : 3000);
@@ -996,7 +1020,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   /* Ambient section videos play only while on screen. */
   (function(){
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var vids = document.querySelectorAll('.cap-bg video, .wwl-bg video');
+    var vids = document.querySelectorAll('.cap-bg video, .wwl-bg video, .hero-bg video');
     if (!vids.length) return;
     if (!('IntersectionObserver' in window)) {
       vids.forEach(function(v){ v.play()['catch'](function(){}); });
