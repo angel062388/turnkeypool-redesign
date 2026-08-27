@@ -224,15 +224,20 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .stats.is-in .stat:nth-child(4){transition-delay:.5s}
 @media (prefers-reduced-motion:reduce){.stats .stat,.stats.is-in .stat{opacity:1;transform:none;transition:none}}
 
-/* ---------- capability rows (dark, giant numerals) ---------- */
-.cap-rows{list-style:none;margin-top:24px}
-.cap-rows li{display:grid;grid-template-columns:150px 1fr;gap:36px;padding:46px 0;border-bottom:1px solid var(--border-dark)}
-.cap-rows li:last-child{border-bottom:none}
-.cap-num{font-family:var(--font-sans);font-weight:900;font-size:clamp(3.4rem,7vw,5.6rem);line-height:.9;-webkit-text-stroke:1px rgba(77,151,210,.55);color:transparent}
-.cap-rows h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--paper);margin-bottom:16px}
-.cap-rows p{margin-bottom:14px;max-width:760px}
-.cap-rows p:last-child{margin-bottom:0}
-@media (max-width:700px){.cap-rows li{grid-template-columns:1fr;gap:10px}}
+/* ---------- capability cards over pool video ---------- */
+.capvid{position:relative;overflow:hidden}
+.capvid .wrap{position:relative;z-index:2}
+.cap-bg{position:absolute;inset:0}
+.cap-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.35) brightness(.4) contrast(1.05)}
+.cap-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,31,53,.92) 0%,rgba(2,31,53,.5) 45%,rgba(2,31,53,.92) 100%)}
+.cap-num{font-family:var(--font-sans);font-weight:900;font-size:3rem;line-height:.9;-webkit-text-stroke:1px rgba(77,151,210,.6);color:transparent}
+.cap-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.cap-card{background:rgba(1,19,33,.6);backdrop-filter:blur(8px);border:1px solid rgba(77,151,210,.28);border-top:3px solid var(--accent);border-radius:14px;padding:30px 26px}
+.cap-card .cap-num{margin-bottom:16px}
+.cap-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.35rem;color:var(--paper);margin-bottom:14px}
+.cap-card p{font-size:.95rem;margin-bottom:12px;color:rgba(248,247,242,.86)}
+.cap-card p:last-child{margin-bottom:0}
+@media (max-width:980px){.cap-cards{grid-template-columns:1fr}}
 
 /* ---------- city ledger ---------- */
 .area-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
@@ -246,8 +251,9 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .area-hub{grid-column:span 2;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);border:1px solid var(--border-light);border-radius:14px;padding:20px 18px;text-decoration:none;transition:background .25s ease}
 .area-hub:hover{background:#DFEDF9}
 .area-hub .city{font-family:var(--font-serif);font-weight:700;font-size:1.05rem;color:var(--accent-deep)}
-@media (max-width:900px){.area-tiles{grid-template-columns:repeat(2,1fr)}.area-hub{grid-column:1/-1}}
-@media (max-width:535px){.area-tiles{grid-template-columns:1fr}.area-tile{aspect-ratio:16/9}}
+.area-tiles .area-tile:last-child{grid-column:2}
+@media (max-width:900px){.area-tiles{grid-template-columns:repeat(2,1fr)}.area-hub{grid-column:1/-1}.area-tiles .area-tile:last-child{grid-column:1/-1;width:calc(50% - 8px);justify-self:center}}
+@media (max-width:535px){.area-tiles{grid-template-columns:1fr}.area-tile{aspect-ratio:16/9}.area-tiles .area-tile:last-child{grid-column:auto;width:auto;justify-self:stretch}}
 
 /* ---------- testimonial wall ---------- */
 .t-wall{columns:2;column-gap:20px;margin-top:44px}
@@ -576,41 +582,40 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 06 CAPABILITIES (follows a dark section; reduced top padding per rhythm rule) -->
-<section class="section dark" style="padding-top:24px">
+<!-- 06 CAPABILITIES (cards over pool video) -->
+<section class="section dark capvid">
+  <div class="cap-bg">
+    <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/47286/47286-thumb-720-0.jpg" aria-hidden="true">
+      <source src="https://assets.mixkit.co/videos/47286/47286-720.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">06 &middot; Capabilities</div>
       <h2>Design, build, <em>renew</em></h2>
     </div>
-    <ul class="cap-rows">
-      <li>
+    <div class="cap-cards">
+      <div class="cap-card">
         <div class="cap-num">01</div>
-        <div>
-          <h3>Customized Designs</h3>
-          <p>We start by hearing about your vision and using state-of-the-art technologies to make it a reality. What are you envisioning? A sleek, contemporary piece of art with a touchless cover and simple lines? Alternatively, how about a full, tropical retreat featuring swim-up bar, grottos, and waterfalls?</p>
-          <p>Whatever your vision is, we can customize every aspect of your pool design, including shape, size, features, and finishes, ensuring that your dream pool is truly one-of-a-kind.</p>
-          <p>Every pool we create is as unique as the house it is attached to. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
-          <p>By allowing for revisions, this process guarantees that our designs align with your vision and produce a final product that precisely matches your vision.</p>
-        </div>
-      </li>
-      <li>
+        <h3>Customized Designs</h3>
+        <p>We start by hearing about your vision and using state-of-the-art technologies to make it a reality. What are you envisioning? A sleek, contemporary piece of art with a touchless cover and simple lines? Alternatively, how about a full, tropical retreat featuring swim-up bar, grottos, and waterfalls?</p>
+        <p>Whatever your vision is, we can customize every aspect of your pool design, including shape, size, features, and finishes, ensuring that your dream pool is truly one-of-a-kind.</p>
+        <p>Every pool we create is as unique as the house it is attached to. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
+        <p>By allowing for revisions, this process guarantees that our designs align with your vision and produce a final product that precisely matches your vision.</p>
+      </div>
+      <div class="cap-card">
         <div class="cap-num">02</div>
-        <div>
-          <h3>Quality Construction &middot; Precision Meets Perfection</h3>
-          <p>TurnKey Pool Designers excels during the construction process. Our expert team of builders, engineers, and landscapers works together seamlessly to guarantee that every part of the construction process is finished with the finest quality and efficiency possible.</p>
-          <p>We use only the best materials to make sure that your pool not only looks great but also lasts. Because of our dedication to perfection, you will have a pool that is both attractive and sustainable, with energy-saving features that benefit both the environment and your wallet.</p>
-        </div>
-      </li>
-      <li>
+        <h3>Quality Construction &middot; Precision Meets Perfection</h3>
+        <p>TurnKey Pool Designers excels during the construction process. Our expert team of builders, engineers, and landscapers works together seamlessly to guarantee that every part of the construction process is finished with the finest quality and efficiency possible.</p>
+        <p>We use only the best materials to make sure that your pool not only looks great but also lasts. Because of our dedication to perfection, you will have a pool that is both attractive and sustainable, with energy-saving features that benefit both the environment and your wallet.</p>
+      </div>
+      <div class="cap-card">
         <div class="cap-num">03</div>
-        <div>
-          <h3>Renovation and Remodeling</h3>
-          <p>Not looking for a new pool? We also offer pool renovation and remodeling services. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</p>
-          <p>We relish the challenge of transforming an old pool into a modern marvel that matches current aesthetics and amenities.</p>
-        </div>
-      </li>
-    </ul>
+        <h3>Renovation and Remodeling</h3>
+        <p>Not looking for a new pool? We also offer pool renovation and remodeling services. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</p>
+        <p>We relish the challenge of transforming an old pool into a modern marvel that matches current aesthetics and amenities.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -635,7 +640,10 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <a class="area-tile" href="river-ridge.html"><img src="https://images.unsplash.com/photo-1746057717075-5d3303a91918?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">11</span><span class="city">River Ridge</span></span></a>
       <a class="area-tile" href="slidell.html"><img src="https://images.unsplash.com/photo-1695996472807-bf0763dd23ea?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">12</span><span class="city">Slidell</span></span></a>
       <a class="area-tile" href="st-rose.html"><img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">13</span><span class="city">St. Rose</span></span></a>
-      <a class="area-hub" href="service-areas.html"><span class="city">All Service Areas &rarr;</span></a>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:48px">
+      <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
+      <a class="btn btn-ghost on-light" href="tel:+15043863724">or call (504) 386-3724</a>
     </div>
   </div>
 </section>
@@ -800,14 +808,31 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     });});
   })();
 
-  /* Respect reduced motion for the hero video. */
+  /* Respect reduced motion for all ambient videos. */
   (function(){
-    var v = document.querySelector('.media-frame video');
-    if (!v) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    document.querySelectorAll('video[autoplay]').forEach(function(v){
       v.removeAttribute('autoplay');
       try { v.pause(); } catch (e) {}
+    });
+  })();
+
+  /* Ambient section videos play only while on screen. */
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var vids = document.querySelectorAll('.cap-bg video');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function(v){ v.play()['catch'](function(){}); });
+      return;
     }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.play()['catch'](function(){}); }
+        else { try { e.target.pause(); } catch (err) {} }
+      });
+    }, { rootMargin: '120px 0px' });
+    vids.forEach(function(v){ io.observe(v); });
   })();
 
   /* Stat cards rise in and their numbers count up on first view. */
