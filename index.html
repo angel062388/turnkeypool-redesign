@@ -228,15 +228,21 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .capvid{position:relative;overflow:hidden}
 .capvid .wrap{position:relative;z-index:2}
 .cap-bg{position:absolute;inset:0}
-.cap-bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.35) brightness(.4) contrast(1.05)}
-.cap-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,31,53,.92) 0%,rgba(2,31,53,.5) 45%,rgba(2,31,53,.92) 100%)}
+.cap-bg video{width:100%;height:100%;object-fit:cover}
+.cap-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,31,53,.6) 0%,rgba(2,31,53,.12) 42%,rgba(2,31,53,.42) 100%)}
 .cap-num{font-family:var(--font-sans);font-weight:900;font-size:3rem;line-height:.9;-webkit-text-stroke:1px rgba(77,151,210,.6);color:transparent}
 .cap-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.cap-card{background:rgba(1,19,33,.6);backdrop-filter:blur(8px);border:1px solid rgba(77,151,210,.28);border-top:3px solid var(--accent);border-radius:14px;padding:30px 26px}
+.cap-card{background:rgba(1,19,33,.72);backdrop-filter:blur(8px);border:1px solid rgba(77,151,210,.28);border-top:3px solid var(--accent);border-radius:14px;padding:30px 26px;align-self:start}
 .cap-card .cap-num{margin-bottom:16px}
 .cap-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.35rem;color:var(--paper);margin-bottom:14px}
-.cap-card p{font-size:.95rem;margin-bottom:12px;color:rgba(248,247,242,.86)}
+.cap-card p{font-size:.95rem;margin-bottom:12px;color:rgba(248,247,242,.88)}
 .cap-card p:last-child{margin-bottom:0}
+.cap-more{height:0;overflow:hidden;transition:height .5s cubic-bezier(.16,1,.3,1)}
+html:not(.js) .cap-more{height:auto}
+.cap-more-in{padding-top:12px}
+.cap-toggle{margin-top:16px;background:none;border:1px solid rgba(77,151,210,.45);border-radius:4px;color:var(--accent);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:border-color .25s ease,color .25s ease}
+.cap-toggle:hover{border-color:var(--accent);color:var(--accent-bright)}
+@media (prefers-reduced-motion:reduce){.cap-more{transition:none}}
 @media (max-width:980px){.cap-cards{grid-template-columns:1fr}}
 
 /* ---------- city ledger ---------- */
@@ -599,21 +605,30 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         <div class="cap-num">01</div>
         <h3>Customized Designs</h3>
         <p>We start by hearing about your vision and using state-of-the-art technologies to make it a reality. What are you envisioning? A sleek, contemporary piece of art with a touchless cover and simple lines? Alternatively, how about a full, tropical retreat featuring swim-up bar, grottos, and waterfalls?</p>
-        <p>Whatever your vision is, we can customize every aspect of your pool design, including shape, size, features, and finishes, ensuring that your dream pool is truly one-of-a-kind.</p>
-        <p>Every pool we create is as unique as the house it is attached to. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
-        <p>By allowing for revisions, this process guarantees that our designs align with your vision and produce a final product that precisely matches your vision.</p>
+        <div class="cap-more"><div class="cap-more-in">
+          <p>Whatever your vision is, we can customize every aspect of your pool design, including shape, size, features, and finishes, ensuring that your dream pool is truly one-of-a-kind.</p>
+          <p>Every pool we create is as unique as the house it is attached to. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
+          <p>By allowing for revisions, this process guarantees that our designs align with your vision and produce a final product that precisely matches your vision.</p>
+        </div></div>
+        <button class="cap-toggle" aria-expanded="false">Read More</button>
       </div>
       <div class="cap-card">
         <div class="cap-num">02</div>
         <h3>Quality Construction &middot; Precision Meets Perfection</h3>
         <p>TurnKey Pool Designers excels during the construction process. Our expert team of builders, engineers, and landscapers works together seamlessly to guarantee that every part of the construction process is finished with the finest quality and efficiency possible.</p>
-        <p>We use only the best materials to make sure that your pool not only looks great but also lasts. Because of our dedication to perfection, you will have a pool that is both attractive and sustainable, with energy-saving features that benefit both the environment and your wallet.</p>
+        <div class="cap-more"><div class="cap-more-in">
+          <p>We use only the best materials to make sure that your pool not only looks great but also lasts. Because of our dedication to perfection, you will have a pool that is both attractive and sustainable, with energy-saving features that benefit both the environment and your wallet.</p>
+        </div></div>
+        <button class="cap-toggle" aria-expanded="false">Read More</button>
       </div>
       <div class="cap-card">
         <div class="cap-num">03</div>
         <h3>Renovation and Remodeling</h3>
         <p>Not looking for a new pool? We also offer pool renovation and remodeling services. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</p>
-        <p>We relish the challenge of transforming an old pool into a modern marvel that matches current aesthetics and amenities.</p>
+        <div class="cap-more"><div class="cap-more-in">
+          <p>We relish the challenge of transforming an old pool into a modern marvel that matches current aesthetics and amenities.</p>
+        </div></div>
+        <button class="cap-toggle" aria-expanded="false">Read More</button>
       </div>
     </div>
   </div>
@@ -814,6 +829,36 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     document.querySelectorAll('video[autoplay]').forEach(function(v){
       v.removeAttribute('autoplay');
       try { v.pause(); } catch (e) {}
+    });
+  })();
+
+  /* Capability cards: Read More expands the rest of the copy. */
+  (function(){
+    document.documentElement.classList.add('js');
+    document.querySelectorAll('.cap-card').forEach(function(card){
+      var more = card.querySelector('.cap-more');
+      var btn = card.querySelector('.cap-toggle');
+      if (!more || !btn) return;
+      btn.addEventListener('click', function(){
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        if (open) {
+          more.style.height = more.scrollHeight + 'px';
+          void more.offsetHeight;
+          requestAnimationFrame(function(){ more.style.height = '0px'; });
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Read More';
+        } else {
+          more.style.height = more.scrollHeight + 'px';
+          var done = function(e){
+            if (e.target !== more) return;
+            more.style.height = 'auto';
+            more.removeEventListener('transitionend', done);
+          };
+          more.addEventListener('transitionend', done);
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Read Less';
+        }
+      });
     });
   })();
 
