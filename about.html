@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pool Design Services in New Orleans | TurnKey Pool Designers</title>
-<meta name="description" content="Our pool design services in NOLA are created to meet your unique preferences and create the ultimate backyard getaway. Let us bring your vision to life. Contact TurnKey Pool Designers today!">
+<title>About Us | TurnKey Pool Designers</title>
+<meta name="description" content="Discover TurnKey Pool Designers in New Orleans! Transform your backyard with our custom, luxury pool designs. Dive in now - Contact us today!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Public+Sans:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
   --body-dark:#414141;
   --muted:#666666;
   --alert:#C02B0A;
+  --radius:14px;
   --font-serif:'PT Serif',Georgia,serif;
   --font-sans:'Public Sans',system-ui,sans-serif;
   --font-mono:'Public Sans',system-ui,sans-serif;
@@ -33,6 +34,7 @@
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{font-family:var(--font-serif);font-size:17px;line-height:1.65;color:var(--body-dark);background:var(--paper)}
+main{overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:var(--accent-deep)}
 .eyebrow{font-family:var(--font-mono);font-weight:600;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:18px}
@@ -88,7 +90,7 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 .hero-crumb a{color:rgba(248,247,242,.5);text-decoration:none;transition:color .2s ease}
 .hero-crumb a:hover{color:var(--accent)}
 .hero-crumb span{margin:0 8px;color:rgba(77,151,210,.6)}
-.hero h1{font-size:clamp(2rem,3.4vw,3rem);color:var(--paper);letter-spacing:-.015em;margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,3.2vw,2.8rem);color:var(--paper);letter-spacing:-.015em;margin-bottom:20px}
 h1 em{position:relative;display:inline-block;font-style:normal;color:#021F35;padding:0 18px;margin:0 4px;white-space:nowrap;z-index:0}
 h1 em::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;height:1.06em;background:#4D97D2;border-radius:50px;z-index:-1;box-shadow:0 4px 18px rgba(77,151,210,.30)}
 h1 em.animate::before{animation:pillSweep .95s cubic-bezier(.33,1,.68,1) both}
@@ -97,17 +99,17 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 @keyframes pillSweep{from{width:0}to{width:100%}}
 @keyframes pillInk{0%{color:#F8F7F2}55%{color:#F8F7F2}100%{color:#021F35}}
 @media (prefers-reduced-motion:reduce){h1 em.animate::before,h1 em.animate{animation:none}}
-.hero-tail{font-family:var(--font-serif);font-style:italic;font-size:1.15rem;color:var(--accent);margin-bottom:18px}
-.hero-lede{max-width:600px}
-.hero-lede p{color:rgba(248,247,242,.82);margin-bottom:14px}
-.hero-lede p:first-child{font-size:1.08rem;color:rgba(248,247,242,.9)}
+.hero-tail{font-family:var(--font-serif);font-style:italic;font-size:1.1rem;color:var(--accent);margin-bottom:16px}
+.hero-lede{max-width:620px}
+.hero-lede p{color:rgba(248,247,242,.82);margin-bottom:14px;font-size:.98rem}
+.hero-lede p:first-child{font-size:1.06rem;color:rgba(248,247,242,.9)}
 .hero-why{font-family:var(--font-mono);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:20px 0 12px}
 .hero-checks{list-style:none;margin:0 0 6px}
 .hero-checks li{font-family:var(--font-mono);font-weight:400;font-size:.78rem;letter-spacing:.02em;line-height:1.6;color:rgba(248,247,242,.78);padding-left:22px;position:relative;margin-bottom:9px}
 .hero-checks li::before{content:"+";position:absolute;left:0;top:0;color:var(--accent);font-weight:600}
 .hero .btn-row{margin-top:24px}
 .hero-media{position:relative}
-.media-frame{position:relative;border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(1,19,33,.55),0 0 0 1px rgba(77,151,210,.12),0 18px 60px rgba(77,151,210,.16)}
+.media-frame{position:relative;border:1px solid var(--border-dark);border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(1,19,33,.55),0 0 0 1px rgba(77,151,210,.12),0 18px 60px rgba(77,151,210,.16)}
 .media-frame video{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.62) brightness(.78) contrast(1.06)}
 .media-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,19,33,.22),transparent 40%,rgba(1,19,33,.4));pointer-events:none}
 .media-plaque{position:absolute;left:14px;bottom:12px;z-index:2;font-family:var(--font-mono);font-weight:600;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,247,242,.85);background:rgba(1,19,33,.55);border:1px solid rgba(77,151,210,.35);border-radius:3px;padding:7px 10px;backdrop-filter:blur(4px)}
@@ -115,60 +117,148 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .strip{background:var(--ink-deep);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:16px 24px;text-align:center}
 .strip p{font-family:var(--font-mono);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,247,242,.6)}
 .strip b{color:var(--accent);font-weight:600}
-.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.ben-card{background:var(--card);border:1px solid var(--border-light);border-top:3px solid var(--accent);border-radius:14px;padding:30px 26px}
-.ben-num{font-family:var(--font-sans);font-weight:900;font-size:2.6rem;line-height:1;-webkit-text-stroke:1px rgba(21,71,126,.6);color:transparent;margin-bottom:16px}
-.ben-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.25rem;color:var(--ink);margin-bottom:12px}
-.ben-card p{font-size:.98rem}
-@media (max-width:980px){.ben-grid{grid-template-columns:1fr}}
-.rail{position:relative;padding-left:42px;max-width:960px;margin:38px auto 0}
-.rail::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),rgba(77,151,210,.15));transform:scaleY(0);transform-origin:top;transition:transform 2.2s cubic-bezier(.16,1,.3,1)}
-.rail.is-in::before{transform:scaleY(1)}
-.rail .step{position:relative;padding-bottom:44px}
-.rail .step:last-child{padding-bottom:0}
-.rail .step::before{content:"";position:absolute;left:-40px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--ink);border:2px solid var(--accent);opacity:0;transform:scale(.35);transition:opacity .45s ease,transform .45s cubic-bezier(.34,1.56,.64,1)}
-.rail.is-in .step::before{opacity:1;transform:scale(1)}
-.rail.is-in .step:nth-child(1)::before{transition-delay:.1s}
-.rail.is-in .step:nth-child(2)::before{transition-delay:.65s}
-.rail.is-in .step:nth-child(3)::before{transition-delay:1.2s}
-.rail.is-in .step:nth-child(4)::before{transition-delay:1.75s}
-.rail.is-in .step:nth-child(5)::before{transition-delay:2.3s}
-@media (prefers-reduced-motion:reduce){
-  .rail::before{transform:none;transition:none}
-  .rail .step::before{opacity:1;transform:none;transition:none}
-}
-.step-tag{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.rail p{max-width:680px}
-.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
-.opt-card{background:var(--card);border:1px solid var(--border-light);border-radius:14px;padding:30px 28px;position:relative}
-.opt-idx{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px}
-.opt-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.3rem;color:var(--ink);margin-bottom:12px}
-.opt-card p{font-size:.98rem;margin-bottom:12px}
-.opt-card p:last-child{margin-bottom:0}
-@media (max-width:900px){.opt-grid{grid-template-columns:1fr}}
 .about-lede{font-size:clamp(1.1rem,1.9vw,1.35rem);line-height:1.65;color:var(--paper);max-width:860px;margin-top:30px}
 .dark-paras{max-width:860px;margin-top:22px}
 .dark-paras p{margin-bottom:16px}
 .dark-paras p:last-child{margin-bottom:0}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.ben-card{background:var(--card);border:1px solid var(--border-light);border-top:3px solid var(--accent);border-radius:var(--radius);padding:30px 26px}
+.ben-num{font-family:var(--font-sans);font-weight:900;font-size:2.6rem;line-height:1;-webkit-text-stroke:1px rgba(21,71,126,.6);color:transparent;margin-bottom:16px}
+.ben-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.25rem;color:var(--ink);margin-bottom:12px}
+.ben-card p{font-size:.98rem}
+@media (max-width:980px){.ben-grid{grid-template-columns:1fr}}
+.opt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.opt-card{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);padding:30px 28px;position:relative}
+.opt-idx{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:12px}
+.opt-card h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:1.24rem;color:var(--ink);margin-bottom:12px}
+.opt-card p{font-size:.96rem;margin-bottom:12px}
+.opt-card p:last-child{margin-bottom:0}
+@media (max-width:1100px){.opt-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:800px){.opt-grid{grid-template-columns:1fr}}
+.cap-rows{list-style:none;margin-top:24px}
+.cap-rows li{display:grid;grid-template-columns:150px 1fr;gap:36px;padding:46px 0;border-bottom:1px solid var(--border-dark)}
+.cap-rows li:last-child{border-bottom:none}
+.cap-num{font-family:var(--font-sans);font-weight:900;font-size:clamp(3.4rem,7vw,5.6rem);line-height:.9;-webkit-text-stroke:1px rgba(77,151,210,.55);color:transparent}
+.cap-rows h3{font-family:var(--font-serif);font-weight:700;font-style:italic;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--paper);margin-bottom:16px}
+.cap-rows p{margin-bottom:14px;max-width:760px}
+.cap-rows p:last-child{margin-bottom:0}
+@media (max-width:700px){.cap-rows li{grid-template-columns:1fr;gap:10px}}
+.step-tag{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.proc-card{background:var(--ink-2);border:1px solid var(--border-dark);border-top:3px solid var(--accent);border-radius:var(--radius);padding:26px 22px}
+.proc-num{font-family:var(--font-sans);font-weight:900;font-size:2.4rem;line-height:1;-webkit-text-stroke:1px rgba(77,151,210,.55);color:transparent;margin-bottom:14px}
+.proc-card h3{font-family:var(--font-serif);font-weight:700;font-size:1.18rem;color:var(--paper);margin-bottom:10px}
+.proc-card p{font-size:.92rem}
+@media (max-width:1100px){
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .proc-grid .proc-card:last-child{grid-column:1/-1}
+}
+@media (max-width:640px){.proc-grid{grid-template-columns:1fr}.proc-grid .proc-card:last-child{grid-column:auto}}
+.proc-grid .proc-card{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.proc-grid.is-in .proc-card{opacity:1;transform:none}
+.proc-grid.is-in .proc-card:nth-child(2){transition-delay:.15s}
+.proc-grid.is-in .proc-card:nth-child(3){transition-delay:.3s}
+.proc-grid.is-in .proc-card:nth-child(4){transition-delay:.45s}
+.proc-grid.is-in .proc-card:nth-child(5){transition-delay:.6s}
+@media (prefers-reduced-motion:reduce){.proc-grid .proc-card,.proc-grid.is-in .proc-card{opacity:1;transform:none;transition:none}}
+.svc-rows{list-style:none;margin-top:48px;border-top:1px solid var(--border-light)}
+.svc-rows li{display:grid;grid-template-columns:minmax(0,420px) 1fr auto;grid-template-areas:"img body arrow";gap:36px;align-items:center;padding:34px 0;border-bottom:1px solid var(--border-light);cursor:pointer}
+.svc-img{grid-area:img;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius)}
+.svc-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.35) brightness(.55);transform:scale(1.02);transition:filter .8s ease,transform 1.6s cubic-bezier(.16,1,.3,1)}
+.svc-rows li:hover .svc-img img{filter:saturate(1) brightness(.75);transform:scale(1.06)}
+.svc-body{grid-area:body}
+.svc-tag{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.svc-name{font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.2}
+.svc-name a{color:var(--ink);text-decoration:none;transition:color .25s ease}
+.svc-rows li:hover .svc-name a{color:var(--accent-deep)}
+.svc-desc{font-size:.95rem;color:var(--muted);max-width:520px;margin-top:12px}
+.svc-cta{margin-top:16px}
+.svc-arrow{grid-area:arrow;font-family:var(--font-mono);font-size:1.4rem;color:var(--accent-deep);transition:transform .35s ease}
+.svc-rows li:hover .svc-arrow{transform:translateX(8px)}
+@media (min-width:900px){
+  .svc-rows li:nth-child(even){grid-template-columns:auto 1fr minmax(0,420px);grid-template-areas:"arrow body img"}
+}
+@media (min-width:641px){
+  .svc-rows li{opacity:0;transform:translateX(64px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .svc-rows li:nth-child(even){transform:translateX(-64px)}
+  .svc-rows li.is-in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){.svc-rows li,.svc-rows li.is-in{opacity:1;transform:none;transition:none}}
 .t-wall{columns:2;column-gap:20px;margin-top:44px}
-.t-card{break-inside:avoid;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:14px;padding:28px;margin-bottom:20px}
+.t-card{break-inside:avoid;background:var(--ink-2);border:1px solid var(--border-dark);border-radius:var(--radius);padding:28px;margin-bottom:20px}
 .t-card blockquote{font-style:italic;font-size:1.02rem;line-height:1.7;color:rgba(248,247,242,.88)}
 .t-card figcaption{font-family:var(--font-mono);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:16px}
 @media (max-width:800px){.t-wall{columns:1}}
 .t-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
+.light .t-card{background:var(--card);border-color:var(--border-light)}
+.light .t-card blockquote{color:var(--body-dark)}
+.light .t-card figcaption{color:var(--accent-deep)}
 .area-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.area-tile{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;text-decoration:none;display:block;background:var(--ink-2)}
+.area-tile{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;text-decoration:none;display:block;background:var(--ink-2)}
 .area-tile img{width:100%;height:100%;object-fit:cover;filter:saturate(.55) brightness(.66);transform:scale(1.02);transition:filter .7s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
 .area-tile:hover img{filter:saturate(1) brightness(.85);transform:scale(1.07)}
 .area-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,19,33,.05) 40%,rgba(1,19,33,.86) 100%);z-index:1}
 .area-tile .tile-label{position:absolute;left:16px;right:12px;bottom:13px;z-index:2;display:flex;align-items:baseline;gap:10px}
 .area-tile .idx{font-family:var(--font-mono);font-weight:600;font-size:.6rem;letter-spacing:.1em;color:rgba(248,247,242,.7)}
 .area-tile .city{font-family:var(--font-serif);font-weight:700;font-size:1.18rem;color:var(--paper);letter-spacing:.01em}
-.area-hub{grid-column:span 2;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);border:1px solid var(--border-light);border-radius:14px;padding:20px 18px;text-decoration:none;transition:background .25s ease}
+.area-hub{grid-column:span 2;display:flex;align-items:center;justify-content:center;background:var(--accent-tint);border:1px solid var(--border-light);border-radius:var(--radius);padding:20px 18px;text-decoration:none;transition:background .25s ease}
 .area-hub:hover{background:#DFEDF9}
 .area-hub .city{font-family:var(--font-serif);font-weight:700;font-size:1.05rem;color:var(--accent-deep)}
 @media (max-width:900px){.area-tiles{grid-template-columns:repeat(2,1fr)}.area-hub{grid-column:1/-1}}
 @media (max-width:535px){.area-tiles{grid-template-columns:1fr}.area-tile{aspect-ratio:16/9}}
+.alm{columns:2;column-gap:20px;margin-top:44px}
+.alm-card{break-inside:avoid;background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);padding:26px 24px;margin-bottom:20px}
+.alm-card h3{font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:1.2rem;color:var(--ink);margin-bottom:12px}
+.alm-card p{font-size:.95rem;margin-bottom:12px}
+.alm-card p:last-child{margin-bottom:0}
+.alm-card b{color:var(--ink)}
+@media (max-width:800px){.alm{columns:1}}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 34px;max-width:860px}
+.chip{font-family:var(--font-mono);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);border:1px solid var(--accent);border-radius:50px;padding:12px 20px;background:var(--card)}
+.hub-links{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.hub-links .area-hub{grid-column:auto}
+@media (max-width:800px){.hub-links{grid-template-columns:1fr}}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;max-width:1000px}
+.team-card{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden}
+.team-card img{width:100%;aspect-ratio:348/424;object-fit:cover}
+.team-card h3{font-family:var(--font-serif);font-weight:700;font-size:1.2rem;color:var(--ink);padding:18px 20px}
+@media (max-width:800px){.team-grid{grid-template-columns:1fr}}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.gal-grid a{display:block;border-radius:var(--radius);overflow:hidden}
+.gal-grid img{width:100%;aspect-ratio:466/520;object-fit:cover;filter:saturate(.8);transition:filter .6s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.gal-grid a:hover img{filter:saturate(1);transform:scale(1.03)}
+@media (max-width:900px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:535px){.gal-grid{grid-template-columns:1fr}}
+.g-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.blog-card{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.blog-card .bimg{aspect-ratio:319/254;overflow:hidden}
+.blog-card img{width:100%;height:100%;object-fit:cover;filter:saturate(.75);transition:filter .6s ease,transform 1.2s ease}
+.blog-card:hover img{filter:saturate(1);transform:scale(1.04)}
+.blog-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.blog-card h3{font-family:var(--font-serif);font-weight:700;font-size:1.08rem;line-height:1.35}
+.blog-card h3 a{color:var(--ink);text-decoration:none}
+.blog-card h3 a:hover{color:var(--accent-deep)}
+.blog-more{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);text-decoration:none;margin-top:auto}
+@media (max-width:1100px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.blog-grid{grid-template-columns:1fr}}
+.pagenav{display:flex;gap:10px;justify-content:center;margin-top:40px}
+.pagenav a,.pagenav span{font-family:var(--font-mono);font-weight:600;font-size:.72rem;border:1px solid var(--border-light);border-radius:3px;padding:9px 13px;text-decoration:none;color:var(--accent-deep)}
+.pagenav span{background:var(--accent);border-color:var(--accent);color:var(--ink-deep)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.stat{background:var(--card);border:1px solid var(--border-light);border-top:3px solid var(--accent);border-radius:var(--radius);padding:26px 22px}
+.stat .num{font-family:var(--font-sans);font-weight:900;font-size:2.4rem;color:var(--ink);line-height:1}
+.stat .lbl{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin:10px 0 6px}
+.stat .sup{font-size:.9rem;color:var(--muted)}
+.stat .lblb{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:10px}
+.stat .val{font-family:var(--font-serif);font-weight:700;font-size:1.05rem;color:var(--ink);line-height:1.55}
+.stat .val a{color:var(--ink);text-decoration:none}
+.stat .val a:hover{color:var(--accent-deep)}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.stats{grid-template-columns:1fr}}
+.embed{border:1px solid var(--border-light);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.embed iframe{display:block;width:100%;height:680px;border:0}
+.embed.map iframe{height:440px}
 .cta-band{position:relative;overflow:hidden;padding:120px 24px;text-align:center;background:var(--ink-deep)}
 .cta-bg{position:absolute;inset:0}
 .cta-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.25) contrast(1.15) brightness(.35);animation:ctaPan 26s ease-in-out infinite alternate}
@@ -178,6 +268,7 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .cta-inner{position:relative;max-width:820px;margin:0 auto}
 .cta-inner h2{color:var(--paper)}
 .cta-inner p{color:rgba(248,247,242,.82);margin-top:20px}
+.cta-inner p a{color:var(--accent)}
 .cta-inner .btn-row{justify-content:center;margin-top:34px}
 footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:var(--paper);padding:70px 24px 34px}
 .ftr{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:44px}
@@ -210,12 +301,15 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 @media (max-width:640px){
   .section{padding:64px 20px}
   .hero{padding:64px 20px 56px}
-  .hero h1{font-size:1.66rem}
+  .hero h1{font-size:1.6rem}
   h1 em{padding:0 12px}
+  .svc-rows li{grid-template-columns:1fr;grid-template-areas:"img" "body"}
+  .svc-arrow{display:none}
   .cta-band{padding:84px 20px}
   .ftr{grid-template-columns:1fr;gap:34px}
   .legal{flex-direction:column}
 }
+
 </style>
 </head>
 <body>
@@ -229,7 +323,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     <nav class="main" id="mainnav" aria-label="Primary">
       <div><a class="top" href="index.html">Home</a></div>
       <div>
-        <a class="top active" aria-current="page" href="services.html">Services</a>
+        <a class="top" href="services.html">Services</a>
         <div class="drop">
           <a href="custom-pool-design.html">Custom Pool Design</a>
           <a href="pool-design.html">Pool Design</a>
@@ -256,7 +350,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
           <a href="st-rose.html">St. Rose</a>
         </div>
       </div>
-      <div><a class="top" href="about.html">About</a></div>
+      <div><a class="top active" aria-current="page" href="about.html">About</a></div>
       <div><a class="top" href="the-team.html">Team</a></div>
       <div><a class="top" href="testimonials.html">Testimonials</a></div>
       <div><a class="top" href="https://www.turnkeypooldesigners.com/faqs/">FAQs</a></div>
@@ -278,22 +372,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   <div class="hero-grid"></div>
   <div class="hero-split">
     <div class="hero-copy">
-      <div class="hero-crumb"><a href="index.html">Home</a><span>&rsaquo;</span><a href="services.html">Services</a><span>&rsaquo;</span>Pool Design</div>
-      <div class="eyebrow">01 &middot; Service &middot; New Orleans</div>
-      <h1>Turn Your <em>New Orleans Backyard</em> into <em>a Paradise</em></h1>
-      <div class="hero-tail">with TurnKey Pool Designers!</div>
+      <div class="hero-crumb"><a href="index.html">Home</a><span>&rsaquo;</span>About</div>
+      <div class="eyebrow">01 &middot; About Us</div>
+      <h1>About <em>TurnKey Pool Designers</em></h1>
       <div class="hero-lede">
-        <p>Dreaming of a refreshing escape in your own backyard? A sparkling pool is the perfect solution for hot New Orleans summers. But where do you begin? TurnKey Pool Designers is here to transform your vision into a reality.</p>
-      </div>
-      <div class="hero-why">But why us?</div>
-      <ul class="hero-checks">
-        <li>Experienced pool designers who understand local regulations and considerations in New Orleans.</li>
-        <li>Wide range of design options to suit your style and budget.</li>
-        <li>Expertise in creating custom pools that seamlessly integrate with your New Orleans property.</li>
-        <li>High-quality materials and construction for lasting beauty and functionality.</li>
-      </ul>
-      <div class="hero-lede">
-        <p>Contact TurnKey Pool Designers today for a free quote and let&#39;s discuss your dream pool!</p>
+        <p>TurnKey Pool Designers is a full-service pool design company with years of experience in custom pool design and construction in NOLA and the surrounding areas.</p>
+        <p>We are dedicated to providing our clients with high-quality services and helping them create the pool of their dreams.</p>
       </div>
       <div class="btn-row">
         <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
@@ -302,46 +386,47 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     </div>
     <div class="hero-media">
       <div class="media-frame">
-        <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/4434/4434-thumb-1080-0.jpg" aria-hidden="true">
-          <source src="https://assets.mixkit.co/videos/4434/4434-720.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/6773/6773-thumb-720-0.jpg" aria-hidden="true">
+          <source src="https://assets.mixkit.co/videos/6773/6773-720.mp4" type="video/mp4">
         </video>
-        <div class="media-plaque">Pool Geometry &middot; Design Reference</div>
+        <div class="media-plaque">About the Studio &middot; New Orleans</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- credibility strip -->
 <div class="strip">
   <p>Residential License <b>#890459</b> &middot; Commercial License <b>#3667</b> &middot; Serving New Orleans &amp; Surrounding Areas</p>
 </div>
 
-<!-- 02 BENEFITS -->
+<!-- 02 WHAT WE OFFER -->
 <section class="section light">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">02 &middot; Benefits</div>
-      <h2>Benefits of a <em>Pool Design</em></h2>
+      <div class="eyebrow">02 &middot; What We Offer</div>
+      <h2>Pool Designs and <em>Features</em></h2>
     </div>
     <div class="section-intro">
-      <p>A well-designed pool isn&#39;t just a beautiful addition to your New Orleans property, it&#39;s a haven from the scorching summer sun. But the benefits go beyond cooling off:</p>
+      <p>We believe that having a pool is an investment, and we are committed to helping you get the most value for your money. That&#39;s why we offer a wide range of services to meet all your pool needs.</p>
+      <p>We offer a wide range of pool designs and features, including:</p>
     </div>
-    <div class="ben-grid">
-      <div class="ben-card">
-        <div class="ben-num">01</div>
-        <h3>Year-Round Oasis</h3>
-        <p>Enjoy your backyard all year long! A pool creates a relaxing and inviting space to entertain friends and family, perfect for the social New Orleans spirit.</p>
-      </div>
-      <div class="ben-card">
-        <div class="ben-num">02</div>
-        <h3>Increased Property Value</h3>
-        <p>Pools are a sought-after feature in New Orleans, especially with the long summer season. A well-designed pool can significantly increase your property value.</p>
-      </div>
-      <div class="ben-card">
-        <div class="ben-num">03</div>
-        <h3>Customized Design</h3>
-        <p>TurnKey Pool Designers offers a wide range of options to create a pool that perfectly complements your New Orleans home and lifestyle. Whether you want a refreshing plunge pool or a luxurious entertaining space, we can make it happen.</p>
-      </div>
+    <div class="chips">
+      <span class="chip">Freeform pools</span>
+      <span class="chip">Architectural pools</span>
+      <span class="chip">Infinity edge pools</span>
+      <span class="chip">Lap pools</span>
+      <span class="chip">Plunge pools</span>
+      <span class="chip">Kiddi pools</span>
+      <span class="chip">And more!</span>
+    </div>
+    <div class="section-intro">
+      <p>We also specialize in pool remodeling and renovation. If your existing pool is outdated or in need of repair, we can help you transform it into the pool of your dreams.</p>
+      <p>At TurnKey Pool Designers is fully licensed and insured, and we offer a satisfaction guarantee on all of our work.</p>
+      <p>Contact us today to learn more about our services or to schedule a free consultation. We look forward to helping you create your dream backyard oasis!</p>
+    </div>
+    <div class="btn-row" style="margin-top:30px">
+      <a class="btn btn-primary" href="contact.html">Get Your FREE Estimates <span>&rarr;</span></a>
+      <a class="btn btn-ghost on-light" href="tel:+15043863724">Call Our Experts! (504) 386-3724</a>
     </div>
   </div>
 </section>
@@ -351,183 +436,54 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">03 &middot; Process</div>
-      <h2>Our <em>Pool Design</em> Process</h2>
+      <h2>Our <em>5-Step</em> Pool Design Process</h2>
     </div>
-    <div class="rail">
-      <div class="step">
+    <div class="proc-grid">
+      <div class="proc-card">
+        <div class="proc-num">01</div>
         <div class="step-tag">Step &middot; 01</div>
-        <p>We take into consideration factors such as the size and shape of the yard, the desired features and amenities, and the client&#39;s budget.</p>
+        <h3>Schedule A Consultation</h3>
+        <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences.</p>
       </div>
-      <div class="step">
+      <div class="proc-card">
+        <div class="proc-num">02</div>
         <div class="step-tag">Step &middot; 02</div>
-        <p>Once we have a clear understanding of the client&#39;s needs, our team of experienced designers and engineers will create a pool design that meets all their specifications.</p>
+        <h3>Design Your Pool</h3>
+        <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget.</p>
       </div>
-      <div class="step">
+      <div class="proc-card">
+        <div class="proc-num">03</div>
         <div class="step-tag">Step &middot; 03</div>
+        <h3>Visualize and Revise</h3>
         <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans.</p>
       </div>
-      <div class="step">
+      <div class="proc-card">
+        <div class="proc-num">04</div>
         <div class="step-tag">Step &middot; 04</div>
-        <p>Once the design is approved, our construction team will begin the process of building the pool, ensuring that all necessary permits and regulations are followed.</p>
+        <h3>Construction</h3>
+        <p>Once you have approved the design of your pool, our team of skilled workers will begin construction.</p>
       </div>
-      <div class="step">
+      <div class="proc-card">
+        <div class="proc-num">05</div>
         <div class="step-tag">Step &middot; 05</div>
+        <h3>Open Communication</h3>
         <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 OPTIONS -->
+<!-- 04 MEET US -->
 <section class="section light">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">04 &middot; Options</div>
-      <h2><em>Pool Design</em> Options</h2>
+      <div class="eyebrow">04 &middot; Keep Exploring</div>
+      <h2>Meet the Team, See the <em>Work</em></h2>
     </div>
-    <div class="opt-grid">
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 01</div>
-        <h3>Above-Ground Pool</h3>
-        <p>There are several reasons why above-ground pools are a preferred choice for many homeowners. First, they are more affordable compared to in-ground pools, making them a budget-friendly option.</p>
-        <p>Additionally, above-ground pools are easier and quicker to install, which means you can start enjoying your pool sooner.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 02</div>
-        <h3>Architectural Pool</h3>
-        <p>Architectural pools are designed with a focus on the overall aesthetic and architectural style of your home. They are often custom-designed to seamlessly integrate with the surrounding landscape and enhance the overall visual appeal of your outdoor space.</p>
-        <p>With architectural pools, you have the freedom to choose from a variety of shapes, sizes, and features that best complement your home&#39;s design.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 03</div>
-        <h3>Recreational Swimming Pool</h3>
-        <p>Homeowners can choose to have a traditional rectangular pool, which is a popular and classic choice. This design allows for easy pool activities and fits well in most backyard spaces.</p>
-        <p>Another option is a freeform pool, which offers a more natural and organic shape. This design is great for homeowners who want a pool that blends seamlessly with the surrounding landscape.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 04</div>
-        <h3>Indoor Pool</h3>
-        <p>When it comes to pool design options, one popular choice is an indoor pool. An indoor pool offers several advantages to homeowners.</p>
-        <p>It can be enjoyed year-round, regardless of the weather conditions outside. Additionally, an indoor pool provides privacy and can be a great way to exercise and relax without worrying about prying eyes or external disturbances.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 05</div>
-        <h3>Infinity Pool</h3>
-        <p>These pools create the illusion of water extending to the horizon, giving the impression that the pool seamlessly merges with the surrounding landscape or body of water.</p>
-        <p>Infinity pools enhance the aesthetic appeal of any property and provide a luxurious and stylish atmosphere.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 06</div>
-        <h3>Kiddie Pool</h3>
-        <p>A kiddie pool is a smaller and shallower pool designed specifically for young children. It provides a safe and enjoyable environment for kids to play and splash around in.</p>
-        <p>The size and depth of a kiddie pool can be customized to meet the needs and preferences of the homeowners.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 07</div>
-        <h3>Lap Pool</h3>
-        <p>Lap pools are rectangular in shape and are designed specifically for swimming laps and other aquatic exercises.</p>
-        <p>These pools typically have a length of 50 to 75 feet and a width of 8 to 10 feet, providing enough space for swimmers to move comfortably.</p>
-      </div>
-      <div class="opt-card">
-        <div class="opt-idx">Option &middot; 08</div>
-        <h3>Spool</h3>
-        <p>A spool is a smaller-sized pool, typically around 12&ndash;14 feet long and 6&ndash;8 feet wide, designed to provide the benefits of both a pool and a spa.</p>
-        <p>This option is popular for homeowners who have limited backyard space but still want to enjoy the relaxation and hydrotherapy benefits of a spa.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 GET STARTED -->
-<section class="section dark">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">05 &middot; Get Started</div>
-      <h2>Ready for your <em>Dream Pool</em>? Contact Us Today!</h2>
-    </div>
-    <p class="about-lede">Are you tired of looking at your plain and boring backyard? It&#39;s time to create your own oasis with a stunning pool design.</p>
-    <div class="dark-paras">
-      <p>Our pool design services are perfect for residents who want to transform their outdoor space into a luxurious retreat. Whether you&#39;re looking for a traditional and elegant pool or a modern and sleek design, our expert team can bring your vision to life.</p>
-      <p>Imagine spending your weekends lounging by the pool, hosting unforgettable pool parties, and creating lasting memories with your family and friends. With our pool design services, you can have all of that and more.</p>
-      <p>Contact us today to schedule a consultation and start designing your dream pool. Don&#39;t wait any longer to turn your backyard into your own personal paradise.</p>
-    </div>
-    <div class="btn-row" style="margin-top:30px">
-      <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
-      <a class="btn btn-ghost" href="tel:+15043863724">or call (504) 386-3724</a>
-    </div>
-  </div>
-</section>
-
-<!-- 06 REVIEWS (same tone as 05; reduced top padding per rhythm rule) -->
-<section class="section dark" style="padding-top:24px">
-  <div class="wrap">
-    <div class="t-head">
-      <div class="section-head">
-        <div class="eyebrow">06 &middot; Reviews</div>
-        <h2>What Our <em>Clients</em> Say</h2>
-        <div class="kicker">What Our Customers Have To Say!</div>
-      </div>
-      <a class="btn btn-ghost" href="testimonials.html">Read Reviews <span>&rarr;</span></a>
-    </div>
-    <div class="t-wall">
-      <figure class="t-card">
-        <blockquote>&ldquo;Our pool was in desperate need of a makeover, and TurnKey Pool Designers exceeded our expectations with their pool renovation service. Our backyard oasis now looks brand new and inviting. Thank you for the incredible transformation!&rdquo;</blockquote>
-        <figcaption>Sophia Johnson</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;This company&#39;s pool design was nothing short of spectacular. They listened to our ideas and turned them into breathtaking realities. Our custom pool design is the envy of the neighborhood!&rdquo;</blockquote>
-        <figcaption>Benjamin Miller</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;We recently had our pool remodeled by them, and the results are stunning. The team was professional and efficient throughout the entire process. We couldn&#39;t be happier with the outcome!&rdquo;</blockquote>
-        <figcaption>Evelyn Wilson</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;They transformed our outdated pool into a modern masterpiece. The pool renovation they performed was nothing short of incredible. They paid attention to every detail, and the result speaks for itself. Our backyard oasis has gone from drab to fab, and we couldn&#39;t be happier with the transformation.&rdquo;</blockquote>
-        <figcaption>Lucas Jackson</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;If you&#39;re looking for top-notch pool design, look no further than TurnKey Pool Designers. Their attention to detail and creativity in custom pool design are second to none. We are beyond impressed with our new pool.&rdquo;</blockquote>
-        <figcaption>Olivia Moore</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;Our experience with them during our pool remodel was exceptional. The entire process was efficient, and the outcome was a pool that felt like a brand-new addition to our home. It&#39;s like having a resort in our own backyard, and we couldn&#39;t be happier with the results.&rdquo;</blockquote>
-        <figcaption>William Thompson</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;I had been putting off renovating my pool for years, worried about the cost and hassle. But when I contacted them, they put my fears to rest. Their pool renovation service was a breeze from start to finish. My pool now looks better than it did when it was first built. I highly recommend their services to anyone looking to breathe new life into their pool!&rdquo;</blockquote>
-        <figcaption>Bella Harris</figcaption>
-      </figure>
-      <figure class="t-card">
-        <blockquote>&ldquo;They made our dream of a custom pool a reality. Their attention to detail and commitment to delivering a high-quality product are unmatched. We are so grateful for our beautiful new pool!&rdquo;</blockquote>
-        <figcaption>Nathan Green</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 07 SERVICE AREAS -->
-<section class="section light">
-  <div class="wrap">
-    <div class="section-head center">
-      <div class="eyebrow">07 &middot; Service Areas</div>
-      <h2>Where We <em>Work</em></h2>
-    </div>
-    <div class="area-tiles">
-      <a class="area-tile" href="baton-rouge.html"><img src="https://images.unsplash.com/photo-1536745511564-a5fa6e596e7b?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">01</span><span class="city">Baton Rouge</span></span></a>
-      <a class="area-tile" href="covington.html"><img src="https://images.unsplash.com/photo-1652878856832-887df545cb0c?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">02</span><span class="city">Covington</span></span></a>
-      <a class="area-tile" href="gretna.html"><img src="https://images.unsplash.com/photo-1534009502677-4e5080efa8c6?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">03</span><span class="city">Gretna</span></span></a>
-      <a class="area-tile" href="hammond.html"><img src="https://images.unsplash.com/photo-1634923295030-730da9900a2d?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">04</span><span class="city">Hammond</span></span></a>
-      <a class="area-tile" href="harahan.html"><img src="https://images.unsplash.com/photo-1557459325-b6733cbeae9c?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">05</span><span class="city">Harahan</span></span></a>
-      <a class="area-tile" href="kenner.html"><img src="https://images.unsplash.com/photo-1724660583299-2356fe880e54?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">06</span><span class="city">Kenner</span></span></a>
-      <a class="area-tile" href="laplace.html"><img src="https://images.unsplash.com/photo-1657399179505-12205ea153a9?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">07</span><span class="city">Laplace</span></span></a>
-      <a class="area-tile" href="madisonville.html"><img src="https://images.unsplash.com/photo-1557459310-ea39155bd081?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">08</span><span class="city">Madisonville</span></span></a>
-      <a class="area-tile" href="mandeville.html"><img src="https://images.unsplash.com/photo-1592345965963-cde4e1c83608?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">09</span><span class="city">Mandeville</span></span></a>
-      <a class="area-tile" href="metairie.html"><img src="https://images.unsplash.com/photo-1530115638250-8f7f42475f5e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">10</span><span class="city">Metairie</span></span></a>
-      <a class="area-tile" href="river-ridge.html"><img src="https://images.unsplash.com/photo-1746057717075-5d3303a91918?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">11</span><span class="city">River Ridge</span></span></a>
-      <a class="area-tile" href="slidell.html"><img src="https://images.unsplash.com/photo-1695996472807-bf0763dd23ea?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">12</span><span class="city">Slidell</span></span></a>
-      <a class="area-tile" href="st-rose.html"><img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="" loading="lazy"><span class="tile-label"><span class="idx">13</span><span class="city">St. Rose</span></span></a>
-      <a class="area-hub" href="service-areas.html"><span class="city">All Service Areas &rarr;</span></a>
+    <div class="hub-links">
+      <a class="area-hub" href="the-team.html"><span class="city">The Team &rarr;</span></a>
+      <a class="area-hub" href="gallery.html"><span class="city">Our Gallery &rarr;</span></a>
+      <a class="area-hub" href="testimonials.html"><span class="city">What Our Clients Say &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -539,7 +495,8 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="cta-inner">
     <div class="eyebrow">Get a FREE Estimate!</div>
-    <h2>Request a Free <em>Estimate</em> Today!</h2>
+    <h2>To Get Started on Your <em>Dream Pool</em>, Contact Us Today!</h2>
+
     <div class="btn-row">
       <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
       <a class="btn btn-ghost" href="tel:+15043863724">Call Our Experts! (504) 386-3724</a>
@@ -621,17 +578,39 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     }
   })();
 
-  /* Process rail draws when scrolled into view. */
+  /* Rise-in groups (.proc-grid) when scrolled into view. */
   (function(){
-    var rail = document.querySelector('.rail');
-    if (!rail) return;
-    if (!('IntersectionObserver' in window)) { rail.classList.add('is-in'); return; }
+    var grids = document.querySelectorAll('.proc-grid');
+    if (!grids.length) return;
+    if (!('IntersectionObserver' in window)) { grids.forEach(function(g){ g.classList.add('is-in'); }); return; }
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting) { rail.classList.add('is-in'); io.disconnect(); }
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -25% 0px' });
-    io.observe(rail);
+    }, { rootMargin: '0px 0px -20% 0px' });
+    grids.forEach(function(g){ io.observe(g); });
+  })();
+
+  /* Service rows glide in from alternating sides; whole row clickable. */
+  (function(){
+    var rows = document.querySelectorAll('.svc-rows li');
+    if (rows.length && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -12% 0px' });
+      rows.forEach(function(r){ io.observe(r); });
+    } else {
+      rows.forEach(function(r){ r.classList.add('is-in'); });
+    }
+    document.querySelectorAll('[data-svc-row]').forEach(function(row){
+      row.addEventListener('click', function(e){
+        if (e.target.closest('a')) return;
+        var href = row.getAttribute('data-href');
+        if (href) window.location.href = href;
+      });
+    });
   })();
 
   /* Mobile menu toggle. */
