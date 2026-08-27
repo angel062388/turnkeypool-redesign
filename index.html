@@ -137,17 +137,6 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
   .hero.is-armed .media-frame video{animation:none}
 }
 
-/* ---------- responsive view switcher (review tool) ---------- */
-.viewbar{position:fixed;right:18px;bottom:18px;z-index:300;display:flex;align-items:center;gap:4px;background:rgba(1,19,33,.85);backdrop-filter:blur(8px);border:1px solid rgba(77,151,210,.4);border-radius:50px;padding:6px 8px 6px 16px;box-shadow:0 12px 32px rgba(1,19,33,.45)}
-.vb-label{font-family:var(--font-mono);font-weight:600;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,247,242,.55);margin-right:6px}
-.viewbar button{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,247,242,.7);background:none;border:0;border-radius:50px;padding:9px 15px;cursor:pointer;transition:background .25s ease,color .25s ease}
-.viewbar button:hover{color:var(--accent)}
-.viewbar button.on{background:var(--accent);color:var(--ink-deep)}
-.viewsim{position:fixed;inset:0;z-index:290;background:rgba(1,11,20,.92);display:flex;align-items:center;justify-content:center;padding:26px 16px 84px}
-.vs-frame{background:#000;border:1px solid rgba(77,151,210,.5);border-radius:22px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.65);height:min(860px,calc(100vh - 130px));transition:width .35s cubic-bezier(.22,1,.36,1)}
-.vs-frame iframe{width:100%;height:100%;border:0;display:block;background:#fff}
-body.vf .viewbar,body.vf .splash{display:none}
-@media (max-width:800px){.viewbar{display:none}}
 
 /* ---------- intro splash ---------- */
 .splash{position:fixed;inset:0;z-index:200;background:var(--ink-deep);display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:1;transition:opacity .8s ease}
@@ -1002,59 +991,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </footer>
 
-<!-- responsive view switcher (mockup review tool) -->
-<div class="viewsim" id="viewsim" hidden>
-  <div class="vs-frame" id="vsFrame2">
-    <iframe id="vsFrame" title="Responsive preview"></iframe>
-  </div>
-</div>
-<div class="viewbar" id="viewbar" aria-label="Preview width">
-  <span class="vb-label">View</span>
-  <button type="button" class="on" data-vw="">Desktop</button>
-  <button type="button" data-vw="768">Tablet</button>
-  <button type="button" data-vw="390">Mobile</button>
-</div>
-
 <script>
-  /* Responsive view switcher: preview the page at tablet/mobile width in a frame. */
-  (function(){
-    var inFrame = location.search.indexOf('vf=1') > -1;
-    if (inFrame) { document.body.classList.add('vf'); return; }
-    var bar = document.getElementById('viewbar');
-    var sim = document.getElementById('viewsim');
-    var frameBox = document.getElementById('vsFrame2');
-    var frame = document.getElementById('vsFrame');
-    if (!bar || !sim || !frame) return;
-    var btns = Array.prototype.slice.call(bar.querySelectorAll('button'));
-    btns.forEach(function(b){
-      b.addEventListener('click', function(){
-        btns.forEach(function(x){ x.classList.remove('on'); });
-        b.classList.add('on');
-        var vw = b.getAttribute('data-vw');
-        if (!vw) {
-          sim.hidden = true;
-          frame.src = 'about:blank';
-          return;
-        }
-        frameBox.style.width = vw + 'px';
-        var target = location.pathname + '?vf=1';
-        if (frame.getAttribute('src') !== target) frame.src = target;
-        sim.hidden = false;
-      });
-    });
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape' && !sim.hidden) { btns[0].click(); }
-    });
-  })();
 
   /* Intro splash: hold briefly, then fade into the page. */
   (function(){
     var s = document.getElementById('splash');
     if (!s) return;
-    if (location.search.indexOf('vf=1') > -1) {
-      if (s.parentNode) s.parentNode.removeChild(s);
-      return;
-    }
     document.body.classList.add('splash-lock');
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var sv = s.querySelector('.splash-vid');
