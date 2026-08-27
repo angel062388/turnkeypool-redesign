@@ -91,6 +91,7 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(77,151,210,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(77,151,210,.05) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
 .hero-split{position:relative;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:center}
 .hero-copy{text-align:left}
+.hero-copy .eyebrow,.hero-copy h1{text-align:center}
 .hero-media{position:relative}
 .media-frame{position:relative;border:1px solid var(--border-dark);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(1,19,33,.55),0 0 0 1px rgba(77,151,210,.12),0 18px 60px rgba(77,151,210,.16)}
 .media-frame video{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.62) brightness(.78) contrast(1.06)}
@@ -212,10 +213,22 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 .hero-stats.is-in .hs:nth-child(4){transition-delay:.9s}
 @media (prefers-reduced-motion:reduce){.hero-stats .hs,.hero-stats.is-in .hs{opacity:1;transform:none;transition:none}}
 
-/* ---------- credibility strip ---------- */
-.strip{background:var(--ink-deep);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:16px 24px;text-align:center}
-.strip p{font-family:var(--font-mono);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,247,242,.6)}
-.strip b{color:var(--accent);font-weight:600}
+/* ---------- credibility ticker ---------- */
+.strip{position:relative;background:var(--ink-deep);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);overflow:hidden}
+.strip::before,.strip::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.strip::before{left:0;background:linear-gradient(90deg,var(--ink-deep),rgba(1,19,33,0))}
+.strip::after{right:0;background:linear-gradient(270deg,var(--ink-deep),rgba(1,19,33,0))}
+.strip-track{display:flex;width:max-content;padding:16px 0;animation:stripSlide 46s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes stripSlide{to{transform:translateX(-50%)}}
+.strip-track span{position:relative;white-space:nowrap;padding:0 30px;font-family:var(--font-mono);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,247,242,.6)}
+.strip-track span::after{content:"\00B7";position:absolute;right:-4px;color:rgba(77,151,210,.6)}
+.strip-track b{color:var(--accent);font-weight:600}
+.strip-track .stars{font-style:normal;color:#F3C64F;letter-spacing:.12em;margin-right:6px}
+@media (prefers-reduced-motion:reduce){
+  .strip-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;padding:14px 16px;row-gap:6px}
+  .strip-track span.dup{display:none}
+}
 
 /* ---------- process grid ---------- */
 .step-tag{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
@@ -546,7 +559,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="hero-split">
     <div class="hero-copy">
-      <div class="eyebrow">01 &middot; New Orleans &middot; Pool Design Contractor</div>
+      <div class="eyebrow">New Orleans &middot; Pool Design Contractor</div>
       <h1><em>Innovative &amp; Inspiring</em> Pool Designs In <em>New Orleans</em></h1>
       <ul class="hero-checks">
         <li>FREE Estimates for Homeowners Across New Orleans and Surrounding Areas</li>
@@ -577,16 +590,31 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- credibility strip -->
-<div class="strip">
-  <p>Residential License <b>#890459</b> &middot; Commercial License <b>#3667</b> &middot; Serving New Orleans &amp; Surrounding Areas</p>
+<!-- credibility ticker -->
+<div class="strip" aria-label="Licenses and ratings">
+  <div class="strip-track">
+    <span>Residential License <b>#890459</b></span>
+    <span>Commercial License <b>#3667</b></span>
+    <span>Serving New Orleans &amp; Surrounding Areas</span>
+    <span><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> Google Reviews</span>
+    <span><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> Facebook 5 Star Customer Rating</span>
+    <span>Premium Quality Guaranteed</span>
+    <span>100% Satisfaction Guaranteed</span>
+    <span class="dup" aria-hidden="true">Residential License <b>#890459</b></span>
+    <span class="dup" aria-hidden="true">Commercial License <b>#3667</b></span>
+    <span class="dup" aria-hidden="true">Serving New Orleans &amp; Surrounding Areas</span>
+    <span class="dup" aria-hidden="true"><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> Google Reviews</span>
+    <span class="dup" aria-hidden="true"><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> Facebook 5 Star Customer Rating</span>
+    <span class="dup" aria-hidden="true">Premium Quality Guaranteed</span>
+    <span class="dup" aria-hidden="true">100% Satisfaction Guaranteed</span>
+  </div>
 </div>
 
 <!-- 02 SERVICES -->
 <section class="section light tint">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">02 &middot; Services</div>
+      <div class="eyebrow">Services</div>
       <h2>Pool Designs <em>Services</em></h2>
     </div>
     <ul class="svc-rows">
@@ -647,7 +675,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">03 &middot; Capabilities</div>
+      <div class="eyebrow">Capabilities</div>
       <h2>Design, build, <em>renew</em></h2>
     </div>
     <div class="cap-cards">
@@ -693,7 +721,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">04 &middot; Service Areas</div>
+      <div class="eyebrow">Service Areas</div>
       <h2>Where We <em>Work</em></h2>
     </div>
     <div class="wwl">
@@ -743,7 +771,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <section class="section light" style="padding-top:24px">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">05 &middot; Gallery</div>
+      <div class="eyebrow">Gallery</div>
       <h2>Our <em>Gallery</em></h2>
     </div>
     <div class="gal-marquee" aria-label="TurnKey Pool Designers project photos">
@@ -789,7 +817,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <section class="section dark">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">06 &middot; Process</div>
+      <div class="eyebrow">Process</div>
       <h2>Our <em>5-Step</em> Pool Design Process</h2>
     </div>
     <div class="proc-play" id="procPlay">
@@ -845,7 +873,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <section class="section dark" style="padding-top:24px">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">07 &middot; About Us</div>
+      <div class="eyebrow">About Us</div>
       <h2>About Our <em>Passion</em> For Pool Designs</h2>
       <div class="kicker">Proud To Be Serving The Expertise You Can Trust</div>
     </div>
@@ -863,7 +891,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 <section class="section dark" style="padding-top:24px">
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">08 &middot; Testimonials</div>
+      <div class="eyebrow">Testimonials</div>
       <h2>What Our <em>Clients</em> Say</h2>
     </div>
     <div class="t-wall">
