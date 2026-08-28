@@ -663,6 +663,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 .abt.is-in .abt-card:nth-child(6){transition-delay:.66s}
 .abt.is-in .abt-card:nth-child(7){transition-delay:.78s}
 .abt.is-in .abt-card:nth-child(8){transition-delay:.9s}
+/* ---------- photo headers on cards (user request 2026-08-28) ---------- */
+.abt-card .card-img{margin:-30px -28px 22px;height:190px;overflow:hidden}
+.duo-card .card-img{margin:-34px -30px 22px;height:190px;overflow:hidden;border-radius:14px 14px 0 0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.abt-card.has-img .abt-num{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.9);text-shadow:0 2px 14px rgba(1,19,33,.5);z-index:2}
+@media (max-width:640px){.abt-card .card-img,.duo-card .card-img{height:165px}}
 @media (prefers-reduced-motion:reduce){.duo-card,.duo-sec.is-in .duo-card{opacity:1;transform:none;transition:none}}
 </style>
 </head>
@@ -911,10 +917,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     </div>
     <div class="duo">
       <div class="duo-card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1786051385612-5fac26efaf88?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool and deck behind a white home" loading="lazy"></div>
         <h3>Key Service Providers</h3>
         <p>New Orleans has a warm climate year-round, which means that pools are a popular feature in many homes and businesses. Over time, pools can deteriorate and require renovations to maintain their functionality and aesthetic appeal. These service providers play a crucial role in restoring and enhancing pools, ensuring that residents and businesses can continue to enjoy their pools for years to come.</p>
       </div>
       <div class="duo-card">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1652878856832-887df545cb0c?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Rectangular pool with stone coping under lush trees" loading="lazy"></div>
         <h3>Unique Regional Considerations</h3>
         <p>New Orleans experiences hot and humid weather for the majority of the year, which can have a significant impact on the condition and functionality of pool structures. The high levels of humidity can lead to increased wear and tear on pool materials, such as tiles and decking, making regular maintenance and renovations essential.</p>
       </div>

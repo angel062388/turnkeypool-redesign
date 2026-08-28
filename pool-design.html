@@ -663,6 +663,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 .abt.is-in .abt-card:nth-child(6){transition-delay:.66s}
 .abt.is-in .abt-card:nth-child(7){transition-delay:.78s}
 .abt.is-in .abt-card:nth-child(8){transition-delay:.9s}
+/* ---------- photo headers on cards (user request 2026-08-28) ---------- */
+.abt-card .card-img{margin:-30px -28px 22px;height:190px;overflow:hidden}
+.duo-card .card-img{margin:-34px -30px 22px;height:190px;overflow:hidden;border-radius:14px 14px 0 0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.abt-card.has-img .abt-num{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.9);text-shadow:0 2px 14px rgba(1,19,33,.5);z-index:2}
+@media (max-width:640px){.abt-card .card-img,.duo-card .card-img{height:165px}}
 @media (prefers-reduced-motion:reduce){.duo-card,.duo-sec.is-in .duo-card{opacity:1;transform:none;transition:none}}
 </style>
 </head>
@@ -906,49 +912,57 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <h2>Pool <em>Design Options</em></h2>
     </div>
     <div class="abt-grid">
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1781868341938-70ef5d26dfa8?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Blue above-ground pool beside a tree line" loading="lazy"></div>
         <span class="abt-num">01</span>
         <h3>Above-Ground Pool</h3>
         <p>There are several reasons why above-ground pools are a preferred choice for many homeowners. First, they are more affordable compared to in-ground pools, making them a budget-friendly option.</p>
         <p>Additionally, above-ground pools are easier and quicker to install, which means you can start enjoying your pool sooner.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1783125127199-860da9744dcc?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Geometric pool beside a modern home" loading="lazy"></div>
         <span class="abt-num">02</span>
         <h3>Architectural Pool</h3>
         <p>Architectural pools are designed with a focus on the overall aesthetic and architectural style of your home. They are often custom-designed to seamlessly integrate with the surrounding landscape and enhance the overall visual appeal of your outdoor space.</p>
         <p>With architectural pools, you have the freedom to choose from a variety of shapes, sizes, and features that best complement your home&#39;s design.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://assets.mixkit.co/videos/47286/47286-thumb-720-0.jpg" alt="Villa backyard swimming pool" loading="lazy"></div>
         <span class="abt-num">03</span>
         <h3>Recreational Swimming Pool</h3>
         <p>Homeowners can choose to have a traditional rectangular pool, which is a popular and classic choice. This design allows for easy pool activities and fits well in most backyard spaces.</p>
         <p>Another option is a freeform pool, which offers a more natural and organic shape. This design is great for homeowners who want a pool that blends seamlessly with the surrounding landscape.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1676302144341-10563603f99a?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Indoor pool hall with garden windows" loading="lazy"></div>
         <span class="abt-num">04</span>
         <h3>Indoor Pool</h3>
         <p>When it comes to pool design options, one popular choice is an indoor pool. An indoor pool offers several advantages to homeowners.</p>
         <p>It can be enjoyed year-round, regardless of the weather conditions outside. Additionally, an indoor pool provides privacy and can be a great way to exercise and relax without worrying about prying eyes or external disturbances.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Infinity edge pool overlooking the water" loading="lazy"></div>
         <span class="abt-num">05</span>
         <h3>Infinity Pool</h3>
         <p>These pools create the illusion of water extending to the horizon, giving the impression that the pool seamlessly merges with the surrounding landscape or body of water.</p>
         <p>Infinity pools enhance the aesthetic appeal of any property and provide a luxurious and stylish atmosphere.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://assets.mixkit.co/videos/1260/1260-thumb-720-0.jpg" alt="Donut float drifting on bright pool water" loading="lazy"></div>
         <span class="abt-num">06</span>
         <h3>Kiddie Pool</h3>
         <p>A kiddie pool is a smaller and shallower pool designed specifically for young children. It provides a safe and enjoyable environment for kids to play and splash around in.</p>
         <p>The size and depth of a kiddie pool can be customized to meet the needs and preferences of the homeowners.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1560090964-cc7c8bfb293e?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Swim lanes in a long rectangular pool" loading="lazy"></div>
         <span class="abt-num">07</span>
         <h3>Lap Pool</h3>
         <p>Lap pools are rectangular in shape and are designed specifically for swimming laps and other aquatic exercises.</p>
         <p>These pools typically have a length of 50 to 75 feet and a width of 8 to 10 feet, providing enough space for swimmers to move comfortably.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1654482278660-14a8cfd5589d?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Small plunge pool in a tropical garden" loading="lazy"></div>
         <span class="abt-num">08</span>
         <h3>Spool</h3>
         <p>A spool is a smaller-sized pool, typically around 12-14 feet long and 6-8 feet wide, designed to provide the benefits of both a pool and a spa.</p>

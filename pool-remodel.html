@@ -663,6 +663,12 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 .abt.is-in .abt-card:nth-child(6){transition-delay:.66s}
 .abt.is-in .abt-card:nth-child(7){transition-delay:.78s}
 .abt.is-in .abt-card:nth-child(8){transition-delay:.9s}
+/* ---------- photo headers on cards (user request 2026-08-28) ---------- */
+.abt-card .card-img{margin:-30px -28px 22px;height:190px;overflow:hidden}
+.duo-card .card-img{margin:-34px -30px 22px;height:190px;overflow:hidden;border-radius:14px 14px 0 0}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.abt-card.has-img .abt-num{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.9);text-shadow:0 2px 14px rgba(1,19,33,.5);z-index:2}
+@media (max-width:640px){.abt-card .card-img,.duo-card .card-img{height:165px}}
 @media (prefers-reduced-motion:reduce){.duo-card,.duo-sec.is-in .duo-card{opacity:1;transform:none;transition:none}}
 </style>
 </head>
@@ -928,25 +934,29 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       </div>
     </div>
     <div class="abt-grid">
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1634048010106-00ce1d4c3301?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Drained pool with tiled walls ready for resurfacing" loading="lazy"></div>
         <span class="abt-num">01</span>
         <div class="abt-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 4 6 7.2 6 10a6 6 0 1 1-12 0c0-2.8 2.5-6 6-10Z"/></svg></div>
         <h3>Pool resurfacing and plastering</h3>
         <p>One of the popular pool services in New Orleans is pool resurfacing and plastering. Many pool owners choose to have their pools resurfaced and plastered to enhance the visual appeal and durability of their pools. Over time, the surface of a pool can become worn, cracked, or faded, making it less appealing and potentially causing leaks. Pool resurfacing involves removing the old surface and applying a new one, while plastering involves applying a layer of plaster to the pool&#39;s surface.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1690615961058-1d695ff218bc?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Empty pool with fresh blue floor tile and mosaic wall" loading="lazy"></div>
         <span class="abt-num">02</span>
         <div class="abt-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
         <h3>Tile and coping replacement</h3>
         <p>One of the most popular pool remodeling services in New Orleans is tile and coping replacement. Over time, the tiles and coping around a pool can become outdated, worn, or damaged. This not only affects the visual appeal of the pool but can also pose safety hazards. By replacing the tiles and coping, pool owners can give their pool a fresh, updated look while ensuring that it is safe and functional. Tile and coping replacement services typically involve removing the old tiles and coping, preparing the surface, and installing new, high-quality tiles and coping materials.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1780287857843-b461b70a9b2b?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Wooden pool deck and stone patio with tropical plants" loading="lazy"></div>
         <span class="abt-num">03</span>
         <div class="abt-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 11 8-7 8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z"/></svg></div>
         <h3>Pool deck and patio renovation</h3>
         <p>One of the most popular pool remodeling services in New Orleans is pool deck and patio renovation. This service is sought after by pool owners who want to enhance the overall aesthetic appeal and functionality of their pools. Pool deck and patio renovation can include various elements such as repairing or replacing cracked or damaged tiles, resurfacing the deck or patio with new materials, adding decorative elements like stamped concrete or pavers, and installing additional features like fire pits or outdoor kitchens.</p>
       </div>
-      <div class="abt-card">
+      <div class="abt-card has-img">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1693463735697-73df1f35930d?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Pool pump room with gauges and blue piping" loading="lazy"></div>
         <span class="abt-num">04</span>
         <div class="abt-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
         <h3>Equipment upgrades and automation</h3>
