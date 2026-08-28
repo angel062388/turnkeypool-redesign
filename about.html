@@ -141,10 +141,8 @@ nav.main > div:hover .drop,nav.main > div:focus-within .drop{opacity:1;visibilit
 /* ---------- rolling wave section dividers ---------- */
 .has-wave{position:relative;padding-bottom:170px !important}
 .wave-sep{position:absolute;left:0;right:0;bottom:-1px;height:90px;pointer-events:none;overflow:hidden}
-.wave-sep svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:waveFlow 13s linear infinite}
-.wave-sep svg.back{opacity:.35;animation-duration:21s;animation-direction:reverse;transform:translateY(4px)}
-@keyframes waveFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.wave-sep svg{animation:none}}
+.wave-sep svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
+.wave-sep svg.back{display:none}
 
 /* ---------- floating quote capsule ---------- */
 .fab-quote{position:fixed;right:18px;bottom:18px;z-index:180;display:flex;align-items:center;gap:4px;background:rgba(1,19,33,.9);backdrop-filter:blur(8px);border:1px solid rgba(77,151,210,.45);border-radius:50px;padding:5px;box-shadow:0 14px 36px rgba(1,19,33,.45);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .45s ease,transform .5s cubic-bezier(.16,1,.3,1)}
@@ -367,7 +365,7 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
 }
 @media (prefers-reduced-motion:reduce){.svc-rows li,.svc-rows li.is-in{opacity:1;transform:none;transition:none}}
 /* dark heading band above the light services rows */
-.svc-headband{background:var(--ink);color:var(--paper);padding:56px 24px 50px}
+.svc-headband{background:linear-gradient(180deg,#15477E,#123C6B);color:var(--paper);padding:56px 24px 50px}
 .svc-headband .wrap{max-width:1160px;margin:0 auto}
 .svc-headband .svc-sub{color:rgba(248,247,242,.78)}
 .svc-headband .svc-sub a{color:var(--accent)}
@@ -458,11 +456,7 @@ html:not(.js) .cap-more{height:auto}
 .cap-more-in{padding-top:12px}
 .cap-toggle{margin-top:auto;align-self:flex-start;background:none;border:1px solid rgba(77,151,210,.45);border-radius:4px;color:var(--accent);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;padding:10px 16px;cursor:pointer;transition:border-color .25s ease,color .25s ease}
 .cap-toggle:hover{border-color:var(--accent);color:var(--accent-bright)}
-.cap-cards .cap-card{opacity:0;transform:translateX(-130px);transition:opacity 1.15s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
-.capvid.is-in .cap-card{opacity:1;transform:none}
-.capvid.is-in .cap-card:nth-child(2){transition-delay:.28s}
-.capvid.is-in .cap-card:nth-child(3){transition-delay:.56s}
-@media (prefers-reduced-motion:reduce){.cap-more{transition:none}.cap-cards .cap-card{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.cap-more{transition:none}}
 @media (max-width:980px){.cap-cards{grid-template-columns:1fr}}
 
 /* ---------- city ledger ---------- */
@@ -1167,18 +1161,6 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     io.observe(sec);
   })();
 
-  /* Capability cards: slide in from the left when the section scrolls into view. */
-  (function(){
-    var sec = document.querySelector('.capvid');
-    if (!sec) return;
-    if (!('IntersectionObserver' in window)) { sec.classList.add('is-in'); return; }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
-      });
-    }, { rootMargin: '0px 0px -18% 0px' });
-    io.observe(sec);
-  })();
 
   /* FAQs: staggered reveal + one-open accordion with height animation. */
   (function(){
