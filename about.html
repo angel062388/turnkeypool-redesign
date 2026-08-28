@@ -600,7 +600,8 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   .hero h1{font-size:1.72rem}
   h1 em{padding:0 12px}
   .hero-checks{grid-template-columns:1fr}
-  .svc-rows li{grid-template-columns:1fr;gap:18px}
+  .svc-rows li{grid-template-columns:1fr;grid-template-areas:"img" "body";gap:18px}
+  .svc-rows li:nth-child(even){grid-template-columns:1fr;grid-template-areas:"img" "body"}
   .svc-arrow{display:none}
   .cta-band{padding:84px 20px}
   .ftr{grid-template-columns:1fr;gap:34px}
