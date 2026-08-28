@@ -625,34 +625,6 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
 .hero-center .hero-lede{max-width:760px;margin:0 auto 26px}
 .hero-center .hero-lede p{color:var(--ink-2);font-size:1.05rem;margin-bottom:12px}
 .hero-center .btn-row{justify-content:center;margin-bottom:0;margin-left:auto;margin-right:auto}
-/* ---------- city photo tile directory ---------- */
-.city-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:1160px;margin:38px auto 0}
-.city-tile{position:relative;display:block;width:360px;aspect-ratio:4/3;border-radius:14px;overflow:hidden;text-decoration:none;box-shadow:0 16px 38px rgba(1,19,33,.18);opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .75s cubic-bezier(.16,1,.3,1)}
-.city-tile img{width:100%;height:100%;object-fit:cover;transform:scale(1.03);transition:transform 1.4s cubic-bezier(.16,1,.3,1),filter .5s ease;filter:saturate(.92)}
-.city-tile:hover img{transform:scale(1.1);filter:saturate(1.05)}
-.city-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,19,33,0) 42%,rgba(1,19,33,.86) 100%)}
-.city-label{position:absolute;left:18px;right:14px;bottom:14px;z-index:2;display:flex;align-items:baseline;gap:10px}
-.city-label .idx{font-family:var(--font-mono);font-weight:600;font-size:.6rem;letter-spacing:.12em;color:rgba(248,247,242,.72)}
-.city-label .name{font-family:var(--font-serif);font-weight:700;font-size:1.24rem;color:#fff;letter-spacing:.01em}
-.city-label .go{margin-left:auto;font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:0;transform:translateX(-6px);transition:opacity .35s ease,transform .35s ease}
-.city-tile:hover .go{opacity:1;transform:none}
-.areas-sec.is-in .city-tile{opacity:1;transform:none}
-.areas-sec.is-in .city-tile:nth-child(1){transition-delay:0.00s}
-.areas-sec.is-in .city-tile:nth-child(2){transition-delay:0.06s}
-.areas-sec.is-in .city-tile:nth-child(3){transition-delay:0.12s}
-.areas-sec.is-in .city-tile:nth-child(4){transition-delay:0.18s}
-.areas-sec.is-in .city-tile:nth-child(5){transition-delay:0.24s}
-.areas-sec.is-in .city-tile:nth-child(6){transition-delay:0.30s}
-.areas-sec.is-in .city-tile:nth-child(7){transition-delay:0.36s}
-.areas-sec.is-in .city-tile:nth-child(8){transition-delay:0.42s}
-.areas-sec.is-in .city-tile:nth-child(9){transition-delay:0.48s}
-.areas-sec.is-in .city-tile:nth-child(10){transition-delay:0.54s}
-.areas-sec.is-in .city-tile:nth-child(11){transition-delay:0.60s}
-.areas-sec.is-in .city-tile:nth-child(12){transition-delay:0.66s}
-.areas-sec.is-in .city-tile:nth-child(13){transition-delay:0.72s}
-@media (max-width:800px){.city-tile{width:calc(50% - 9px)}}
-@media (max-width:520px){.city-tile{width:100%;aspect-ratio:16/10}.city-tile .go{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.city-tile,.areas-sec.is-in .city-tile{opacity:1;transform:none;transition:none}.city-tile img,.city-tile:hover img{transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -774,70 +746,117 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 02 CITY DIRECTORY -->
-<section class="section light tint areas-sec" data-rev>
+<!-- 05 WHERE WE WORK -->
+<section class="section light wwlvid has-wave">
+  <div class="wwl-bg">
+    <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true">
+      <source src="https://assets.mixkit.co/videos/13195/13195-720.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">13 Communities</div>
-      <h2>Serving New Orleans &amp; <em>Surrounding Areas</em></h2>
+      <div class="eyebrow">Service Areas</div>
+      <h2>Where We <em>Work</em></h2>
     </div>
-    <div class="city-grid">
-      <a class="city-tile" href="baton-rouge.html">
-        <img src="https://images.unsplash.com/photo-1536745511564-a5fa6e596e7b?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Baton Rouge" loading="lazy">
-        <span class="city-label"><span class="idx">01</span><span class="name">Baton Rouge</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="covington.html">
-        <img src="https://images.unsplash.com/photo-1652878856832-887df545cb0c?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Covington" loading="lazy">
-        <span class="city-label"><span class="idx">02</span><span class="name">Covington</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="gretna.html">
-        <img src="https://images.unsplash.com/photo-1534009502677-4e5080efa8c6?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Gretna" loading="lazy">
-        <span class="city-label"><span class="idx">03</span><span class="name">Gretna</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="hammond.html">
-        <img src="https://images.unsplash.com/photo-1634923295030-730da9900a2d?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Hammond" loading="lazy">
-        <span class="city-label"><span class="idx">04</span><span class="name">Hammond</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="harahan.html">
-        <img src="https://images.unsplash.com/photo-1557459325-b6733cbeae9c?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Harahan" loading="lazy">
-        <span class="city-label"><span class="idx">05</span><span class="name">Harahan</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="kenner.html">
-        <img src="https://images.unsplash.com/photo-1724660583299-2356fe880e54?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Kenner" loading="lazy">
-        <span class="city-label"><span class="idx">06</span><span class="name">Kenner</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="laplace.html">
-        <img src="https://images.unsplash.com/photo-1657399179505-12205ea153a9?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Laplace" loading="lazy">
-        <span class="city-label"><span class="idx">07</span><span class="name">Laplace</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="madisonville.html">
-        <img src="https://images.unsplash.com/photo-1557459310-ea39155bd081?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Madisonville" loading="lazy">
-        <span class="city-label"><span class="idx">08</span><span class="name">Madisonville</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="mandeville.html">
-        <img src="https://images.unsplash.com/photo-1592345965963-cde4e1c83608?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Mandeville" loading="lazy">
-        <span class="city-label"><span class="idx">09</span><span class="name">Mandeville</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="metairie.html">
-        <img src="https://images.unsplash.com/photo-1530115638250-8f7f42475f5e?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Metairie" loading="lazy">
-        <span class="city-label"><span class="idx">10</span><span class="name">Metairie</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="river-ridge.html">
-        <img src="https://images.unsplash.com/photo-1746057717075-5d3303a91918?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in River Ridge" loading="lazy">
-        <span class="city-label"><span class="idx">11</span><span class="name">River Ridge</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="slidell.html">
-        <img src="https://images.unsplash.com/photo-1695996472807-bf0763dd23ea?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in Slidell" loading="lazy">
-        <span class="city-label"><span class="idx">12</span><span class="name">Slidell</span><span class="go">View Page &rarr;</span></span>
-      </a>
-      <a class="city-tile" href="st-rose.html">
-        <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard pool in St. Rose" loading="lazy">
-        <span class="city-label"><span class="idx">13</span><span class="name">St. Rose</span><span class="go">View Page &rarr;</span></span>
-      </a>
+    <div class="wwl">
+      <ul class="wwl-list">
+        <li><button class="wwl-item is-on" type="button" data-name="Baton Rouge" data-href="baton-rouge.html"><i></i>Baton Rouge</button></li>
+        <li><button class="wwl-item" type="button" data-name="Covington" data-href="covington.html"><i></i>Covington</button></li>
+        <li><button class="wwl-item" type="button" data-name="Gretna" data-href="gretna.html"><i></i>Gretna</button></li>
+        <li><button class="wwl-item" type="button" data-name="Hammond" data-href="hammond.html"><i></i>Hammond</button></li>
+        <li><button class="wwl-item" type="button" data-name="Harahan" data-href="harahan.html"><i></i>Harahan</button></li>
+        <li><button class="wwl-item" type="button" data-name="Kenner" data-href="kenner.html"><i></i>Kenner</button></li>
+        <li><button class="wwl-item" type="button" data-name="Laplace" data-href="laplace.html"><i></i>Laplace</button></li>
+        <li><button class="wwl-item" type="button" data-name="Madisonville" data-href="madisonville.html"><i></i>Madisonville</button></li>
+        <li><button class="wwl-item" type="button" data-name="Mandeville" data-href="mandeville.html"><i></i>Mandeville</button></li>
+        <li><button class="wwl-item" type="button" data-name="Metairie" data-href="metairie.html"><i></i>Metairie</button></li>
+        <li><button class="wwl-item" type="button" data-name="River Ridge" data-href="river-ridge.html"><i></i>River Ridge</button></li>
+        <li><button class="wwl-item" type="button" data-name="Slidell" data-href="slidell.html"><i></i>Slidell</button></li>
+        <li><button class="wwl-item" type="button" data-name="St. Rose" data-href="st-rose.html"><i></i>St. Rose</button></li>
+      </ul>
+      <div class="wwl-media">
+        <div class="wwl-imgs">
+          <img class="on" src="https://images.unsplash.com/photo-1536745511564-a5fa6e596e7b?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1652878856832-887df545cb0c?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1534009502677-4e5080efa8c6?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1634923295030-730da9900a2d?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1557459325-b6733cbeae9c?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1724660583299-2356fe880e54?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1657399179505-12205ea153a9?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1557459310-ea39155bd081?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1592345965963-cde4e1c83608?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1530115638250-8f7f42475f5e?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1746057717075-5d3303a91918?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1695996472807-bf0763dd23ea?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+        </div>
+        <div class="wwl-label"><span class="idx">01</span><span class="city">Baton Rouge</span></div>
+        <a class="wwl-go" href="baton-rouge.html">View Page &rarr;</a>
+      </div>
     </div>
-    <div class="btn-row" style="justify-content:center;margin-top:44px">
+    <div class="btn-row" style="justify-content:center;margin-top:48px">
       <a class="btn btn-primary" href="#quote-form">Get a Free Quote <span>&rarr;</span></a>
       <a class="btn btn-ghost on-light" href="tel:+15043863724">Call (504) 386-3724</a>
+    </div>
+  </div>
+  <div class="wave-sep" aria-hidden="true">
+    <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
+    <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#021F35" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
+  </div>
+</section>
+
+<!-- 03 PROCESS -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Process</div>
+      <h2>Our <em>5-Step</em> Pool Design Process</h2>
+    </div>
+    <div class="proc-play" id="procPlay">
+      <div class="pp-left">
+        <div class="pp-numwrap">
+          <div class="pp-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="pp-num" id="ppNum">01</span>
+          <canvas class="pp-cv" id="ppCv" aria-hidden="true"></canvas>
+          <video id="ppVid" muted loop playsinline autoplay preload="auto" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true"><source src="https://assets.mixkit.co/videos/13195/13195-720.mp4" type="video/mp4"></video>
+        </div>
+        <div class="pp-fill-tag">The pool fills as each step completes</div>
+        <div class="pp-dots" id="ppDots">
+          <button type="button" class="on" aria-label="Step 1">01</button>
+          <button type="button" aria-label="Step 2">02</button>
+          <button type="button" aria-label="Step 3">03</button>
+          <button type="button" aria-label="Step 4">04</button>
+          <button type="button" aria-label="Step 5">05</button>
+        </div>
+        <div class="pp-hint">Auto-playing &middot; Hover to pause</div>
+      </div>
+      <div class="pp-right" id="ppPanes">
+        <div class="pp-pane on">
+          <div class="step-tag">Step &middot; 01</div>
+          <h3>Schedule A Consultation</h3>
+          <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences. We take into consideration factors such as the size and shape of the yard, the desired features and amenities, and the client&#39;s budget.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 02</div>
+          <h3>Design Your Pool</h3>
+          <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget. Once we have a clear understanding of the client&#39;s needs, our team of experienced designers and engineers will create a pool design that meets all their specifications.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 03</div>
+          <h3>Visualize and Revise</h3>
+          <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 04</div>
+          <h3>Construction</h3>
+          <p>Once you have approved the design of your pool, our team of skilled workers will begin construction. Our expert team of builders, engineers, and landscapers works together seamlessly to guarantee that every part of the construction process is finished with the finest quality and efficiency possible.</p>
+        </div>
+        <div class="pp-pane">
+          <div class="step-tag">Step &middot; 05</div>
+          <h3>Open Communication</h3>
+          <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded. Contact us today to schedule a consultation and learn more about our services!</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -899,62 +918,6 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     <div class="btn-row" style="justify-content:center;margin-top:48px">
       <a class="btn btn-primary" href="#quote-form">Get a Free Quote <span>&rarr;</span></a>
       <a class="btn btn-ghost on-light" href="tel:+15043863724">Call (504) 386-3724</a>
-    </div>
-  </div>
-</section>
-
-<!-- 03 PROCESS -->
-<section class="section dark">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Process</div>
-      <h2>Our <em>5-Step</em> Pool Design Process</h2>
-    </div>
-    <div class="proc-play" id="procPlay">
-      <div class="pp-left">
-        <div class="pp-numwrap">
-          <div class="pp-bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          <span class="pp-num" id="ppNum">01</span>
-          <canvas class="pp-cv" id="ppCv" aria-hidden="true"></canvas>
-          <video id="ppVid" muted loop playsinline autoplay preload="auto" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true"><source src="https://assets.mixkit.co/videos/13195/13195-720.mp4" type="video/mp4"></video>
-        </div>
-        <div class="pp-fill-tag">The pool fills as each step completes</div>
-        <div class="pp-dots" id="ppDots">
-          <button type="button" class="on" aria-label="Step 1">01</button>
-          <button type="button" aria-label="Step 2">02</button>
-          <button type="button" aria-label="Step 3">03</button>
-          <button type="button" aria-label="Step 4">04</button>
-          <button type="button" aria-label="Step 5">05</button>
-        </div>
-        <div class="pp-hint">Auto-playing &middot; Hover to pause</div>
-      </div>
-      <div class="pp-right" id="ppPanes">
-        <div class="pp-pane on">
-          <div class="step-tag">Step &middot; 01</div>
-          <h3>Schedule A Consultation</h3>
-          <p>When you contact us for a consultation, we will ask you some questions so that we can understand your needs and preferences. We take into consideration factors such as the size and shape of the yard, the desired features and amenities, and the client&#39;s budget.</p>
-        </div>
-        <div class="pp-pane">
-          <div class="step-tag">Step &middot; 02</div>
-          <h3>Design Your Pool</h3>
-          <p>After our initial consultation, we will work with you to design a pool that meets your specific needs and budget. Once we have a clear understanding of the client&#39;s needs, our team of experienced designers and engineers will create a pool design that meets all their specifications.</p>
-        </div>
-        <div class="pp-pane">
-          <div class="step-tag">Step &middot; 03</div>
-          <h3>Visualize and Revise</h3>
-          <p>We use cutting-edge technology and software to visualize the design and make any necessary revisions before finalizing the plans. We produce a 3D rendering using the most recent design software so you can literally jump into your future pool before construction even starts.</p>
-        </div>
-        <div class="pp-pane">
-          <div class="step-tag">Step &middot; 04</div>
-          <h3>Construction</h3>
-          <p>Once you have approved the design of your pool, our team of skilled workers will begin construction. Our expert team of builders, engineers, and landscapers works together seamlessly to guarantee that every part of the construction process is finished with the finest quality and efficiency possible.</p>
-        </div>
-        <div class="pp-pane">
-          <div class="step-tag">Step &middot; 05</div>
-          <h3>Open Communication</h3>
-          <p>Throughout the entire process, we prioritize open communication with our clients to ensure that their expectations are met and exceeded. Contact us today to schedule a consultation and learn more about our services!</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1555,22 +1518,6 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       if (e.target === lb || (e.target.closest && e.target.closest('.lb-close')) || e.target === pic) close();
     });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
-  })();
-</script>
-<script>
-  /* Service areas: reveal the city tiles when the directory scrolls into view. */
-  (function(){
-    var secs = document.querySelectorAll('[data-rev]');
-    if (!secs.length) return;
-    if (!('IntersectionObserver' in window)) { secs.forEach(function(s){ s.classList.add('is-in'); }); return; }
-    secs.forEach(function(sec){
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(e){
-          if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
-        });
-      }, { rootMargin: '0px 0px -10% 0px' });
-      io.observe(sec);
-    });
   })();
 </script>
 </body>
