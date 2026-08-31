@@ -124,9 +124,47 @@ h1 em.animate.is-2::before,h1 em.animate.is-2{animation-delay:.4s}
   .hero-bg video{transform:none;filter:none;transition:none}
   .hero-copy>*,.hero.is-armed .hero-copy>*{opacity:1;transform:none;transition:none}
 }
-.strip{background:var(--ink-deep);border-top:1px solid var(--border-dark);border-bottom:1px solid var(--border-dark);padding:16px 24px;text-align:center}
-.strip p{font-family:var(--font-mono);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,247,242,.6)}
-.strip b{color:var(--accent);font-weight:600}
+/* ---------- trust band (below hero) ---------- */
+.stars{font-style:normal;color:#F3C64F;letter-spacing:.12em}
+.trust{position:relative;overflow:hidden;background:var(--ink-deep)}
+.trust-bg{position:absolute;inset:0;background:url(https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg) center/cover no-repeat}
+.trust-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,71,126,.5),rgba(2,31,53,.66))}
+.trust .wrap{position:relative;z-index:2;padding-top:112px;padding-bottom:44px}
+.trust .wave-top{top:-1px;bottom:auto;z-index:1;transform:scaleY(-1)}
+.trust .wave-top svg{animation:waveFlow 13s linear infinite}
+.trust .wave-top svg.back{display:block;opacity:.35;animation-duration:21s;animation-direction:reverse}
+@keyframes waveFlow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.trust .wave-top svg{animation:none}}
+.trust-checks .stars{font-size:.85rem;letter-spacing:.14em}
+.trust.is-in .trust-checks .stars{animation:starPulse 2.8s ease-in-out 1.2s infinite}
+@keyframes starPulse{0%,100%{opacity:1}50%{opacity:.5}}
+.trust-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tr-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(6px);border-radius:var(--radius);padding:16px 18px;color:var(--paper);opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .75s cubic-bezier(.16,1,.3,1)}
+.trust.is-in .tr-item{opacity:1;transform:none}
+.trust.is-in .tr-item:nth-child(2){transition-delay:.12s}
+.trust.is-in .tr-item:nth-child(3){transition-delay:.24s}
+.trust.is-in .tr-item:nth-child(4){transition-delay:.36s}
+.tr-item svg{width:34px;height:34px;flex:none;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tr-item b{display:block;font-family:var(--font-sans);font-weight:800;font-size:1.04rem;line-height:1.25}
+.tr-item span{font-family:var(--font-mono);font-weight:600;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,247,242,.78)}
+.trust-checks{position:relative;z-index:2;background:linear-gradient(180deg,#15477E,#123C6B);overflow:hidden;opacity:0;transition:opacity .8s ease .35s}
+.trust.is-in .trust-checks{opacity:1}
+.tb-track{display:flex;width:max-content;padding:16px 0;animation:tbSlide 38s linear infinite}
+.trust-checks:hover .tb-track{animation-play-state:paused}
+@keyframes tbSlide{to{transform:translateX(-50%)}}
+.trust-checks span{display:flex;align-items:center;gap:10px;flex:none;white-space:nowrap;padding:0 27px;font-family:var(--font-mono);font-weight:600;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.trust-checks i{font-style:normal;font-weight:700;color:#8FD3FF}
+.trust-checks .tb-g,.trust-checks .tb-fb{font-family:var(--font-sans);font-weight:800;font-size:.92rem;letter-spacing:0;text-transform:none;line-height:1;padding:0;display:inline}
+.tb-g b:nth-child(1){color:#4285F4}.tb-g b:nth-child(2){color:#EA4335}.tb-g b:nth-child(3){color:#FBBC05}.tb-g b:nth-child(4){color:#4285F4}.tb-g b:nth-child(5){color:#34A853}.tb-g b:nth-child(6){color:#EA4335}
+.tb-fb{color:#fff}
+@media (max-width:1100px){.trust-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.trust-stats{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .tr-item,.trust-checks{opacity:1;transform:none;transition:none}
+  .trust.is-in .trust-checks .stars{animation:none}
+  .tb-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;padding:14px 16px;row-gap:8px}
+  .tb-track span.dup{display:none}
+}
 .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
 .ben-card{background:var(--card);border:1px solid var(--border-light);border-top:3px solid var(--accent);border-radius:var(--radius);padding:30px 26px}
 .ben-num{font-family:var(--font-sans);font-weight:900;font-size:2.6rem;line-height:1;-webkit-text-stroke:1px rgba(21,71,126,.6);color:transparent;margin-bottom:16px}
@@ -534,7 +572,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       <h1>Premier <em>Pool Design Contractor</em> <em>in Baton Rouge, LA</em>: Transforming Your Backyard Paradise</h1>
       <div class="hero-lede">
         <p>Are you looking to transform your backyard into a little piece of paradise? A stunning pool can be just what you need to create a relaxing and luxurious outdoor living space. But where do you start? Finding the right pool design contractor is essential to ensure you get the pool of your dreams.</p>
-        <p>With our expertise and knowledge, TurnKey Pool Designers can guide you through the entire design and construction process, ensuring that your pool exceeds your expectations. So, if you&#39;re in the market for a pool in Baton Rouge, LA, make sure to avoid any potential pitfalls by hiring an experienced and reputable pool design contractor.</p>
+        <p>With our expertise and knowledge, <a href="https://www.turnkeypooldesigners.com/" target="_blank" rel="noopener">TurnKey Pool Designers</a> can guide you through the entire design and construction process, ensuring that your pool exceeds your expectations. So, if you&#39;re in the market for a pool in Baton Rouge, LA, make sure to avoid any potential pitfalls by hiring an experienced and reputable pool design contractor.</p>
       </div>
       <div class="btn-row">
         <a class="btn btn-primary" href="contact.html">Get a Free Quote <span>&rarr;</span></a>
@@ -544,9 +582,46 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<div class="strip">
-  <p>Residential License <b>#890459</b> &middot; Commercial License <b>#3667</b> &middot; Serving New Orleans &amp; Surrounding Areas</p>
-</div>
+<!-- trust band -->
+<section class="trust" aria-label="Ratings, licenses, and guarantees">
+  <div class="trust-bg" aria-hidden="true"></div>
+  <div class="wave-sep wave-top" aria-hidden="true">
+    <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#F8F7F2" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
+    <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#F8F7F2" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="trust-stats">
+      <div class="tr-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6Z"/></svg>
+        <div><b>#890459</b><span>Residential License</span></div>
+      </div>
+      <div class="tr-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6Z"/><path d="m9 11.5 2 2 4-4"/></svg>
+        <div><b>#3667</b><span>Commercial License</span></div>
+      </div>
+      <div class="tr-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <div><b>Serving Baton Rouge</b><span>&amp; Surrounding Areas</span></div>
+      </div>
+      <div class="tr-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M9.2 13.3 7.5 21l4.5-2.5L16.5 21l-1.7-7.7"/></svg>
+        <div><b>Premium Quality</b><span>Guaranteed</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="trust-checks">
+    <div class="tb-track">
+      <span><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> 5 Star Customer Rating &middot; Verified <span class="tb-g" aria-label="Google"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &amp; <span class="tb-fb">facebook</span> Reviews</span>
+      <span><i>&#10003;</i> Custom Pool Design, Construction &amp; Renovation</span>
+      <span><i>&#10003;</i> Free Estimates For Homeowners</span>
+      <span><i>&#10003;</i> 100% Satisfaction Guaranteed</span>
+      <span class="dup" aria-hidden="true"><i class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</i> 5 Star Customer Rating &middot; Verified <span class="tb-g" aria-label="Google"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &amp; <span class="tb-fb">facebook</span> Reviews</span>
+      <span class="dup" aria-hidden="true"><i>&#10003;</i> Custom Pool Design, Construction &amp; Renovation</span>
+      <span class="dup" aria-hidden="true"><i>&#10003;</i> Free Estimates For Homeowners</span>
+      <span class="dup" aria-hidden="true"><i>&#10003;</i> 100% Satisfaction Guaranteed</span>
+    </div>
+  </div>
+</section>
 
 <!-- 02 SERVICES -->
 <div class="svc-headband dark">
@@ -554,7 +629,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
     <div class="section-head center" style="margin-bottom:0">
       <div class="eyebrow">02 &middot; Services</div>
       <h2>Our <em>Pool Design</em> Services in Baton Rouge, LA</h2>
-      <p class="svc-sub">Don&#39;t wait any longer to make your dream pool a reality. <a href="contact.html">Contact us today</a> to schedule a consultation and learn more about our services!</p>
+      <p class="svc-sub">Don&#39;t wait any longer to make your dream pool a reality. <a href="https://www.turnkeypooldesigners.com/contact/" target="_blank" rel="noopener">Contact us today</a> to schedule a consultation and learn more about our services!</p>
     </div>
   </div>
 </div>
@@ -1062,6 +1137,19 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         go.setAttribute('href', btn.getAttribute('data-href'));
       });
     });
+  })();
+
+  /* Trust band: reveal stat tiles and checks when it scrolls into view. */
+  (function(){
+    var sec = document.querySelector('.trust');
+    if (!sec) return;
+    if (!('IntersectionObserver' in window)) { sec.classList.add('is-in'); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { sec.classList.add('is-in'); io.disconnect(); }
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    io.observe(sec);
   })();
 
   /* Generic scroll-reveal: adds is-in the first time each section enters view. */
