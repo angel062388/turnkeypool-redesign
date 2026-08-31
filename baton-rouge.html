@@ -396,7 +396,16 @@ html:not(.js) .faq-a{height:auto}
 .area-media-cap{font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:14px;text-align:center}
 .area-content{display:flex;flex-direction:column;gap:20px;min-width:0}
 .area-content .alm-card{margin-bottom:0}
-.area-sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+.area-sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.area-sub-grid .alm-card{display:flex;flex-direction:column}
+.area-sub-grid .card-body{position:relative;max-height:230px;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+.area-sub-grid .card-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .3s ease}
+.area-sub-grid .alm-card.expanded .card-body{max-height:900px}
+.area-sub-grid .alm-card.expanded .card-body::after{opacity:0}
+.card-more-btn{margin-top:auto;margin-bottom:0;align-self:flex-start;background:none;border:1px solid rgba(21,71,126,.35);border-radius:4px;color:var(--accent-deep);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .25s ease,color .25s ease,background .25s ease}
+.card-more-btn:hover{border-color:var(--accent);color:var(--accent-bright);background:rgba(77,151,210,.08)}
+.card-more-btn .cmi{transition:transform .3s ease;display:inline-block}
+.alm-card.expanded .card-more-btn .cmi{transform:rotate(45deg)}
 @media (max-width:1100px){.area-split{grid-template-columns:1fr 1fr}}
 @media (max-width:900px){
   .area-split{grid-template-columns:1fr}
@@ -812,25 +821,34 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         <div class="area-sub-grid">
           <div class="alm-card">
             <h3>Nearby Suburbs</h3>
-            <p><b>Merrydale, LA</b></p>
-            <p><b>Baker, LA</b></p>
-            <p><b>Zachary, LA</b></p>
-            <p><b>Denham Springs, LA</b></p>
-            <p><b>Hammond, LA</b></p>
-            <p><b>Kenner, LA</b></p>
+            <div class="card-body">
+              <p><b>Merrydale, LA</b></p>
+              <p><b>Baker, LA</b></p>
+              <p><b>Zachary, LA</b></p>
+              <p><b>Denham Springs, LA</b></p>
+              <p><b>Hammond, LA</b></p>
+              <p><b>Kenner, LA</b></p>
+            </div>
+            <button class="card-more-btn" type="button" aria-expanded="false"><span class="cmt">Read More</span> <span class="cmi">+</span></button>
           </div>
           <div class="alm-card">
             <h3>Notable Residents</h3>
-            <p>Glen Davis, NBA forward for the Los Angeles Clippers</p>
-            <p>Randy Jackson, musician, record producer, and American Idol judge</p>
-            <p>Tyrus Thomas, NBA forward for the Chicago Bulls</p>
-            <p><b>Boosie Badazz, rap artist</b></p>
+            <div class="card-body">
+              <p>Glen Davis, NBA forward for the Los Angeles Clippers</p>
+              <p>Randy Jackson, musician, record producer, and American Idol judge</p>
+              <p>Tyrus Thomas, NBA forward for the Chicago Bulls</p>
+              <p><b>Boosie Badazz, rap artist</b></p>
+            </div>
+            <button class="card-more-btn" type="button" aria-expanded="false"><span class="cmt">Read More</span> <span class="cmi">+</span></button>
           </div>
           <div class="alm-card">
             <h3>Public Transportation</h3>
-            <p>Baton Rouge offers a variety of public transportation options, including buses, trolleys, and streetcars.</p>
-            <p>The Capital Area Transit System (CATS) operates an extensive bus network, covering most parts of the city and surrounding areas.</p>
-            <p>The Historic Trolley System provides a unique and convenient way to explore downtown Baton Rouge and nearby attractions.</p>
+            <div class="card-body">
+              <p>Baton Rouge offers a variety of public transportation options, including buses, trolleys, and streetcars.</p>
+              <p>The Capital Area Transit System (CATS) operates an extensive bus network, covering most parts of the city and surrounding areas.</p>
+              <p>The Historic Trolley System provides a unique and convenient way to explore downtown Baton Rouge and nearby attractions.</p>
+            </div>
+            <button class="card-more-btn" type="button" aria-expanded="false"><span class="cmt">Read More</span> <span class="cmi">+</span></button>
           </div>
         </div>
         <div class="alm-card">
@@ -843,50 +861,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- FAQS -->
-<section class="section light faq">
-  <div class="wrap">
-    <div class="faq-grid">
-      <div class="faq-side">
-        <div class="eyebrow">06 &middot; FAQs</div>
-        <h2>Frequently Asked <em>Questions</em></h2>
-        <p class="faq-sub">Have another question? <a href="contact.html">Contact us</a> or call <a href="tel:+15043863724">(504) 386-3724</a>.</p>
-        <div class="faq-media">
-          <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Backyard pool with clear blue water">
-          <div class="media-plaque">Serving Baton Rouge &amp; Surrounding Areas</div>
-        </div>
-        <div class="faq-cta">
-          <a class="btn btn-primary" href="contact.html">Contact Us <span>&rarr;</span></a>
-          <a class="btn btn-ghost on-light" href="tel:+15043863724">Call (504) 386-3724</a>
-        </div>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-q" type="button"><span class="faq-n">01</span><span class="faq-t">What pool services do you offer in Baton Rouge?</span><span class="fx">+</span></button>
-          <div class="faq-a"><div class="faq-a-in">We handle custom pool design, new pool construction, and pool renovation and remodeling for Baton Rouge homeowners. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button"><span class="faq-n">02</span><span class="faq-t">How does your pool design process work?</span><span class="fx">+</span></button>
-          <div class="faq-a"><div class="faq-a-in">Our 5-Step Pool Design Process runs from consultation to construction. We start by hearing about your vision and using state-of-the-art technology to make it a reality, then refine the design with you before our team of skilled workers begins construction.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button"><span class="faq-n">03</span><span class="faq-t">Do you work outside Baton Rouge too?</span><span class="fx">+</span></button>
-          <div class="faq-a"><div class="faq-a-in">Yes. Alongside Baton Rouge, we serve New Orleans and the surrounding areas, including Metairie, Kenner, Gretna, Harahan, River Ridge, St. Rose, Laplace, Slidell, Mandeville, Madisonville, Covington, and Hammond.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button"><span class="faq-n">04</span><span class="faq-t">How do I get a free estimate?</span><span class="fx">+</span></button>
-          <div class="faq-a"><div class="faq-a-in">Estimates are free for homeowners. Call (504) 386-3724 or reach us through the contact page to get started on your dream pool.</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button"><span class="faq-n">05</span><span class="faq-t">Is TurnKey Pool Designers licensed?</span><span class="fx">+</span></button>
-          <div class="faq-a"><div class="faq-a-in">Yes. We hold Residential License #890459 and Commercial License #3667, and our work is backed by a 100% satisfaction guarantee.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 REVIEWS -->
+<!-- 06 REVIEWS -->
 <section class="section dark tsec">
   <div class="tsec-bg" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/6773/6773-thumb-720-0.jpg">
@@ -895,7 +870,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">07 &middot; Reviews</div>
+      <div class="eyebrow">06 &middot; Reviews</div>
       <h2>What Our <em>Clients</em> Say</h2>
       <div class="kicker">What Our Customers Have To Say!</div>
     </div>
@@ -945,7 +920,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
 </section>
 
-<!-- 08 SERVICE AREAS -->
+<!-- 07 SERVICE AREAS -->
 <section class="section light wwlvid has-wave">
   <div class="wwl-bg">
     <video autoplay muted loop playsinline preload="metadata" poster="https://assets.mixkit.co/videos/13195/13195-thumb-720-0.jpg" aria-hidden="true">
@@ -954,7 +929,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   </div>
   <div class="wrap">
     <div class="section-head center">
-      <div class="eyebrow">08 &middot; Service Areas</div>
+      <div class="eyebrow">07 &middot; Service Areas</div>
       <h2>Where We <em>Work</em></h2>
     </div>
     <div class="wwl">
@@ -999,6 +974,49 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
   <div class="wave-sep" aria-hidden="true">
     <svg class="back" viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#011321" d="M0,45 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 L2880,90 L0,90 Z"/></svg>
     <svg viewBox="0 0 2880 90" preserveAspectRatio="none"><path fill="#011321" d="M0,45 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 c80,-42 160,-42 240,0 c80,42 160,42 240,0 L2880,90 L0,90 Z"/></svg>
+  </div>
+</section>
+
+<!-- 08 FAQS -->
+<section class="section light faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="faq-side">
+        <div class="eyebrow">08 &middot; FAQs</div>
+        <h2>Frequently Asked <em>Questions</em></h2>
+        <p class="faq-sub">Have another question? <a href="contact.html">Contact us</a> or call <a href="tel:+15043863724">(504) 386-3724</a>.</p>
+        <div class="faq-media">
+          <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Backyard pool with clear blue water">
+          <div class="media-plaque">Serving Baton Rouge &amp; Surrounding Areas</div>
+        </div>
+        <div class="faq-cta">
+          <a class="btn btn-primary" href="contact.html">Contact Us <span>&rarr;</span></a>
+          <a class="btn btn-ghost on-light" href="tel:+15043863724">Call (504) 386-3724</a>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span class="faq-n">01</span><span class="faq-t">What pool services do you offer in Baton Rouge?</span><span class="fx">+</span></button>
+          <div class="faq-a"><div class="faq-a-in">We handle custom pool design, new pool construction, and pool renovation and remodeling for Baton Rouge homeowners. Whether your existing pool needs a simple resurfacing, an equipment upgrade, or a total overhaul, our renovation team is ready to help.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span class="faq-n">02</span><span class="faq-t">How does your pool design process work?</span><span class="fx">+</span></button>
+          <div class="faq-a"><div class="faq-a-in">Our 5-Step Pool Design Process runs from consultation to construction. We start by hearing about your vision and using state-of-the-art technology to make it a reality, then refine the design with you before our team of skilled workers begins construction.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span class="faq-n">03</span><span class="faq-t">Do you work outside Baton Rouge too?</span><span class="fx">+</span></button>
+          <div class="faq-a"><div class="faq-a-in">Yes. Alongside Baton Rouge, we serve New Orleans and the surrounding areas, including Metairie, Kenner, Gretna, Harahan, River Ridge, St. Rose, Laplace, Slidell, Mandeville, Madisonville, Covington, and Hammond.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span class="faq-n">04</span><span class="faq-t">How do I get a free estimate?</span><span class="fx">+</span></button>
+          <div class="faq-a"><div class="faq-a-in">Estimates are free for homeowners. Call (504) 386-3724 or reach us through the contact page to get started on your dream pool.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button"><span class="faq-n">05</span><span class="faq-t">Is TurnKey Pool Designers licensed?</span><span class="fx">+</span></button>
+          <div class="faq-a"><div class="faq-a-in">Yes. We hold Residential License #890459 and Commercial License #3667, and our work is backed by a 100% satisfaction guarantee.</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1135,6 +1153,21 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
         idxEl.textContent = ('0' + (i + 1)).slice(-2);
         cityEl.textContent = btn.getAttribute('data-name');
         go.setAttribute('href', btn.getAttribute('data-href'));
+      });
+    });
+  })();
+
+  /* Area cards: Read More expands truncated content in the uniform-height sub-grid cards. */
+  (function(){
+    document.querySelectorAll('.area-sub-grid .alm-card').forEach(function(card){
+      var body = card.querySelector('.card-body');
+      var btn = card.querySelector('.card-more-btn');
+      if (!body || !btn) return;
+      if (body.scrollHeight <= body.clientHeight + 4) { btn.style.display = 'none'; return; }
+      btn.addEventListener('click', function(){
+        var open = card.classList.toggle('expanded');
+        btn.querySelector('.cmt').textContent = open ? 'Read Less' : 'Read More';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
   })();
