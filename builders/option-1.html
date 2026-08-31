@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option 1 &#8211; Coastal Editorial | TurnKey Pool Builders</title>
+<meta name="description" content="Homepage design option 1 (Coastal Editorial) for the TurnKey Pool Builders redesign. Internal review mockup.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF8; --cream:#F3EFE6; --ink:#2E3338; --muted:#6B7076;
+  --blue:#4E9FD8; --blue-deep:#20628F; --line:#E4DFD4; --card:#FFFFFF;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:16.5px;line-height:1.7}
+img{max-width:100%;display:block}
+a{color:var(--blue-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.eyeb{font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-deep);margin-bottom:14px}
+h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+h2{font-size:2rem;line-height:1.25;margin-bottom:14px}
+h2 em{font-style:italic;color:var(--blue-deep)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem;text-decoration:none;padding:14px 26px;border-radius:4px}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--blue-deep)}
+.btn-line{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-line:hover{border-color:var(--blue-deep);color:var(--blue-deep)}
+/* header */
+header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.hd img{height:54px;width:auto}
+nav{display:flex;gap:26px}
+nav a{font-size:.82rem;font-weight:500;color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--blue-deep)}
+.hd-cta{display:flex;align-items:center;gap:16px}
+.hd-tel{font-weight:700;font-size:.9rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+/* hero */
+.hero{padding:76px 0 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,4.4vw,3.5rem);line-height:1.08;margin-bottom:10px}
+.hero h1 span{display:block;font-size:.52em;font-style:italic;color:var(--blue-deep);margin-top:10px}
+.hero-sub{color:var(--muted);font-size:1.06rem;margin:18px 0 22px;max-width:46ch}
+.checks{list-style:none;margin:0 0 30px;display:grid;gap:10px}
+.checks li{padding-left:26px;position:relative;font-size:.94rem}
+.checks li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:12px;border-radius:50%;background:var(--blue)}
+.hero-media{position:relative}
+.hero-media img{border-radius:6px;aspect-ratio:4/4.6;object-fit:cover;filter:saturate(.92)}
+.hero-plate{position:absolute;left:-26px;bottom:26px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);padding:16px 20px;max-width:270px;box-shadow:0 18px 40px rgba(46,51,56,.12)}
+.hero-plate b{font-family:var(--serif);font-size:1rem;display:block;margin-bottom:4px}
+.hero-plate span{font-size:.8rem;color:var(--muted)}
+/* proof rule */
+.proof{border-bottom:1px solid var(--line);background:var(--cream)}
+.proof .wrap{display:flex;flex-wrap:wrap;gap:10px 40px;justify-content:center;padding:18px 28px}
+.proof span{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.proof span::before{content:"\2713";color:var(--blue-deep);margin-right:8px}
+section{padding:72px 0}
+/* editorial services */
+.svc-list{border-top:1px solid var(--line);margin-top:26px}
+.svc-row{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.svc-row i{font-style:normal;font-family:var(--serif);color:var(--blue);font-size:1rem}
+.svc-row b{font-family:var(--serif);font-weight:600;font-size:1.3rem}
+.svc-row span{font-size:.8rem;color:var(--muted)}
+.svc-row:hover b{color:var(--blue-deep)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+/* process */
+.tint{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:30px}
+.step i{font-style:normal;font-family:var(--serif);font-size:2.6rem;color:var(--blue);display:block;margin-bottom:8px}
+.step h3{font-family:var(--serif);font-weight:600;font-size:1.2rem;margin-bottom:8px}
+.step p{font-size:.92rem;color:var(--muted)}
+/* why */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.why div{background:var(--card);padding:26px 28px}
+.why b{font-family:var(--serif);font-size:1.05rem;display:block;margin-bottom:6px}
+.why p{font-size:.9rem;color:var(--muted)}
+/* quotes */
+.quote{border-left:3px solid var(--blue);padding:6px 0 6px 24px;margin-top:26px}
+.quote p{font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.6}
+.quote b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;color:var(--blue-deep)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.gal img{aspect-ratio:3/3.6;object-fit:cover;border-radius:4px;filter:saturate(.92)}
+.note{font-size:.75rem;color:var(--muted);margin-top:12px}
+/* faq */
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font-family:var(--serif);font-weight:600;font-size:1.08rem;padding:20px 30px 20px 0;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);color:var(--blue-deep);font-family:var(--sans)}
+details[open] summary::after{content:"\2212"}
+details p{padding:0 0 20px;color:var(--muted);font-size:.94rem;max-width:70ch}
+/* areas + cta */
+.areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.areas span{border:1px solid var(--line);background:var(--card);padding:8px 16px;font-size:.8rem;border-radius:3px}
+.cta{background:var(--ink);color:var(--paper);text-align:center}
+.cta h2{color:var(--paper);font-size:2.3rem}
+.cta h2 em{color:var(--blue)}
+.cta p{color:rgba(251,250,248,.75);max-width:52ch;margin:0 auto 30px}
+.cta .btn-line{border-color:var(--blue);color:var(--blue)}
+footer{padding:38px 0;border-top:1px solid var(--line)}
+.ft{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.ft img{height:44px}
+.ft p{font-size:.78rem;color:var(--muted)}
+/* option switcher */
+.opts{position:fixed;right:18px;bottom:18px;display:flex;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:8px 12px;box-shadow:0 12px 30px rgba(46,51,56,.16);z-index:60}
+.opts a,.opts b{width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;text-decoration:none;color:var(--ink);border:1px solid var(--line)}
+.opts b{background:var(--blue-deep);color:#fff;border-color:var(--blue-deep)}
+.opts a:hover{border-color:var(--blue-deep);color:var(--blue-deep)}
+@media (max-width:920px){
+  nav{display:none}
+  .hero-grid,.two{grid-template-columns:1fr}
+  .hero-media{order:-1}
+  .hero-media img{aspect-ratio:16/10}
+  .hero-plate{position:static;margin-top:14px;max-width:none}
+  .steps{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr}
+  .svc-row{grid-template-columns:44px 1fr}
+  .svc-row span{grid-column:2}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hd">
+    <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/logo.png" alt="TurnKey Pool Builders"></a>
+    <nav aria-label="Sections">
+      <a href="#services">Services</a><a href="#process">Process</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#areas">Areas</a>
+    </nav>
+    <div class="hd-cta">
+      <a class="hd-tel" href="tel:+12393471697">239-347-1697</a>
+      <a class="btn btn-solid" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyeb">New Orleans &middot; Louisiana</div>
+      <h1>Expert Pool Builders <span>Repair &amp; Maintenance in New Orleans, LA</span></h1>
+      <p class="hero-sub">Local pool builder trusted by homeowners across New Orleans and throughout Louisiana</p>
+      <ul class="checks">
+        <li>Reliable and reputable pool contractor with a proven track record across Southeast, Central, and Coastal Louisiana</li>
+        <li>Quality workmanship built for Louisiana&#39;s unique soil conditions, humid climate, and high water table</li>
+        <li>Customer service that puts your vision and satisfaction first from consultation to completion</li>
+      </ul>
+      <a class="btn btn-solid" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+      <a class="btn btn-line" href="tel:+12393471697">Call Us Today!</a>
+    </div>
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1635108201418-0996823f4cc3?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Backyard gunite pool">
+      <div class="hero-plate"><b>Rated by Thousands of Satisfied Customers</b><span>FREE Estimates &middot; New Orleans, LA</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="proof">
+  <div class="wrap"><span>Free Estimates</span><span>3D Pool Designs</span><span>Permits Handled</span><span>Warranty-Backed Work</span></div>
+</div>
+
+<section id="services">
+  <div class="wrap two">
+    <div>
+      <div class="eyeb">Our Services</div>
+      <h2>TurnKey Pool Design and <em>Construction In NOLA</em></h2>
+      <p style="color:var(--muted)">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
+    </div>
+    <div class="svc-list">
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>01</i><b>Custom Pools</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>02</i><b>Gunite Pool Construction</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>03</i><b>Inground Pool</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>04</i><b>Pool Equipment Repairs</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>05</i><b>Pool Remodel</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>06</i><b>Pool Renovation</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>07</i><b>Pool Replastering</b><span>&rarr;</span></a>
+      <a class="svc-row" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>08</i><b>Spa Construction</b><span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="process">
+  <div class="wrap">
+    <div class="eyeb">Our Process</div>
+    <h2>We Design and Build, <em>You Create Memories</em></h2>
+    <div class="steps">
+      <div class="step"><i>1.</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></div>
+      <div class="step"><i>2.</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></div>
+      <div class="step"><i>3.</i><h3>Construction Starts</h3><p>We start with a pre-construction meeting, then excavate, build with expertise, test everything, and finally hand over your dream pool!</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyeb">Why TurnKey</div>
+    <h2>TurnKey Pool Builders, <em>Your Satisfaction is Our Goal</em></h2>
+    <div class="why">
+      <div><b>Stress-Free Process</b><p>We handle everything, from permits to final touches, so you can relax and enjoy the journey.</p></div>
+      <div><b>Trusted Expertise</b><p>Our experienced pool builders and designers in New Orleans create stunning, lasting pools.</p></div>
+      <div><b>Unmatched Quality</b><p>We use only premium materials and proven techniques for a pool built to impress.</p></div>
+      <div><b>Seamless Communication</b><p>We prioritize clear communication, keeping you informed and involved every step of the way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint" id="reviews">
+  <div class="wrap two">
+    <div>
+      <div class="eyeb">Client Stories</div>
+      <h2>What Our <em>Clients Say</em></h2>
+      <p class="note">Production note: attach platform, city, and date to each review (see comp-gap #2).</p>
+    </div>
+    <div>
+      <div class="quote"><p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p><b>Alice Martin</b></div>
+      <div class="quote"><p>We had a spa constructed by TurnKey Pool Builders, and it has become our favorite relaxation spot. The craftsmanship is outstanding, and the team was courteous and efficient. It&#39;s exactly what we wanted!</p><b>Sam Williams</b></div>
+      <div class="quote"><p>Our pool renovation project was a huge success because of their team. They listened to our needs and delivered a pool that looks amazing and functions flawlessly. Great job!</p><b>Kevin Thompson</b></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyeb">Our Gallery</div>
+    <h2>Recent <em>Pool Projects</em></h2>
+    <div class="gal">
+      <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Infinity edge pool">
+      <img src="https://images.unsplash.com/photo-1635108201418-0996823f4cc3?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Freeform backyard pool">
+      <img src="https://images.unsplash.com/photo-1654482278660-14a8cfd5589d?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Garden plunge pool">
+      <img src="https://images.unsplash.com/photo-1783125127199-860da9744dcc?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Modern geometric pool">
+    </div>
+    <p class="note">Mockup imagery: verified stock placeholders. Production uses TurnKey&#39;s real project photos.</p>
+  </div>
+</section>
+
+<section class="tint" id="faq">
+  <div class="wrap two">
+    <div>
+      <div class="eyeb">FAQ</div>
+      <h2>Frequently Asked <em>Questions</em></h2>
+    </div>
+    <div>
+      <details open><summary>Do you offer any warranties on your work?</summary><p>Yes, we stand behind our work with comprehensive warranties on both construction and pool equipment.</p></details>
+      <details><summary>Do you handle permits and approvals?</summary><p>Yes, we take care of securing all necessary permits and approvals to ensure your pool project complies with local regulations.</p></details>
+      <details><summary>Can you renovate or remodel my existing pool?</summary><p>Yes! We can breathe new life into your current pool with renovations, upgrades, and modern features.</p></details>
+      <details><summary>How can I get a free quote?</summary><p>Simply give us a call or fill out our contact form for a free consultation and quote. We&#39;ll discuss your vision and create a personalized plan for your dream pool!</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="eyeb">Service Areas</div>
+    <h2>Serving New Orleans <em>and Beyond</em></h2>
+    <div class="areas">
+      <span>Baton Rouge</span><span>Covington</span><span>Gretna</span><span>Hammond</span><span>Harahan</span><span>Kenner</span><span>Laplace</span><span>Madisonville</span><span>Mandeville</span><span>Metairie</span><span>River Ridge</span><span>Slidell</span><span>St. Rose</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready to Make <em>a Splash?</em></h2>
+    <p>Contact TurnKey Pool Builders today for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
+    <a class="btn btn-solid" style="background:var(--blue);color:var(--ink)" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+    <a class="btn btn-line" href="tel:+12393471697">Call Us Today!</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/logo.png" alt="TurnKey Pool Builders">
+    <p>Homepage design option 1 of 3 (Coastal Editorial) &middot; internal review mockup &middot; 239-347-1697</p>
+  </div>
+</footer>
+
+<div class="opts" aria-label="Design options"><b>1</b><a href="option-2.html">2</a><a href="option-3.html">3</a></div>
+</body>
+</html>
