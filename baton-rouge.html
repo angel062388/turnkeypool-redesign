@@ -398,10 +398,10 @@ html:not(.js) .faq-a{height:auto}
 .area-content .alm-card{margin-bottom:0}
 .area-sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .area-sub-grid .alm-card{display:flex;flex-direction:column}
-.area-sub-grid .card-body{position:relative;max-height:230px;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
+.area-sub-grid .card-body{position:relative;max-height:250px;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1)}
 .area-sub-grid .card-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .3s ease}
 .area-sub-grid .alm-card.expanded .card-body{max-height:900px}
-.area-sub-grid .alm-card.expanded .card-body::after{opacity:0}
+.area-sub-grid .alm-card.expanded .card-body::after,.area-sub-grid .alm-card.fits .card-body::after{opacity:0}
 .card-more-btn{margin-top:auto;margin-bottom:0;align-self:flex-start;background:none;border:1px solid rgba(21,71,126,.35);border-radius:4px;color:var(--accent-deep);font-family:var(--font-mono);font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .25s ease,color .25s ease,background .25s ease}
 .card-more-btn:hover{border-color:var(--accent);color:var(--accent-bright);background:rgba(77,151,210,.08)}
 .card-more-btn .cmi{transition:transform .3s ease;display:inline-block}
@@ -1163,7 +1163,7 @@ footer{background:var(--ink-deep);border-top:1px solid var(--border-dark);color:
       var body = card.querySelector('.card-body');
       var btn = card.querySelector('.card-more-btn');
       if (!body || !btn) return;
-      if (body.scrollHeight <= body.clientHeight + 4) { btn.style.display = 'none'; return; }
+      if (body.scrollHeight <= body.clientHeight + 4) { card.classList.add('fits'); btn.style.display = 'none'; return; }
       btn.addEventListener('click', function(){
         var open = card.classList.toggle('expanded');
         btn.querySelector('.cmt').textContent = open ? 'Read Less' : 'Read More';
