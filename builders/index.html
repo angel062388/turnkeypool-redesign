@@ -72,34 +72,39 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .marq.anim.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.marq-track{animation:none}.marq.anim{opacity:1;transform:none;transition:none}}
 section{padding:64px 0}
-/* services: photo card per service, carrying the live body copy */
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px;align-items:start}
-.svc a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,opacity .6s ease}
-.svc a:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(23,97,143,.17)}
-.svc figure{position:relative;margin:0;background:var(--aqua)}
-.svc figure .ph{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
-.svc a:hover .ph{transform:scale(1.05)}
-.svc figure .ph{transition:transform .7s cubic-bezier(.22,1,.36,1)}
-.svc i{font-style:normal;position:absolute;right:22px;bottom:-26px;z-index:2;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:17px;background:var(--white);box-shadow:0 10px 24px rgba(23,97,143,.24)}
-.svc i img{width:30px;height:30px;object-fit:contain}
-.svc .txt{padding:32px 26px 26px;display:flex;flex-direction:column;flex:1}
-.svc b{font-size:1.14rem;display:block;color:var(--deep);margin-bottom:10px;letter-spacing:-.01em}
-.svc h4{font-size:.87rem;margin:14px 0 6px;color:var(--ink)}
-.svc p{font-size:.875rem;color:var(--muted);margin-bottom:10px}
-.svc p:last-of-type{margin-bottom:0}
-.svc span{font-size:.78rem;color:var(--blue);font-weight:700;margin-top:auto;padding-top:14px}
-/* each card reveals as it scrolls in. Watching the cards rather than the
-   grid matters: the grid is taller than a phone screen, so a grid-level
-   trigger could never fire on a short viewport. The hidden state is added
-   by script, so with JavaScript off the copy is simply visible. */
-.svc.anim a{opacity:0;transform:translateY(22px)}
-.svc.anim a.in{opacity:1;transform:none}
-.svc.anim a:nth-child(3n+1){transition-delay:0s}
-.svc.anim a:nth-child(3n+2){transition-delay:.08s}
-.svc.anim a:nth-child(3n+3){transition-delay:.16s}
-.svc.anim a:hover{transition-delay:0s}
-.svc.anim a.in:hover{transform:translateY(-5px)}
-@media (prefers-reduced-motion:reduce){.svc.anim a{opacity:1;transform:none;transition:none}}
+/* services explorer: pick a service on the left, its photo and full copy
+   cross-fade in on the right. Fixes the ragged grid that eight very
+   different copy lengths produced, and gives the photo real size.
+   The tab behaviour is switched on by script (.js), so with JavaScript off
+   every panel simply stacks and all the copy stays readable. */
+.svcx{display:grid;grid-template-columns:340px 1fr;gap:34px;margin-top:32px;align-items:start}
+.svcx-list{display:flex;flex-direction:column;gap:8px}
+.svcx-list button{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;cursor:pointer;background:var(--white);border:0;border-radius:16px;padding:14px 16px;color:var(--ink);box-shadow:0 6px 16px rgba(23,97,143,.07);transition:background .25s,color .25s,box-shadow .25s,transform .25s}
+.svcx-list button:hover{transform:translateX(3px);box-shadow:0 12px 26px rgba(23,97,143,.14)}
+.svcx-list button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.svcx-list em{font-style:normal;flex:none;width:40px;height:40px;border-radius:13px;background:linear-gradient(140deg,var(--aqua),var(--aqua-2));display:flex;align-items:center;justify-content:center;transition:background .25s}
+.svcx-list em img{width:23px;height:23px;object-fit:contain}
+.svcx-list span{font-size:.93rem;font-weight:700;flex:1}
+.svcx-list i{font-style:normal;font-size:.72rem;font-weight:800;color:var(--blue);letter-spacing:.06em}
+.svcx-list button[aria-selected="true"]{background:var(--deep);color:#fff;box-shadow:0 16px 32px rgba(23,97,143,.28)}
+.svcx-list button[aria-selected="true"] em{background:rgba(255,255,255,.16)}
+.svcx-list button[aria-selected="true"] i{color:#9FD6F5}
+.svcx-stage{position:relative}
+.svcx-panel{background:var(--white);border-radius:24px;overflow:hidden;box-shadow:0 14px 34px rgba(23,97,143,.12)}
+html.js .svcx-panel{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .45s ease,transform .55s cubic-bezier(.22,1,.36,1),visibility 0s .45s}
+html.js .svcx-panel.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease,transform .55s cubic-bezier(.22,1,.36,1),visibility 0s}
+.svcx-panel figure{margin:0;overflow:hidden}
+.svcx-panel figure img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+html.js .svcx-panel figure img{transform:scale(1.06);transition:transform 1.3s cubic-bezier(.22,1,.36,1)}
+html.js .svcx-panel.on figure img{transform:none}
+.svcx-body{padding:28px 32px 30px}
+.svcx-body h3{font-size:1.35rem;color:var(--deep);margin-bottom:10px}
+.svcx-body h4{font-size:.9rem;margin:16px 0 6px;color:var(--ink)}
+.svcx-body p{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.svcx-body p:last-of-type{margin-bottom:0}
+.svcx-body .go{display:inline-block;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none}
+.svcx-body .go:hover{color:var(--deep)}
+@media (prefers-reduced-motion:reduce){.svcx-list button,.svcx-panel,.svcx-panel figure img{transition:none}}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none}
@@ -234,11 +239,10 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 /* closing CTA: pool film behind, copy left, estimate form right */
 .cta-band{position:relative;border-radius:var(--r);overflow:hidden;background:#0C2436}
 .cta-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cta-band::after{content:"";position:absolute;inset:0;background:rgba(8,30,44,.74)}
 .cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:54px 46px}
-.cta-copy h2{color:#fff;font-size:2.25rem}
+.cta-copy h2{color:#fff;font-size:2.25rem;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
 .cta-copy h2 span{color:#8FD0F5}
-.cta-copy p{color:rgba(255,255,255,.9);max-width:46ch;margin:12px 0 26px}
+.cta-copy p{color:#fff;font-weight:500;max-width:46ch;margin:12px 0 26px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
 .cta-form{background:rgba(255,255,255,.97);border-radius:22px;padding:28px 28px 26px;box-shadow:0 26px 60px rgba(6,26,40,.4)}
 .cta-form b{display:block;font-size:1.05rem;color:var(--deep);margin-bottom:16px}
 .cta-form label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
@@ -301,7 +305,12 @@ body.splash-lock{overflow:hidden}
   .hero-inner{padding:120px 20px 22px}
   .hero-copy{max-width:none}
   .badges{justify-content:flex-start;padding-right:0}
-  .svc{grid-template-columns:1fr 1fr}
+  .svcx{grid-template-columns:1fr;gap:20px}
+  .svcx-list{flex-direction:row;overflow-x:auto;gap:10px;padding-bottom:4px;scrollbar-width:none}
+  .svcx-list::-webkit-scrollbar{display:none}
+  .svcx-list button{flex:0 0 auto;padding:11px 14px}
+  .svcx-list span{font-size:.84rem}
+  .svcx-body{padding:22px 22px 24px}
   .steps{grid-template-columns:1fr}
   .faq-wrap{grid-template-columns:1fr;gap:24px}
   .faq-side{position:static}
@@ -331,7 +340,7 @@ body.splash-lock{overflow:hidden}
 }
 @media (max-width:560px){
   .marq-set span{padding:15px 20px;font-size:.72rem;letter-spacing:.06em}
-  .svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
   .hd img{height:56px}
   .splash-logo img{height:72px}
   .splash-ring{width:158px;height:158px}
@@ -341,6 +350,7 @@ body.splash-lock{overflow:hidden}
 </style>
 </head>
 <body>
+<script>document.documentElement.className += ' js';</script>
 <div class="splash" id="splash">
   <video class="splash-vid" autoplay muted loop playsinline preload="auto" poster="https://images.pexels.com/videos/18531289/pexels-photo-18531289.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"><source src="https://videos.pexels.com/video-files/18531289/18531289-hd_1280_720_60fps.mp4" type="video/mp4"></video>
   <div class="splash-tint"></div>
@@ -420,39 +430,51 @@ body.splash-lock{overflow:hidden}
     <div class="eyeb">Our Services</div>
     <h2>TurnKey Pool Design and <span>Construction In NOLA</span></h2>
     <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
-    <div class="svc" id="svc">
-      <a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Custom Pools</b><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Gunite Pool Construction</b><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Inground Pool</b><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Pool Equipment Repairs</b><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Pool Remodel</b><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Pool Renovation</b><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Pool Replastering</b><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><span>Explore &rarr;</span></div>
-      </a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
-        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></i></figure>
-        <div class="txt"><b>Spa Construction</b><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><span>Explore &rarr;</span></div>
-      </a>
+    <div class="svcx" id="svcx">
+      <div class="svcx-list" role="tablist" aria-label="Our services">
+        <button type="button" role="tab" id="stab0" aria-controls="span0" aria-selected="true" tabindex="0"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></em><span>Custom Pools</span><i>01</i></button>
+        <button type="button" role="tab" id="stab1" aria-controls="span1" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Gunite Pool Construction</span><i>02</i></button>
+        <button type="button" role="tab" id="stab2" aria-controls="span2" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></em><span>Inground Pool</span><i>03</i></button>
+        <button type="button" role="tab" id="stab3" aria-controls="span3" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Equipment Repairs</span><i>04</i></button>
+        <button type="button" role="tab" id="stab4" aria-controls="span4" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Remodel</span><i>05</i></button>
+        <button type="button" role="tab" id="stab5" aria-controls="span5" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Renovation</span><i>06</i></button>
+        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>07</i></button>
+        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>08</i></button>
+      </div>
+      <div class="svcx-stage">
+        <div class="svcx-panel on" role="tabpanel" id="span0" aria-labelledby="stab0">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Custom Pools</h3><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span1" aria-labelledby="stab1">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Gunite Pool Construction</h3><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span2" aria-labelledby="stab2">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Inground Pool</h3><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span3" aria-labelledby="stab3">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Pool Equipment Repairs</h3><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span4" aria-labelledby="stab4">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Pool Remodel</h3><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span5" aria-labelledby="stab5">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Pool Renovation</h3><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span6" aria-labelledby="stab6">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Pool Replastering</h3><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+        <div class="svcx-panel" role="tabpanel" id="span7" aria-labelledby="stab7">
+          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
+          <div class="svcx-body"><h3>Spa Construction</h3><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -798,7 +820,7 @@ body.splash-lock{overflow:hidden}
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
-  var items = [], ids = ['svc', 'steps', 'areas-list', 'faq-list', 'blog-list'];
+  var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list'];
   for (var n = 0; n < ids.length; n++) {
     var el = document.getElementById(ids[n]);
     if (!el) continue;
@@ -1018,6 +1040,59 @@ body.splash-lock{overflow:hidden}
     note.textContent = 'Thanks. This is a design mockup, so nothing was sent. In the live build this goes straight to TurnKey.';
     note.hidden = false;
   });
+})();
+</script>
+
+<script>
+/* Services explorer. The tab behaviour is enabled here, not in the CSS, so
+   with JavaScript off every panel simply stacks and all eight descriptions
+   stay readable. The stage is sized to the TALLEST panel so switching a
+   service never makes the page jump. */
+(function(){
+  var root = document.getElementById('svcx');
+  if (!root) return;
+  var tabs = [].slice.call(root.querySelectorAll('[role="tab"]'));
+  var panels = [].slice.call(root.querySelectorAll('[role="tabpanel"]'));
+  var stage = root.querySelector('.svcx-stage');
+  if (!tabs.length || tabs.length !== panels.length) return;
+
+  function select(i, focus){
+    for (var k = 0; k < tabs.length; k++) {
+      var on = (k === i);
+      tabs[k].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabs[k].tabIndex = on ? 0 : -1;
+      panels[k].className = on ? 'svcx-panel on' : 'svcx-panel';
+    }
+    if (focus) tabs[i].focus();
+  }
+  function fit(){
+    var tallest = 0;
+    for (var k = 0; k < panels.length; k++) {
+      var h = panels[k].offsetHeight;
+      if (h > tallest) tallest = h;
+    }
+    if (tallest) stage.style.height = tallest + 'px';
+  }
+  for (var i = 0; i < tabs.length; i++) (function(n){
+    tabs[n].addEventListener('click', function(){ select(n); });
+    tabs[n].addEventListener('keydown', function(e){
+      var last = tabs.length - 1, to = -1;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') to = (n === last) ? 0 : n + 1;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') to = (n === 0) ? last : n - 1;
+      else if (e.key === 'Home') to = 0;
+      else if (e.key === 'End') to = last;
+      if (to > -1) { e.preventDefault(); select(to, true); }
+    });
+  })(i);
+
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  var imgs = root.querySelectorAll('.svcx-panel img');
+  for (var m = 0; m < imgs.length; m++) {
+    if (!imgs[m].complete) imgs[m].addEventListener('load', fit);
+  }
+  fit();
+  select(0);
 })();
 </script>
 </body>
