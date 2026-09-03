@@ -71,16 +71,33 @@ section{padding:64px 0}
 .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
 .svc a{background:var(--white);border-radius:20px;padding:24px 22px;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .2s,box-shadow .2s}
 .svc a:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(23,97,143,.16)}
-.svc i{font-style:normal;display:block;width:44px;height:44px;border-radius:14px;background:linear-gradient(140deg,var(--aqua),var(--aqua-2));color:var(--deep);font-weight:800;font-size:.82rem;line-height:44px;text-align:center;margin-bottom:14px}
+.svc i{font-style:normal;display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(140deg,var(--aqua),var(--aqua-2));margin-bottom:14px}
+.svc i img{width:34px;height:34px;object-fit:contain}
 .svc b{font-size:.96rem;display:block}
 .svc span{font-size:.76rem;color:var(--blue);font-weight:700}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-.step{background:var(--white);border-radius:20px;padding:26px}
-.step i{font-style:normal;display:inline-flex;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:12px}
-.step h3{font-size:1.05rem;margin-bottom:8px}
-.step p{font-size:.87rem;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none;align-items:start}
+.step{position:relative;background:var(--white);border-radius:20px;padding:24px 20px}
+.step::after{content:"";position:absolute;top:44px;left:100%;width:14px;height:2px;background:rgba(63,160,220,.42)}
+.step:last-child::after{display:none}
+.step i{font-style:normal;display:inline-flex;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(63,160,220,.34)}
+.step h3{font-size:.97rem;margin-bottom:8px;min-height:2.5em}
+.step p{font-size:.84rem;color:var(--muted)}
+/* steps reveal in sequence when the row scrolls in. The hidden state is
+   applied by script (.anim) so the copy is always visible without JS. */
+.steps.anim .step{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.steps.anim .step i{transform:scale(.55);opacity:0;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
+.steps.anim .step::after{transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+.steps.anim.is-in .step{opacity:1;transform:none}
+.steps.anim.is-in .step i{transform:none;opacity:1}
+.steps.anim.is-in .step::after{transform:none}
+.steps.anim.is-in .step:nth-child(1),.steps.anim.is-in .step:nth-child(1) i,.steps.anim.is-in .step:nth-child(1)::after{transition-delay:.05s}
+.steps.anim.is-in .step:nth-child(2),.steps.anim.is-in .step:nth-child(2) i,.steps.anim.is-in .step:nth-child(2)::after{transition-delay:.17s}
+.steps.anim.is-in .step:nth-child(3),.steps.anim.is-in .step:nth-child(3) i,.steps.anim.is-in .step:nth-child(3)::after{transition-delay:.29s}
+.steps.anim.is-in .step:nth-child(4),.steps.anim.is-in .step:nth-child(4) i,.steps.anim.is-in .step:nth-child(4)::after{transition-delay:.41s}
+.steps.anim.is-in .step:nth-child(5),.steps.anim.is-in .step:nth-child(5) i,.steps.anim.is-in .step:nth-child(5)::after{transition-delay:.53s}
+@media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after{opacity:1;transform:none;transition:none}}
 /* detail blocks (full live body copy) */
 .detail{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
 .dcard{background:var(--white);border-radius:20px;padding:30px 32px;box-shadow:0 10px 26px rgba(23,97,143,.08)}
@@ -184,6 +201,9 @@ body.splash-lock{overflow:hidden}
   .hero-side ul{grid-template-columns:1fr}
   .svc{grid-template-columns:1fr 1fr}
   .steps,.detail{grid-template-columns:1fr}
+  .step h3{min-height:0}
+  .step::after{top:auto;bottom:-14px;left:39px;width:2px;height:14px;transform-origin:top}
+  .steps.anim .step::after{transform:scaleY(0)}
   .why,.revs,.faq-grid{grid-template-columns:1fr}
   .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
   .sand,.aqua-band{padding:34px 22px}
@@ -283,14 +303,14 @@ body.splash-lock{overflow:hidden}
     <h2>TurnKey Pool Design and <span>Construction In NOLA</span></h2>
     <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
     <div class="svc">
-      <a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener"><i>CP</i><b>Custom Pools</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>GP</i><b>Gunite Pool Construction</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>IP</i><b>Inground Pool</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>ER</i><b>Pool Equipment Repairs</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>RM</i><b>Pool Remodel</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>RN</i><b>Pool Renovation</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>RP</i><b>Pool Replastering</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i>SC</i><b>Spa Construction</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></i><b>Custom Pools</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></i><b>Gunite Pool Construction</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></i><b>Inground Pool</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Equipment Repairs</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Remodel</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Renovation</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Replastering</b><span>Explore &rarr;</span></a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></i><b>Spa Construction</b><span>Explore &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -300,11 +320,13 @@ body.splash-lock{overflow:hidden}
     <div class="sand">
       <div class="eyeb" style="background:var(--white)">Our Process</div>
       <h2>We Design and Build, <span>You Create Memories</span></h2>
-      <div class="steps">
-        <div class="step"><i>1</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></div>
-        <div class="step"><i>2</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></div>
-        <div class="step"><i>3</i><h3>Construction Starts</h3><p>We start with a pre-construction meeting, then excavate, build with expertise, test everything, and finally hand over your dream pool!</p></div>
-      </div>
+      <ol class="steps" id="steps">
+        <li class="step"><i>1</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></li>
+        <li class="step"><i>2</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></li>
+        <li class="step"><i>3</i><h3>Pre-Construction Meeting</h3><p>We start with a pre-construction meeting.</p></li>
+        <li class="step"><i>4</i><h3>Excavation and Build</h3><p>Then we excavate and build with expertise.</p></li>
+        <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool!</p></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -551,6 +573,24 @@ body.splash-lock{overflow:hidden}
   timer = setTimeout(close, reduce ? 400 : 3200);
   s.addEventListener('click', close);
   document.addEventListener('keydown', onKey);
+})();
+</script>
+
+<script>
+/* Reveal the process steps in sequence once the row scrolls into view.
+   No JS or reduced motion means the steps simply show, never hidden. */
+(function(){
+  var el = document.getElementById('steps');
+  if (!el) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) { el.classList.add('anim','is-in'); return; }
+  el.classList.add('anim');
+  var io = new IntersectionObserver(function(entries){
+    for (var i = 0; i < entries.length; i++) {
+      if (entries[i].isIntersecting) { el.classList.add('is-in'); io.disconnect(); return; }
+    }
+  }, {threshold: 0.25});
+  io.observe(el);
 })();
 </script>
 </body>
