@@ -49,13 +49,13 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero{padding:22px 0 60px}
 .hero-card{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end}
 .hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,58,76,.06) 14%,rgba(23,64,88,.5) 66%,rgba(18,52,72,.78) 100%)}
+.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,32,47,.86) 0%,rgba(9,32,47,.66) 34%,rgba(9,32,47,.22) 58%,rgba(9,32,47,0) 76%),linear-gradient(180deg,rgba(30,58,76,.1) 14%,rgba(23,64,88,.34) 66%,rgba(18,52,72,.6) 100%)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
-.hero-copy{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(22px) saturate(1.25);backdrop-filter:blur(22px) saturate(1.25);border:1px solid rgba(255,255,255,.55);border-radius:24px;padding:36px 38px;box-shadow:0 30px 70px rgba(12,40,58,.32);max-width:600px}
-.hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px}
-.hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#12557F;margin-top:8px}
-.hero-copy .sub{font-size:1.02rem;color:#2A4759;margin:12px 0 20px}
-.badges{display:flex;gap:14px;align-items:center;margin:0 0 18px}
+.hero-copy{background:none;border:0;padding:0;box-shadow:none;max-width:600px}
+.hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 2px 22px rgba(5,22,34,.6),0 1px 3px rgba(5,22,34,.5)}
+.hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#CFEAFA;margin-top:8px;text-shadow:0 2px 16px rgba(5,22,34,.6)}
+.hero-copy .sub{font-size:1.02rem;color:rgba(255,255,255,.94);margin:14px 0 22px;text-shadow:0 2px 14px rgba(5,22,34,.65)}
+.badges{display:flex;gap:14px;align-items:center;justify-content:center;margin:0 0 20px;padding-right:40px}
 .badges img{height:40px;width:auto;border-radius:6px}
 /* rotating trust band. Two identical sets slide by 50% of the track, so
    the loop is seamless. Pauses on hover and stops entirely for anyone who
@@ -74,19 +74,19 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 @media (prefers-reduced-motion:reduce){.marq-track{animation:none}.marq.anim{opacity:1;transform:none;transition:none}}
 section{padding:64px 0}
 /* services: photo card per service, carrying the live body copy */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;align-items:start}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px;align-items:start}
 .svc a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,opacity .6s ease}
 .svc a:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(23,97,143,.17)}
 .svc figure{position:relative;margin:0;background:var(--aqua)}
 .svc figure .ph{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
 .svc a:hover .ph{transform:scale(1.05)}
 .svc figure .ph{transition:transform .7s cubic-bezier(.22,1,.36,1)}
-.svc i{font-style:normal;position:absolute;right:18px;bottom:-23px;z-index:2;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:15px;background:var(--white);box-shadow:0 8px 20px rgba(23,97,143,.22)}
-.svc i img{width:27px;height:27px;object-fit:contain}
-.svc .txt{padding:30px 22px 22px;display:flex;flex-direction:column;flex:1}
-.svc b{font-size:1rem;display:block;color:var(--deep);margin-bottom:9px;letter-spacing:-.01em}
-.svc h4{font-size:.82rem;margin:13px 0 5px;color:var(--ink)}
-.svc p{font-size:.83rem;color:var(--muted);margin-bottom:9px}
+.svc i{font-style:normal;position:absolute;right:22px;bottom:-26px;z-index:2;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:17px;background:var(--white);box-shadow:0 10px 24px rgba(23,97,143,.24)}
+.svc i img{width:30px;height:30px;object-fit:contain}
+.svc .txt{padding:32px 26px 26px;display:flex;flex-direction:column;flex:1}
+.svc b{font-size:1.14rem;display:block;color:var(--deep);margin-bottom:10px;letter-spacing:-.01em}
+.svc h4{font-size:.87rem;margin:14px 0 6px;color:var(--ink)}
+.svc p{font-size:.875rem;color:var(--muted);margin-bottom:10px}
 .svc p:last-of-type{margin-bottom:0}
 .svc span{font-size:.78rem;color:var(--blue);font-weight:700;margin-top:auto;padding-top:14px}
 /* each card reveals as it scrolls in. Watching the cards rather than the
@@ -95,10 +95,9 @@ section{padding:64px 0}
    by script, so with JavaScript off the copy is simply visible. */
 .svc.anim a{opacity:0;transform:translateY(22px)}
 .svc.anim a.in{opacity:1;transform:none}
-.svc.anim a:nth-child(4n+1){transition-delay:0s}
-.svc.anim a:nth-child(4n+2){transition-delay:.07s}
-.svc.anim a:nth-child(4n+3){transition-delay:.14s}
-.svc.anim a:nth-child(4n+4){transition-delay:.21s}
+.svc.anim a:nth-child(3n+1){transition-delay:0s}
+.svc.anim a:nth-child(3n+2){transition-delay:.08s}
+.svc.anim a:nth-child(3n+3){transition-delay:.16s}
 .svc.anim a:hover{transition-delay:0s}
 .svc.anim a.in:hover{transform:translateY(-5px)}
 @media (prefers-reduced-motion:reduce){.svc.anim a{opacity:1;transform:none;transition:none}}
@@ -135,8 +134,9 @@ section{padding:64px 0}
 .why p{font-size:.88rem;color:var(--muted)}
 /* gallery: every photo sits in a 3:2 frame and every photo IS 3:2, so
    nothing is cropped. Movement comes from a slow zoom inside the frame. */
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.mtile{position:relative;display:block;border-radius:20px;overflow:hidden;background:var(--aqua);text-decoration:none}
+.mosaic{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px)/3);gap:18px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
+.mosaic::-webkit-scrollbar{display:none}
+.mtile{position:relative;display:block;border-radius:20px;overflow:hidden;background:var(--aqua);text-decoration:none;scroll-snap-align:start;cursor:zoom-in}
 .mtile img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,1,.36,1)}
 .mtile:hover img,.mtile:focus-visible img{transform:scale(1.06)}
 .mtile::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(18,52,72,0) 46%,rgba(14,44,63,.84) 100%)}
@@ -152,11 +152,33 @@ section{padding:64px 0}
 .mosaic.anim .mtile:nth-child(3n+2){transition-delay:.09s}
 .mosaic.anim .mtile:nth-child(3n+3){transition-delay:.18s}
 @media (prefers-reduced-motion:reduce){.mosaic.anim .mtile{opacity:1;transform:none;transition:none}.mtile img,.mcap{transition:none}}
-.gal-cta{text-align:center;margin-top:30px}
+/* slider controls */
+.sld-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px}
+.sld-nav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--aqua-2);background:var(--white);color:var(--deep);font-size:1.1rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+.sld-nav button:hover:not(:disabled){background:var(--blue);border-color:var(--blue);color:#fff}
+.sld-nav button:disabled{opacity:.35;cursor:default}
+.sld-nav button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.sld-dots{display:flex;gap:7px;margin:0 6px}
+.sld-dots i{width:8px;height:8px;border-radius:50%;background:var(--aqua-2);display:block;transition:width .3s,background .3s}
+.sld-dots i.on{width:24px;background:var(--blue);border-radius:5px}
+/* zoom lightbox */
+.lbox{position:fixed;inset:0;z-index:210;background:rgba(7,26,38,.93);display:flex;align-items:center;justify-content:center;padding:38px 64px}
+.lbox[hidden]{display:none}
+.lbox figure{margin:0;max-width:min(1100px,92vw);text-align:center}
+.lbox img{max-width:100%;max-height:78vh;border-radius:16px;display:block;margin:0 auto;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lbox figcaption{color:#EAF6FD;font-size:.92rem;font-weight:600;margin-top:16px}
+.lbox button{position:absolute;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;width:48px;height:48px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lbox button:hover{background:rgba(255,255,255,.3)}
+.lbox button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.lb-close{top:22px;right:24px}
+.lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.gal-cta{text-align:center;margin-top:26px}
 /* aqua band: reviews */
 .aqua-band{background:linear-gradient(160deg,var(--aqua) 0%,#F4FAFD 100%);border-radius:var(--r);padding:54px 44px}
-.revs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
-.rev{background:var(--white);border-radius:20px;padding:26px}
+.revs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 16px)/2);gap:16px;margin-top:26px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
+.revs::-webkit-scrollbar{display:none}
+.rev{background:var(--white);border-radius:20px;padding:26px;scroll-snap-align:start}
 .rev i{color:#F3B23E;font-style:normal;letter-spacing:2px}
 .rev p{font-size:.9rem;color:var(--muted);margin:11px 0 12px}
 .rev b{font-size:.86rem;color:var(--deep)}
@@ -171,6 +193,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .faq-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:start}
 .faq-side{position:sticky;top:118px}
 .faq-side p{color:var(--muted);font-size:.92rem;margin:0 0 20px}
+.faq-img{width:100%;max-width:330px;border-radius:20px;margin-top:30px;box-shadow:0 16px 36px rgba(23,97,143,.18);display:block}
 .faq-list{background:var(--white);border-radius:22px;box-shadow:0 10px 26px rgba(23,97,143,.08);padding:2px 26px}
 .faq-list details{background:none;box-shadow:none;border-radius:0;margin:0;padding:0;border-bottom:1px solid var(--aqua)}
 .faq-list details:last-child{border-bottom:0}
@@ -206,8 +229,24 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .blogs.anim a:nth-child(3){transition-delay:.18s}
 @media (prefers-reduced-motion:reduce){.blogs.anim a{opacity:1;transform:none;transition:none}}
 /* cta */
-.cta-band{background:var(--sand);border-radius:var(--r);text-align:center;padding:60px 40px}
-.cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px}
+/* closing CTA: pool film behind, copy left, estimate form right */
+.cta-band{position:relative;border-radius:var(--r);overflow:hidden;background:#0C2436}
+.cta-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,30,44,.9) 0%,rgba(8,30,44,.76) 46%,rgba(8,30,44,.6) 100%)}
+.cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:54px 46px}
+.cta-copy h2{color:#fff;font-size:2.25rem}
+.cta-copy h2 span{color:#8FD0F5}
+.cta-copy p{color:rgba(255,255,255,.9);max-width:46ch;margin:12px 0 26px}
+.cta-form{background:rgba(255,255,255,.97);border-radius:22px;padding:28px 28px 26px;box-shadow:0 26px 60px rgba(6,26,40,.4)}
+.cta-form b{display:block;font-size:1.05rem;color:var(--deep);margin-bottom:16px}
+.cta-form label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.cta-form input,.cta-form select,.cta-form textarea{width:100%;margin-top:5px;font:inherit;font-size:.9rem;color:var(--ink);background:var(--bg);border:1px solid var(--aqua-2);border-radius:12px;padding:11px 13px}
+.cta-form textarea{resize:vertical;min-height:74px}
+.cta-form input:focus,.cta-form select:focus,.cta-form textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.cta-form .btn{width:100%;justify-content:center;margin-top:4px;border:0;cursor:pointer;font-family:inherit}
+.cta-note{margin-top:12px;font-size:.8rem;color:var(--deep);background:var(--aqua);border-radius:12px;padding:11px 13px}
+.cta-note[hidden]{display:none}
 /* footer */
 footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
 .ft-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:34px}
@@ -259,6 +298,10 @@ body.splash-lock{overflow:hidden}
   nav{display:none}
   .hero-inner{padding:120px 20px 22px}
   .hero-copy{max-width:none}
+  /* the copy spans the full width once stacked, so the side scrim is
+     replaced by a full one or the headline washes out on the right */
+  .hero-card::after{background:linear-gradient(180deg,rgba(9,32,47,.5) 0%,rgba(9,32,47,.74) 48%,rgba(9,32,47,.88) 100%)}
+  .badges{justify-content:flex-start;padding-right:0}
   .svc{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr}
   .faq-wrap{grid-template-columns:1fr;gap:24px}
@@ -266,15 +309,21 @@ body.splash-lock{overflow:hidden}
   .step h3{min-height:0}
   .step::after{top:auto;bottom:-14px;left:39px;width:2px;height:14px;transform-origin:top}
   .steps.anim .step::after{transform:scaleY(0)}
-  .svc.anim a:nth-child(4n+1),.svc.anim a:nth-child(4n+2),.svc.anim a:nth-child(4n+3),.svc.anim a:nth-child(4n+4){transition-delay:0s}
-  .why,.revs,.why-la{grid-template-columns:1fr}
+  .svc.anim a:nth-child(3n+1),.svc.anim a:nth-child(3n+2),.svc.anim a:nth-child(3n+3){transition-delay:0s}
+  .why,.why-la{grid-template-columns:1fr}
+  .revs{grid-auto-columns:88%}
   .blogs{grid-template-columns:1fr}
   .areas{grid-template-columns:1fr 1fr}
-  .mosaic{grid-template-columns:1fr 1fr;gap:14px}
+  .mosaic{grid-auto-columns:86%;gap:14px}
+  .lbox{padding:20px 14px}
+  .lb-prev{left:6px}
+  .lb-next{right:6px}
   .mosaic.anim .mtile:nth-child(3n+1),.mosaic.anim .mtile:nth-child(3n+2),.mosaic.anim .mtile:nth-child(3n+3){transition-delay:0s}
   .mcap{padding:14px 16px}
   .mcap b{font-size:.86rem}
   .sand,.aqua-band{padding:34px 22px}
+  .cta-inner{grid-template-columns:1fr;gap:28px;padding:34px 22px}
+  .cta-copy h2{font-size:1.8rem}
   .ft-grid{grid-template-columns:1fr 1fr}
   .callbar{display:grid}
   footer{padding-bottom:86px}
@@ -283,7 +332,6 @@ body.splash-lock{overflow:hidden}
   .splash-ring{width:200px;height:200px}
 }
 @media (max-width:560px){
-  .mosaic{grid-template-columns:1fr}
   .marq-set span{padding:15px 20px;font-size:.72rem;letter-spacing:.06em}
   .svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
   .hd img{height:56px}
@@ -457,6 +505,11 @@ body.splash-lock{overflow:hidden}
       <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><span class="mcap"><b>Inground pool beside a single storey home</b></span></a>
       <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></a>
     </div>
+    <div class="sld-nav" data-for="mosaic">
+      <button type="button" data-dir="-1" aria-label="Previous projects">&#8249;</button>
+      <span class="sld-dots" aria-hidden="true"></span>
+      <button type="button" data-dir="1" aria-label="Next projects">&#8250;</button>
+    </div>
     <div class="gal-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">View More Gallery</a></div>
   </div>
 </section>
@@ -466,7 +519,7 @@ body.splash-lock{overflow:hidden}
     <div class="aqua-band">
       <div class="eyeb" style="background:var(--white)">Client Stories</div>
       <h2>What Our <span>Clients Say</span></h2>
-      <div class="revs">
+      <div class="revs" id="revs">
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p><b>Alice Martin</b></div>
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>We had a spa constructed by TurnKey Pool Builders, and it has become our favorite relaxation spot. The craftsmanship is outstanding, and the team was courteous and efficient. It&#39;s exactly what we wanted!</p><b>Sam Williams</b></div>
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>They handled our pool re-plastering with professionalism and care. The new plaster looks fantastic, and the team ensured the job was done right. We highly recommend their services!</p><b>Catherine Brown</b></div>
@@ -475,6 +528,11 @@ body.splash-lock{overflow:hidden}
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>When our pool equipment needed repairs, their team came to the rescue. They were prompt, reliable, and got everything working perfectly again. Their customer service is excellent. Highly recommend them!</p><b>Mark Robinson</b></div>
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>Our backyard was transformed with a beautiful in-ground pool thanks to TurnKey Pool Builders. The team was friendly and knowledgeable, making the entire experience enjoyable. We love our new pool!</p><b>Lisa Parker</b></div>
         <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>We hired them for our gunite pool construction and couldn&#39;t be happier. The team was professional, efficient, and the final product exceeded our expectations. The whole process was smooth and stress-free.</p><b>John Davis</b></div>
+      </div>
+      <div class="sld-nav" data-for="revs">
+        <button type="button" data-dir="-1" aria-label="Previous reviews">&#8249;</button>
+        <span class="sld-dots" aria-hidden="true"></span>
+        <button type="button" data-dir="1" aria-label="Next reviews">&#8250;</button>
       </div>
     </div>
   </div>
@@ -488,6 +546,7 @@ body.splash-lock{overflow:hidden}
         <h2>Frequently Asked <span>Questions</span></h2>
         <p>Still deciding? Talk it through with us before you commit to anything.</p>
         <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+        <img class="faq-img" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/faq-img.jpg" alt="Lap pool with fire features and water spouts at dusk" width="453" height="640" loading="lazy">
       </div>
       <div class="faq-list" id="faq-list">
         <details><summary>Can you renovate or remodel my existing pool?</summary><p>Yes! We can breathe new life into your current pool with renovations, upgrades, and modern features.</p></details>
@@ -550,11 +609,37 @@ body.splash-lock{overflow:hidden}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="cta-band">
-      <div class="eyeb" style="background:var(--white)">Get Started</div>
-      <h2>Ready to Make <span>a Splash?</span></h2>
-      <p>Contact TurnKey Pool Builders today for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
-      <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
-      <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
+      <video class="cta-vid" id="ctaVid" autoplay muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/16580831/16580831-sd_960_540_30fps.mp4" aria-label="Aerial view of a backyard swimming pool and spa"></video>
+      <div class="cta-inner">
+        <div class="cta-copy">
+          <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Get Started</div>
+          <h2>Ready to Make <span>a Splash?</span></h2>
+          <p>Contact TurnKey Pool Builders today for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
+          <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+          <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
+        </div>
+        <form class="cta-form" id="quoteForm" novalidate>
+          <b>Request your free estimate</b>
+          <div class="cta-row">
+            <label>Name<input type="text" name="name" autocomplete="name" required></label>
+            <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+          </div>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          <label>Service<select name="service">
+            <option>Custom Pools</option>
+            <option>Gunite Pool Construction</option>
+            <option>Inground Pool</option>
+            <option>Pool Equipment Repairs</option>
+            <option>Pool Remodel</option>
+            <option>Pool Renovation</option>
+            <option>Pool Replastering</option>
+            <option>Spa Construction</option>
+          </select></label>
+          <label>Tell us about your project<textarea name="message" rows="3"></textarea></label>
+          <button class="btn btn-p" type="submit">Get a FREE Estimate!</button>
+          <p class="cta-note" id="quoteNote" hidden></p>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -623,6 +708,13 @@ body.splash-lock{overflow:hidden}
     </div>
   </div>
 </footer>
+
+<div class="lbox" id="lbox" hidden role="dialog" aria-modal="true" aria-label="Project photo">
+  <button class="lb-close" type="button" aria-label="Close">&#10005;</button>
+  <button class="lb-prev" type="button" aria-label="Previous photo">&#8249;</button>
+  <figure><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-next" type="button" aria-label="Next photo">&#8250;</button>
+</div>
 
 <div class="callbar" aria-label="Quick contact">
   <a href="tel:+12393471697">Call Us Today!</a>
@@ -725,7 +817,11 @@ body.splash-lock{overflow:hidden}
   function onScroll(){
     if (ticking) return;
     ticking = true;
-    if (window.requestAnimationFrame) window.requestAnimationFrame(sweep); else sweep();
+    /* setTimeout, not requestAnimationFrame. rAF is suspended while the tab is
+       in the background, so the callback would never run, the ticking flag
+       would stay true forever, and every later scroll would be ignored,
+       leaving the page permanently blank. Timers still fire when hidden. */
+    setTimeout(sweep, 16);
   }
   function revealAll(){
     while (items.length) items.pop().classList.add('in');
@@ -746,5 +842,150 @@ body.splash-lock{overflow:hidden}
 })();
 </script>
 
+
+<script>
+/* Sliders: the tracks scroll natively with snap points, so touch swiping and
+   keyboard scrolling already work. These buttons just page them, and the dots
+   follow the real scroll position rather than a counter that could drift. */
+(function(){
+  var navs = document.querySelectorAll('.sld-nav');
+  for (var n = 0; n < navs.length; n++) (function(nav){
+    var track = document.getElementById(nav.getAttribute('data-for'));
+    if (!track) return;
+    var prev = nav.querySelector('[data-dir="-1"]');
+    var next = nav.querySelector('[data-dir="1"]');
+    var dots = nav.querySelector('.sld-dots');
+    function pages(){
+      /* round, not ceil: a partial trailing sliver is not another page,
+         and ceil would leave a dot that can never light up */
+      return Math.max(1, Math.round(track.scrollWidth / Math.max(1, track.clientWidth)));
+    }
+    function build(){
+      var p = pages();
+      if (dots.children.length !== p) {
+        dots.innerHTML = '';
+        for (var i = 0; i < p; i++) dots.appendChild(document.createElement('i'));
+      }
+      sync();
+    }
+    function sync(){
+      var per = Math.max(1, track.clientWidth);
+      var idx = Math.round(track.scrollLeft / per);
+      for (var i = 0; i < dots.children.length; i++) {
+        dots.children[i].className = (i === idx) ? 'on' : '';
+      }
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function glide(to){
+      var max = track.scrollWidth - track.clientWidth;
+      to = Math.max(0, Math.min(max, to));
+      if (reduce) { track.scrollLeft = to; sync(); return; }
+      /* Timer driven rather than requestAnimationFrame: rAF is suspended in a
+         background tab, which would leave the track stuck mid-slide. Timers
+         still fire there, so the scroll always completes. */
+      var from = track.scrollLeft, t0 = Date.now(), dur = 420;
+      clearTimeout(track.__g);
+      (function step(){
+        var k = Math.min(1, (Date.now() - t0) / dur);
+        var e = 1 - Math.pow(1 - k, 3);
+        track.scrollLeft = from + (to - from) * e;
+        if (k < 1) track.__g = setTimeout(step, 16); else sync();
+      })();
+    }
+    prev.addEventListener('click', function(){ glide(track.scrollLeft - track.clientWidth); });
+    next.addEventListener('click', function(){ glide(track.scrollLeft + track.clientWidth); });
+    track.addEventListener('scroll', function(){
+      if (track.__t) return;
+      track.__t = setTimeout(function(){ track.__t = null; sync(); }, 90);
+    }, {passive: true});
+    window.addEventListener('resize', build);
+    build();
+    window.addEventListener('load', build);
+  })(navs[n]);
+})();
+
+/* Click a project photo to zoom it. Arrows and Escape work, focus is returned
+   to the tile that opened it, and the page behind is locked from scrolling. */
+(function(){
+  var box = document.getElementById('lbox');
+  var track = document.getElementById('mosaic');
+  if (!box || !track) return;
+  var img = document.getElementById('lbImg');
+  var cap = document.getElementById('lbCap');
+  var tiles = [].slice.call(track.getElementsByClassName('mtile'));
+  var at = 0, opener = null;
+  function show(i){
+    at = (i + tiles.length) % tiles.length;
+    var t = tiles[at], src = t.querySelector('img');
+    img.src = src.getAttribute('src');
+    img.alt = src.getAttribute('alt') || '';
+    cap.textContent = src.getAttribute('alt') || '';
+  }
+  function open(i, from){
+    opener = from || null;
+    show(i);
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    box.querySelector('.lb-close').focus();
+  }
+  function close(){
+    box.hidden = true;
+    document.body.style.overflow = '';
+    if (opener) opener.focus();
+  }
+  for (var i = 0; i < tiles.length; i++) (function(n){
+    tiles[n].addEventListener('click', function(e){ e.preventDefault(); open(n, tiles[n]); });
+  })(i);
+  box.querySelector('.lb-close').addEventListener('click', close);
+  box.querySelector('.lb-prev').addEventListener('click', function(){ show(at - 1); });
+  box.querySelector('.lb-next').addEventListener('click', function(){ show(at + 1); });
+  box.addEventListener('click', function(e){ if (e.target === box) close(); });
+  document.addEventListener('keydown', function(e){
+    if (box.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(at + 1);
+    else if (e.key === 'ArrowLeft') show(at - 1);
+  });
+})();
+</script>
+
+<script>
+/* Closing CTA film. Small file, but still skipped under Data Saver. */
+(function(){
+  var v = document.getElementById('ctaVid');
+  if (!v) return;
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn && conn.saveData) return;
+  v.src = v.getAttribute('data-src');
+  var pl = v.play();
+  if (pl && pl.catch) pl.catch(function(){});
+})();
+
+/* Estimate form. This mockup has nowhere to post to, so it confirms in place
+   and says so plainly rather than pretending a message was sent. */
+(function(){
+  var f = document.getElementById('quoteForm');
+  var note = document.getElementById('quoteNote');
+  if (!f || !note) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var missing = [];
+    ['name','phone','email'].forEach(function(n){
+      var el = f.elements[n];
+      if (el && !el.value.trim()) missing.push(n);
+    });
+    if (missing.length) {
+      note.textContent = 'Please add your ' + missing.join(', ') + '.';
+      note.hidden = false;
+      if (f.elements[missing[0]]) f.elements[missing[0]].focus();
+      return;
+    }
+    note.textContent = 'Thanks. This is a design mockup, so nothing was sent. In the live build this goes straight to TurnKey.';
+    note.hidden = false;
+  });
+})();
+</script>
 </body>
 </html>
