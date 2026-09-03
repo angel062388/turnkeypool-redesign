@@ -51,36 +51,42 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,58,76,.06) 14%,rgba(23,64,88,.5) 66%,rgba(18,52,72,.78) 100%)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
-.hero-copy{background:var(--white);border-radius:22px;padding:34px 36px;box-shadow:0 30px 60px rgba(18,52,72,.25);max-width:560px}
-.hero-copy h1{font-size:clamp(1.9rem,3.6vw,2.65rem);line-height:1.12;margin-bottom:6px}
-.hero-copy h1 small{display:block;font-size:.58em;font-weight:600;color:var(--deep);margin-top:6px}
-.hero-copy .sub{font-size:.98rem;margin:10px 0 18px}
+.hero-copy{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(22px) saturate(1.25);backdrop-filter:blur(22px) saturate(1.25);border:1px solid rgba(255,255,255,.55);border-radius:24px;padding:36px 38px;box-shadow:0 30px 70px rgba(12,40,58,.32);max-width:600px}
+.hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px}
+.hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#12557F;margin-top:8px}
+.hero-copy .sub{font-size:1.02rem;color:#2A4759;margin:12px 0 20px}
 .badges{display:flex;gap:14px;align-items:center;margin:0 0 18px}
 .badges img{height:40px;width:auto;border-radius:6px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:-28px;position:relative;z-index:5}
-.chips span{background:var(--white);border-radius:40px;padding:13px 19px;font-size:.78rem;font-weight:700;color:var(--deep);box-shadow:0 14px 30px rgba(23,97,143,.14);white-space:nowrap}
-.chips span::before{content:"\2713  ";color:var(--blue)}
-.chip-rev{background:var(--white);border-radius:40px;padding:11px 21px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(23,97,143,.16);white-space:nowrap}
-.chip-rev i{font-style:normal;color:#F3B23E;letter-spacing:2px;font-size:.95rem;line-height:1}
-.chip-rev b{font-size:.78rem;font-weight:700;color:var(--deep)}
-/* slides in from the left once the intro clears. Hidden state is added by
-   script, so with JavaScript off the box is simply there. */
-.chip-rev.anim{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1)}
-.chip-rev.anim.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.chip-rev.anim{opacity:1;transform:none;transition:none}}
+/* rotating trust band. Two identical sets slide by 50% of the track, so
+   the loop is seamless. Pauses on hover and stops entirely for anyone who
+   has asked for reduced motion. */
+.marq{position:relative;z-index:5;margin-top:18px;border-radius:44px;overflow:hidden;background:linear-gradient(100deg,var(--deep),var(--blue));box-shadow:0 18px 44px rgba(23,97,143,.3);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marq-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marq:hover .marq-track{animation-play-state:paused}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marq-set{display:flex;align-items:center;flex:none}
+.marq-set span{display:flex;align-items:center;gap:9px;padding:17px 28px;color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.marq-set span::before{content:"\2713";color:#BDE3F7;font-weight:800;font-size:.9rem}
+.marq-set span.mr-star::before{content:none}
+.mr-star i{font-style:normal;color:#F3B23E;letter-spacing:2px;font-size:.9rem}
+.marq.anim{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+.marq.anim.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.marq-track{animation:none}.marq.anim{opacity:1;transform:none;transition:none}}
 section{padding:64px 0}
 /* services: photo card per service, carrying the live body copy */
-.svc{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
-.svc a{display:grid;grid-template-columns:200px 1fr;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,opacity .6s ease}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;align-items:start}
+.svc a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,opacity .6s ease}
 .svc a:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(23,97,143,.17)}
 .svc figure{position:relative;margin:0;background:var(--aqua)}
-.svc figure .ph{width:100%;height:100%;object-fit:cover;min-height:250px}
-.svc i{font-style:normal;position:absolute;right:-22px;bottom:20px;z-index:2;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:15px;background:var(--white);box-shadow:0 8px 20px rgba(23,97,143,.22)}
+.svc figure .ph{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.svc a:hover .ph{transform:scale(1.05)}
+.svc figure .ph{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.svc i{font-style:normal;position:absolute;right:18px;bottom:-23px;z-index:2;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:15px;background:var(--white);box-shadow:0 8px 20px rgba(23,97,143,.22)}
 .svc i img{width:27px;height:27px;object-fit:contain}
-.svc .txt{padding:24px 26px 22px;display:flex;flex-direction:column}
-.svc b{font-size:1.06rem;display:block;color:var(--deep);margin-bottom:9px;letter-spacing:-.01em}
-.svc h4{font-size:.85rem;margin:14px 0 5px;color:var(--ink)}
-.svc p{font-size:.855rem;color:var(--muted);margin-bottom:9px}
+.svc .txt{padding:30px 22px 22px;display:flex;flex-direction:column;flex:1}
+.svc b{font-size:1rem;display:block;color:var(--deep);margin-bottom:9px;letter-spacing:-.01em}
+.svc h4{font-size:.82rem;margin:13px 0 5px;color:var(--ink)}
+.svc p{font-size:.83rem;color:var(--muted);margin-bottom:9px}
 .svc p:last-of-type{margin-bottom:0}
 .svc span{font-size:.78rem;color:var(--blue);font-weight:700;margin-top:auto;padding-top:14px}
 /* each card reveals as it scrolls in. Watching the cards rather than the
@@ -89,13 +95,16 @@ section{padding:64px 0}
    by script, so with JavaScript off the copy is simply visible. */
 .svc.anim a{opacity:0;transform:translateY(22px)}
 .svc.anim a.in{opacity:1;transform:none}
-.svc.anim a:nth-child(even){transition-delay:.09s}
+.svc.anim a:nth-child(4n+1){transition-delay:0s}
+.svc.anim a:nth-child(4n+2){transition-delay:.07s}
+.svc.anim a:nth-child(4n+3){transition-delay:.14s}
+.svc.anim a:nth-child(4n+4){transition-delay:.21s}
 .svc.anim a:hover{transition-delay:0s}
 .svc.anim a.in:hover{transform:translateY(-5px)}
 @media (prefers-reduced-motion:reduce){.svc.anim a{opacity:1;transform:none;transition:none}}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none;align-items:start}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none}
 .step{position:relative;background:var(--white);border-radius:20px;padding:24px 20px}
 .step::after{content:"";position:absolute;top:44px;left:100%;width:14px;height:2px;background:rgba(63,160,220,.42)}
 .step:last-child::after{display:none}
@@ -103,17 +112,17 @@ section{padding:64px 0}
 .step h3{font-size:.97rem;margin-bottom:8px;min-height:2.5em}
 .step p{font-size:.84rem;color:var(--muted)}
 /* each step reveals as it scrolls in, same per-item approach as the cards */
-.steps.anim .step{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.steps.anim .step{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .steps.anim .step i{transform:scale(.55);opacity:0;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
 .steps.anim .step::after{transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
 .steps.anim .step.in{opacity:1;transform:none}
 .steps.anim .step.in i{transform:none;opacity:1}
 .steps.anim .step.in::after{transform:none}
-.steps.anim .step:nth-child(1),.steps.anim .step:nth-child(1) i,.steps.anim .step:nth-child(1)::after{transition-delay:.04s}
-.steps.anim .step:nth-child(2),.steps.anim .step:nth-child(2) i,.steps.anim .step:nth-child(2)::after{transition-delay:.12s}
-.steps.anim .step:nth-child(3),.steps.anim .step:nth-child(3) i,.steps.anim .step:nth-child(3)::after{transition-delay:.20s}
-.steps.anim .step:nth-child(4),.steps.anim .step:nth-child(4) i,.steps.anim .step:nth-child(4)::after{transition-delay:.28s}
-.steps.anim .step:nth-child(5),.steps.anim .step:nth-child(5) i,.steps.anim .step:nth-child(5)::after{transition-delay:.36s}
+.steps.anim .step:nth-child(1),.steps.anim .step:nth-child(1) i,.steps.anim .step:nth-child(1)::after{transition-delay:.05s}
+.steps.anim .step:nth-child(2),.steps.anim .step:nth-child(2) i,.steps.anim .step:nth-child(2)::after{transition-delay:.16s}
+.steps.anim .step:nth-child(3),.steps.anim .step:nth-child(3) i,.steps.anim .step:nth-child(3)::after{transition-delay:.27s}
+.steps.anim .step:nth-child(4),.steps.anim .step:nth-child(4) i,.steps.anim .step:nth-child(4)::after{transition-delay:.38s}
+.steps.anim .step:nth-child(5),.steps.anim .step:nth-child(5) i,.steps.anim .step:nth-child(5)::after{transition-delay:.49s}
 @media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after{opacity:1;transform:none;transition:none}}
 /* why floaters */
 .why-la{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
@@ -124,19 +133,25 @@ section{padding:64px 0}
 .why b{font-size:.98rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .why b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue);flex:none}
 .why p{font-size:.88rem;color:var(--muted)}
-/* expanding gallery: the active panel widens, the rest stay as slivers */
-.mosaic{display:flex;gap:12px;margin-top:28px;height:430px}
-.mtile{position:relative;flex:1 1 0;min-width:0;border:0;padding:0;background:var(--aqua);border-radius:20px;overflow:hidden;cursor:pointer;font:inherit;text-align:left;transition:flex-grow .7s cubic-bezier(.22,1,.36,1)}
-.mtile img{width:100%;height:100%;object-fit:cover;display:block}
-.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,52,72,0) 38%,rgba(16,48,68,.78) 100%);opacity:.5;transition:opacity .55s ease}
-.mtile:hover::after{opacity:.8}
-.mtile.on{flex-grow:3.4}
-.mtile.on::after{opacity:1}
+/* gallery: every photo sits in a 3:2 frame and every photo IS 3:2, so
+   nothing is cropped. Movement comes from a slow zoom inside the frame. */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.mtile{position:relative;display:block;border-radius:20px;overflow:hidden;background:var(--aqua);text-decoration:none}
+.mtile img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.mtile:hover img,.mtile:focus-visible img{transform:scale(1.06)}
+.mtile::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(18,52,72,0) 46%,rgba(14,44,63,.84) 100%)}
 .mtile:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.mcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 24px;color:#fff;opacity:0;transform:translateY(14px);transition:opacity .45s ease .12s,transform .5s ease .12s}
-.mtile.on .mcap{opacity:1;transform:none}
-.mcap b{display:block;font-size:1rem;letter-spacing:-.01em;white-space:nowrap}
-@media (prefers-reduced-motion:reduce){.mtile,.mcap,.mtile::after{transition:none}}
+.mcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 20px;color:#fff;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.mtile:hover .mcap{transform:translateY(-5px)}
+.mcap b{display:block;font-size:.94rem;letter-spacing:-.01em;text-shadow:0 2px 10px rgba(8,28,42,.6)}
+/* tiles reveal in sequence; hidden state added by script so no JS means
+   the gallery is simply there */
+.mosaic.anim .mtile{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.mosaic.anim .mtile.in{opacity:1;transform:none}
+.mosaic.anim .mtile:nth-child(3n+1){transition-delay:0s}
+.mosaic.anim .mtile:nth-child(3n+2){transition-delay:.09s}
+.mosaic.anim .mtile:nth-child(3n+3){transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){.mosaic.anim .mtile{opacity:1;transform:none;transition:none}.mtile img,.mcap{transition:none}}
 .gal-cta{text-align:center;margin-top:30px}
 /* aqua band: reviews */
 .aqua-band{background:linear-gradient(160deg,var(--aqua) 0%,#F4FAFD 100%);border-radius:var(--r);padding:54px 44px}
@@ -145,13 +160,6 @@ section{padding:64px 0}
 .rev i{color:#F3B23E;font-style:normal;letter-spacing:2px}
 .rev p{font-size:.9rem;color:var(--muted);margin:11px 0 12px}
 .rev b{font-size:.86rem;color:var(--deep)}
-/* phone band */
-.phone-band{background:linear-gradient(150deg,var(--deep),var(--blue));border-radius:var(--r);color:#fff;padding:48px 44px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
-.phone-band h2{color:#fff;margin-bottom:4px;font-size:1.7rem}
-.phone-band h2 span{color:#BDE3F7}
-.pb-tel{font-size:2rem;font-weight:800;color:#fff;text-decoration:none;display:block}
-.pb-tel:hover{color:#BDE3F7}
-.pb-right{text-align:right}
 /* faq */
 details{background:var(--white);border-radius:18px;margin-bottom:12px;padding:0 24px;box-shadow:0 8px 20px rgba(23,97,143,.06)}
 summary{cursor:pointer;list-style:none;font-weight:700;font-size:.98rem;padding:19px 34px 19px 0;position:relative}
@@ -159,10 +167,44 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--aqua-2);color:var(--deep);font-weight:800;display:flex;align-items:center;justify-content:center}
 details[open] summary::after{content:"\2212"}
 details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:22px;align-items:start}
+/* FAQ: heading and CTA on the left, one clean accordion on the right */
+.faq-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:start}
+.faq-side{position:sticky;top:118px}
+.faq-side p{color:var(--muted);font-size:.92rem;margin:0 0 20px}
+.faq-list{background:var(--white);border-radius:22px;box-shadow:0 10px 26px rgba(23,97,143,.08);padding:2px 26px}
+.faq-list details{background:none;box-shadow:none;border-radius:0;margin:0;padding:0;border-bottom:1px solid var(--aqua)}
+.faq-list details:last-child{border-bottom:0}
+.faq-list.anim details{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+.faq-list.anim details.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.faq-list.anim details{opacity:1;transform:none;transition:none}}
 /* areas */
-.areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.areas span{background:var(--white);box-shadow:0 6px 16px rgba(23,97,143,.07);padding:10px 18px;font-size:.8rem;font-weight:600;border-radius:30px}
+/* service areas: every city links to its own page, all 13 verified live */
+.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;list-style:none}
+.areas a{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--white);border-radius:16px;padding:16px 20px;font-size:.88rem;font-weight:700;color:var(--ink);text-decoration:none;box-shadow:0 8px 20px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,color .25s}
+.areas a::after{content:"\2192";color:var(--blue);font-weight:800;transition:transform .25s}
+.areas a:hover{transform:translateY(-3px);color:var(--deep);box-shadow:0 16px 32px rgba(23,97,143,.16)}
+.areas a:hover::after{transform:translateX(4px)}
+.areas.anim li{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+.areas.anim li.in{opacity:1;transform:none}
+.areas.anim li:nth-child(4n+2){transition-delay:.06s}
+.areas.anim li:nth-child(4n+3){transition-delay:.12s}
+.areas.anim li:nth-child(4n+4){transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){.areas.anim li{opacity:1;transform:none;transition:none}}
+/* blog cards */
+.blogs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.blogs a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s}
+.blogs a:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(23,97,143,.17)}
+.blogs img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.blogs a:hover img{transform:scale(1.06)}
+.blogs figure{margin:0;overflow:hidden}
+.blogs .txt{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.blogs b{font-size:1rem;color:var(--deep);line-height:1.35;letter-spacing:-.01em}
+.blogs span{font-size:.78rem;color:var(--blue);font-weight:700;margin-top:auto;padding-top:16px}
+.blogs.anim a{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.blogs.anim a.in{opacity:1;transform:none}
+.blogs.anim a:nth-child(2){transition-delay:.09s}
+.blogs.anim a:nth-child(3){transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){.blogs.anim a{opacity:1;transform:none;transition:none}}
 /* cta */
 .cta-band{background:var(--sand);border-radius:var(--r);text-align:center;padding:60px 40px}
 .cta-band p{color:var(--muted);max-width:52ch;margin:0 auto 26px}
@@ -217,22 +259,22 @@ body.splash-lock{overflow:hidden}
   nav{display:none}
   .hero-inner{padding:120px 20px 22px}
   .hero-copy{max-width:none}
-  .svc{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr}
+  .faq-wrap{grid-template-columns:1fr;gap:24px}
+  .faq-side{position:static}
   .step h3{min-height:0}
   .step::after{top:auto;bottom:-14px;left:39px;width:2px;height:14px;transform-origin:top}
   .steps.anim .step::after{transform:scaleY(0)}
-  .svc.anim a:nth-child(even){transition-delay:0s}
-  .why,.revs,.faq-grid,.why-la{grid-template-columns:1fr}
-  .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:auto}
-  .mtile{flex:none;height:200px;cursor:default}
-  .mtile.on{flex-grow:0}
-  .mtile::after,.mtile.on::after{opacity:1}
-  .mcap{opacity:1;transform:none;padding:14px 16px}
-  .mcap b{font-size:.84rem;white-space:normal}
+  .svc.anim a:nth-child(4n+1),.svc.anim a:nth-child(4n+2),.svc.anim a:nth-child(4n+3),.svc.anim a:nth-child(4n+4){transition-delay:0s}
+  .why,.revs,.why-la{grid-template-columns:1fr}
+  .blogs{grid-template-columns:1fr}
+  .areas{grid-template-columns:1fr 1fr}
+  .mosaic{grid-template-columns:1fr 1fr;gap:14px}
+  .mosaic.anim .mtile:nth-child(3n+1),.mosaic.anim .mtile:nth-child(3n+2),.mosaic.anim .mtile:nth-child(3n+3){transition-delay:0s}
+  .mcap{padding:14px 16px}
+  .mcap b{font-size:.86rem}
   .sand,.aqua-band{padding:34px 22px}
-  .phone-band{justify-content:center;text-align:center}
-  .pb-right{text-align:center}
   .ft-grid{grid-template-columns:1fr 1fr}
   .callbar{display:grid}
   footer{padding-bottom:86px}
@@ -241,13 +283,9 @@ body.splash-lock{overflow:hidden}
   .splash-ring{width:200px;height:200px}
 }
 @media (max-width:560px){
-  .chip-rev{padding:12px 18px;gap:9px;white-space:normal}
-  .chip-rev b{font-size:.72rem}
-  .chips span{white-space:normal}
-  .svc a{grid-template-columns:1fr}
-  .svc figure .ph{min-height:0;aspect-ratio:16/10}
-  .svc i{right:22px;bottom:-23px}
-  .svc .txt{padding:30px 22px 22px}.ft-grid{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr}
+  .marq-set span{padding:15px 20px;font-size:.72rem;letter-spacing:.06em}
+  .svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
   .hd img{height:56px}
   .splash-logo img{height:72px}
   .splash-ring{width:158px;height:158px}
@@ -310,9 +348,23 @@ body.splash-lock{overflow:hidden}
         </div>
       </div>
     </div>
-    <div class="chips">
-      <span>FREE Estimates</span><span>3D Pool Designs</span><span>Permits Handled</span><span>Warranty-Backed Work</span>
-      <div class="chip-rev" id="chipRev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><b>Rated by Thousands of Satisfied Customers</b></div>
+    <div class="marq" id="marq">
+      <div class="marq-track">
+    <div class="marq-set">
+      <span>FREE Estimates</span>
+      <span>3D Pool Designs</span>
+      <span>Permits Handled</span>
+      <span>Warranty-Backed Work</span>
+      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+    </div>
+    <div class="marq-set" aria-hidden="true">
+      <span>FREE Estimates</span>
+      <span>3D Pool Designs</span>
+      <span>Permits Handled</span>
+      <span>Warranty-Backed Work</span>
+      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+    </div>
+      </div>
     </div>
   </div>
 </section>
@@ -367,9 +419,9 @@ body.splash-lock{overflow:hidden}
       <ol class="steps" id="steps">
         <li class="step"><i>1</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></li>
         <li class="step"><i>2</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></li>
-        <li class="step"><i>3</i><h3>Pre-Construction Meeting</h3><p>We start with a pre-construction meeting.</p></li>
-        <li class="step"><i>4</i><h3>Excavation and Build</h3><p>Then we excavate and build with expertise.</p></li>
-        <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool!</p></li>
+        <li class="step"><i>3</i><h3>Pre-Construction Meeting</h3><p>We start with a pre-construction meeting. We walk the site with you, confirm the final layout and finishes, and go through what happens at each stage of the build.</p></li>
+        <li class="step"><i>4</i><h3>Excavation and Build</h3><p>Then we excavate and build with expertise. Steel, plumbing and the gunite shell go in stage by stage, with disruption to your property kept to a minimum.</p></li>
+        <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool! We run every system, then walk you through how your pool and equipment work day to day.</p></li>
       </ol>
     </div>
   </div>
@@ -398,12 +450,12 @@ body.splash-lock{overflow:hidden}
     <div class="eyeb">Our Gallery</div>
     <h2>Recent <span>Pool Projects</span></h2>
     <div class="mosaic" id="mosaic">
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></button>
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9-466x520.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></button>
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></button>
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></button>
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></button>
-      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn terrace" loading="lazy"><span class="mcap"><b>Modern pool with a lawn terrace</b></span></button>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></a>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></a>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></a>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></a>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><span class="mcap"><b>Inground pool beside a single storey home</b></span></a>
+      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></a>
     </div>
     <div class="gal-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">View More Gallery</a></div>
   </div>
@@ -428,32 +480,20 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="phone-band">
-      <div>
-        <h2>Get In Touch To Discuss <span>How We Can Help You!</span></h2>
-        <a class="pb-tel" href="tel:+12393471697">239-347-1697</a>
-      </div>
-      <div class="pb-right">
-        <a class="btn btn-p" style="background:#fff;color:var(--deep);box-shadow:none" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimates</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="faq" style="padding-top:0">
   <div class="wrap">
-    <div class="eyeb">FAQ</div>
-    <h2>Frequently Asked <span>Questions</span></h2>
-    <div class="faq-grid">
-      <div>
-        <details open><summary>Can you renovate or remodel my existing pool?</summary><p>Yes! We can breathe new life into your current pool with renovations, upgrades, and modern features.</p></details>
+    <div class="faq-wrap">
+      <div class="faq-side">
+        <div class="eyeb">FAQ</div>
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <p>Still deciding? Talk it through with us before you commit to anything.</p>
+        <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
+      </div>
+      <div class="faq-list" id="faq-list">
+        <details><summary>Can you renovate or remodel my existing pool?</summary><p>Yes! We can breathe new life into your current pool with renovations, upgrades, and modern features.</p></details>
         <details><summary>Do you handle permits and approvals?</summary><p>Yes, we take care of securing all necessary permits and approvals to ensure your pool project complies with local regulations.</p></details>
         <details><summary>Do you offer any warranties on your work?</summary><p>Yes, we stand behind our work with comprehensive warranties on both construction and pool equipment.</p></details>
         <details><summary>Do you offer custom pool designs?</summary><p>Absolutely! We work closely with you to design a pool that reflects your unique style and complements your home.</p></details>
-      </div>
-      <div>
         <details><summary>How long does the typical pool construction process take?</summary><p>The timeline can vary depending on pool size and complexity, but we&#39;ll provide a detailed schedule during the design phase.</p></details>
         <details><summary>What maintenance services do you offer?</summary><p>We offer a variety of pool maintenance services, including equipment repair, cleaning, and preventative maintenance programs.</p></details>
         <details><summary>What pool types do you specialize in?</summary><p>We specialize in building strong and beautiful gunite pools, but can discuss other options during your consultation.</p></details>
@@ -467,9 +507,43 @@ body.splash-lock{overflow:hidden}
   <div class="wrap">
     <div class="eyeb">Service Areas</div>
     <h2>Serving New Orleans <span>and Beyond</span></h2>
-    <div class="areas">
-      <span>Baton Rouge</span><span>Covington</span><span>Gretna</span><span>Hammond</span><span>Harahan</span><span>Kenner</span><span>Laplace</span><span>Madisonville</span><span>Mandeville</span><span>Metairie</span><span>River Ridge</span><span>Slidell</span><span>St. Rose</span>
+    <ul class="areas" id="areas-list">
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener">Baton Rouge</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener">Gretna</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener">Harahan</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener">Kenner</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener">Laplace</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener">River Ridge</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener">St. Rose</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="blog" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyeb">Our Blogs</div>
+    <h2>From the <span>TurnKey Blog</span></h2>
+    <div class="blogs" id="blog-list">
+      <a href="https://www.turnkeypoolbuilders.com/pool-maintenance-guide-after-installation/" target="_blank" rel="noopener">
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"></figure>
+        <div class="txt"><b>The Ultimate Guide to Pool Maintenance After Installation</b><span>Read more &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/benefits-of-custom-pools/" target="_blank" rel="noopener">
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/poolremodel-image.jpg" alt="Rock waterfall feeding a curved pool" loading="lazy"></figure>
+        <div class="txt"><b>The Benefits of Custom Pools: Why Go Beyond Standard Designs</b><span>Read more &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/how-to-maintain-your-pool-year-round/" target="_blank" rel="noopener">
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/cleaning-leaves-from-the-swimming-pool-2023-11-27-05-01-52-utc-768x512.jpg" alt="Leaf skimmer net lifting leaves from a pool" loading="lazy"></figure>
+        <div class="txt"><b>How to Maintain Your Pool Year-Round</b><span>Read more &rarr;</span></div>
+      </a>
     </div>
+    <div class="gal-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/blog/" target="_blank" rel="noopener">Visit the Blog</a></div>
   </div>
 </section>
 
@@ -575,8 +649,8 @@ body.splash-lock{overflow:hidden}
   /* Arm the rated box for its slide-in. Doing it here, not in the CSS, means
      the box is simply visible if this script never runs. */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var cr = document.getElementById('chipRev');
-  if (cr && !reduce) cr.classList.add('anim');
+  var mq = document.getElementById('marq');
+  if (mq && !reduce) mq.classList.add('anim');
 })();
 </script>
 
@@ -585,8 +659,8 @@ body.splash-lock{overflow:hidden}
    any key dismisses it; reduced-motion users get a near-instant reveal. */
 (function(){
   function revealRated(delay){
-    var cr = document.getElementById('chipRev');
-    if (cr) setTimeout(function(){ cr.classList.add('in'); }, delay);
+    var mq = document.getElementById('marq');
+    if (mq) setTimeout(function(){ mq.classList.add('in'); }, delay);
   }
   var s = document.getElementById('splash');
   if (!s) { revealRated(200); return; }
@@ -625,7 +699,7 @@ body.splash-lock{overflow:hidden}
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
-  var items = [], ids = ['svc', 'steps'];
+  var items = [], ids = ['svc', 'steps', 'mosaic', 'areas-list', 'faq-list', 'blog-list'];
   for (var n = 0; n < ids.length; n++) {
     var el = document.getElementById(ids[n]);
     if (!el) continue;
@@ -653,37 +727,24 @@ body.splash-lock{overflow:hidden}
     ticking = true;
     if (window.requestAnimationFrame) window.requestAnimationFrame(sweep); else sweep();
   }
+  function revealAll(){
+    while (items.length) items.pop().classList.add('in');
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+  }
   window.addEventListener('scroll', onScroll, {passive: true});
   window.addEventListener('resize', onScroll);
+  /* If the page is short enough to fit the viewport there will never be a
+     scroll event, so anything below the fold line would stay hidden forever.
+     Same for a very tall screen showing most of the page at once. Sweep again
+     once images have sized the page, then just show whatever is left. */
+  window.addEventListener('load', function(){
+    sweep();
+    if (document.documentElement.scrollHeight <= window.innerHeight + 4) revealAll();
+  });
   sweep();
 })();
 </script>
 
-<script>
-/* Expanding gallery. Hover, tap or keyboard focus widens a panel; the third
-   one starts open. Below 980px the CSS turns this into a plain grid with the
-   captions always showing, so nothing depends on hover on a touch screen. */
-(function(){
-  var m = document.getElementById('mosaic');
-  if (!m) return;
-  var tiles = [].slice.call(m.getElementsByClassName('mtile'));
-  if (!tiles.length) return;
-  function open(i){
-    for (var k = 0; k < tiles.length; k++) {
-      var on = (k === i);
-      tiles[k].className = on ? 'mtile on' : 'mtile';
-      tiles[k].setAttribute('aria-expanded', on ? 'true' : 'false');
-    }
-  }
-  for (var i = 0; i < tiles.length; i++) {
-    (function(n){
-      tiles[n].addEventListener('mouseenter', function(){ open(n); });
-      tiles[n].addEventListener('focus', function(){ open(n); });
-      tiles[n].addEventListener('click', function(){ open(n); });
-    })(i);
-  }
-  open(Math.min(2, tiles.length - 1));
-})();
-</script>
 </body>
 </html>
