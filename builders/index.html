@@ -203,12 +203,32 @@ html.js .svcx-panel.on figure img{transform:none}
 .gal-cta{text-align:center;margin-top:26px}
 /* aqua band: reviews */
 .aqua-band{background:linear-gradient(160deg,var(--aqua) 0%,#F4FAFD 100%);border-radius:var(--r);padding:54px 44px}
-.revs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 16px)/2);gap:16px;margin-top:26px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
-.revs::-webkit-scrollbar{display:none}
-.rev{background:var(--white);border-radius:20px;padding:26px;scroll-snap-align:start}
-.rev i{color:#F3B23E;font-style:normal;letter-spacing:2px}
-.rev p{font-size:.9rem;color:var(--muted);margin:11px 0 12px}
-.rev b{font-size:.86rem;color:var(--deep)}
+/* testimonials: one featured quote at a time, in the shape of the reference
+   the user supplied. The portrait slot holds the client's OWN work, not a
+   face: we have no photo of any reviewer, and a stock face beside a real
+   named testimonial would tell visitors that is the customer. */
+.tstm{display:grid;grid-template-columns:250px 1fr;gap:0;align-items:stretch;margin-top:28px}
+.tstm-photo{margin:0;overflow:hidden;align-self:center}
+.tstm-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%)}
+.tstm-panel{background:var(--white);border-radius:22px;padding:30px 34px 26px;box-shadow:0 14px 34px rgba(23,97,143,.1);display:flex;flex-direction:column}
+.tstm-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.tstm-top img{height:30px;width:auto;border-radius:4px;display:block}
+.tstm-stars{color:#F3B23E;letter-spacing:3px;font-size:1rem;margin-left:auto}
+.tstm-mark{font-size:3.4rem;line-height:.7;color:var(--aqua-2);font-weight:800;margin:10px 0 2px}
+.tstm-stage{position:relative;flex:1}
+.tstm-q{margin:0;position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .45s ease,transform .5s cubic-bezier(.22,1,.36,1),visibility 0s .45s}
+.tstm-q.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease,transform .5s cubic-bezier(.22,1,.36,1),visibility 0s}
+.tstm-q p{font-size:1.04rem;line-height:1.6;color:var(--ink);margin:0 0 14px}
+.tstm-q cite{font-style:normal;font-weight:800;font-size:.9rem;color:var(--deep)}
+.tstm-nav{display:flex;align-items:center;gap:10px;margin-top:18px}
+.tstm-nav button{width:40px;height:40px;border-radius:50%;border:2px solid var(--aqua-2);background:var(--white);color:var(--deep);font-size:1rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
+.tstm-nav button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.tstm-nav button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.tstm-dots{display:flex;gap:6px;margin-left:4px}
+.tstm-dots i{width:7px;height:7px;border-radius:50%;background:var(--aqua-2);display:block;transition:width .3s,background .3s}
+.tstm-dots i.on{width:20px;background:var(--blue);border-radius:4px}
+.tstm-count{margin-left:auto;font-size:.78rem;font-weight:700;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.tstm-q{transition:none}}
 /* faq */
 details{background:var(--white);border-radius:18px;margin-bottom:12px;padding:0 24px;box-shadow:0 8px 20px rgba(23,97,143,.06)}
 summary{cursor:pointer;list-style:none;font-weight:700;font-size:.98rem;padding:19px 34px 19px 0;position:relative}
@@ -377,7 +397,9 @@ body.splash-lock{overflow:hidden}
   .steps.anim .step::after{transform:scaleY(0)}
   .svc.anim a:nth-child(3n+1),.svc.anim a:nth-child(3n+2),.svc.anim a:nth-child(3n+3){transition-delay:0s}
   .why,.why-la{grid-template-columns:1fr}
-  .revs{grid-auto-columns:88%}
+  .tstm{grid-template-columns:1fr;gap:18px}
+  .tstm-photo{max-width:220px}
+  .tstm-panel{padding:24px 22px 22px}
   .blogs{grid-template-columns:1fr}
   .areas-split{grid-template-columns:1fr;gap:24px}
   .areas{grid-template-columns:1fr 1fr;gap:0 22px}
@@ -629,20 +651,32 @@ body.splash-lock{overflow:hidden}
     <div class="aqua-band">
       <div class="eyeb" style="background:var(--white)">Client Stories</div>
       <h2>What Our <span>Clients Say</span></h2>
-      <div class="revs" id="revs">
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p><b>Alice Martin</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>We had a spa constructed by TurnKey Pool Builders, and it has become our favorite relaxation spot. The craftsmanship is outstanding, and the team was courteous and efficient. It&#39;s exactly what we wanted!</p><b>Sam Williams</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>They handled our pool re-plastering with professionalism and care. The new plaster looks fantastic, and the team ensured the job was done right. We highly recommend their services!</p><b>Catherine Brown</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>Our pool renovation project was a huge success because of their team. They listened to our needs and delivered a pool that looks amazing and functions flawlessly. Great job!</p><b>Kevin Thompson</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>We decided to remodel our pool, and TurnKey Pool Builders made it look brand new. The updates they made were stunning and gave our backyard a fresh, modern look. We&#39;re thrilled with the results.</p><b>Lily Smith</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>When our pool equipment needed repairs, their team came to the rescue. They were prompt, reliable, and got everything working perfectly again. Their customer service is excellent. Highly recommend them!</p><b>Mark Robinson</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>Our backyard was transformed with a beautiful in-ground pool thanks to TurnKey Pool Builders. The team was friendly and knowledgeable, making the entire experience enjoyable. We love our new pool!</p><b>Lisa Parker</b></div>
-        <div class="rev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><p>We hired them for our gunite pool construction and couldn&#39;t be happier. The team was professional, efficient, and the final product exceeded our expectations. The whole process was smooth and stress-free.</p><b>John Davis</b></div>
-      </div>
-      <div class="sld-nav" data-for="revs">
-        <button type="button" data-dir="-1" aria-label="Previous reviews">&#8249;</button>
-        <span class="sld-dots" aria-hidden="true"></span>
-        <button type="button" data-dir="1" aria-label="Next reviews">&#8250;</button>
+      <div class="tstm" id="tstm">
+        <figure class="tstm-photo"><img src="https://images.pexels.com/photos/3290499/pexels-photo-3290499.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560&amp;h=700&amp;fit=crop" alt="" loading="lazy"></figure>
+        <div class="tstm-panel">
+          <div class="tstm-top">
+            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars">
+            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating">
+            <span class="tstm-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <div class="tstm-mark" aria-hidden="true">&ldquo;</div>
+          <div class="tstm-stage">
+        <blockquote class="tstm-q on"><p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p><cite>Alice Martin</cite></blockquote>
+        <blockquote class="tstm-q"><p>We had a spa constructed by TurnKey Pool Builders, and it has become our favorite relaxation spot. The craftsmanship is outstanding, and the team was courteous and efficient. It&#39;s exactly what we wanted!</p><cite>Sam Williams</cite></blockquote>
+        <blockquote class="tstm-q"><p>They handled our pool re-plastering with professionalism and care. The new plaster looks fantastic, and the team ensured the job was done right. We highly recommend their services!</p><cite>Catherine Brown</cite></blockquote>
+        <blockquote class="tstm-q"><p>Our pool renovation project was a huge success because of their team. They listened to our needs and delivered a pool that looks amazing and functions flawlessly. Great job!</p><cite>Kevin Thompson</cite></blockquote>
+        <blockquote class="tstm-q"><p>We decided to remodel our pool, and TurnKey Pool Builders made it look brand new. The updates they made were stunning and gave our backyard a fresh, modern look. We&#39;re thrilled with the results.</p><cite>Lily Smith</cite></blockquote>
+        <blockquote class="tstm-q"><p>When our pool equipment needed repairs, their team came to the rescue. They were prompt, reliable, and got everything working perfectly again. Their customer service is excellent. Highly recommend them!</p><cite>Mark Robinson</cite></blockquote>
+        <blockquote class="tstm-q"><p>Our backyard was transformed with a beautiful in-ground pool thanks to TurnKey Pool Builders. The team was friendly and knowledgeable, making the entire experience enjoyable. We love our new pool!</p><cite>Lisa Parker</cite></blockquote>
+        <blockquote class="tstm-q"><p>We hired them for our gunite pool construction and couldn&#39;t be happier. The team was professional, efficient, and the final product exceeded our expectations. The whole process was smooth and stress-free.</p><cite>John Davis</cite></blockquote>
+          </div>
+          <div class="tstm-nav">
+            <button type="button" data-dir="-1" aria-label="Previous review">&#8249;</button>
+            <button type="button" data-dir="1" aria-label="Next review">&#8250;</button>
+            <span class="tstm-dots" aria-hidden="true"></span>
+            <span class="tstm-count" id="tstmCount"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1211,6 +1245,50 @@ body.splash-lock{overflow:hidden}
   v.setAttribute('autoplay', '');
   var pl = v.play();
   if (pl && pl.catch) pl.catch(function(){});
+})();
+</script>
+
+<script>
+/* Featured testimonial. All eight are in the markup; one shows at a time and
+   they cross-fade. Arrows and the dots move through them; nothing auto-plays,
+   so a reader is never interrupted mid-quote. */
+(function(){
+  var root = document.getElementById('tstm');
+  if (!root) return;
+  var qs = [].slice.call(root.getElementsByClassName('tstm-q'));
+  if (qs.length < 2) return;
+  var dots = root.querySelector('.tstm-dots');
+  var count = document.getElementById('tstmCount');
+  var at = 0;
+  for (var i = 0; i < qs.length; i++) dots.appendChild(document.createElement('i'));
+  function show(n){
+    at = (n + qs.length) % qs.length;
+    for (var k = 0; k < qs.length; k++) {
+      qs[k].className = (k === at) ? 'tstm-q on' : 'tstm-q';
+      dots.children[k].className = (k === at) ? 'on' : '';
+    }
+    if (count) count.textContent = (at + 1) + ' of ' + qs.length;
+  }
+  var btns = root.querySelectorAll('.tstm-nav button');
+  for (var b = 0; b < btns.length; b++) (function(el){
+    el.addEventListener('click', function(){ show(at + (+el.getAttribute('data-dir'))); });
+  })(btns[b]);
+  /* the stage is absolutely positioned, so give it the tallest quote's height
+     and the panel never resizes as you move between them */
+  function fit(){
+    var stage = root.querySelector('.tstm-stage'), tall = 0;
+    for (var k = 0; k < qs.length; k++) {
+      var prev = qs[k].className;
+      qs[k].className = 'tstm-q on';
+      tall = Math.max(tall, qs[k].offsetHeight);
+      qs[k].className = prev;
+    }
+    if (tall) stage.style.minHeight = tall + 'px';
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  fit();
+  show(0);
 })();
 </script>
 </body>
