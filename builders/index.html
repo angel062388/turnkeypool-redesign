@@ -67,14 +67,30 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .chips span{background:var(--white);border-radius:40px;padding:13px 24px;font-size:.8rem;font-weight:700;color:var(--deep);box-shadow:0 14px 30px rgba(23,97,143,.14)}
 .chips span::before{content:"\2713  ";color:var(--blue)}
 section{padding:64px 0}
-/* services pills */
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-.svc a{background:var(--white);border-radius:20px;padding:24px 22px;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .2s,box-shadow .2s}
-.svc a:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(23,97,143,.16)}
-.svc i{font-style:normal;display:flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(140deg,var(--aqua),var(--aqua-2));margin-bottom:14px}
-.svc i img{width:34px;height:34px;object-fit:contain}
-.svc b{font-size:.96rem;display:block}
-.svc span{font-size:.76rem;color:var(--blue);font-weight:700}
+/* services: photo card per service, carrying the live body copy */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.svc a{display:grid;grid-template-columns:200px 1fr;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,opacity .6s ease}
+.svc a:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(23,97,143,.17)}
+.svc figure{position:relative;margin:0;background:var(--aqua)}
+.svc figure .ph{width:100%;height:100%;object-fit:cover;min-height:250px}
+.svc i{font-style:normal;position:absolute;right:-22px;bottom:20px;z-index:2;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:15px;background:var(--white);box-shadow:0 8px 20px rgba(23,97,143,.22)}
+.svc i img{width:27px;height:27px;object-fit:contain}
+.svc .txt{padding:24px 26px 22px;display:flex;flex-direction:column}
+.svc b{font-size:1.06rem;display:block;color:var(--deep);margin-bottom:9px;letter-spacing:-.01em}
+.svc h4{font-size:.85rem;margin:14px 0 5px;color:var(--ink)}
+.svc p{font-size:.855rem;color:var(--muted);margin-bottom:9px}
+.svc p:last-of-type{margin-bottom:0}
+.svc span{font-size:.78rem;color:var(--blue);font-weight:700;margin-top:auto;padding-top:14px}
+/* each card reveals as it scrolls in. Watching the cards rather than the
+   grid matters: the grid is taller than a phone screen, so a grid-level
+   trigger could never fire on a short viewport. The hidden state is added
+   by script, so with JavaScript off the copy is simply visible. */
+.svc.anim a{opacity:0;transform:translateY(22px)}
+.svc.anim a.in{opacity:1;transform:none}
+.svc.anim a:nth-child(even){transition-delay:.09s}
+.svc.anim a:hover{transition-delay:0s}
+.svc.anim a.in:hover{transform:translateY(-5px)}
+@media (prefers-reduced-motion:reduce){.svc.anim a{opacity:1;transform:none;transition:none}}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none;align-items:start}
@@ -84,30 +100,19 @@ section{padding:64px 0}
 .step i{font-style:normal;display:inline-flex;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(63,160,220,.34)}
 .step h3{font-size:.97rem;margin-bottom:8px;min-height:2.5em}
 .step p{font-size:.84rem;color:var(--muted)}
-/* steps reveal in sequence when the row scrolls in. The hidden state is
-   applied by script (.anim) so the copy is always visible without JS. */
+/* each step reveals as it scrolls in, same per-item approach as the cards */
 .steps.anim .step{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .65s cubic-bezier(.22,1,.36,1)}
 .steps.anim .step i{transform:scale(.55);opacity:0;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
 .steps.anim .step::after{transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
-.steps.anim.is-in .step{opacity:1;transform:none}
-.steps.anim.is-in .step i{transform:none;opacity:1}
-.steps.anim.is-in .step::after{transform:none}
-.steps.anim.is-in .step:nth-child(1),.steps.anim.is-in .step:nth-child(1) i,.steps.anim.is-in .step:nth-child(1)::after{transition-delay:.05s}
-.steps.anim.is-in .step:nth-child(2),.steps.anim.is-in .step:nth-child(2) i,.steps.anim.is-in .step:nth-child(2)::after{transition-delay:.17s}
-.steps.anim.is-in .step:nth-child(3),.steps.anim.is-in .step:nth-child(3) i,.steps.anim.is-in .step:nth-child(3)::after{transition-delay:.29s}
-.steps.anim.is-in .step:nth-child(4),.steps.anim.is-in .step:nth-child(4) i,.steps.anim.is-in .step:nth-child(4)::after{transition-delay:.41s}
-.steps.anim.is-in .step:nth-child(5),.steps.anim.is-in .step:nth-child(5) i,.steps.anim.is-in .step:nth-child(5)::after{transition-delay:.53s}
+.steps.anim .step.in{opacity:1;transform:none}
+.steps.anim .step.in i{transform:none;opacity:1}
+.steps.anim .step.in::after{transform:none}
+.steps.anim .step:nth-child(1),.steps.anim .step:nth-child(1) i,.steps.anim .step:nth-child(1)::after{transition-delay:.04s}
+.steps.anim .step:nth-child(2),.steps.anim .step:nth-child(2) i,.steps.anim .step:nth-child(2)::after{transition-delay:.12s}
+.steps.anim .step:nth-child(3),.steps.anim .step:nth-child(3) i,.steps.anim .step:nth-child(3)::after{transition-delay:.20s}
+.steps.anim .step:nth-child(4),.steps.anim .step:nth-child(4) i,.steps.anim .step:nth-child(4)::after{transition-delay:.28s}
+.steps.anim .step:nth-child(5),.steps.anim .step:nth-child(5) i,.steps.anim .step:nth-child(5)::after{transition-delay:.36s}
 @media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after{opacity:1;transform:none;transition:none}}
-/* detail blocks (full live body copy) */
-.detail{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.dcard{background:var(--white);border-radius:20px;padding:30px 32px;box-shadow:0 10px 26px rgba(23,97,143,.08)}
-.dcard.wide{grid-column:1/-1}
-.dcard h3{font-size:1.28rem;margin-bottom:10px;color:var(--deep)}
-.dcard h4{font-size:1rem;margin:16px 0 6px}
-.dcard p{font-size:.92rem;color:var(--muted);margin-bottom:10px}
-.dcard p:last-child{margin-bottom:0}
-.dphoto{border-radius:20px;overflow:hidden}
-.dphoto img{width:100%;height:100%;object-fit:cover;min-height:280px}
 /* why floaters */
 .why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
 .why div{background:var(--white);border-radius:20px;padding:24px 26px;box-shadow:0 10px 26px rgba(23,97,143,.08)}
@@ -199,11 +204,12 @@ body.splash-lock{overflow:hidden}
   nav{display:none}
   .hero-inner{grid-template-columns:1fr;padding:110px 20px 20px}
   .hero-side ul{grid-template-columns:1fr}
-  .svc{grid-template-columns:1fr 1fr}
-  .steps,.detail{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
   .step h3{min-height:0}
   .step::after{top:auto;bottom:-14px;left:39px;width:2px;height:14px;transform-origin:top}
   .steps.anim .step::after{transform:scaleY(0)}
+  .svc.anim a:nth-child(even){transition-delay:0s}
   .why,.revs,.faq-grid{grid-template-columns:1fr}
   .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
   .sand,.aqua-band{padding:34px 22px}
@@ -216,7 +222,11 @@ body.splash-lock{overflow:hidden}
   .splash-logo img{height:clamp(78px,13vw,100px)}
   .splash-ring{width:200px;height:200px}
 }
-@media (max-width:560px){.svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
+@media (max-width:560px){
+  .svc a{grid-template-columns:1fr}
+  .svc figure .ph{min-height:0;aspect-ratio:16/10}
+  .svc i{right:22px;bottom:-23px}
+  .svc .txt{padding:30px 22px 22px}.ft-grid{grid-template-columns:1fr}
   .hd img{height:56px}
   .splash-logo img{height:72px}
   .splash-ring{width:158px;height:158px}
@@ -302,15 +312,39 @@ body.splash-lock{overflow:hidden}
     <div class="eyeb">Our Services</div>
     <h2>TurnKey Pool Design and <span>Construction In NOLA</span></h2>
     <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
-    <div class="svc">
-      <a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></i><b>Custom Pools</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></i><b>Gunite Pool Construction</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></i><b>Inground Pool</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Equipment Repairs</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Remodel</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Renovation</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></i><b>Pool Replastering</b><span>Explore &rarr;</span></a>
-      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></i><b>Spa Construction</b><span>Explore &rarr;</span></a>
+    <div class="svc" id="svc">
+      <a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Custom Pools</b><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Gunite Pool Construction</b><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Inground Pool</b><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Pool Equipment Repairs</b><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Pool Remodel</b><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Pool Renovation</b><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Pool Replastering</b><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><span>Explore &rarr;</span></div>
+      </a>
+      <a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">
+        <figure><img class="ph" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><i><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></i></figure>
+        <div class="txt"><b>Spa Construction</b><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><span>Explore &rarr;</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -327,46 +361,6 @@ body.splash-lock{overflow:hidden}
         <li class="step"><i>4</i><h3>Excavation and Build</h3><p>Then we excavate and build with expertise.</p></li>
         <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool!</p></li>
       </ol>
-    </div>
-  </div>
-</section>
-
-<section id="details" style="padding-top:0">
-  <div class="wrap">
-    <div class="eyeb">What We Build</div>
-    <h2>Custom Pool Design <span>&amp; Construction</span></h2>
-    <div class="detail">
-      <div class="dcard">
-        <h3>Gunite Pools</h3>
-        <p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p>
-        <h4>Collaborative Design Process</h4>
-        <p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p>
-        <p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p>
-      </div>
-      <div class="dphoto"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-466x520.jpg" alt="Freeform gunite pool with rock waterfall" loading="lazy"></div>
-      <div class="dcard">
-        <h3>Inground Pool Installation</h3>
-        <p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p>
-      </div>
-      <div class="dcard">
-        <h3>Pool Equipment Repair &amp; Maintenance</h3>
-        <p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p>
-        <p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p>
-        <h4>Preventative Maintenance Programs</h4>
-        <p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p>
-      </div>
-      <div class="dcard">
-        <h3>Pool Renovation &amp; Remodeling</h3>
-        <p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space. Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p>
-      </div>
-      <div class="dcard">
-        <h3>Pool Replastering</h3>
-        <p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p>
-      </div>
-      <div class="dcard wide">
-        <h3>Spa Construction</h3>
-        <p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -577,20 +571,48 @@ body.splash-lock{overflow:hidden}
 </script>
 
 <script>
-/* Reveal the process steps in sequence once the row scrolls into view.
-   No JS or reduced motion means the steps simply show, never hidden. */
+/* Reveal each service card and each process step as it reaches the fold.
+   A position sweep is used rather than IntersectionObserver on purpose: IO
+   only fires when an element crosses a threshold, so a fast scroll or an
+   anchor jump can skip an element entirely and leave it invisible forever.
+   Sweeping positions catches anything at OR ABOVE the fold, so nothing can
+   be missed. Items are watched individually, never their container, because
+   the services grid is taller than a phone screen. The hidden state is added
+   HERE, so with JavaScript off or reduced motion on, everything just shows. */
 (function(){
-  var el = document.getElementById('steps');
-  if (!el) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) { el.classList.add('anim','is-in'); return; }
-  el.classList.add('anim');
-  var io = new IntersectionObserver(function(entries){
-    for (var i = 0; i < entries.length; i++) {
-      if (entries[i].isIntersecting) { el.classList.add('is-in'); io.disconnect(); return; }
+  if (reduce) return;
+  var items = [], ids = ['svc', 'steps'];
+  for (var n = 0; n < ids.length; n++) {
+    var el = document.getElementById(ids[n]);
+    if (!el) continue;
+    el.classList.add('anim');
+    for (var k = 0; k < el.children.length; k++) items.push(el.children[k]);
+  }
+  if (!items.length) return;
+  var ticking = false;
+  function sweep(){
+    ticking = false;
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = items.length - 1; i >= 0; i--) {
+      if (items[i].getBoundingClientRect().top < h * 0.88) {
+        items[i].classList.add('in');
+        items.splice(i, 1);
+      }
     }
-  }, {threshold: 0.25});
-  io.observe(el);
+    if (!items.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    if (window.requestAnimationFrame) window.requestAnimationFrame(sweep); else sweep();
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  sweep();
 })();
 </script>
 </body>
