@@ -105,6 +105,8 @@ html.js .svcx-panel.on figure img{transform:none}
 .svcx-body .go{display:inline-block;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none}
 .svcx-body .go:hover{color:var(--deep)}
 @media (prefers-reduced-motion:reduce){.svcx-list button,.svcx-panel,.svcx-panel figure img{transition:none}}
+/* flat light blue band behind the services section */
+.aquaflat{background:var(--aqua);border-radius:var(--r);padding:54px 44px}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none}
@@ -208,18 +210,37 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .faq-list.anim details.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.faq-list.anim details{opacity:1;transform:none;transition:none}}
 /* areas */
-/* service areas: every city links to its own page, all 13 verified live */
-.areas{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px;list-style:none}
-.areas a{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--white);border-radius:16px;padding:16px 20px;font-size:.88rem;font-weight:700;color:var(--ink);text-decoration:none;box-shadow:0 8px 20px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s,color .25s}
-.areas a::after{content:"\2192";color:var(--blue);font-weight:800;transition:transform .25s}
-.areas a:hover{transform:translateY(-3px);color:var(--deep);box-shadow:0 16px 32px rgba(23,97,143,.16)}
-.areas a:hover::after{transform:translateX(4px)}
-.areas.anim li{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+/* service areas: set as one flowing line of large type rather than a grid
+   of chips. Thirteen cities never divide evenly into a grid, so a card
+   layout always left an orphan on the last row. Type wraps naturally, reads
+   as a statement of coverage, and every city is still its own link.
+   All 13 city page URLs were verified live before linking. */
+.areas{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:32px;list-style:none;max-width:60rem}
+.areas li{display:flex;align-items:baseline;gap:10px}
+.areas li::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--aqua-2);flex:none;align-self:center}
+.areas li:last-child::after{display:none}
+.areas a{position:relative;display:inline-block;font-size:clamp(1.3rem,2.5vw,1.95rem);font-weight:700;letter-spacing:-.02em;line-height:1.25;color:var(--ink);text-decoration:none;padding-bottom:5px;transition:color .25s ease,transform .35s cubic-bezier(.22,1,.36,1)}
+.areas a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:3px;border-radius:3px;background:var(--blue);transition:right .4s cubic-bezier(.22,1,.36,1)}
+.areas a:hover,.areas a:focus-visible{color:var(--deep);transform:translateY(-2px)}
+.areas a:hover::after,.areas a:focus-visible::after{right:0}
+.areas a:focus-visible{outline:none}
+/* each city rises in turn as the row reaches the fold */
+.areas.anim li{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
 .areas.anim li.in{opacity:1;transform:none}
-.areas.anim li:nth-child(4n+2){transition-delay:.06s}
-.areas.anim li:nth-child(4n+3){transition-delay:.12s}
-.areas.anim li:nth-child(4n+4){transition-delay:.18s}
-@media (prefers-reduced-motion:reduce){.areas.anim li{opacity:1;transform:none;transition:none}}
+.areas.anim li:nth-child(1){transition-delay:0.00s}
+.areas.anim li:nth-child(2){transition-delay:0.05s}
+.areas.anim li:nth-child(3){transition-delay:0.10s}
+.areas.anim li:nth-child(4){transition-delay:0.15s}
+.areas.anim li:nth-child(5){transition-delay:0.20s}
+.areas.anim li:nth-child(6){transition-delay:0.25s}
+.areas.anim li:nth-child(7){transition-delay:0.30s}
+.areas.anim li:nth-child(8){transition-delay:0.35s}
+.areas.anim li:nth-child(9){transition-delay:0.40s}
+.areas.anim li:nth-child(10){transition-delay:0.45s}
+.areas.anim li:nth-child(11){transition-delay:0.50s}
+.areas.anim li:nth-child(12){transition-delay:0.55s}
+.areas.anim li:nth-child(13){transition-delay:0.60s}
+@media (prefers-reduced-motion:reduce){.areas.anim li,.areas a,.areas a::after{transition:none}.areas.anim li{opacity:1;transform:none}}
 /* blog cards */
 .blogs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .blogs a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s}
@@ -321,14 +342,14 @@ body.splash-lock{overflow:hidden}
   .why,.why-la{grid-template-columns:1fr}
   .revs{grid-auto-columns:88%}
   .blogs{grid-template-columns:1fr}
-  .areas{grid-template-columns:1fr 1fr}
+  .areas{gap:2px 8px}
   .lbox{padding:20px 14px}
   .lb-prev{left:6px}
   .lb-next{right:6px}
   .mosaic.anim .mtile:nth-child(3n+1),.mosaic.anim .mtile:nth-child(3n+2),.mosaic.anim .mtile:nth-child(3n+3){transition-delay:0s}
   .mcap{padding:14px 16px}
   .mcap b{font-size:.86rem}
-  .sand,.aqua-band{padding:34px 22px}
+  .sand,.aqua-band,.aquaflat{padding:34px 22px}
   .cta-inner{grid-template-columns:1fr;gap:28px;padding:34px 22px}
   .cta-copy h2{font-size:1.8rem}
   .ft-grid{grid-template-columns:1fr 1fr}
@@ -427,7 +448,8 @@ body.splash-lock{overflow:hidden}
 
 <section id="services" style="padding-top:44px">
   <div class="wrap">
-    <div class="eyeb">Our Services</div>
+    <div class="aquaflat">
+    <div class="eyeb" style="background:var(--white)">Our Services</div>
     <h2>TurnKey Pool Design and <span>Construction In NOLA</span></h2>
     <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
     <div class="svcx" id="svcx">
@@ -475,6 +497,7 @@ body.splash-lock{overflow:hidden}
           <div class="svcx-body"><h3>Spa Construction</h3><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Explore &rarr;</a></div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -638,7 +661,7 @@ body.splash-lock{overflow:hidden}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="cta-band">
-      <video class="cta-vid" id="ctaVid" autoplay muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/16580831/16580831-sd_960_540_30fps.mp4" aria-label="Aerial view of a backyard swimming pool and spa"></video>
+      <video class="cta-vid" id="ctaVid" autoplay muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/16580831/16580831-hd_1280_720_30fps.mp4" aria-label="Aerial view of a backyard swimming pool and spa"></video>
       <div class="cta-inner">
         <div class="cta-copy">
           <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Get Started</div>
@@ -1013,6 +1036,9 @@ body.splash-lock{overflow:hidden}
   if (!v) return;
   var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   if (conn && conn.saveData) return;
+  /* 720p is 7MB, so it is only fetched where the band is actually wide
+     enough to show the detail. Narrow screens keep the poster frame. */
+  if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) return;
   v.src = v.getAttribute('data-src');
   var pl = v.play();
   if (pl && pl.catch) pl.catch(function(){});
