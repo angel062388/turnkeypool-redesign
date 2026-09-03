@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://videos.pexels.com" crossorigin>
+<link rel="preconnect" href="https://images.pexels.com">
 <style>
 :root{
   --bg:#FDFCF9; --aqua:#E8F6FB; --aqua-2:#D6EEF8; --sand:#F7F1E5; --ink:#1E3A4C;
@@ -36,8 +38,8 @@ h2 span{color:var(--blue)}
 .topbar a{color:#BDE3F7;text-decoration:none;font-weight:700}
 .topbar a:hover{color:#fff}
 header{position:sticky;top:0;z-index:60;background:rgba(253,252,249,.94);backdrop-filter:blur(8px)}
-.hd{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
-.hd img{height:52px;width:auto}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px}
+.hd img{height:72px;width:auto}
 nav{display:flex;gap:4px}
 nav a{font-size:.84rem;font-weight:600;color:var(--ink);text-decoration:none;padding:9px 14px;border-radius:30px}
 nav a:hover{background:var(--aqua)}
@@ -132,7 +134,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 /* footer */
 footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
 .ft-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:34px}
-.ft-grid img{height:52px;background:var(--white);padding:7px 12px;border-radius:12px;width:auto}
+.ft-grid img{height:84px;width:auto}
 .ft-h{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#9CCBEC;margin-bottom:12px}
 .ft-grid ul{list-style:none;display:grid;gap:7px}
 .ft-grid a{color:#DCE8F0;text-decoration:none;font-size:.85rem}
@@ -143,6 +145,35 @@ footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
 .ft-soc a:hover{background:var(--blue)}
 .ft-base{border-top:1px solid rgba(255,255,255,.14);margin-top:38px;padding-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.76rem;color:#9DB4C4}
 .ft-base a{color:#BDE3F7;text-decoration:none}
+/* intro splash: luxury home + pool film, logo centered, fades into the page */
+body.splash-lock{overflow:hidden}
+.splash{position:fixed;inset:0;z-index:200;background:#0E2A3A;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:1;transition:opacity .85s ease}
+.splash.hide{opacity:0;pointer-events:none}
+.splash-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.splash-tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,97,143,.26),rgba(30,58,76,.36))}
+.splash-shade{position:absolute;inset:0;background:radial-gradient(34% 28% at 50% 43%,rgba(7,26,38,.62) 0%,rgba(7,26,38,.3) 60%,transparent 100%),radial-gradient(80% 70% at 50% 46%,rgba(14,42,58,.2) 0%,rgba(14,42,58,.55) 58%,rgba(9,30,43,.88) 100%)}
+.splash-inner{position:relative;z-index:2;text-align:center;padding:0 24px}
+.splash-ring{position:absolute;left:50%;top:38%;width:260px;height:260px;border:2px solid rgba(214,238,248,.45);border-radius:50%;transform:translate(-50%,-50%) scale(.18);opacity:0;pointer-events:none}
+.splash-ring.r1{animation:splashRing 1.7s ease-out .45s both}
+.splash-ring.r2{animation:splashRing 1.7s ease-out .8s both}
+@keyframes splashRing{0%{opacity:0;transform:translate(-50%,-50%) scale(.18)}22%{opacity:.72}100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
+.splash-logo{margin:0 auto 26px;filter:drop-shadow(0 12px 32px rgba(5,22,32,.85)) drop-shadow(0 2px 6px rgba(5,22,32,.6))}
+.splash-logo img{height:clamp(86px,10.5vw,132px);width:auto;margin:0 auto;animation:splashEmerge 1.5s cubic-bezier(.22,1,.36,1) both}
+@keyframes splashEmerge{0%{opacity:0;transform:translateY(22px) scale(.93)}100%{opacity:1;transform:none}}
+.splash-line{width:214px;height:3px;background:rgba(214,238,248,.26);margin:0 auto 18px;border-radius:3px;overflow:hidden}
+.splash-line i{display:block;height:100%;width:0;background:var(--blue);border-radius:3px;animation:splashLoad 2.5s cubic-bezier(.4,0,.2,1) .35s both}
+@keyframes splashLoad{from{width:0}to{width:100%}}
+.splash-tag{font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(238,250,255,.92);text-shadow:0 2px 12px rgba(5,22,32,.8);animation:splashRise 1s .85s both}
+@keyframes splashRise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.splash-skip{position:absolute;right:18px;top:16px;z-index:3;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.86);font:600 .62rem var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:30px;cursor:pointer;backdrop-filter:blur(6px)}
+.splash-skip:hover{background:rgba(255,255,255,.26)}
+.splash-skip:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  .splash{transition:none}
+  .splash-ring{display:none}
+  .splash-logo img,.splash-tag{animation:none}
+  .splash-line i{animation:none;width:100%}
+}
 /* CRO: mobile sticky call bar */
 .callbar{position:fixed;left:0;right:0;bottom:0;display:none;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.4);border-top:1px solid var(--aqua-2);z-index:70}
 .callbar a{padding:15px 10px;text-align:center;font-weight:800;font-size:.86rem;text-decoration:none;background:#fff;color:var(--deep)}
@@ -162,17 +193,38 @@ footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
   .callbar{display:grid}
   footer{padding-bottom:86px}
   .hd .btn{display:none}
+  .splash-logo img{height:clamp(78px,13vw,100px)}
+  .splash-ring{width:200px;height:200px}
 }
-@media (max-width:560px){.svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.svc{grid-template-columns:1fr}.ft-grid{grid-template-columns:1fr}
+  .hd img{height:56px}
+  .splash-logo img{height:72px}
+  .splash-ring{width:158px;height:158px}
+  .splash-line{width:172px}
+  .splash-tag{font-size:.6rem;letter-spacing:.2em}
+}
 </style>
 </head>
 <body>
+<div class="splash" id="splash">
+  <video class="splash-vid" autoplay muted loop playsinline preload="auto" poster="https://images.pexels.com/videos/18531289/pexels-photo-18531289.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"><source src="https://videos.pexels.com/video-files/18531289/18531289-hd_1280_720_60fps.mp4" type="video/mp4"></video>
+  <div class="splash-tint"></div>
+  <div class="splash-shade"></div>
+  <button class="splash-skip" type="button" id="splashSkip">Skip intro</button>
+  <div class="splash-inner">
+    <span class="splash-ring r1"></span>
+    <span class="splash-ring r2"></span>
+    <div class="splash-logo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="" width="170" height="134"></div>
+    <div class="splash-line"><i></i></div>
+    <div class="splash-tag">Expert Pool Builders &middot; New Orleans, LA</div>
+  </div>
+</div>
 <div class="topbar">
   <div class="wrap"><span>FREE Estimates</span><a href="tel:+12393471697">Call Us Today!</a></div>
 </div>
 <header>
   <div class="wrap hd">
-    <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/logo.png" alt="TurnKey Pool Builders"></a>
+    <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
     <nav aria-label="Main">
       <a class="now" href="#top">Home</a>
       <a href="https://www.turnkeypoolbuilders.com/about/" target="_blank" rel="noopener">About</a>
@@ -408,7 +460,7 @@ footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
   <div class="wrap">
     <div class="ft-grid">
       <div>
-        <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/logo.png" alt="TurnKey Pool Builders">
+        <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders">
         <div class="ft-h" style="margin-top:18px">Location</div>
         <p>New Orleans, LA</p>
         <div class="ft-h" style="margin-top:14px">Phone Number</div>
@@ -473,5 +525,33 @@ footer{background:var(--ink);color:#DCE8F0;padding:56px 0 26px;margin-top:30px}
   <a href="tel:+12393471697">Call Us Today!</a>
   <a class="go" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">FREE Estimate</a>
 </div>
+
+<script>
+/* Intro splash: hold briefly, then fade into the page. Click, Skip, Esc or
+   any key dismisses it; reduced-motion users get a near-instant reveal. */
+(function(){
+  var s = document.getElementById('splash');
+  if (!s) return;
+  document.body.classList.add('splash-lock');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var v = s.querySelector('.splash-vid');
+  if (reduce && v) { v.removeAttribute('autoplay'); try { v.pause(); } catch (e) {} }
+  var done = false, timer;
+  function close(){
+    if (done) return;
+    done = true;
+    clearTimeout(timer);
+    s.classList.add('hide');
+    document.body.classList.remove('splash-lock');
+    try { if (v) v.pause(); } catch (e) {}
+    document.removeEventListener('keydown', onKey);
+    setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 900);
+  }
+  function onKey(e){ if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') close(); }
+  timer = setTimeout(close, reduce ? 400 : 3200);
+  s.addEventListener('click', close);
+  document.addEventListener('keydown', onKey);
+})();
+</script>
 </body>
 </html>
