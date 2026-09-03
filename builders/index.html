@@ -52,6 +52,25 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
 .hero-copy{background:none;border:0;padding:0;box-shadow:none;max-width:600px}
 .hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
+/* highlight on the two words that carry the page: an underline that draws
+   itself once the intro clears, then a slow low-amplitude glow. Wrapping
+   the two words in an inline tag does not change the sentence, so the copy
+   unaffected. The .lit class is added by script, so with JavaScript off the
+   underline is simply drawn and static rather than stuck invisible. */
+.hero-copy h1 .hl{font-style:normal;position:relative;display:inline-block;color:#fff}
+.hero-copy h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;min-height:4px;border-radius:6px;background:#7FC6EE;box-shadow:0 0 14px rgba(127,198,238,.85),0 0 30px rgba(63,160,220,.55);transform:scaleX(1);transform-origin:left}
+.hero-copy h1 .hl.arm::after{transform:scaleX(0)}
+.hero-copy h1 .hl.arm.lit::after{transform:scaleX(1);transition:transform .95s cubic-bezier(.22,1,.36,1)}
+.hero-copy h1 .hl.arm.lit{animation:hlGlow 3.6s ease-in-out 1.1s infinite alternate}
+@keyframes hlGlow{
+  from{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
+  to{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95),0 0 22px rgba(127,198,238,.75),0 0 44px rgba(127,198,238,.4)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-copy h1 .hl.arm::after{transform:scaleX(1)}
+  .hero-copy h1 .hl.arm.lit{animation:none}
+  .hero-copy h1 .hl.arm.lit::after{transition:none}
+}
 .hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#fff;margin-top:8px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
 .hero-copy .sub{font-size:1.02rem;font-weight:500;color:#fff;margin:14px 0 22px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),0 0 34px rgba(3,16,26,.72),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
 /* two short UVP columns where the rating badges used to sit. The badges
@@ -213,7 +232,14 @@ html.js .svcx-panel.on figure img{transform:none}
 .tstm-panel{background:var(--white);border-radius:22px;padding:30px 34px 26px;box-shadow:0 14px 34px rgba(23,97,143,.1);display:flex;flex-direction:column}
 .tstm-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
 .tstm-top img{height:30px;width:auto;border-radius:4px;display:block}
-.tstm-stars{color:#F3B23E;letter-spacing:3px;font-size:1rem;margin-left:auto}
+.tstm-stars{color:#F3B23E;letter-spacing:3px;font-size:1rem}
+/* stat block, in the shape of the reference. PLACEHOLDER FIGURES: see the
+   comment in the markup. They must not reach the live site unsourced. */
+.tstm-stats{display:flex;gap:24px;margin-left:auto}
+.tstm-stat{padding-left:22px;border-left:2px solid var(--aqua-2)}
+.tstm-stat b{display:block;font-size:1.5rem;line-height:1.05;color:var(--deep);letter-spacing:-.02em}
+.tstm-stat span{display:block;font-size:.72rem;line-height:1.35;color:var(--muted);font-weight:600;max-width:15ch;margin-top:3px}
+@media (max-width:980px){.tstm-stats{margin-left:0;width:100%;gap:18px}.tstm-stat{padding-left:14px}.tstm-stat b{font-size:1.25rem}}
 .tstm-mark{font-size:3.4rem;line-height:.7;color:var(--aqua-2);font-weight:800;margin:10px 0 2px}
 .tstm-stage{position:relative;flex:1}
 .tstm-q{margin:0;position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .45s ease,transform .5s cubic-bezier(.22,1,.36,1),visibility 0s .45s}
@@ -478,7 +504,7 @@ body.splash-lock{overflow:hidden}
       <div class="hero-inner">
         <div class="hero-copy">
           <div class="eyeb">New Orleans, LA</div>
-          <h1>Expert Pool Builders <small>Repair &amp; Maintenance in New Orleans, LA</small></h1>
+          <h1>Expert <em class="hl">Pool Builders</em> <small>Repair &amp; Maintenance in New Orleans, LA</small></h1>
           <p class="sub">Local pool builder trusted by homeowners across New Orleans and throughout Louisiana</p>
           <ul class="hero-uvp">
             <li>FREE Estimates</li>
@@ -658,6 +684,19 @@ body.splash-lock{overflow:hidden}
             <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars">
             <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating">
             <span class="tstm-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <!-- ============================================================
+                 PLACEHOLDER FIGURES - NOT REAL, DO NOT PUBLISH AS-IS.
+                 Invented at the client's request to demonstrate the layout.
+                 TurnKey has published no rating anywhere on their site, and
+                 the only real rating figures captured during research belong
+                 to COMPETITORS and must never be reused here. Replace both
+                 with the client's own sourced
+                 Google Business Profile numbers before go-live.
+                 ============================================================ -->
+            <div class="tstm-stats">
+              <div class="tstm-stat"><b data-placeholder="true">90%</b><span>Rated enhanced swimming pool</span></div>
+              <div class="tstm-stat"><b data-placeholder="true">5.0</b><span>Average customer rating</span></div>
+            </div>
           </div>
           <div class="tstm-mark" aria-hidden="true">&ldquo;</div>
           <div class="tstm-stage">
@@ -896,6 +935,10 @@ body.splash-lock{overflow:hidden}
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var mq = document.getElementById('marq');
   if (mq && !reduce) mq.classList.add('anim');
+  /* arm the headline underline so it can draw itself; armed by script so
+     that with JavaScript off it is simply already drawn */
+  var hl = document.querySelector('.hero-copy h1 .hl');
+  if (hl) hl.classList.add('arm');
 })();
 </script>
 
@@ -906,6 +949,8 @@ body.splash-lock{overflow:hidden}
   function revealRated(delay){
     var mq = document.getElementById('marq');
     if (mq) setTimeout(function(){ mq.classList.add('in'); }, delay);
+    var hl = document.querySelector('.hero-copy h1 .hl');
+    if (hl) setTimeout(function(){ hl.classList.add('lit'); }, delay + 180);
   }
   var s = document.getElementById('splash');
   if (!s) { revealRated(200); return; }
