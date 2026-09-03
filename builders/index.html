@@ -48,24 +48,26 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 /* hero */
 .hero{padding:22px 0 60px}
 .hero-card{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end}
-.hero-card > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,58,76,.06) 14%,rgba(23,64,88,.5) 66%,rgba(18,52,72,.78) 100%)}
-.hero-inner{position:relative;z-index:2;width:100%;padding:150px 40px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:end}
-.hero-copy{background:var(--white);border-radius:22px;padding:34px 36px;box-shadow:0 30px 60px rgba(18,52,72,.25)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
+.hero-copy{background:var(--white);border-radius:22px;padding:34px 36px;box-shadow:0 30px 60px rgba(18,52,72,.25);max-width:560px}
 .hero-copy h1{font-size:clamp(1.9rem,3.6vw,2.65rem);line-height:1.12;margin-bottom:6px}
 .hero-copy h1 small{display:block;font-size:.58em;font-weight:600;color:var(--deep);margin-top:6px}
 .hero-copy .sub{font-size:.98rem;margin:10px 0 18px}
 .badges{display:flex;gap:14px;align-items:center;margin:0 0 18px}
 .badges img{height:40px;width:auto;border-radius:6px}
-.hero-side{color:#fff;padding-bottom:8px;display:grid;gap:12px}
-.hero-side li,.hero-review{background:rgba(255,255,255,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:13px 18px;font-size:.86rem;font-weight:500;list-style:none}
-.hero-review b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:#BDE3F7;margin-bottom:5px}
-.hero-review p{font-size:.82rem;line-height:1.55}
-.hero-review i{font-style:normal;display:block;font-weight:700;margin-top:7px;font-size:.8rem}
-.hero-side ul{display:grid;gap:12px}
-.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:-28px;position:relative;z-index:5}
-.chips span{background:var(--white);border-radius:40px;padding:13px 24px;font-size:.8rem;font-weight:700;color:var(--deep);box-shadow:0 14px 30px rgba(23,97,143,.14)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:-28px;position:relative;z-index:5}
+.chips span{background:var(--white);border-radius:40px;padding:13px 19px;font-size:.78rem;font-weight:700;color:var(--deep);box-shadow:0 14px 30px rgba(23,97,143,.14);white-space:nowrap}
 .chips span::before{content:"\2713  ";color:var(--blue)}
+.chip-rev{background:var(--white);border-radius:40px;padding:11px 21px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px rgba(23,97,143,.16);white-space:nowrap}
+.chip-rev i{font-style:normal;color:#F3B23E;letter-spacing:2px;font-size:.95rem;line-height:1}
+.chip-rev b{font-size:.78rem;font-weight:700;color:var(--deep)}
+/* slides in from the left once the intro clears. Hidden state is added by
+   script, so with JavaScript off the box is simply there. */
+.chip-rev.anim{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+.chip-rev.anim.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.chip-rev.anim{opacity:1;transform:none;transition:none}}
 section{padding:64px 0}
 /* services: photo card per service, carrying the live body copy */
 .svc{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
@@ -114,16 +116,27 @@ section{padding:64px 0}
 .steps.anim .step:nth-child(5),.steps.anim .step:nth-child(5) i,.steps.anim .step:nth-child(5)::after{transition-delay:.36s}
 @media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after{opacity:1;transform:none;transition:none}}
 /* why floaters */
-.why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.why-la{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.why-la li{position:relative;padding-left:30px;font-size:.88rem;color:var(--muted)}
+.why-la li::before{content:"\2713";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;background:var(--aqua-2);color:var(--deep);font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
 .why div{background:var(--white);border-radius:20px;padding:24px 26px;box-shadow:0 10px 26px rgba(23,97,143,.08)}
 .why b{font-size:.98rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .why b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue);flex:none}
 .why p{font-size:.88rem;color:var(--muted)}
-/* mosaic gallery */
-.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px;margin-top:28px}
-.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:20px}
-.mosaic img:nth-child(1){grid-column:span 2;grid-row:span 2}
-.mosaic img:nth-child(6){grid-row:span 2}
+/* expanding gallery: the active panel widens, the rest stay as slivers */
+.mosaic{display:flex;gap:12px;margin-top:28px;height:430px}
+.mtile{position:relative;flex:1 1 0;min-width:0;border:0;padding:0;background:var(--aqua);border-radius:20px;overflow:hidden;cursor:pointer;font:inherit;text-align:left;transition:flex-grow .7s cubic-bezier(.22,1,.36,1)}
+.mtile img{width:100%;height:100%;object-fit:cover;display:block}
+.mtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,52,72,0) 38%,rgba(16,48,68,.78) 100%);opacity:.5;transition:opacity .55s ease}
+.mtile:hover::after{opacity:.8}
+.mtile.on{flex-grow:3.4}
+.mtile.on::after{opacity:1}
+.mtile:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.mcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 24px;color:#fff;opacity:0;transform:translateY(14px);transition:opacity .45s ease .12s,transform .5s ease .12s}
+.mtile.on .mcap{opacity:1;transform:none}
+.mcap b{display:block;font-size:1rem;letter-spacing:-.01em;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.mtile,.mcap,.mtile::after{transition:none}}
 .gal-cta{text-align:center;margin-top:30px}
 /* aqua band: reviews */
 .aqua-band{background:linear-gradient(160deg,var(--aqua) 0%,#F4FAFD 100%);border-radius:var(--r);padding:54px 44px}
@@ -202,16 +215,21 @@ body.splash-lock{overflow:hidden}
 .callbar a.go{background:var(--blue);color:#fff}
 @media (max-width:980px){
   nav{display:none}
-  .hero-inner{grid-template-columns:1fr;padding:110px 20px 20px}
-  .hero-side ul{grid-template-columns:1fr}
+  .hero-inner{padding:120px 20px 22px}
+  .hero-copy{max-width:none}
   .svc{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .step h3{min-height:0}
   .step::after{top:auto;bottom:-14px;left:39px;width:2px;height:14px;transform-origin:top}
   .steps.anim .step::after{transform:scaleY(0)}
   .svc.anim a:nth-child(even){transition-delay:0s}
-  .why,.revs,.faq-grid{grid-template-columns:1fr}
-  .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .why,.revs,.faq-grid,.why-la{grid-template-columns:1fr}
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:12px;height:auto}
+  .mtile{flex:none;height:200px;cursor:default}
+  .mtile.on{flex-grow:0}
+  .mtile::after,.mtile.on::after{opacity:1}
+  .mcap{opacity:1;transform:none;padding:14px 16px}
+  .mcap b{font-size:.84rem;white-space:normal}
   .sand,.aqua-band{padding:34px 22px}
   .phone-band{justify-content:center;text-align:center}
   .pb-right{text-align:center}
@@ -223,6 +241,9 @@ body.splash-lock{overflow:hidden}
   .splash-ring{width:200px;height:200px}
 }
 @media (max-width:560px){
+  .chip-rev{padding:12px 18px;gap:9px;white-space:normal}
+  .chip-rev b{font-size:.72rem}
+  .chips span{white-space:normal}
   .svc a{grid-template-columns:1fr}
   .svc figure .ph{min-height:0;aspect-ratio:16/10}
   .svc i{right:22px;bottom:-23px}
@@ -274,7 +295,7 @@ body.splash-lock{overflow:hidden}
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-card">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/services-area-map-img-875x540.jpg" alt="Custom backyard pool with waterfall and spa by TurnKey Pool Builders">
+      <video class="hero-vid" id="heroVid" autoplay muted loop playsinline preload="none" poster="https://images.pexels.com/videos/32456138/m-t-can-bi-t-ph-t-i-thanh-ph-b-o-l-c-32456138.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" data-src="https://videos.pexels.com/video-files/32456138/13842185_1280_720_60fps.mp4" aria-label="Modern luxury home with a long turquoise pool"></video>
       <div class="hero-inner">
         <div class="hero-copy">
           <div class="eyeb">New Orleans, LA</div>
@@ -287,22 +308,11 @@ body.splash-lock{overflow:hidden}
           <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
-        <div class="hero-side">
-          <ul>
-            <li>Reliable and reputable pool contractor with a proven track record across Southeast, Central, and Coastal Louisiana</li>
-            <li>Quality workmanship built for Louisiana&#39;s unique soil conditions, humid climate, and high water table</li>
-            <li>Customer service that puts your vision and satisfaction first from consultation to completion</li>
-          </ul>
-          <div class="hero-review">
-            <b>Rated by Thousands of Satisfied Customers</b>
-            <p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p>
-            <i>Alice Martin</i>
-          </div>
-        </div>
       </div>
     </div>
     <div class="chips">
       <span>FREE Estimates</span><span>3D Pool Designs</span><span>Permits Handled</span><span>Warranty-Backed Work</span>
+      <div class="chip-rev" id="chipRev"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><b>Rated by Thousands of Satisfied Customers</b></div>
     </div>
   </div>
 </section>
@@ -369,6 +379,11 @@ body.splash-lock{overflow:hidden}
   <div class="wrap">
     <div class="eyeb">Why TurnKey</div>
     <h2>TurnKey Pool Builders, <span>Your Satisfaction is Our Goal</span></h2>
+    <ul class="why-la">
+      <li>Reliable and reputable pool contractor with a proven track record across Southeast, Central, and Coastal Louisiana</li>
+      <li>Quality workmanship built for Louisiana&#39;s unique soil conditions, humid climate, and high water table</li>
+      <li>Customer service that puts your vision and satisfaction first from consultation to completion</li>
+    </ul>
     <div class="why">
       <div><b>Stress-Free Process</b><p>We handle everything, from permits to final touches, so you can relax and enjoy the journey.</p></div>
       <div><b>Trusted Expertise</b><p>Our experienced pool builders and designers in New Orleans create stunning, lasting pools.</p></div>
@@ -382,15 +397,13 @@ body.splash-lock{overflow:hidden}
   <div class="wrap">
     <div class="eyeb">Our Gallery</div>
     <h2>Recent <span>Pool Projects</span></h2>
-    <div class="mosaic">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-466x520.jpg" alt="Luxury pool with fire bowls at dusk" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-466x520.jpg" alt="Backyard kidney pool" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-466x520.jpg" alt="Rectangular pool with paver deck" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-466x520.jpg" alt="Freeform infinity pool" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tile pool" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-466x520.jpg" alt="Modern poolside seating" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-466x520.jpg" alt="Pool under construction" loading="lazy">
-      <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-466x520.jpg" alt="Gunite pool with stone waterfall" loading="lazy">
+    <div class="mosaic" id="mosaic">
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></button>
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9-466x520.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></button>
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></button>
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></button>
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></button>
+      <button class="mtile" type="button" aria-expanded="false"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn terrace" loading="lazy"><span class="mcap"><b>Modern pool with a lawn terrace</b></span></button>
     </div>
     <div class="gal-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">View More Gallery</a></div>
   </div>
@@ -543,11 +556,40 @@ body.splash-lock{overflow:hidden}
 </div>
 
 <script>
+/* Hero background film. The clip is 11MB, so it is only fetched on wider
+   screens and never when the visitor has Data Saver on; everywhere else the
+   poster frame stands in and nothing extra is downloaded. */
+(function(){
+  var v = document.getElementById('heroVid');
+  if (v) {
+    var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    var narrow = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    var save = !!(conn && conn.saveData);
+    if (!narrow && !save) {
+      v.setAttribute('preload', 'auto');
+      v.src = v.getAttribute('data-src');
+      var play = v.play();
+      if (play && play.catch) play.catch(function(){});
+    }
+  }
+  /* Arm the rated box for its slide-in. Doing it here, not in the CSS, means
+     the box is simply visible if this script never runs. */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cr = document.getElementById('chipRev');
+  if (cr && !reduce) cr.classList.add('anim');
+})();
+</script>
+
+<script>
 /* Intro splash: hold briefly, then fade into the page. Click, Skip, Esc or
    any key dismisses it; reduced-motion users get a near-instant reveal. */
 (function(){
+  function revealRated(delay){
+    var cr = document.getElementById('chipRev');
+    if (cr) setTimeout(function(){ cr.classList.add('in'); }, delay);
+  }
   var s = document.getElementById('splash');
-  if (!s) return;
+  if (!s) { revealRated(200); return; }
   document.body.classList.add('splash-lock');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var v = s.querySelector('.splash-vid');
@@ -559,6 +601,7 @@ body.splash-lock{overflow:hidden}
     clearTimeout(timer);
     s.classList.add('hide');
     document.body.classList.remove('splash-lock');
+    revealRated(260);
     try { if (v) v.pause(); } catch (e) {}
     document.removeEventListener('keydown', onKey);
     setTimeout(function(){ if (s.parentNode) s.parentNode.removeChild(s); }, 900);
@@ -613,6 +656,33 @@ body.splash-lock{overflow:hidden}
   window.addEventListener('scroll', onScroll, {passive: true});
   window.addEventListener('resize', onScroll);
   sweep();
+})();
+</script>
+
+<script>
+/* Expanding gallery. Hover, tap or keyboard focus widens a panel; the third
+   one starts open. Below 980px the CSS turns this into a plain grid with the
+   captions always showing, so nothing depends on hover on a touch screen. */
+(function(){
+  var m = document.getElementById('mosaic');
+  if (!m) return;
+  var tiles = [].slice.call(m.getElementsByClassName('mtile'));
+  if (!tiles.length) return;
+  function open(i){
+    for (var k = 0; k < tiles.length; k++) {
+      var on = (k === i);
+      tiles[k].className = on ? 'mtile on' : 'mtile';
+      tiles[k].setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
+  }
+  for (var i = 0; i < tiles.length; i++) {
+    (function(n){
+      tiles[n].addEventListener('mouseenter', function(){ open(n); });
+      tiles[n].addEventListener('focus', function(){ open(n); });
+      tiles[n].addEventListener('click', function(){ open(n); });
+    })(i);
+  }
+  open(Math.min(2, tiles.length - 1));
 })();
 </script>
 </body>
