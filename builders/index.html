@@ -49,7 +49,7 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero{padding:22px 0 60px}
 .hero-card{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end}
 .hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero-card::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(9,32,47,.86) 0%,rgba(9,32,47,.66) 34%,rgba(9,32,47,.22) 58%,rgba(9,32,47,0) 76%),linear-gradient(180deg,rgba(30,58,76,.1) 14%,rgba(23,64,88,.34) 66%,rgba(18,52,72,.6) 100%)}
+.hero-card::after{content:"";position:absolute;inset:0;background:rgba(9,32,47,.56)}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
 .hero-copy{background:none;border:0;padding:0;box-shadow:none;max-width:600px}
 .hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 2px 22px rgba(5,22,34,.6),0 1px 3px rgba(5,22,34,.5)}
@@ -60,7 +60,7 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 /* rotating trust band. Two identical sets slide by 50% of the track, so
    the loop is seamless. Pauses on hover and stops entirely for anyone who
    has asked for reduced motion. */
-.marq{position:relative;z-index:5;margin-top:18px;border-radius:44px;overflow:hidden;background:linear-gradient(100deg,var(--deep),var(--blue));box-shadow:0 18px 44px rgba(23,97,143,.3);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.marq{position:relative;z-index:5;margin-top:18px;border-radius:44px;overflow:hidden;background:var(--deep);box-shadow:0 18px 44px rgba(23,97,143,.3)}
 .marq-track{display:flex;width:max-content;animation:marq 38s linear infinite}
 .marq:hover .marq-track{animation-play-state:paused}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -128,15 +128,25 @@ section{padding:64px 0}
 .why-la li{position:relative;padding-left:30px;font-size:.88rem;color:var(--muted)}
 .why-la li::before{content:"\2713";position:absolute;left:0;top:-1px;width:20px;height:20px;border-radius:50%;background:var(--aqua-2);color:var(--deep);font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center}
 .why{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}
-.why div{background:var(--white);border-radius:20px;padding:24px 26px;box-shadow:0 10px 26px rgba(23,97,143,.08)}
-.why b{font-size:.98rem;display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.why b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--blue);flex:none}
-.why p{font-size:.88rem;color:var(--muted)}
-/* gallery: every photo sits in a 3:2 frame and every photo IS 3:2, so
-   nothing is cropped. Movement comes from a slow zoom inside the frame. */
-.mosaic{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px)/3);gap:18px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
-.mosaic::-webkit-scrollbar{display:none}
-.mtile{position:relative;display:block;border-radius:20px;overflow:hidden;background:var(--aqua);text-decoration:none;scroll-snap-align:start;cursor:zoom-in}
+.why div{position:relative;overflow:hidden;border-radius:20px;padding:28px 28px 26px;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;box-shadow:0 14px 32px rgba(23,97,143,.16)}
+.why div::after{content:"";position:absolute;inset:0;background:rgba(8,30,45,.66)}
+.why b,.why p{position:relative;z-index:1}
+.why b{font-size:1.02rem;display:flex;align-items:center;gap:10px;margin-bottom:7px;color:#fff;text-shadow:0 2px 12px rgba(5,22,34,.6)}
+.why b::before{content:"";width:10px;height:10px;border-radius:50%;background:#7FC6EE;flex:none}
+.why p{font-size:.89rem;color:rgba(255,255,255,.93);text-shadow:0 2px 12px rgba(5,22,34,.55)}
+/* gallery: two rows of three that drift continuously in opposite
+   directions. Every photo sits in a 3:2 frame and every photo IS 3:2, so
+   nothing is cropped. Hovering pauses it; clicking stops it and zooms.
+   Tiles carry their gap as a right margin rather than the track using
+   gap, so half the track is exactly three tiles and the loop is seamless. */
+.mosaic{margin-top:28px;--tw:320px}
+.mrow{overflow:hidden}
+.mrow + .mrow{margin-top:18px}
+.mtrack{display:flex;width:max-content;animation:mrun 34s linear infinite}
+.mrow.mflip .mtrack{animation-direction:reverse}
+@keyframes mrun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mosaic:hover .mtrack,.mosaic.stopped .mtrack{animation-play-state:paused}
+.mtile{position:relative;display:block;flex:0 0 var(--tw);margin-right:18px;border-radius:20px;overflow:hidden;background:var(--aqua);text-decoration:none;cursor:zoom-in}
 .mtile img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,1,.36,1)}
 .mtile:hover img,.mtile:focus-visible img{transform:scale(1.06)}
 .mtile::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(18,52,72,0) 46%,rgba(14,44,63,.84) 100%)}
@@ -144,14 +154,7 @@ section{padding:64px 0}
 .mcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 20px;color:#fff;transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .mtile:hover .mcap{transform:translateY(-5px)}
 .mcap b{display:block;font-size:.94rem;letter-spacing:-.01em;text-shadow:0 2px 10px rgba(8,28,42,.6)}
-/* tiles reveal in sequence; hidden state added by script so no JS means
-   the gallery is simply there */
-.mosaic.anim .mtile{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
-.mosaic.anim .mtile.in{opacity:1;transform:none}
-.mosaic.anim .mtile:nth-child(3n+1){transition-delay:0s}
-.mosaic.anim .mtile:nth-child(3n+2){transition-delay:.09s}
-.mosaic.anim .mtile:nth-child(3n+3){transition-delay:.18s}
-@media (prefers-reduced-motion:reduce){.mosaic.anim .mtile{opacity:1;transform:none;transition:none}.mtile img,.mcap{transition:none}}
+@media (prefers-reduced-motion:reduce){.mtrack{animation:none}.mtile img,.mcap{transition:none}}
 /* slider controls */
 .sld-nav{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px}
 .sld-nav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--aqua-2);background:var(--white);color:var(--deep);font-size:1.1rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s}
@@ -193,7 +196,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .faq-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:44px;align-items:start}
 .faq-side{position:sticky;top:118px}
 .faq-side p{color:var(--muted);font-size:.92rem;margin:0 0 20px}
-.faq-img{width:100%;max-width:330px;border-radius:20px;margin-top:30px;box-shadow:0 16px 36px rgba(23,97,143,.18);display:block}
+.faq-img{width:100%;max-width:360px;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:20px;margin-top:30px;box-shadow:0 16px 36px rgba(23,97,143,.18);display:block}
 .faq-list{background:var(--white);border-radius:22px;box-shadow:0 10px 26px rgba(23,97,143,.08);padding:2px 26px}
 .faq-list details{background:none;box-shadow:none;border-radius:0;margin:0;padding:0;border-bottom:1px solid var(--aqua)}
 .faq-list details:last-child{border-bottom:0}
@@ -232,7 +235,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 /* closing CTA: pool film behind, copy left, estimate form right */
 .cta-band{position:relative;border-radius:var(--r);overflow:hidden;background:#0C2436}
 .cta-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,30,44,.9) 0%,rgba(8,30,44,.76) 46%,rgba(8,30,44,.6) 100%)}
+.cta-band::after{content:"";position:absolute;inset:0;background:rgba(8,30,44,.74)}
 .cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:54px 46px}
 .cta-copy h2{color:#fff;font-size:2.25rem}
 .cta-copy h2 span{color:#8FD0F5}
@@ -300,7 +303,7 @@ body.splash-lock{overflow:hidden}
   .hero-copy{max-width:none}
   /* the copy spans the full width once stacked, so the side scrim is
      replaced by a full one or the headline washes out on the right */
-  .hero-card::after{background:linear-gradient(180deg,rgba(9,32,47,.5) 0%,rgba(9,32,47,.74) 48%,rgba(9,32,47,.88) 100%)}
+  .hero-card::after{background:rgba(9,32,47,.62)}
   .badges{justify-content:flex-start;padding-right:0}
   .svc{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr}
@@ -314,7 +317,6 @@ body.splash-lock{overflow:hidden}
   .revs{grid-auto-columns:88%}
   .blogs{grid-template-columns:1fr}
   .areas{grid-template-columns:1fr 1fr}
-  .mosaic{grid-auto-columns:86%;gap:14px}
   .lbox{padding:20px 14px}
   .lb-prev{left:6px}
   .lb-next{right:6px}
@@ -485,10 +487,10 @@ body.splash-lock{overflow:hidden}
       <li>Customer service that puts your vision and satisfaction first from consultation to completion</li>
     </ul>
     <div class="why">
-      <div><b>Stress-Free Process</b><p>We handle everything, from permits to final touches, so you can relax and enjoy the journey.</p></div>
-      <div><b>Trusted Expertise</b><p>Our experienced pool builders and designers in New Orleans create stunning, lasting pools.</p></div>
-      <div><b>Unmatched Quality</b><p>We use only premium materials and proven techniques for a pool built to impress.</p></div>
-      <div><b>Seamless Communication</b><p>We prioritize clear communication, keeping you informed and involved every step of the way.</p></div>
+      <div style="background-image:url(https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg)"><b>Stress-Free Process</b><p>We handle everything, from permits to final touches, so you can relax and enjoy the journey.</p></div>
+      <div style="background-image:url(https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg)"><b>Trusted Expertise</b><p>Our experienced pool builders and designers in New Orleans create stunning, lasting pools.</p></div>
+      <div style="background-image:url(https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg)"><b>Unmatched Quality</b><p>We use only premium materials and proven techniques for a pool built to impress.</p></div>
+      <div style="background-image:url(https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg)"><b>Seamless Communication</b><p>We prioritize clear communication, keeping you informed and involved every step of the way.</p></div>
     </div>
   </div>
 </section>
@@ -498,17 +500,26 @@ body.splash-lock{overflow:hidden}
     <div class="eyeb">Our Gallery</div>
     <h2>Recent <span>Pool Projects</span></h2>
     <div class="mosaic" id="mosaic">
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></a>
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></a>
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></a>
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></a>
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><span class="mcap"><b>Inground pool beside a single storey home</b></span></a>
-      <a class="mtile" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></a>
-    </div>
-    <div class="sld-nav" data-for="mosaic">
-      <button type="button" data-dir="-1" aria-label="Previous projects">&#8249;</button>
-      <span class="sld-dots" aria-hidden="true"></span>
-      <button type="button" data-dir="1" aria-label="Next projects">&#8250;</button>
+      <div class="mrow">
+        <div class="mtrack">
+        <a class="mtile" data-i="0" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></a>
+        <a class="mtile" data-i="1" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></a>
+        <a class="mtile" data-i="2" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></a>
+        <a class="mtile" data-i="0" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><span class="mcap"><b>Lap pool with fire bowls at dusk</b></span></a>
+        <a class="mtile" data-i="1" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy"><span class="mcap"><b>Resort-style pool with shaded loungers</b></span></a>
+        <a class="mtile" data-i="2" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy"><span class="mcap"><b>Freeform pool with an infinity edge</b></span></a>
+        </div>
+      </div>
+      <div class="mrow mflip">
+        <div class="mtrack">
+        <a class="mtile" data-i="3" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></a>
+        <a class="mtile" data-i="4" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><span class="mcap"><b>Inground pool beside a single storey home</b></span></a>
+        <a class="mtile" data-i="5" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></a>
+        <a class="mtile" data-i="3" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Stone waterfall and adjoining spa" loading="lazy"><span class="mcap"><b>Stone waterfall and adjoining spa</b></span></a>
+        <a class="mtile" data-i="4" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><span class="mcap"><b>Inground pool beside a single storey home</b></span></a>
+        <a class="mtile" data-i="5" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy"><span class="mcap"><b>Rectangular pool with a paver deck</b></span></a>
+        </div>
+      </div>
     </div>
     <div class="gal-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">View More Gallery</a></div>
   </div>
@@ -791,7 +802,7 @@ body.splash-lock{overflow:hidden}
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
-  var items = [], ids = ['svc', 'steps', 'mosaic', 'areas-list', 'faq-list', 'blog-list'];
+  var items = [], ids = ['svc', 'steps', 'areas-list', 'faq-list', 'blog-list'];
   for (var n = 0; n < ids.length; n++) {
     var el = document.getElementById(ids[n]);
     if (!el) continue;
@@ -906,24 +917,34 @@ body.splash-lock{overflow:hidden}
   })(navs[n]);
 })();
 
-/* Click a project photo to zoom it. Arrows and Escape work, focus is returned
-   to the tile that opened it, and the page behind is locked from scrolling. */
+/* Click a project photo to stop the drift and zoom it. Arrows and Escape
+   work, focus returns to the tile that opened it, and the page behind is
+   locked from scrolling. Tiles are duplicated to make the loop seamless, so
+   the lightbox works off each tile's data-i, not its position in the DOM. */
 (function(){
   var box = document.getElementById('lbox');
-  var track = document.getElementById('mosaic');
-  if (!box || !track) return;
+  var wrap = document.getElementById('mosaic');
+  if (!box || !wrap) return;
   var img = document.getElementById('lbImg');
   var cap = document.getElementById('lbCap');
-  var tiles = [].slice.call(track.getElementsByClassName('mtile'));
+  var tiles = [].slice.call(wrap.getElementsByClassName('mtile'));
+  var shots = [];
+  for (var i = 0; i < tiles.length; i++) {
+    var n = +tiles[i].getAttribute('data-i');
+    if (!shots[n]) {
+      var im = tiles[i].querySelector('img');
+      shots[n] = {src: im.getAttribute('src'), alt: im.getAttribute('alt') || ''};
+    }
+  }
   var at = 0, opener = null;
   function show(i){
-    at = (i + tiles.length) % tiles.length;
-    var t = tiles[at], src = t.querySelector('img');
-    img.src = src.getAttribute('src');
-    img.alt = src.getAttribute('alt') || '';
-    cap.textContent = src.getAttribute('alt') || '';
+    at = (i + shots.length) % shots.length;
+    img.src = shots[at].src;
+    img.alt = shots[at].alt;
+    cap.textContent = shots[at].alt;
   }
   function open(i, from){
+    wrap.classList.add('stopped');
     opener = from || null;
     show(i);
     box.hidden = false;
@@ -935,9 +956,12 @@ body.splash-lock{overflow:hidden}
     document.body.style.overflow = '';
     if (opener) opener.focus();
   }
-  for (var i = 0; i < tiles.length; i++) (function(n){
-    tiles[n].addEventListener('click', function(e){ e.preventDefault(); open(n, tiles[n]); });
-  })(i);
+  for (var k = 0; k < tiles.length; k++) (function(t){
+    t.addEventListener('click', function(e){
+      e.preventDefault();
+      open(+t.getAttribute('data-i'), t);
+    });
+  })(tiles[k]);
   box.querySelector('.lb-close').addEventListener('click', close);
   box.querySelector('.lb-prev').addEventListener('click', function(){ show(at - 1); });
   box.querySelector('.lb-next').addEventListener('click', function(){ show(at + 1); });
@@ -948,6 +972,19 @@ body.splash-lock{overflow:hidden}
     else if (e.key === 'ArrowRight') show(at + 1);
     else if (e.key === 'ArrowLeft') show(at - 1);
   });
+  /* Tiles across a row, each carrying its own 18px gutter. Three would be
+     about 97px wide on a phone, so it steps down to two and then to a single
+     tile with a peek of the next one. */
+  function size(){
+    var w = wrap.clientWidth, tw;
+    if (w < 700) tw = w * 0.8;
+    else if (w < 1040) tw = (w - 18) / 2;
+    else tw = (w - 36) / 3;
+    wrap.style.setProperty('--tw', Math.max(150, tw) + 'px');
+  }
+  window.addEventListener('resize', size);
+  window.addEventListener('load', size);
+  size();
 })();
 </script>
 
