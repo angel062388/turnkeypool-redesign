@@ -46,7 +46,7 @@ nav a:hover{background:var(--aqua)}
 nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hd-tel{font-weight:800;color:var(--deep);text-decoration:none;white-space:nowrap;margin-right:6px}
 /* hero */
-.hero{padding:22px 0 60px}
+.hero{padding:22px 0 24px}
 .hero-card{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end}
 .hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
@@ -54,8 +54,12 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
 .hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#fff;margin-top:8px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
 .hero-copy .sub{font-size:1.02rem;font-weight:500;color:#fff;margin:14px 0 22px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),0 0 34px rgba(3,16,26,.72),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
-.badges{display:flex;gap:14px;align-items:center;justify-content:center;margin:0 0 20px;padding-right:40px}
-.badges img{height:40px;width:auto;border-radius:6px}
+/* two short UVP columns where the rating badges used to sit. The badges
+   moved into the scrolling band below the hero, and these four phrases
+   moved out of that band, so nothing appears twice. */
+.hero-uvp{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:11px 24px;margin:0 0 24px;max-width:540px}
+.hero-uvp li{position:relative;padding-left:28px;font-size:.92rem;font-weight:600;color:#fff;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.95),0 0 12px rgba(3,16,26,.85),1px 1px 2px rgba(3,16,26,1),-1px 1px 2px rgba(3,16,26,1)}
+.hero-uvp li::before{content:"\2713";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--blue);color:#fff;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(3,16,26,.5)}
 /* rotating trust band. Two identical sets slide by 50% of the track, so
    the loop is seamless. Pauses on hover and stops entirely for anyone who
    has asked for reduced motion. */
@@ -68,6 +72,9 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .marq-set span::before{content:"\2713";color:#BDE3F7;font-weight:800;font-size:.9rem}
 .marq-set span.mr-star::before{content:none}
 .mr-star i{font-style:normal;color:#F3B23E;letter-spacing:2px;font-size:.9rem}
+.marq-set span.mr-badge{padding:12px 24px}
+.marq-set span.mr-badge::before{content:none}
+.mr-badge img{height:34px;width:auto;border-radius:5px;display:block}
 .marq.anim{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1)}
 .marq.anim.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.marq-track{animation:none}.marq.anim{opacity:1;transform:none;transition:none}}
@@ -105,22 +112,33 @@ html.js .svcx-panel.on figure img{transform:none}
 .svcx-body .go{display:inline-block;margin-top:16px;font-size:.8rem;font-weight:700;color:var(--blue);text-decoration:none}
 .svcx-body .go:hover{color:var(--deep)}
 @media (prefers-reduced-motion:reduce){.svcx-list button,.svcx-panel,.svcx-panel figure img{transition:none}}
+/* build film: the client's own 8 second time-lapse, the only real footage
+   on the page. Sits straight after the process steps, which describe the
+   build in words, so the film shows the same thing happening. Compressed
+   from 10.1MB to 2.6MB before use. */
+.buildfilm{position:relative;border-radius:var(--r);overflow:hidden;background:#0E2C41;box-shadow:0 20px 46px rgba(23,97,143,.2)}
+.buildfilm video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.buildwrap{margin:26px 0 4px}
+.buildwrap.anim{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+.buildwrap.anim.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.buildwrap.anim{opacity:1;transform:none;transition:none}}
 /* flat light blue band behind the services section */
 .aquaflat{background:var(--aqua);border-radius:var(--r);padding:54px 44px}
 /* sand band: process */
 .sand{background:var(--sand);border-radius:var(--r);padding:54px 44px}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;list-style:none}
-.step{position:relative;background:var(--white);border-radius:20px;padding:24px 20px}
+.step{position:relative;background:var(--white);border-radius:20px;padding:24px 20px;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+.steps .step:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(23,97,143,.2)}
 .step::after{content:"";position:absolute;top:44px;left:100%;width:14px;height:2px;background:rgba(63,160,220,.42)}
 .step:last-child::after{display:none}
 .step i{font-style:normal;display:inline-flex;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;align-items:center;justify-content:center;margin-bottom:12px;box-shadow:0 8px 18px rgba(63,160,220,.34)}
 .step h3{font-size:.97rem;margin-bottom:8px;min-height:2.5em}
 .step p{font-size:.84rem;color:var(--muted)}
 /* each step reveals as it scrolls in, same per-item approach as the cards */
-.steps.anim .step{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.steps.anim .step{opacity:0;transform:translateY(30px) scale(.94);transition:opacity .65s ease,transform .8s cubic-bezier(.22,1,.36,1),box-shadow .6s ease}
 .steps.anim .step i{transform:scale(.55);opacity:0;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .4s ease}
 .steps.anim .step::after{transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
-.steps.anim .step.in{opacity:1;transform:none}
+.steps.anim .step.in{opacity:1;transform:none;box-shadow:0 14px 30px rgba(23,97,143,.14)}
 .steps.anim .step.in i{transform:none;opacity:1}
 .steps.anim .step.in::after{transform:none}
 .steps.anim .step:nth-child(1),.steps.anim .step:nth-child(1) i,.steps.anim .step:nth-child(1)::after{transition-delay:.05s}
@@ -128,7 +146,7 @@ html.js .svcx-panel.on figure img{transform:none}
 .steps.anim .step:nth-child(3),.steps.anim .step:nth-child(3) i,.steps.anim .step:nth-child(3)::after{transition-delay:.27s}
 .steps.anim .step:nth-child(4),.steps.anim .step:nth-child(4) i,.steps.anim .step:nth-child(4)::after{transition-delay:.38s}
 .steps.anim .step:nth-child(5),.steps.anim .step:nth-child(5) i,.steps.anim .step:nth-child(5)::after{transition-delay:.49s}
-@media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.steps.anim .step,.steps.anim .step i,.steps.anim .step::after,.steps .step:hover{opacity:1;transform:none;transition:none}}
 /* why floaters */
 .why-la{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
 .why-la li{position:relative;padding-left:30px;font-size:.88rem;color:var(--muted)}
@@ -210,37 +228,45 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .faq-list.anim details.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.faq-list.anim details{opacity:1;transform:none;transition:none}}
 /* areas */
-/* service areas: set as one flowing line of large type rather than a grid
-   of chips. Thirteen cities never divide evenly into a grid, so a card
-   layout always left an orphan on the last row. Type wraps naturally, reads
-   as a statement of coverage, and every city is still its own link.
-   All 13 city page URLs were verified live before linking. */
-.areas{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:32px;list-style:none;max-width:60rem}
-.areas li{display:flex;align-items:baseline;gap:10px}
-.areas li::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--aqua-2);flex:none;align-self:center}
-.areas li:last-child::after{display:none}
-.areas a{position:relative;display:inline-block;font-size:clamp(1.3rem,2.5vw,1.95rem);font-weight:700;letter-spacing:-.02em;line-height:1.25;color:var(--ink);text-decoration:none;padding-bottom:5px;transition:color .25s ease,transform .35s cubic-bezier(.22,1,.36,1)}
-.areas a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:3px;border-radius:3px;background:var(--blue);transition:right .4s cubic-bezier(.22,1,.36,1)}
-.areas a:hover,.areas a:focus-visible{color:var(--deep);transform:translateY(-2px)}
+/* service areas: a coverage index on a deep band, with one water photo
+   faded behind it. Deliberately NOT a photo per city: we do not know which
+   of the client's projects is in which town, and labelling a pool photo
+   with a city name would invent a claim. One shared backdrop says nothing
+   untrue and keeps the section light. Also the only dark section between
+   the hero and the closing CTA, which stops the page reading as one long
+   pale scroll. All 13 city page URLs verified live before linking. */
+.areas-band{position:relative;overflow:hidden;border-radius:var(--r);background:#0E2C41}
+.areas-inner{position:relative;z-index:2;padding:56px 46px 46px}
+.areas-inner h2{color:#fff}
+.areas-inner h2 span{color:#7FC6EE}
+.areas-count{margin:10px 0 0;font-size:.9rem;color:rgba(255,255,255,.72)}
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:0 46px;margin-top:26px;list-style:none}
+.areas a{position:relative;display:flex;align-items:center;gap:16px;padding:15px 4px;text-decoration:none;color:#fff;border-bottom:1px solid rgba(255,255,255,.15)}
+.areas i{font-style:normal;flex:none;width:24px;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:#7FC6EE}
+.areas b{flex:1;font-size:1.05rem;font-weight:700;letter-spacing:-.01em;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.areas em{font-style:normal;flex:none;color:#7FC6EE;font-weight:800;opacity:0;transform:translateX(-10px);transition:opacity .3s ease,transform .35s cubic-bezier(.22,1,.36,1)}
+.areas a::after{content:"";position:absolute;left:0;right:100%;bottom:-1px;height:2px;background:var(--blue);transition:right .5s cubic-bezier(.22,1,.36,1)}
+.areas a:hover b,.areas a:focus-visible b{transform:translateX(9px)}
+.areas a:hover em,.areas a:focus-visible em{opacity:1;transform:none}
 .areas a:hover::after,.areas a:focus-visible::after{right:0}
-.areas a:focus-visible{outline:none}
-/* each city rises in turn as the row reaches the fold */
-.areas.anim li{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
+.areas a:focus-visible{outline:2px solid #7FC6EE;outline-offset:3px}
+/* each row slides in from the left as the band reaches the fold */
+.areas.anim li{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
 .areas.anim li.in{opacity:1;transform:none}
 .areas.anim li:nth-child(1){transition-delay:0.00s}
-.areas.anim li:nth-child(2){transition-delay:0.05s}
-.areas.anim li:nth-child(3){transition-delay:0.10s}
-.areas.anim li:nth-child(4){transition-delay:0.15s}
-.areas.anim li:nth-child(5){transition-delay:0.20s}
-.areas.anim li:nth-child(6){transition-delay:0.25s}
-.areas.anim li:nth-child(7){transition-delay:0.30s}
-.areas.anim li:nth-child(8){transition-delay:0.35s}
-.areas.anim li:nth-child(9){transition-delay:0.40s}
-.areas.anim li:nth-child(10){transition-delay:0.45s}
-.areas.anim li:nth-child(11){transition-delay:0.50s}
-.areas.anim li:nth-child(12){transition-delay:0.55s}
-.areas.anim li:nth-child(13){transition-delay:0.60s}
-@media (prefers-reduced-motion:reduce){.areas.anim li,.areas a,.areas a::after{transition:none}.areas.anim li{opacity:1;transform:none}}
+.areas.anim li:nth-child(2){transition-delay:0.04s}
+.areas.anim li:nth-child(3){transition-delay:0.08s}
+.areas.anim li:nth-child(4){transition-delay:0.12s}
+.areas.anim li:nth-child(5){transition-delay:0.16s}
+.areas.anim li:nth-child(6){transition-delay:0.20s}
+.areas.anim li:nth-child(7){transition-delay:0.24s}
+.areas.anim li:nth-child(8){transition-delay:0.28s}
+.areas.anim li:nth-child(9){transition-delay:0.32s}
+.areas.anim li:nth-child(10){transition-delay:0.36s}
+.areas.anim li:nth-child(11){transition-delay:0.40s}
+.areas.anim li:nth-child(12){transition-delay:0.44s}
+.areas.anim li:nth-child(13){transition-delay:0.48s}
+@media (prefers-reduced-motion:reduce){.areas.anim li,.areas b,.areas em,.areas a::after{transition:none}.areas.anim li{opacity:1;transform:none}}
 /* blog cards */
 .blogs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 .blogs a{display:flex;flex-direction:column;background:var(--white);border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 10px 26px rgba(23,97,143,.08);transition:transform .25s,box-shadow .25s}
@@ -342,7 +368,8 @@ body.splash-lock{overflow:hidden}
   .why,.why-la{grid-template-columns:1fr}
   .revs{grid-auto-columns:88%}
   .blogs{grid-template-columns:1fr}
-  .areas{gap:2px 8px}
+  .areas{grid-template-columns:1fr;gap:0}
+  .areas-inner{padding:34px 22px 26px}
   .lbox{padding:20px 14px}
   .lb-prev{left:6px}
   .lb-next{right:6px}
@@ -416,10 +443,12 @@ body.splash-lock{overflow:hidden}
           <div class="eyeb">New Orleans, LA</div>
           <h1>Expert Pool Builders <small>Repair &amp; Maintenance in New Orleans, LA</small></h1>
           <p class="sub">Local pool builder trusted by homeowners across New Orleans and throughout Louisiana</p>
-          <div class="badges">
-            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars">
-            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating">
-          </div>
+          <ul class="hero-uvp">
+            <li>FREE Estimates</li>
+            <li>Permits Handled</li>
+            <li>3D Pool Designs</li>
+            <li>Warranty-Backed Work</li>
+          </ul>
           <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
@@ -428,25 +457,31 @@ body.splash-lock{overflow:hidden}
     <div class="marq" id="marq">
       <div class="marq-track">
     <div class="marq-set">
-      <span>FREE Estimates</span>
-      <span>3D Pool Designs</span>
-      <span>Permits Handled</span>
-      <span>Warranty-Backed Work</span>
       <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
     </div>
     <div class="marq-set" aria-hidden="true">
-      <span>FREE Estimates</span>
-      <span>3D Pool Designs</span>
-      <span>Permits Handled</span>
-      <span>Warranty-Backed Work</span>
       <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
+    </div>
+    <div class="marq-set" aria-hidden="true">
+      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
+    </div>
+    <div class="marq-set" aria-hidden="true">
+      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
+      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
     </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services" style="padding-top:44px">
+<section id="services" style="padding-top:0">
   <div class="wrap">
     <div class="aquaflat">
     <div class="eyeb" style="background:var(--white)">Our Services</div>
@@ -507,6 +542,14 @@ body.splash-lock{overflow:hidden}
     <div class="sand">
       <div class="eyeb" style="background:var(--white)">Our Process</div>
       <h2>We Design and Build, <span>You Create Memories</span></h2>
+      <div class="buildwrap" id="buildwrap">
+        <figure class="buildfilm">
+          <video id="buildVid" muted loop playsinline preload="metadata"
+                 poster="assets/build-poster.jpg"
+                 data-src="assets/build-timelapse.mp4"
+                 aria-label="Time lapse of a backyard swimming pool being built, from excavation to the finished pool"></video>
+        </figure>
+      </div>
       <ol class="steps" id="steps">
         <li class="step"><i>1</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></li>
         <li class="step"><i>2</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></li>
@@ -616,23 +659,28 @@ body.splash-lock{overflow:hidden}
 
 <section id="areas" style="padding-top:0">
   <div class="wrap">
-    <div class="eyeb">Service Areas</div>
-    <h2>Serving New Orleans <span>and Beyond</span></h2>
-    <ul class="areas" id="areas-list">
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener">Baton Rouge</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener">Gretna</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener">Harahan</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener">Kenner</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener">Laplace</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener">Madisonville</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener">River Ridge</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener">St. Rose</a></li>
-    </ul>
+    <div class="areas-band">
+      <div class="areas-inner">
+        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
+        <h2>Serving New Orleans <span>and Beyond</span></h2>
+        <p class="areas-count">Thirteen communities across Louisiana.</p>
+        <ol class="areas" id="areas-list">
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
+        <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
+        </ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -844,6 +892,8 @@ body.splash-lock{overflow:hidden}
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
   var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list'];
+  var solo = document.getElementById('buildwrap');
+  if (solo) { solo.classList.add('anim'); items.push(solo); }
   for (var n = 0; n < ids.length; n++) {
     var el = document.getElementById(ids[n]);
     if (!el) continue;
@@ -886,10 +936,15 @@ body.splash-lock{overflow:hidden}
      scroll event, so anything below the fold line would stay hidden forever.
      Same for a very tall screen showing most of the page at once. Sweep again
      once images have sized the page, then just show whatever is left. */
-  window.addEventListener('load', function(){
+  function settle(){
     sweep();
     if (document.documentElement.scrollHeight <= window.innerHeight + 4) revealAll();
-  });
+  }
+  /* Run the fallback again a moment after load. At the load event the films
+     and images may not have sized the page yet, so the "page does not scroll"
+     test can read false and leave items below the fold hidden with no scroll
+     event ever coming to rescue them. */
+  window.addEventListener('load', function(){ settle(); setTimeout(settle, 1200); });
   sweep();
 })();
 </script>
@@ -1119,6 +1174,22 @@ body.splash-lock{overflow:hidden}
   }
   fit();
   select(0);
+})();
+</script>
+
+<script>
+/* The client's own build film. 2.6MB, so it is fetched and played only when
+   the visitor is not on Data Saver; everywhere else the poster frame stands
+   in and nothing extra downloads. Muted and looping, so it needs no controls. */
+(function(){
+  var v = document.getElementById('buildVid');
+  if (!v) return;
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  if (conn && conn.saveData) return;
+  v.src = v.getAttribute('data-src');
+  v.setAttribute('autoplay', '');
+  var pl = v.play();
+  if (pl && pl.catch) pl.catch(function(){});
 })();
 </script>
 </body>
