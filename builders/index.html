@@ -8,14 +8,16 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://videos.pexels.com" crossorigin>
 <link rel="preconnect" href="https://images.pexels.com">
 <style>
 :root{
   --bg:#FDFCF9; --aqua:#E8F6FB; --aqua-2:#D6EEF8; --sand:#F7F1E5; --ink:#1E3A4C;
   --muted:#5E7484; --blue:#3FA0DC; --deep:#17618F; --white:#FFFFFF;
-  --sans:'Outfit',system-ui,sans-serif; --r:26px;
+  --sans:'Outfit',system-ui,sans-serif;
+  --script:'Dancing Script','Segoe Script','Brush Script MT',cursive;
+  --r:26px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -62,11 +64,30 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
    the two words in an inline tag does not change the sentence, so the copy
    unaffected. The .lit class is added by script, so with JavaScript off the
    underline is simply drawn and static rather than stuck invisible. */
+/* The headline is WRITTEN ON rather than dropped in: a script face plus a
+   soft-edged mask that sweeps left to right, so the words appear the way a
+   hand lays them down. Real text throughout, deliberately NOT SVG outlines:
+   this is the page's only H1 and converting it to paths would throw away
+   its search value and its screen-reader text for the sake of an effect.
+   The sub-line stays in Outfit; a script face at .53em over a photo is
+   harder to read, and that line carries the location. */
+.hero-copy h1 .write{display:block;font-family:var(--script);font-weight:700;font-size:1.18em;line-height:1.16;letter-spacing:normal}
+/* The mask lives on .writing, which script adds and then removes when the
+   word is finished, so the resting headline renders exactly as it always
+   did and a mask never clips the halo. With JavaScript off there is no
+   mask at any point. */
+.hero-copy h1 .write.writing{-webkit-mask-image:linear-gradient(90deg,#000 0 42%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 76%);mask-image:linear-gradient(90deg,#000 0 42%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 76%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left center;mask-position:left center;animation:handwrite 2.05s cubic-bezier(.35,.12,.5,.92) both}
+@keyframes handwrite{
+  from{-webkit-mask-size:0% 100%;mask-size:0% 100%}
+  /* 240%, not 420%: the solid band is 42% of the mask image, so 240% is
+     just past full coverage and the last letter lands as time runs out. */
+  to{-webkit-mask-size:240% 100%;mask-size:240% 100%}
+}
 .hero-copy h1 .hl{font-style:normal;position:relative;display:inline-block;color:#fff}
 .hero-copy h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;min-height:4px;border-radius:6px;background:#7FC6EE;box-shadow:0 0 14px rgba(127,198,238,.85),0 0 30px rgba(63,160,220,.55);transform:scaleX(1);transform-origin:left}
 .hero-copy h1 .hl.arm::after{transform:scaleX(0)}
-.hero-copy h1 .hl.arm.lit::after{transform:scaleX(1);transition:transform .95s cubic-bezier(.22,1,.36,1)}
-.hero-copy h1 .hl.arm.lit{animation:hlGlow 3.6s ease-in-out 1.1s infinite alternate}
+.hero-copy h1 .hl.arm.lit::after{transform:scaleX(1);transition:transform .95s cubic-bezier(.22,1,.36,1) 1.95s}
+.hero-copy h1 .hl.arm.lit{animation:hlGlow 3.6s ease-in-out 3s infinite alternate}
 @keyframes hlGlow{
   from{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
   to{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95),0 0 22px rgba(127,198,238,.75),0 0 44px rgba(127,198,238,.4)}
@@ -75,6 +96,7 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
   .hero-copy h1 .hl.arm::after{transform:scaleX(1)}
   .hero-copy h1 .hl.arm.lit{animation:none}
   .hero-copy h1 .hl.arm.lit::after{transition:none}
+  .hero-copy h1 .write.writing{animation:none;-webkit-mask-image:none;mask-image:none}
 }
 .hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#fff;margin-top:8px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
 .hero-copy .sub{font-size:1.02rem;font-weight:500;color:#fff;margin:14px 0 22px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),0 0 34px rgba(3,16,26,.72),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
@@ -605,7 +627,7 @@ body.splash-lock{overflow:hidden}
       <div class="hero-inner">
         <div class="hero-copy">
           <div class="eyeb">New Orleans, LA</div>
-          <h1>Expert <em class="hl">Pool Builders</em> <small>Repair &amp; Maintenance in New Orleans, LA</small></h1>
+          <h1><span class="write">Expert <em class="hl">Pool Builders</em></span> <small>Repair &amp; Maintenance in New Orleans, LA</small></h1>
           <p class="sub">Local pool builder trusted by homeowners across New Orleans and throughout Louisiana</p>
           <ul class="hero-uvp">
             <li>FREE Estimates</li>
@@ -1072,6 +1094,16 @@ body.splash-lock{overflow:hidden}
     if (mq) setTimeout(function(){ mq.classList.add('in'); }, delay);
     var hl = document.querySelector('.hero-copy h1 .hl');
     if (hl) setTimeout(function(){ hl.classList.add('lit'); }, delay + 180);
+    /* Write the headline on. The mask is dropped again the moment the word is
+       finished: a mask clips whatever sits outside the element box, which
+       includes the dark halo that keeps this text readable over the photo. */
+    var w = document.querySelector('.hero-copy h1 .write');
+    if (w) setTimeout(function(){
+      w.classList.add('writing');
+      var clear = function(){ w.classList.remove('writing'); };
+      w.addEventListener('animationend', clear, {once: true});
+      setTimeout(clear, 2600);
+    }, delay);
   }
   var s = document.getElementById('splash');
   if (!s) { revealRated(200); return; }
