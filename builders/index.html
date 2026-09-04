@@ -227,8 +227,14 @@ html.js .svcx-panel.on figure img{transform:none}
    face: we have no photo of any reviewer, and a stock face beside a real
    named testimonial would tell visitors that is the customer. */
 .tstm{display:grid;grid-template-columns:250px 1fr;gap:0;align-items:stretch;margin-top:28px}
-.tstm-photo{margin:0;overflow:hidden;align-self:center}
-.tstm-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%)}
+/* One of the client's OWN pools per review, cross-fading with the quote.
+   Not a stock face: the Pexels licence forbids imagery that implies a
+   person endorses the product, which is precisely what a face beside a
+   named testimonial does. */
+.tstm-photo{margin:0;position:relative;align-self:center;aspect-ratio:4/5}
+.tstm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%);opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s .5s}
+.tstm-photo img.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s}
+@media (prefers-reduced-motion:reduce){.tstm-photo img{transition:none}}
 .tstm-panel{background:var(--white);border-radius:22px;padding:30px 34px 26px;box-shadow:0 14px 34px rgba(23,97,143,.1);display:flex;flex-direction:column}
 .tstm-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
 .tstm-top img{height:30px;width:auto;border-radius:4px;display:block}
@@ -237,7 +243,20 @@ html.js .svcx-panel.on figure img{transform:none}
    comment in the markup. They must not reach the live site unsourced. */
 .tstm-stats{display:flex;gap:24px;margin-left:auto}
 .tstm-stat{padding-left:22px;border-left:2px solid var(--aqua-2)}
-.tstm-stat b{display:block;font-size:1.5rem;line-height:1.05;color:var(--deep);letter-spacing:-.02em}
+.tstm-stat b{display:block;font-size:1.5rem;line-height:1.05;color:var(--deep);letter-spacing:-.02em;transform-origin:left center}
+/* each time the quote changes the figures swell and settle, which pulls the
+   eye back to them without the layout moving */
+.tstm-stat b.pop{animation:statPop .75s cubic-bezier(.34,1.56,.64,1)}
+.tstm-stat:nth-child(2) b.pop{animation-delay:.09s}
+@keyframes statPop{0%{transform:scale(1)}38%{transform:scale(1.22)}100%{transform:scale(1)}}
+/* a thin progress line shows how long until the next quote */
+.tstm-timer{position:relative;flex:0 0 96px;height:3px;border-radius:3px;background:var(--aqua-2);overflow:hidden;margin:0 6px}
+.tstm-timer i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--blue);border-radius:3px}
+.tstm-timer i.run{width:100%;transition:width 7s linear}
+.tstm-pause{width:34px;height:34px;border-radius:50%;border:2px solid var(--aqua-2);background:var(--white);color:var(--deep);font-size:.72rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.tstm-pause:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.tstm-pause:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.tstm-stat b.pop{animation:none}.tstm-timer i.run{transition:none}}
 .tstm-stat span{display:block;font-size:.72rem;line-height:1.35;color:var(--muted);font-weight:600;max-width:15ch;margin-top:3px}
 @media (max-width:980px){.tstm-stats{margin-left:0;width:100%;gap:18px}.tstm-stat{padding-left:14px}.tstm-stat b{font-size:1.25rem}}
 .tstm-mark{font-size:3.4rem;line-height:.7;color:var(--aqua-2);font-weight:800;margin:10px 0 2px}
@@ -254,6 +273,16 @@ html.js .svcx-panel.on figure img{transform:none}
 .tstm-dots i{width:7px;height:7px;border-radius:50%;background:var(--aqua-2);display:block;transition:width .3s,background .3s}
 .tstm-dots i.on{width:20px;background:var(--blue);border-radius:4px}
 .tstm-count{margin-left:auto;font-size:.78rem;font-weight:700;color:var(--muted)}
+/* one pill holding the action and the phone number, so a reader who has
+   just finished a review can act without hunting for a control */
+.duo{display:inline-flex;align-items:center;gap:6px;margin-top:26px;padding:6px;border-radius:44px;background:var(--white);box-shadow:0 14px 32px rgba(23,97,143,.16)}
+.duo .btn{margin:0}
+.duo-tel{display:inline-flex;align-items:center;padding:0 24px 0 18px;font-size:1rem;font-weight:800;color:var(--deep);text-decoration:none;white-space:nowrap}
+.duo-tel:hover{color:var(--blue)}
+.duo-tel:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:30px}
+@media (max-width:560px){.duo{flex-direction:column;gap:4px;border-radius:26px;width:100%}
+  .duo .btn{width:100%;justify-content:center}
+  .duo-tel{padding:10px 0 8px}}
 @media (prefers-reduced-motion:reduce){.tstm-q{transition:none}}
 /* faq */
 details{background:var(--white);border-radius:18px;margin-bottom:12px;padding:0 24px;box-shadow:0 8px 20px rgba(23,97,143,.06)}
@@ -678,7 +707,16 @@ body.splash-lock{overflow:hidden}
       <div class="eyeb" style="background:var(--white)">Client Stories</div>
       <h2>What Our <span>Clients Say</span></h2>
       <div class="tstm" id="tstm">
-        <figure class="tstm-photo"><img src="https://images.pexels.com/photos/3290499/pexels-photo-3290499.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=560&amp;h=700&amp;fit=crop" alt="" loading="lazy"></figure>
+        <figure class="tstm-photo">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls lit at dusk" class="on" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn terrace" loading="lazy">
+        </figure>
         <div class="tstm-panel">
           <div class="tstm-top">
             <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars">
@@ -713,9 +751,15 @@ body.splash-lock{overflow:hidden}
             <button type="button" data-dir="-1" aria-label="Previous review">&#8249;</button>
             <button type="button" data-dir="1" aria-label="Next review">&#8250;</button>
             <span class="tstm-dots" aria-hidden="true"></span>
+            <button class="tstm-pause" type="button" id="tstmPause" aria-label="Pause the reviews">II</button>
+            <span class="tstm-timer" aria-hidden="true"><i id="tstmBar"></i></span>
             <span class="tstm-count" id="tstmCount"></span>
           </div>
         </div>
+      </div>
+      <div class="duo">
+        <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate! &rarr;</a>
+        <a class="duo-tel" href="tel:+12393471697">239-347-1697</a>
       </div>
     </div>
   </div>
@@ -768,7 +812,7 @@ body.splash-lock{overflow:hidden}
             <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
             <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
           </ol>
-          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls lit at dusk" loading="lazy"></figure>
+          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
         </div>
         <div class="areas-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a></div>
       </div>
@@ -1300,10 +1344,12 @@ body.splash-lock{overflow:hidden}
 (function(){
   var root = document.getElementById('tstm');
   if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var qs = [].slice.call(root.getElementsByClassName('tstm-q'));
   if (qs.length < 2) return;
   var dots = root.querySelector('.tstm-dots');
   var count = document.getElementById('tstmCount');
+  var shots = [].slice.call(root.querySelectorAll('.tstm-photo img'));
   var at = 0;
   for (var i = 0; i < qs.length; i++) dots.appendChild(document.createElement('i'));
   function show(n){
@@ -1312,12 +1358,61 @@ body.splash-lock{overflow:hidden}
       qs[k].className = (k === at) ? 'tstm-q on' : 'tstm-q';
       dots.children[k].className = (k === at) ? 'on' : '';
     }
+    for (var s2 = 0; s2 < shots.length; s2++) shots[s2].className = (s2 === at) ? 'on' : '';
     if (count) count.textContent = (at + 1) + ' of ' + qs.length;
+    /* re-trigger the figure pop on every change */
+    var figs = root.querySelectorAll('.tstm-stat b');
+    for (var f = 0; f < figs.length; f++) {
+      figs[f].classList.remove('pop');
+      void figs[f].offsetWidth;
+      figs[f].classList.add('pop');
+    }
+    if (typeof arm === 'function') arm();
   }
-  var btns = root.querySelectorAll('.tstm-nav button');
+  var btns = root.querySelectorAll('.tstm-nav button[data-dir]');
   for (var b = 0; b < btns.length; b++) (function(el){
-    el.addEventListener('click', function(){ show(at + (+el.getAttribute('data-dir'))); });
+    el.addEventListener('click', function(){ stop(); show(at + (+el.getAttribute('data-dir'))); });
   })(btns[b]);
+
+  /* Auto-advance. WCAG 2.2.2 asks for a way to pause anything that moves on
+     its own, so there is a real pause button as well as pause on hover and on
+     keyboard focus, the arrows stop it for good, and reduced motion never
+     starts it. It also pauses when the tab is hidden rather than racing
+     through quotes nobody is watching. */
+  var GAP = 7000, timer = null, bar = document.getElementById('tstmBar');
+  var pauseBtn = document.getElementById('tstmPause');
+  var stopped = reduce, held = false;
+
+  function arm(){
+    clearTimeout(timer);
+    if (stopped || held || document.hidden) { if (bar) bar.className = ''; return; }
+    if (bar) {
+      bar.className = '';
+      void bar.offsetWidth;      /* restart the line from zero */
+      bar.className = 'run';
+    }
+    timer = setTimeout(function(){ show(at + 1); }, GAP);
+  }
+  function hold(v){ held = v; arm(); }
+  function stop(){
+    stopped = true;
+    clearTimeout(timer);
+    if (bar) bar.className = '';
+    if (pauseBtn) { pauseBtn.textContent = '\u25B6'; pauseBtn.setAttribute('aria-label', 'Play the reviews'); }
+  }
+  if (pauseBtn) pauseBtn.addEventListener('click', function(){
+    if (stopped) {
+      stopped = false;
+      pauseBtn.textContent = 'II';
+      pauseBtn.setAttribute('aria-label', 'Pause the reviews');
+      arm();
+    } else { stop(); }
+  });
+  root.addEventListener('mouseenter', function(){ hold(true); });
+  root.addEventListener('mouseleave', function(){ hold(false); });
+  root.addEventListener('focusin', function(){ hold(true); });
+  root.addEventListener('focusout', function(){ hold(false); });
+  document.addEventListener('visibilitychange', arm);
   /* the stage is absolutely positioned, so give it the tallest quote's height
      and the panel never resizes as you move between them */
   function fit(){
@@ -1334,6 +1429,7 @@ body.splash-lock{overflow:hidden}
   window.addEventListener('load', fit);
   fit();
   show(0);
+  arm();
 })();
 </script>
 </body>
