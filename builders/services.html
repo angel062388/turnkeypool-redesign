@@ -58,7 +58,7 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero-card > img,.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-inner{position:relative;z-index:2;width:100%;padding:170px 40px 44px;display:grid;grid-template-columns:1fr;gap:30px;align-items:end}
 .hero-copy{background:none;border:0;padding:0;box-shadow:none;max-width:600px}
-.hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
+.hero-copy h1{font-size:clamp(2.25rem,4.6vw,3.35rem);line-height:1.06;margin-bottom:8px;color:#fff;text-shadow:0 0 2px rgba(6,38,62,1),0 0 5px rgba(6,38,62,.98),0 0 12px rgba(11,58,92,.94),0 0 26px rgba(23,97,143,.85),0 0 48px rgba(23,97,143,.62),2px 2px 3px rgba(6,38,62,.95),-2px 2px 3px rgba(6,38,62,.95),2px -2px 3px rgba(6,38,62,.95),-2px -2px 3px rgba(6,38,62,.95)}
 /* highlight on the two words that carry the page: an underline that draws
    itself once the intro clears, then a slow low-amplitude glow. Wrapping
    the two words in an inline tag does not change the sentence, so the copy
@@ -89,8 +89,8 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
 .hero-copy h1 .hl.arm.lit::after{transform:scaleX(1);transition:transform .95s cubic-bezier(.22,1,.36,1) 1.95s}
 .hero-copy h1 .hl.arm.lit{animation:hlGlow 3.6s ease-in-out 3s infinite alternate}
 @keyframes hlGlow{
-  from{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
-  to{text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95),0 0 22px rgba(127,198,238,.75),0 0 44px rgba(127,198,238,.4)}
+  from{text-shadow:0 0 2px rgba(6,38,62,1),0 0 5px rgba(6,38,62,.98),0 0 12px rgba(11,58,92,.94),0 0 26px rgba(23,97,143,.85),2px 2px 3px rgba(6,38,62,.95),-2px 2px 3px rgba(6,38,62,.95),2px -2px 3px rgba(6,38,62,.95),-2px -2px 3px rgba(6,38,62,.95)}
+  to{text-shadow:0 0 2px rgba(6,38,62,1),0 0 5px rgba(6,38,62,.98),0 0 12px rgba(11,58,92,.94),0 0 26px rgba(23,97,143,.85),2px 2px 3px rgba(6,38,62,.95),-2px 2px 3px rgba(6,38,62,.95),2px -2px 3px rgba(6,38,62,.95),-2px -2px 3px rgba(6,38,62,.95),0 0 22px rgba(127,198,238,.75),0 0 44px rgba(127,198,238,.4)}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-copy h1 .hl.arm::after{transform:scaleX(1)}
@@ -98,7 +98,7 @@ nav a.now{background:var(--aqua-2);color:var(--deep)}
   .hero-copy h1 .hl.arm.lit::after{transition:none}
   .hero-copy h1 .write.writing{animation:none;-webkit-mask-image:none;mask-image:none}
 }
-.hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#fff;margin-top:8px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
+.hero-copy h1 small{display:block;font-size:.53em;font-weight:600;color:#fff;margin-top:8px;text-shadow:0 0 2px rgba(6,38,62,1),0 0 5px rgba(6,38,62,.98),0 0 12px rgba(11,58,92,.94),0 0 26px rgba(23,97,143,.85),0 0 48px rgba(23,97,143,.62),2px 2px 3px rgba(6,38,62,.95),-2px 2px 3px rgba(6,38,62,.95),2px -2px 3px rgba(6,38,62,.95),-2px -2px 3px rgba(6,38,62,.95)}
 .hero-copy .sub{font-size:1.02rem;font-weight:500;color:#fff;margin:14px 0 22px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),0 0 34px rgba(3,16,26,.72),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
 /* two short UVP columns where the rating badges used to sit. The badges
    moved into the scrolling band below the hero, and these four phrases
