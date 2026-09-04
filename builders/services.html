@@ -593,6 +593,19 @@ body.splash-lock{overflow:hidden}
    No text outline here: the hero is a flat colour rather than a photo, so
    the halo the homepage headline needs would be doing nothing. */
 .svc-hero h1{color:#fff;font-family:var(--script);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.18;letter-spacing:normal;max-width:15ch;margin:0}
+/* Blue highlight on the two brand words, with the same glowing underline the
+   homepage headline uses. .hl is inline-block so the underline can sit under
+   it, and an inline-block will not break across lines, which is why only two
+   words are wrapped rather than the whole phrase. Armed by script, so with
+   JavaScript off the line is simply already drawn instead of stuck at zero. */
+.svc-hero h1 .hl{font-style:normal;position:relative;display:inline-block;color:#8FD0F5}
+.svc-hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.08em;min-height:4px;border-radius:6px;background:#7FC6EE;box-shadow:0 0 14px rgba(127,198,238,.85),0 0 30px rgba(63,160,220,.55);transform:scaleX(1);transform-origin:left}
+.svc-hero h1 .hl.arm::after{transform:scaleX(0)}
+.svc-hero h1 .hl.arm.lit::after{transform:scaleX(1);transition:transform .95s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){.svc-hero h1 .hl.arm::after{transform:scaleX(1)}.svc-hero h1 .hl.arm.lit::after{transition:none}}
+.svc-lede{color:#DCF1FD;font-size:1rem;line-height:1.62;margin:18px 0 0;max-width:46ch}
+.svc-lede a{color:#8FD0F5;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.svc-lede a:hover{color:#fff}
 .svc-hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .svc-hero-cta .btn-s{background:transparent;color:#fff;border:2px solid rgba(214,238,248,.5)}
 .svc-hero-cta .btn-s:hover{background:rgba(255,255,255,.12)}
@@ -662,7 +675,12 @@ body.splash-lock{overflow:hidden}
           <span aria-hidden="true">&rsaquo;</span>
           <span>Services</span>
         </nav>
-        <h1>Big New Orleans Pool Builders Services</h1>
+        <h1>Big New Orleans <em class="hl">Pool Builders</em> Services</h1>
+        <!-- NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off. -->
+        <p class="svc-lede">Every service on this page is handled by one New Orleans
+          team, from the first design through to the day the water goes in. See how
+          <a href="index.html">TurnKey Pool Builders in New Orleans</a> approaches a
+          build from start to finish.</p>
         <div class="svc-hero-cta">
           <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
@@ -1001,14 +1019,27 @@ body.splash-lock{overflow:hidden}
 </div>
 
 <script>
-/* Inner page: no intro splash, so the trust band reveals on load rather than
-   waiting for an intro that never runs. */
+/* Inner page: no intro splash, so the trust band and the headline underline
+   both reveal on load rather than waiting for an intro that never runs.
+
+   The underline is ARMED here as well. The homepage arms it through a
+   '.hero-copy h1 .hl' selector, and this page has no .hero-copy, so without
+   this the line would never animate. Arming is also the only thing that hides
+   it, so under reduced motion we return before arming and the line is simply
+   already drawn. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
   var mq = document.getElementById('marq');
-  if (!mq || reduce) return;
-  mq.classList.add('anim');
-  setTimeout(function(){ mq.classList.add('in'); }, 120);
+  if (mq) {
+    mq.classList.add('anim');
+    setTimeout(function(){ mq.classList.add('in'); }, 120);
+  }
+  var hl = document.querySelector('.svc-hero h1 .hl');
+  if (hl) {
+    hl.classList.add('arm');
+    setTimeout(function(){ hl.classList.add('lit'); }, 420);
+  }
 })();
 </script>
 <script>
