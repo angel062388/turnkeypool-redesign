@@ -652,7 +652,7 @@ body.splash-lock{overflow:hidden}
     <a href="index.html"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
     <nav aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="https://www.turnkeypoolbuilders.com/about/" target="_blank" rel="noopener">About</a>
+      <a href="about.html">About</a>
       <a class="now" href="services.html">Services</a>
       <a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a>
       <a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a>
@@ -666,7 +666,7 @@ body.splash-lock{overflow:hidden}
   </div>
 </header>
 
-<section class="hero" id="top" style="padding-bottom:0">
+<section class="hero" id="top">
   <div class="wrap">
     <div class="svc-hero">
       <div class="svc-hero-copy">
@@ -966,7 +966,7 @@ body.splash-lock{overflow:hidden}
         <div class="ft-h">Quick Links</div>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/about/" target="_blank" rel="noopener">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a></li>
@@ -1054,7 +1054,7 @@ body.splash-lock{overflow:hidden}
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
-  var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list', 'benefits-list'];
+  var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list', 'benefits-list', 'whocards'];
   var solo = document.getElementById('buildwrap');
   if (solo) { solo.classList.add('anim'); items.push(solo); }
   for (var n = 0; n < ids.length; n++) {
