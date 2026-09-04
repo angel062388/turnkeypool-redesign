@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services - TurnKey Pool Builders</title>
-<meta name="description" content="Pool services in New Orleans from TurnKey Pool Builders: custom pools, gunite construction, inground pools, equipment repairs, remodels, renovation, replastering and spa construction.">
+<title>Contact - TurnKey Pool Builders</title>
+<meta name="description" content="Contact TurnKey Pool Builders in New Orleans. Call 239-347-1697 or request a free estimate for a custom pool, remodel, renovation or repair.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -613,27 +613,24 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-track{animation:none}}
 @media (max-width:980px){.svc-hero{grid-template-columns:1fr;gap:30px;padding:44px 22px}.svc-shots{height:300px}}
 @media (max-width:560px){.svc-shots{height:250px;gap:12px}}
-/* ---- services page only ---- */
-/* The navy hero, its highlight, lede and drifting photo strip all live in
-   index.html's shared head now, because three builders were about to carry
-   near-identical copies of them. Only what is unique to this page is here. */
-/* Benefits list. Each bullet slides in from the left as it reaches the fold,
-   staggered by row. The hidden state hangs off .anim, which the reveal sweep
-   adds, so with JavaScript off or reduced motion on the list is simply
-   there. The tick is markup, not a CSS content escape. */
-.bene-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px;list-style:none;margin:26px 0 0;padding:0}
-.bene-list li{display:flex;align-items:flex-start;gap:14px;font-size:1rem;font-weight:600;color:var(--ink);line-height:1.5}
-.bene-list li i{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;font-style:normal;margin-top:2px}
-.bene-list.anim li{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
-.bene-list.anim li.in{opacity:1;transform:none}
-.bene-list.anim li:nth-child(1){transition-delay:.04s}
-.bene-list.anim li:nth-child(2){transition-delay:.12s}
-.bene-list.anim li:nth-child(3){transition-delay:.2s}
-.bene-list.anim li:nth-child(4){transition-delay:.28s}
-.bene-list.anim li:nth-child(5){transition-delay:.36s}
-.bene-list.anim li:nth-child(6){transition-delay:.44s}
-@media (prefers-reduced-motion:reduce){.bene-list.anim li{opacity:1;transform:none;transition:none}}
-@media (max-width:780px){.bene-list{grid-template-columns:1fr;gap:14px}}
+/* ---- contact page only ---- */
+/* Three published details, given equal weight. The phone is the one thing
+   most visitors on this page want, so it is a real link on every screen
+   size rather than text you have to copy out. */
+.con-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
+.con-card{background:var(--white);border-radius:22px;padding:28px 26px;box-shadow:0 10px 26px rgba(23,97,143,.09);border:2px solid var(--aqua-2)}
+.con-card .lab{display:block;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.con-card b{display:block;font-size:1.12rem;line-height:1.35;color:var(--ink);letter-spacing:-.01em}
+.con-card a{color:var(--deep);text-decoration:none}
+.con-card a:hover{color:var(--blue);text-decoration:underline}
+.con-card span.small{display:block;font-size:.95rem;color:var(--muted);font-weight:600;margin-top:4px}
+/* Hidden state added by script, so JavaScript off shows all three */
+.con-grid.anim .con-card{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .65s cubic-bezier(.22,1,.36,1)}
+.con-grid.anim .con-card.in{opacity:1;transform:none}
+.con-grid.anim .con-card:nth-child(2){transition-delay:.09s}
+.con-grid.anim .con-card:nth-child(3){transition-delay:.18s}
+@media (prefers-reduced-motion:reduce){.con-grid.anim .con-card{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.con-grid{grid-template-columns:1fr;gap:14px}}
 </style>
 </head>
 <body>
@@ -647,11 +644,11 @@ body.splash-lock{overflow:hidden}
     <nav aria-label="Main">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a class="now" href="services.html">Services</a>
+      <a href="services.html">Services</a>
       <a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a>
       <a href="gallery.html">Gallery</a>
       <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a class="now" href="contact.html">Contact</a>
     </nav>
     <div>
       <a class="hd-tel" href="tel:+12393471697">239-347-1697</a>
@@ -667,22 +664,19 @@ body.splash-lock{overflow:hidden}
         <nav class="crumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <span aria-hidden="true">&rsaquo;</span>
-          <span>Services</span>
+          <span>Contact</span>
         </nav>
-        <h1>Big New Orleans <em class="hl">Pool Builders</em> Services</h1>
+        <h1>Get In <em class="hl">Touch</em></h1>
         <!-- NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off. -->
-        <p class="svc-lede">Every service on this page is handled by one New Orleans
-          team, from the first design through to the day the water goes in. See how
-          <a href="index.html">TurnKey Pool Builders in New Orleans</a> approaches a
-          build from start to finish.</p>
+        <p class="svc-lede">Tell us what you want the backyard to do and we will come and look at the space. Estimates are free, and you can see the work first on our <a href="index.html">New Orleans pool builders</a> homepage.</p>
         <div class="svc-hero-cta">
           <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
       </div>
       <div class="svc-shots">
-        <div class="svc-col"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
-        <div class="svc-col svc-col-b"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
+        <div class="svc-col"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
+        <div class="svc-col svc-col-b"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
       </div>
     </div>
     <div class="marq" id="marq">
@@ -712,188 +706,23 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
-<section id="benefits" style="padding-top:0">
+<section id="details" style="padding-top:0">
   <div class="wrap">
-    <!-- ============================================================
-         NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off.
-         Written to avoid every claim class this project cannot invent:
-         no years, counts, ratings, licences, financing or build times.
-         ============================================================ -->
-    <span class="eyeb">Why Hire A Builder</span>
-    <h2>Benefits of Getting A <span>Pool Builder in New Orleans</span></h2>
-    <ul class="bene-list" id="benefits-list">
-      <li><i aria-hidden="true">&#10003;</i><span>A design shaped around your yard rather than a catalogue</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Permits and approvals handled for you</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>See the pool in 3D before anything is dug</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>One team from the first sketch to the first swim</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Equipment specified and installed to work together</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Someone to call when the pool needs servicing</span></li>
-    </ul>
-  </div>
-</section>
-
-<section id="services" style="padding-top:0">
-  <div class="wrap">
-    <div class="aquaflat">
-    <div class="eyeb" style="background:var(--white)">Our Services</div>
-    <h2>TurnKey Pool Design and <span>Construction In NOLA</span></h2>
-    <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
-    <div class="svcx" id="svcx">
-      <div class="svcx-list" role="tablist" aria-label="Our services">
-        <button type="button" role="tab" id="stab0" aria-controls="span0" aria-selected="true" tabindex="0"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></em><span>Custom Pools</span><i>01</i></button>
-        <button type="button" role="tab" id="stab1" aria-controls="span1" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Gunite Pool Construction</span><i>02</i></button>
-        <button type="button" role="tab" id="stab2" aria-controls="span2" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></em><span>Inground Pool</span><i>03</i></button>
-        <button type="button" role="tab" id="stab3" aria-controls="span3" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Equipment Repairs</span><i>04</i></button>
-        <button type="button" role="tab" id="stab4" aria-controls="span4" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Remodel</span><i>05</i></button>
-        <button type="button" role="tab" id="stab5" aria-controls="span5" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Renovation</span><i>06</i></button>
-        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>07</i></button>
-        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>08</i></button>
+    <span class="eyeb">Contact</span>
+    <h2>Talk to <span>TurnKey Pool Builders</span></h2>
+    <div class="con-grid" id="con-grid">
+      <div class="con-card">
+        <span class="lab">Location</span>
+        <b>New Orleans, LA</b>
       </div>
-      <div class="svcx-stage">
-        <div class="svcx-panel on" role="tabpanel" id="span0" aria-labelledby="stab0">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Custom Pools</h3><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span1" aria-labelledby="stab1">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Gunite Pool Construction</h3><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/gunite-pool-construction/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span2" aria-labelledby="stab2">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Inground Pool</h3><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/inground-pool/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span3" aria-labelledby="stab3">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Equipment Repairs</h3><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/pool-equipment-repairs/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span4" aria-labelledby="stab4">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Remodel</h3><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/pool-remodel/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span5" aria-labelledby="stab5">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Renovation</h3><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/pool-renovation/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span6" aria-labelledby="stab6">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Replastering</h3><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/pool-replastering/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span7" aria-labelledby="stab7">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Spa Construction</h3><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/spa-construction/" target="_blank" rel="noopener">Explore &rarr;</a></div>
-        </div>
+      <div class="con-card">
+        <span class="lab">Phone Number</span>
+        <b><a href="tel:+12393471697">239-347-1697</a></b>
       </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section id="process" style="padding-top:0">
-  <div class="wrap">
-    <div class="sand">
-      <div class="eyeb" style="background:var(--white)">Our Process</div>
-      <h2>We Design and Build, <span>You Create Memories</span></h2>
-            <ol class="steps" id="steps">
-        <li class="step"><i>1</i><h3>Initial Consultation</h3><p>Our free consultation helps us understand your vision - we&#39;ll schedule an expert visit to assess your needs and measure your space for a perfect pool design.</p></li>
-        <li class="step"><i>2</i><h3>Design and Planning</h3><p>See your ideal pool in 3D, choose the ideal materials, and let us handle the permit approval process. We&#39;ll finalize all details for a smooth start.</p></li>
-        <li class="step"><i>3</i><h3>Pre-Construction Meeting</h3><p>We start with a pre-construction meeting. We walk the site with you, confirm the final layout and finishes, and go through what happens at each stage of the build.</p></li>
-        <li class="step"><i>4</i><h3>Excavation and Build</h3><p>Then we excavate and build with expertise. Steel, plumbing and the gunite shell go in stage by stage, with disruption to your property kept to a minimum.</p></li>
-        <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool! We run every system, then walk you through how your pool and equipment work day to day.</p></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section id="reviews" style="padding-top:0">
-  <div class="wrap">
-    <div class="aqua-band">
-      <div class="eyeb" style="background:var(--white)">Client Stories</div>
-      <h2>What Our <span>Clients Say</span></h2>
-      <div class="tstm" id="tstm">
-        <figure class="tstm-photo">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls lit at dusk" class="on" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-9.jpg" alt="Resort-style pool with shaded loungers" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with an infinity edge" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn terrace" loading="lazy">
-        </figure>
-        <div class="tstm-panel">
-          <div class="tstm-top">
-            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars">
-            <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating">
-            <span class="tstm-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <!-- ============================================================
-                 PLACEHOLDER FIGURES - NOT REAL, DO NOT PUBLISH AS-IS.
-                 Invented at the client's request to demonstrate the layout.
-                 TurnKey has published no rating anywhere on their site, and
-                 the only real rating figures captured during research belong
-                 to COMPETITORS and must never be reused here. Replace both
-                 with the client's own sourced
-                 Google Business Profile numbers before go-live.
-                 ============================================================ -->
-            <div class="tstm-stats">
-              <div class="tstm-stat"><b data-placeholder="true">90%</b><span>Rated enhanced swimming pool</span></div>
-              <div class="tstm-stat"><b data-placeholder="true">5.0</b><span>Average customer rating</span></div>
-            </div>
-          </div>
-          <div class="tstm-mark" aria-hidden="true">&ldquo;</div>
-          <div class="tstm-stage">
-        <blockquote class="tstm-q on"><p>They did an amazing job on our custom pool. They worked with us every step of the way to ensure we got exactly what we wanted. Their attention to detail and craftsmanship are top-notch. Highly recommend!</p><cite>Alice Martin</cite></blockquote>
-        <blockquote class="tstm-q"><p>We had a spa constructed by TurnKey Pool Builders, and it has become our favorite relaxation spot. The craftsmanship is outstanding, and the team was courteous and efficient. It&#39;s exactly what we wanted!</p><cite>Sam Williams</cite></blockquote>
-        <blockquote class="tstm-q"><p>They handled our pool re-plastering with professionalism and care. The new plaster looks fantastic, and the team ensured the job was done right. We highly recommend their services!</p><cite>Catherine Brown</cite></blockquote>
-        <blockquote class="tstm-q"><p>Our pool renovation project was a huge success because of their team. They listened to our needs and delivered a pool that looks amazing and functions flawlessly. Great job!</p><cite>Kevin Thompson</cite></blockquote>
-        <blockquote class="tstm-q"><p>We decided to remodel our pool, and TurnKey Pool Builders made it look brand new. The updates they made were stunning and gave our backyard a fresh, modern look. We&#39;re thrilled with the results.</p><cite>Lily Smith</cite></blockquote>
-        <blockquote class="tstm-q"><p>When our pool equipment needed repairs, their team came to the rescue. They were prompt, reliable, and got everything working perfectly again. Their customer service is excellent. Highly recommend them!</p><cite>Mark Robinson</cite></blockquote>
-        <blockquote class="tstm-q"><p>Our backyard was transformed with a beautiful in-ground pool thanks to TurnKey Pool Builders. The team was friendly and knowledgeable, making the entire experience enjoyable. We love our new pool!</p><cite>Lisa Parker</cite></blockquote>
-        <blockquote class="tstm-q"><p>We hired them for our gunite pool construction and couldn&#39;t be happier. The team was professional, efficient, and the final product exceeded our expectations. The whole process was smooth and stress-free.</p><cite>John Davis</cite></blockquote>
-          </div>
-          <div class="tstm-nav">
-            <button type="button" data-dir="-1" aria-label="Previous review">&#8249;</button>
-            <button type="button" data-dir="1" aria-label="Next review">&#8250;</button>
-            <span class="tstm-dots" aria-hidden="true"></span>
-            <button class="tstm-pause" type="button" id="tstmPause" aria-label="Pause the reviews">II</button>
-            <span class="tstm-timer" aria-hidden="true"><i id="tstmBar"></i></span>
-            <span class="tstm-count" id="tstmCount"></span>
-          </div>
-        </div>
-      </div>
-      <div class="duo">
-        <a class="btn btn-p" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate! &rarr;</a>
-        <a class="duo-tel" href="tel:+12393471697">239-347-1697</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="areas" style="padding-top:0">
-  <div class="wrap">
-    <div class="areas-band">
-      <div class="areas-inner">
-        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
-        <h2>Serving New Orleans <span>and Beyond</span></h2>
-        <p class="areas-count">Thirteen communities across Louisiana.</p>
-        <div class="areas-split">
-          <ol class="areas" id="areas-list">
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
-          </ol>
-          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
-        </div>
-        <div class="areas-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a></div>
+      <div class="con-card">
+        <span class="lab">Opening Hours</span>
+        <b>Mon - Sat 8:00AM - 5:00PM</b>
+        <span class="small">Sunday 8:00AM - 4:00PM</span>
       </div>
     </div>
   </div>
@@ -932,6 +761,37 @@ body.splash-lock{overflow:hidden}
           <button class="btn btn-p" type="submit">Get a FREE Estimate!</button>
           <p class="cta-note" id="quoteNote" hidden></p>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas" style="padding-top:0">
+  <div class="wrap">
+    <div class="areas-band">
+      <div class="areas-inner">
+        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
+        <h2>Serving New Orleans <span>and Beyond</span></h2>
+        <p class="areas-count">Thirteen communities across Louisiana.</p>
+        <div class="areas-split">
+          <ol class="areas" id="areas-list">
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
+          </ol>
+          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
+        </div>
+        <div class="areas-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a></div>
       </div>
     </div>
   </div>
@@ -1017,10 +877,10 @@ body.splash-lock{overflow:hidden}
    both reveal on load rather than waiting for an intro that never runs.
 
    The underline is ARMED here as well. The homepage arms it through a
-   '.hero-copy h1 .hl' selector, and this page has no .hero-copy, so without
-   this the line would never animate. Arming is also the only thing that hides
-   it, so under reduced motion we return before arming and the line is simply
-   already drawn. */
+   '.hero-copy h1 .hl' selector, and an inner page has no .hero-copy, so
+   without this the line would never animate. Arming is also the only thing
+   that hides it, so under reduced motion we return before arming and the line
+   is simply already drawn. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;

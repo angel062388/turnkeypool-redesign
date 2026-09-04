@@ -581,10 +581,10 @@ body.splash-lock{overflow:hidden}
   .splash-line{width:172px}
   .splash-tag{font-size:.6rem;letter-spacing:.2em}
 }
-/* ---- about page only ---- */
-/* Hero is the same navy band and drifting photo strip as the services page.
-   Kept as one shared block of CSS rather than two near-copies, because two
-   near-copies is how the pages start to drift. */
+/* ---- inner-page hero (services, about, gallery ...) ----
+   Lives HERE, in the shared head every inner page is assembled from, rather
+   than in each page builder. Three near-identical copies is how the pages
+   start to drift. The homepage has no .svc-hero, so this costs it nothing. */
 .svc-hero{background:#0E2C41;border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:60px 46px}
 .svc-hero .crumb{display:flex;gap:9px;align-items:center;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8FD0F5;margin-bottom:14px}
 .svc-hero .crumb a{color:#fff;text-decoration:none}
@@ -601,10 +601,9 @@ body.splash-lock{overflow:hidden}
 .svc-hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .svc-hero-cta .btn-s{background:transparent;color:#fff;border:2px solid rgba(214,238,248,.5)}
 .svc-hero-cta .btn-s:hover{background:rgba(255,255,255,.12)}
-/* Each track holds every photo TWICE and travels exactly -50%, which is why
-   the spacing is a margin on every image and NOT a flex gap: a gap leaves
-   the last item without one, the halves stop being equal, and the loop
-   visibly jumps every cycle. */
+/* Each track holds every photo TWICE and travels exactly -50%, which is why the
+   spacing is a margin on every image and NOT a flex gap: a gap leaves the last
+   item without one, the halves stop being equal, and the loop visibly jumps. */
 .svc-shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:400px}
 .svc-col{overflow:hidden;border-radius:20px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 86%,transparent 100%)}
 .svc-track{display:block;animation:svcDrift 34s linear infinite}
@@ -614,10 +613,10 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-track{animation:none}}
 @media (max-width:980px){.svc-hero{grid-template-columns:1fr;gap:30px;padding:44px 22px}.svc-shots{height:300px}}
 @media (max-width:560px){.svc-shots{height:250px;gap:12px}}
-/* Who We Are: copy in cards over the CLIENT'S OWN build film. Their footage,
-   not stock, and at 2.6MB it is a fraction of the stock films elsewhere on
-   the site. Poster frame carries the band until the film is fetched, and on
-   a narrow screen or Data Saver the poster is all that ever loads. */
+/* ---- about page only ---- */
+/* The navy hero, its highlight, lede and drifting photo strip now live in
+   index.html's shared head, because three builders were about to carry
+   near-identical copies. Only what is unique to this page is below. */
 .whoband{position:relative;overflow:hidden;border-radius:var(--r);background:#0E2C41}
 .whoband-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* Tint was at .86 and buried the film completely, which defeated the point of
@@ -653,9 +652,9 @@ body.splash-lock{overflow:hidden}
       <a class="now" href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a>
-      <a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a>
-      <a href="https://www.turnkeypoolbuilders.com/blog/" target="_blank" rel="noopener">Blog</a>
-      <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div>
       <a class="hd-tel" href="tel:+12393471697">239-347-1697</a>
@@ -880,9 +879,9 @@ body.splash-lock{overflow:hidden}
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
