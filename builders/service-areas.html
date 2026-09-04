@@ -614,22 +614,8 @@ body.splash-lock{overflow:hidden}
 @media (max-width:980px){.svc-hero{grid-template-columns:1fr;gap:30px;padding:44px 22px}.svc-shots{height:300px}}
 @media (max-width:560px){.svc-shots{height:250px;gap:12px}}
 /* ---- service areas page only ---- */
-/* A hub page's job is routing, so every community is a real link to its own
-   page rather than a name in a list. Cards, not a two-column roll, because
-   13 names in a column is a wall and a grid is scannable. */
-.sa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px;list-style:none;padding:0}
-.sa-grid a{display:flex;align-items:center;gap:12px;background:var(--white);border:2px solid var(--aqua-2);border-radius:18px;padding:18px 18px;text-decoration:none;color:var(--ink);font-weight:700;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s ease,box-shadow .35s ease}
-.sa-grid a:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 14px 30px rgba(23,97,143,.15)}
-.sa-grid a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.sa-grid i{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--aqua);color:var(--deep);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:.72rem;font-weight:800}
-.sa-grid em{margin-left:auto;font-style:normal;color:var(--blue);font-size:1rem}
-/* Hidden state added by script, so JavaScript off shows every community */
-.sa-grid.anim li{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
-.sa-grid.anim li.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.sa-grid.anim li{opacity:1;transform:none;transition:none}.sa-grid a{transition:none}.sa-grid a:hover{transform:none}}
-@media (max-width:980px){.sa-grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:720px){.sa-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
-@media (max-width:420px){.sa-grid{grid-template-columns:1fr}}
+/* The community list is the homepage areas band, lifted whole, so it needs no
+   CSS of its own here. Only the details band below is page-specific. */
 .sa-nap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:26px}
 .sa-nap div{background:var(--white);border-radius:22px;padding:26px;border:2px solid var(--aqua-2)}
 .sa-nap .lab{display:block;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
@@ -715,25 +701,35 @@ body.splash-lock{overflow:hidden}
 
 <section id="areas" style="padding-top:0">
   <div class="wrap">
-    <span class="eyeb">Where We Build</span>
-    <h2>Thirteen communities <span>across Louisiana</span></h2>
-    <ul class="sa-grid" id="areas-list">
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener"><i>01</i>Baton Rouge<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i>Covington<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i>Gretna<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i>Hammond<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i>Harahan<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i>Kenner<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i>Laplace<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener"><i>08</i>Madisonville<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>09</i>Mandeville<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>10</i>Metairie<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>11</i>River Ridge<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i>Slidell<em aria-hidden="true">&rarr;</em></a></li>
-      <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i>St. Rose<em aria-hidden="true">&rarr;</em></a></li>
-    </ul>
+    <div class="areas-band">
+      <div class="areas-inner">
+        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
+        <h2>Serving New Orleans <span>and Beyond</span></h2>
+        <p class="areas-count">Thirteen communities across Louisiana.</p>
+        <div class="areas-split">
+          <ol class="areas" id="areas-list">
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/" target="_blank" rel="noopener"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/madisonville/" target="_blank" rel="noopener"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
+            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
+          </ol>
+          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
+        </div>
+        <div class="areas-cta"><a class="btn btn-s" href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get a FREE Estimate!</a></div>
+      </div>
+    </div>
   </div>
 </section>
+
 
 <section id="services" style="padding-top:0">
   <div class="wrap">
@@ -918,6 +914,12 @@ body.splash-lock{overflow:hidden}
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"TurnKey Pool Builders","url":"https://www.turnkeypoolbuilders.com/service-areas/","telephone":"+1-239-347-1697","address":{"@type":"PostalAddress","addressLocality":"New Orleans","addressRegion":"LA","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Baton Rouge"},{"@type":"City","name":"Covington"},{"@type":"City","name":"Gretna"},{"@type":"City","name":"Hammond"},{"@type":"City","name":"Harahan"},{"@type":"City","name":"Kenner"},{"@type":"City","name":"Laplace"},{"@type":"City","name":"Madisonville"},{"@type":"City","name":"Mandeville"},{"@type":"City","name":"Metairie"},{"@type":"City","name":"River Ridge"},{"@type":"City","name":"Slidell"},{"@type":"City","name":"St. Rose"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"08:00","closes":"16:00"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.turnkeypoolbuilders.com/"},{"@type":"ListItem","position":2,"name":"Service Areas","item":"https://www.turnkeypoolbuilders.com/service-areas/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":"TurnKey Pool Builders service areas","numberOfItems":13,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"Baton Rouge","url":"https://www.turnkeypoolbuilders.com/service-areas/baton-rouge/"},{"@type":"ListItem","position":2,"name":"Covington","url":"https://www.turnkeypoolbuilders.com/service-areas/covington/"},{"@type":"ListItem","position":3,"name":"Gretna","url":"https://www.turnkeypoolbuilders.com/service-areas/gretna/"},{"@type":"ListItem","position":4,"name":"Hammond","url":"https://www.turnkeypoolbuilders.com/service-areas/hammond/"},{"@type":"ListItem","position":5,"name":"Harahan","url":"https://www.turnkeypoolbuilders.com/service-areas/harahan/"},{"@type":"ListItem","position":6,"name":"Kenner","url":"https://www.turnkeypoolbuilders.com/service-areas/kenner/"},{"@type":"ListItem","position":7,"name":"Laplace","url":"https://www.turnkeypoolbuilders.com/service-areas/laplace/"},{"@type":"ListItem","position":8,"name":"Madisonville","url":"https://www.turnkeypoolbuilders.com/service-areas/madisonville/"},{"@type":"ListItem","position":9,"name":"Mandeville","url":"https://www.turnkeypoolbuilders.com/service-areas/mandeville/"},{"@type":"ListItem","position":10,"name":"Metairie","url":"https://www.turnkeypoolbuilders.com/service-areas/metairie/"},{"@type":"ListItem","position":11,"name":"River Ridge","url":"https://www.turnkeypoolbuilders.com/service-areas/river-ridge/"},{"@type":"ListItem","position":12,"name":"Slidell","url":"https://www.turnkeypoolbuilders.com/service-areas/slidell/"},{"@type":"ListItem","position":13,"name":"St. Rose","url":"https://www.turnkeypoolbuilders.com/service-areas/st-rose/"}]}
 </script>
 <script>
 /* Inner page: no intro splash, so the trust band and the headline underline
