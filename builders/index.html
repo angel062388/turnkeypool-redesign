@@ -1142,7 +1142,7 @@ body.splash-lock{overflow:hidden}
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
-  var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list'];
+  var items = [], ids = ['steps', 'areas-list', 'faq-list', 'blog-list', 'benefits-list'];
   var solo = document.getElementById('buildwrap');
   if (solo) { solo.classList.add('anim'); items.push(solo); }
   for (var n = 0; n < ids.length; n++) {
