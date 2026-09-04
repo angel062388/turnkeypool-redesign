@@ -25,7 +25,12 @@ img{max-width:100%;display:block}
 .eyeb{display:inline-block;background:var(--aqua-2);color:var(--deep);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:16px}
 h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 h2{font-size:2.05rem;line-height:1.2;margin-bottom:12px}
-h2 span{color:var(--blue)}
+h2 span{color:var(--blue);background-image:linear-gradient(90deg,var(--blue) 0%,#7FC6EE 100%);background-repeat:no-repeat;background-position:0 100%;background-size:100% 4px;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-bottom:.14em;border-radius:2px}
+/* .uline is added by script, so with JavaScript off or reduced motion on
+   the line is simply already drawn rather than stuck at zero width. */
+h2 span.uline{background-size:0 4px}
+h2 span.uline.in{background-size:100% 4px;transition:background-size .9s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){h2 span.uline,h2 span.uline.in{background-size:100% 4px;transition:none}}
 .sub{color:var(--muted);max-width:60ch}
 .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;text-decoration:none;padding:15px 28px;border-radius:40px}
 .btn-p{background:var(--blue);color:#fff;box-shadow:0 12px 26px rgba(63,160,220,.35)}
@@ -232,9 +237,30 @@ html.js .svcx-panel.on figure img{transform:none}
    person endorses the product, which is precisely what a face beside a
    named testimonial does. */
 .tstm-photo{margin:0;position:relative;align-self:center;aspect-ratio:4/5}
-.tstm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%);opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s .5s}
-.tstm-photo img.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s}
-@media (prefers-reduced-motion:reduce){.tstm-photo img{transition:none}}
+.tstm-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%);opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s .5s;transform-origin:left center;-webkit-mask-image:linear-gradient(90deg,#000 0 62%,rgba(0,0,0,.5) 79%,rgba(0,0,0,0) 97%);mask-image:linear-gradient(90deg,#000 0 62%,rgba(0,0,0,.5) 79%,rgba(0,0,0,0) 97%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:left center;mask-position:left center;-webkit-mask-size:260% 100%;mask-size:260% 100%}
+.tstm-photo img.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease,transform .9s cubic-bezier(.22,1,.36,1),visibility 0s;animation:unroll 1.05s cubic-bezier(.22,.85,.24,1)}
+/* Unrolls like a scroll opening from the outside edge. The mask narrows
+   to a sliver at the left, then widens across the photo, and the panel
+   tips out of the flat plane so the far edge reads as still curled.
+   Measured: no overflow:hidden anywhere above this, so the tipped edge
+   is never cropped. */
+@keyframes unroll{
+  0%{transform:perspective(1000px) rotateY(-42deg) scale(.99);-webkit-mask-size:3% 100%;mask-size:3% 100%}
+  55%{transform:perspective(1000px) rotateY(-11deg) scale(1)}
+  100%{transform:perspective(1000px) rotateY(0deg) scale(1);-webkit-mask-size:260% 100%;mask-size:260% 100%}
+}
+/* the travelling curl: a bright crease with its own shadow, riding the
+   same edge the mask is uncovering. This is the bit that makes it read
+   as paper rather than a plain wipe. */
+.tstm-photo::after{content:"";position:absolute;inset:0;pointer-events:none;clip-path:polygon(26% 0,100% 0,100% 74%,74% 100%,0 100%,0 26%);background:linear-gradient(90deg,rgba(255,255,255,0) 0 40%,rgba(255,255,255,.62) 49%,rgba(255,255,255,.9) 52%,rgba(12,40,58,.42) 57%,rgba(12,40,58,.14) 63%,rgba(255,255,255,0) 72% 100%);background-repeat:no-repeat;background-size:230% 100%;background-position:-120% 0;opacity:0}
+.tstm-photo.rolling::after{animation:rollEdge 1.05s cubic-bezier(.22,.85,.24,1)}
+@keyframes rollEdge{
+  0%{opacity:0;background-position:-118% 0}
+  14%{opacity:1}
+  86%{opacity:1}
+  100%{opacity:0;background-position:126% 0}
+}
+@media (prefers-reduced-motion:reduce){.tstm-photo img{transition:none}.tstm-photo img.on{animation:none}.tstm-photo.rolling::after{animation:none}}
 .tstm-panel{background:var(--white);border-radius:22px;padding:30px 34px 26px;box-shadow:0 14px 34px rgba(23,97,143,.1);display:flex;flex-direction:column}
 .tstm-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
 .tstm-top img{height:30px;width:auto;border-radius:4px;display:block}
@@ -243,12 +269,31 @@ html.js .svcx-panel.on figure img{transform:none}
    comment in the markup. They must not reach the live site unsourced. */
 .tstm-stats{display:flex;gap:24px;margin-left:auto}
 .tstm-stat{padding-left:22px;border-left:2px solid var(--aqua-2)}
-.tstm-stat b{display:block;font-size:1.5rem;line-height:1.05;color:var(--deep);letter-spacing:-.02em;transform-origin:left center}
+.tstm-stat b{display:block;font-size:1.5rem;line-height:1.05;color:var(--deep);letter-spacing:-.02em;transform-origin:left center;will-change:transform}
+.tstm-stats{will-change:transform}
 /* each time the quote changes the figures swell and settle, which pulls the
    eye back to them without the layout moving */
-.tstm-stat b.pop{animation:statPop .75s cubic-bezier(.34,1.56,.64,1)}
-.tstm-stat:nth-child(2) b.pop{animation-delay:.09s}
-@keyframes statPop{0%{transform:scale(1)}38%{transform:scale(1.22)}100%{transform:scale(1)}}
+/* Two stages. The whole block wobbles first, which is what catches the
+   eye, then the figures swell and settle once the wobble has stopped.
+   Shaking the block rather than the numbers keeps the labels attached to
+   the figures they belong to. */
+.tstm-stats.pop{animation:statShake .46s ease-in-out}
+.tstm-stat b.pop{animation:statZoom .72s .42s cubic-bezier(.34,1.56,.64,1)}
+.tstm-stat:nth-child(2) b.pop{animation-delay:.51s}
+@keyframes statShake{
+  0%,100%{transform:translateX(0)}
+  12%{transform:translateX(-6px)}
+  30%{transform:translateX(6px)}
+  48%{transform:translateX(-5px)}
+  66%{transform:translateX(4px)}
+  82%{transform:translateX(-2px)}
+  92%{transform:translateX(1px)}
+}
+@keyframes statZoom{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.34)}
+  100%{transform:scale(1)}
+}
 /* a thin progress line shows how long until the next quote */
 .tstm-timer{position:relative;flex:0 0 96px;height:3px;border-radius:3px;background:var(--aqua-2);overflow:hidden;margin:0 6px}
 .tstm-timer i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--blue);border-radius:3px}
@@ -256,7 +301,7 @@ html.js .svcx-panel.on figure img{transform:none}
 .tstm-pause{width:34px;height:34px;border-radius:50%;border:2px solid var(--aqua-2);background:var(--white);color:var(--deep);font-size:.72rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .tstm-pause:hover{background:var(--blue);border-color:var(--blue);color:#fff}
 .tstm-pause:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-@media (prefers-reduced-motion:reduce){.tstm-stat b.pop{animation:none}.tstm-timer i.run{transition:none}}
+@media (prefers-reduced-motion:reduce){.tstm-stat b.pop{animation:none}.tstm-stats.pop{animation:none}.tstm-timer i.run{transition:none}}
 .tstm-stat span{display:block;font-size:.72rem;line-height:1.35;color:var(--muted);font-weight:600;max-width:15ch;margin-top:3px}
 @media (max-width:980px){.tstm-stats{margin-left:0;width:100%;gap:18px}.tstm-stat{padding-left:14px}.tstm-stat b{font-size:1.25rem}}
 .tstm-mark{font-size:3.4rem;line-height:.7;color:var(--aqua-2);font-weight:800;margin:10px 0 2px}
@@ -313,7 +358,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .areas-band{position:relative;overflow:hidden;border-radius:var(--r);background:#0E2C41}
 .areas-inner{position:relative;z-index:2;padding:56px 46px 46px}
 .areas-inner h2{color:#fff}
-.areas-inner h2 span{color:#7FC6EE}
+.areas-inner h2 span{color:#7FC6EE;background-image:linear-gradient(90deg,#7FC6EE 0%,#DCF1FD 100%)}
 .areas-count{margin:10px 0 0;font-size:.9rem;color:rgba(255,255,255,.72)}
 /* the two city columns sit together on the left with a photo on the right,
    so the middle of the band is no longer dead space. The photo is NOT tied
@@ -373,7 +418,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .cta-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:54px 46px}
 .cta-copy h2{color:#fff;font-size:2.25rem;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
-.cta-copy h2 span{color:#8FD0F5}
+.cta-copy h2 span{color:#8FD0F5;background-image:linear-gradient(90deg,#8FD0F5 0%,#EAF7FF 100%)}
 .cta-copy p{color:#fff;font-weight:500;max-width:46ch;margin:12px 0 26px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
 .cta-form{background:rgba(255,255,255,.97);border-radius:22px;padding:28px 28px 26px;box-shadow:0 26px 60px rgba(6,26,40,.4)}
 .cta-form b{display:block;font-size:1.05rem;color:var(--deep);margin-bottom:16px}
@@ -490,6 +535,15 @@ body.splash-lock{overflow:hidden}
   .splash-ring{width:200px;height:200px}
 }
 @media (max-width:560px){
+  /* The review controls have a 405px min-content width: two arrows, eight
+     dots, a pause button, a fixed 96px progress bar and the counter, and none
+     of them can shrink. A grid item will not go below its min-content width,
+     so that number was forcing the whole card to 449px and putting the page
+     into horizontal scroll on any phone. Let the row wrap and let the
+     progress bar give up its fixed width. */
+  .tstm-panel{min-width:0}
+  .tstm-nav{flex-wrap:wrap;row-gap:12px}
+  .tstm-timer{flex:1 1 56px}
   .marq-set span{padding:15px 20px;font-size:.72rem;letter-spacing:.06em}
   .areas{grid-template-columns:1fr}
   .ft-grid{grid-template-columns:1fr}
@@ -518,11 +572,11 @@ body.splash-lock{overflow:hidden}
 </div>
 <header>
   <div class="wrap hd">
-    <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
+    <a href="index.html"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
     <nav aria-label="Main">
-      <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">Home</a>
+      <a href="index.html">Home</a>
       <a href="https://www.turnkeypoolbuilders.com/about/" target="_blank" rel="noopener">About</a>
-      <a class="now" href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Services</a>
+      <a class="now" href="services.html">Services</a>
       <a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a>
       <a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a>
       <a href="https://www.turnkeypoolbuilders.com/blog/" target="_blank" rel="noopener">Blog</a>
@@ -539,7 +593,7 @@ body.splash-lock{overflow:hidden}
   <div class="wrap">
     <div class="svc-hero">
       <nav class="crumb" aria-label="Breadcrumb">
-        <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">Home</a>
+        <a href="index.html">Home</a>
         <span aria-hidden="true">&rsaquo;</span>
         <span>Services</span>
       </nav>
@@ -799,9 +853,9 @@ body.splash-lock{overflow:hidden}
       <div>
         <div class="ft-h">Quick Links</div>
         <ul>
-          <li><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/about/" target="_blank" rel="noopener">About</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/services/" target="_blank" rel="noopener">Services</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/service-areas/" target="_blank" rel="noopener">Service Areas</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/gallery/" target="_blank" rel="noopener">Gallery</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/blog/" target="_blank" rel="noopener">Blog</a></li>
@@ -883,6 +937,13 @@ body.splash-lock{overflow:hidden}
     if (!el) continue;
     el.classList.add('anim');
     for (var k = 0; k < el.children.length; k++) items.push(el.children[k]);
+  }
+  /* Every highlighted heading fragment draws its underline as it arrives.
+     Same one-shot sweep, so a fast scroll or an anchor jump cannot skip one. */
+  var hls = document.querySelectorAll('h2 span');
+  for (var u = 0; u < hls.length; u++) {
+    hls[u].classList.add('uline');
+    items.push(hls[u]);
   }
   if (!items.length) return;
   var ticking = false;
@@ -1053,7 +1114,26 @@ body.splash-lock{overflow:hidden}
   var dots = root.querySelector('.tstm-dots');
   var count = document.getElementById('tstmCount');
   var shots = [].slice.call(root.querySelectorAll('.tstm-photo img'));
+  var statBlock = root.querySelector('.tstm-stats');
+  var photoWrap = root.querySelector('.tstm-photo');
   var at = 0;
+
+  /* Replaying a CSS animation takes three steps: drop the class, force a
+     reflow by reading a layout property, then add it back. Without the
+     offsetWidth read the browser folds both class changes into one style pass
+     and the animation never restarts. */
+  function replay(el, cls){
+    if (!el) return;
+    el.classList.remove(cls);
+    void el.offsetWidth;
+    el.classList.add(cls);
+  }
+  function firePop(){
+    replay(statBlock, 'pop');
+    var figs = root.querySelectorAll('.tstm-stat b');
+    for (var f = 0; f < figs.length; f++) replay(figs[f], 'pop');
+  }
+  function fireRoll(){ replay(photoWrap, 'rolling'); }
   for (var i = 0; i < qs.length; i++) dots.appendChild(document.createElement('i'));
   function show(n){
     at = (n + qs.length) % qs.length;
@@ -1063,13 +1143,8 @@ body.splash-lock{overflow:hidden}
     }
     for (var s2 = 0; s2 < shots.length; s2++) shots[s2].className = (s2 === at) ? 'on' : '';
     if (count) count.textContent = (at + 1) + ' of ' + qs.length;
-    /* re-trigger the figure pop on every change */
-    var figs = root.querySelectorAll('.tstm-stat b');
-    for (var f = 0; f < figs.length; f++) {
-      figs[f].classList.remove('pop');
-      void figs[f].offsetWidth;
-      figs[f].classList.add('pop');
-    }
+    firePop();
+    fireRoll();
     if (typeof arm === 'function') arm();
   }
   var btns = root.querySelectorAll('.tstm-nav button[data-dir]');
@@ -1133,6 +1208,32 @@ body.splash-lock{overflow:hidden}
   fit();
   show(0);
   arm();
+
+  /* show(0) runs at page load, well above the fold, so play both animations
+     again the first time the card is genuinely on screen. setTimeout rather
+     than requestAnimationFrame: rAF is suspended in a background tab, which
+     would leave the guard flag stuck and kill every later scroll. */
+  if (!reduce) {
+    var seen = false, pending = false;
+    function look(){
+      pending = false;
+      if (seen) return;
+      var h = window.innerHeight || document.documentElement.clientHeight;
+      var r = root.getBoundingClientRect();
+      if (r.top < h * 0.75 && r.bottom > 0) {
+        seen = true;
+        firePop();
+        fireRoll();
+        window.removeEventListener('scroll', peek);
+        window.removeEventListener('resize', peek);
+      }
+    }
+    function peek(){ if (pending) return; pending = true; setTimeout(look, 60); }
+    window.addEventListener('scroll', peek, {passive: true});
+    window.addEventListener('resize', peek);
+    window.addEventListener('load', look);
+    look();
+  }
 })();
 </script>
 <script>
