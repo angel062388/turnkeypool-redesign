@@ -26,8 +26,8 @@ img{max-width:100%;display:block}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 .eyeb{display:inline-block;background:var(--aqua-2);color:var(--deep);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:30px;margin-bottom:16px}
 h1,h2,h3{font-weight:700;letter-spacing:-.02em}
-h2{font-size:2.05rem;line-height:1.2;margin-bottom:12px}
-h2 span{color:var(--blue);background-image:linear-gradient(90deg,var(--blue) 0%,#7FC6EE 100%);background-repeat:no-repeat;background-position:0 100%;background-size:100% 4px;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-bottom:.14em;border-radius:2px}
+h2{font-family:var(--script);font-size:2.42rem;line-height:1.28;letter-spacing:normal;margin-bottom:12px}
+h2 span{color:var(--blue);background-image:linear-gradient(90deg,var(--blue) 0%,#7FC6EE 100%);background-repeat:no-repeat;background-position:0 100%;background-size:100% 4px;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-bottom:.2em;border-radius:2px}
 /* .uline is added by script, so with JavaScript off or reduced motion on
    the line is simply already drawn rather than stuck at zero width. */
 h2 span.uline{background-size:0 4px}
@@ -445,7 +445,7 @@ details p{padding:0 0 19px;color:var(--muted);font-size:.9rem}
 .cta-band{position:relative;border-radius:var(--r);overflow:hidden;background:#0C2436}
 .cta-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cta-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:54px 46px}
-.cta-copy h2{color:#fff;font-size:2.25rem;text-shadow:0 0 2px rgba(3,16,26,1),0 0 5px rgba(3,16,26,.98),0 0 12px rgba(3,16,26,.92),0 0 26px rgba(3,16,26,.8),0 0 48px rgba(3,16,26,.6),2px 2px 3px rgba(3,16,26,.95),-2px 2px 3px rgba(3,16,26,.95),2px -2px 3px rgba(3,16,26,.95),-2px -2px 3px rgba(3,16,26,.95)}
+.cta-copy h2{color:#fff;font-size:2.65rem;text-shadow:0 0 2px rgba(6,38,62,1),0 0 5px rgba(6,38,62,.98),0 0 12px rgba(11,58,92,.94),0 0 26px rgba(23,97,143,.85),0 0 48px rgba(23,97,143,.62),2px 2px 3px rgba(6,38,62,.95),-2px 2px 3px rgba(6,38,62,.95),2px -2px 3px rgba(6,38,62,.95),-2px -2px 3px rgba(6,38,62,.95)}
 .cta-copy h2 span{color:#8FD0F5;background-image:linear-gradient(90deg,#8FD0F5 0%,#EAF7FF 100%)}
 .cta-copy p{color:#fff;font-weight:500;max-width:46ch;margin:12px 0 26px;text-shadow:0 0 2px rgba(3,16,26,1),0 0 4px rgba(3,16,26,1),0 0 9px rgba(3,16,26,.98),0 0 18px rgba(3,16,26,.9),2px 2px 3px rgba(3,16,26,1),-2px 2px 3px rgba(3,16,26,1),2px -2px 3px rgba(3,16,26,1),-2px -2px 3px rgba(3,16,26,1)}
 .cta-form{background:rgba(255,255,255,.97);border-radius:22px;padding:28px 28px 26px;box-shadow:0 26px 60px rgba(6,26,40,.4)}
@@ -554,7 +554,7 @@ body.splash-lock{overflow:hidden}
   .mcap b{font-size:.86rem}
   .sand,.aqua-band,.aquaflat{padding:34px 22px}
   .cta-inner{grid-template-columns:1fr;gap:28px;padding:34px 22px}
-  .cta-copy h2{font-size:1.8rem}
+  .cta-copy h2{font-size:2.1rem}
   .ft-grid{grid-template-columns:1fr 1fr}
   .callbar{display:grid}
   footer{padding-bottom:86px}
@@ -589,7 +589,11 @@ body.splash-lock{overflow:hidden}
 .svc-hero .crumb{display:flex;justify-content:center;gap:9px;align-items:center;font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#DCF1FD;margin-bottom:16px}
 .svc-hero .crumb a{color:#fff;text-decoration:none}
 .svc-hero .crumb a:hover{text-decoration:underline}
-.svc-hero h1{color:#fff;font-size:clamp(2.05rem,4.4vw,3.15rem);line-height:1.1;max-width:20ch;margin:0 auto}
+/* Script face, to match the homepage hero and this page's own section
+   headings. Bigger and looser than the sans it replaces: a script face sets
+   smaller on the same font-size and needs room for its descenders. No
+   outline here, the hero is a flat gradient rather than a photo. */
+.svc-hero h1{color:#fff;font-family:var(--script);font-weight:700;font-size:clamp(2.4rem,5.2vw,3.7rem);line-height:1.2;letter-spacing:normal;max-width:20ch;margin:0 auto}
 @media (max-width:980px){.svc-hero{padding:52px 22px 48px}}
 </style>
 </head>
