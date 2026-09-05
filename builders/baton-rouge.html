@@ -613,6 +613,23 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-track{animation:none}}
 @media (max-width:980px){.svc-hero{grid-template-columns:1fr;gap:30px;padding:44px 22px}.svc-shots{height:300px}}
 @media (max-width:560px){.svc-shots{height:250px;gap:12px}}
+/* Service Areas dropdown. The parent stays a real link to the hub; a separate
+   small button opens the menu, so the hub is still reachable and the menu is
+   operable by keyboard. Hover-open is added only for a fine pointer, as a
+   convenience on top - never as the only way in. */
+.navdrop{position:relative;display:inline-flex;align-items:center;gap:0}
+.navdrop-t{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:.8rem;line-height:1;padding:10px 10px 10px 3px;border-radius:30px}
+.navdrop-t:hover{background:var(--aqua)}
+.navdrop-t:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.navdrop-menu{position:absolute;top:100%;left:0;min-width:196px;margin:4px 0 0;padding:8px;list-style:none;background:var(--white);border:2px solid var(--aqua-2);border-radius:18px;box-shadow:0 18px 40px rgba(12,40,58,.22);display:none;z-index:90}
+.navdrop.open .navdrop-menu{display:block}
+@media (hover:hover) and (pointer:fine){.navdrop:hover .navdrop-menu{display:block}}
+.navdrop-menu a{display:block;padding:9px 14px;border-radius:12px;font-size:.86rem;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.navdrop-menu a:hover{background:var(--aqua)}
+.navdrop-menu a.now{background:var(--aqua-2);color:var(--deep)}
+/* parent gets the active tint when one of its children is the current page */
+.navdrop.open .navdrop-t span,.navdrop:hover .navdrop-t span{display:inline-block;transform:rotate(180deg)}
+.navdrop.here > a{background:var(--aqua-2);color:var(--deep)}
 /* ---- location page ---- */
 /* The five numbered services as cards. The live page runs them as five
    headings with prose under each, which reads as a wall; a card apiece
@@ -698,8 +715,16 @@ body.splash-lock{overflow:hidden}
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="services.html">Services</a>
-      <a href="service-areas.html">Service Areas</a>
-      <a class="now" href="baton-rouge.html">Baton Rouge</a>
+      <span class="navdrop here">
+        <a href="service-areas.html">Service Areas</a>
+        <button class="navdrop-t" type="button" aria-expanded="false"
+          aria-controls="sa-menu" aria-label="Show service area pages">
+          <span aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="navdrop-menu" id="sa-menu">
+          <li><a class="now" href="baton-rouge.html">Baton Rouge</a></li>
+        </ul>
+      </span>
       <a href="gallery.html">Gallery</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
@@ -827,6 +852,7 @@ body.splash-lock{overflow:hidden}
       </div>
     </div>
     </div>
+    <div class="gal-cta"><a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a></div>
   </div>
 </section>
 
@@ -889,6 +915,7 @@ body.splash-lock{overflow:hidden}
       <h3>Public Transportation in Baton Rouge, LA</h3>
       <!-- FACT CHECK FAILED: REVERSED. CATS, the Capital Area Transit System, IS the Baton Rouge bus operator (29 lines). There is no BRATS agency there, and CATS runs no ferry. -->
       <p>The Baton Rouge Area Transit System (BRATS) offers a network of bus routes serving the city and surrounding areas. Additionally, rideshare services like Uber and Lyft are readily available. For a more scenic option, the Capital Area Transit System (CATS) operates a riverfront ferry service across the Mississippi River.</p>
+      <div class="gal-cta"><a class="btn btn-s" href="service-areas.html">All Service Areas</a></div>
     </div>
   </div>
 </section>
@@ -936,6 +963,7 @@ body.splash-lock{overflow:hidden}
         <li class="step"><i>5</i><h3>Testing and Handover</h3><p>We test everything, and finally hand over your dream pool! We run every system, then walk you through how your pool and equipment work day to day.</p></li>
       </ol>
     </div>
+    <div class="gal-cta"><a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a> <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a></div>
   </div>
 </section>
 
@@ -1502,6 +1530,35 @@ body.splash-lock{overflow:hidden}
   window.addEventListener('resize', onScroll);
   window.addEventListener('load', check);
   check();
+})();
+</script>
+<script>
+/* Service Areas menu. CSS already opens it on hover for a fine pointer; this is
+   what makes it work for keyboard and touch. Escape closes it and returns focus
+   to the button, because focus stranded inside a hidden menu is the usual way
+   these break. */
+(function(){
+  var drop = document.querySelector('.navdrop');
+  if (!drop) return;
+  var btn = drop.querySelector('.navdrop-t');
+  if (!btn) return;
+  function set(open){
+    drop.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    set(btn.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('click', function(e){
+    if (!drop.contains(e.target)) set(false);
+  });
+  drop.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { set(false); btn.focus(); }
+  });
+  drop.addEventListener('focusout', function(e){
+    if (!drop.contains(e.relatedTarget)) set(false);
+  });
 })();
 </script>
 </body>
