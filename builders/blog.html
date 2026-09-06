@@ -630,6 +630,34 @@ body.splash-lock{overflow:hidden}
 /* parent gets the active tint when one of its children is the current page */
 .navdrop.open .navdrop-t span,.navdrop:hover .navdrop-t span{display:inline-block;transform:rotate(180deg)}
 .navdrop.here > a{background:var(--aqua-2);color:var(--deep)}
+/* ---- location pages ---- */
+/* Lives HERE, in the shared head every page is assembled from, rather than in
+   a builder. It was in one builder and not the other, which is exactly how 13
+   pages ended up with unstyled local sections. */
+.loc-prose p{color:var(--muted);font-size:1.02rem;line-height:1.72;margin:0 0 14px;max-width:74ch}
+.loc-prose p:last-child{margin-bottom:0}
+.loc-prose h3{font-size:1.18rem;margin:22px 0 8px;color:var(--ink)}
+.loc-prose ul{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px}
+.loc-prose li{display:flex;gap:12px;color:var(--muted);font-size:.98rem;line-height:1.62}
+.loc-prose li i{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:9px}
+.loc-prose li b{color:var(--ink)}
+.loc-touch{margin-top:4px;font-size:1.06rem;font-weight:700;color:var(--deep)}
+.loc-touch a{color:var(--blue);text-decoration:none;margin-left:6px;border-bottom:2px solid var(--aqua-2)}
+.loc-touch a:hover{border-color:var(--blue)}
+/* the local-colour band: the part of a location page genuinely about the place */
+.loc-city{background:var(--aqua);border-radius:var(--r);padding:52px 46px}
+.loc-city h3{font-size:1.4rem;margin:26px 0 10px;color:var(--ink)}
+.loc-city > p{color:var(--muted);font-size:1.02rem;line-height:1.72;max-width:74ch}
+.loc-city ul{list-style:none;margin:0 0 6px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 30px}
+.loc-city li{display:flex;gap:12px;color:var(--muted);font-size:.98rem;line-height:1.62}
+.loc-city li i{flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-top:9px}
+.loc-city li b{color:var(--ink)}
+.loc-city p{color:var(--muted);font-size:1.02rem;line-height:1.72;max-width:74ch}
+.loc-city-top{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
+.loc-city-shot{margin:0;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px rgba(23,97,143,.18)}
+.loc-city-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.loc-city-shot figcaption{font-size:.76rem;color:var(--muted);font-weight:600;padding:10px 14px;background:var(--white)}
+@media (max-width:860px){.loc-city{padding:36px 22px}.loc-city ul,.loc-prose ul{grid-template-columns:1fr}.loc-city-top{grid-template-columns:1fr;gap:22px}}
 /* ---- blog page only ---- */
 /* Listing to the reference: category rail left, cards right, search above.
    Filtering is plain client-side text matching, which is honest for three
@@ -685,6 +713,18 @@ body.splash-lock{overflow:hidden}
         </button>
         <ul class="navdrop-menu" id="sa-menu">
           <li><a href="baton-rouge.html">Baton Rouge</a></li>
+          <li><a href="covington.html">Covington</a></li>
+          <li><a href="gretna.html">Gretna</a></li>
+          <li><a href="hammond.html">Hammond</a></li>
+          <li><a href="harahan.html">Harahan</a></li>
+          <li><a href="kenner.html">Kenner</a></li>
+          <li><a href="laplace.html">Laplace</a></li>
+          <li><a href="madisonville.html">Madisonville</a></li>
+          <li><a href="mandeville.html">Mandeville</a></li>
+          <li><a href="metairie.html">Metairie</a></li>
+          <li><a href="river-ridge.html">River Ridge</a></li>
+          <li><a href="slidell.html">Slidell</a></li>
+          <li><a href="st-rose.html">St. Rose</a></li>
         </ul>
       </span>
       <a href="gallery.html">Gallery</a>
