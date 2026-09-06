@@ -621,12 +621,12 @@ body.splash-lock{overflow:hidden}
 .navdrop-t{border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:.8rem;line-height:1;padding:10px 10px 10px 3px;border-radius:30px}
 .navdrop-t:hover{background:var(--aqua)}
 .navdrop-t:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.navdrop-menu{position:absolute;top:100%;left:0;min-width:196px;margin:4px 0 0;padding:8px;list-style:none;background:var(--white);border:2px solid var(--aqua-2);border-radius:18px;box-shadow:0 18px 40px rgba(12,40,58,.22);display:none;z-index:90}
-.navdrop.open .navdrop-menu{display:block}
-@media (hover:hover) and (pointer:fine){.navdrop:hover .navdrop-menu{display:block}}
-.navdrop-menu a{display:block;padding:9px 14px;border-radius:12px;font-size:.86rem;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
-.navdrop-menu a:hover{background:var(--aqua)}
-.navdrop-menu a.now{background:var(--aqua-2);color:var(--deep)}
+.navdrop-menu{position:absolute;top:100%;left:0;min-width:344px;margin:6px 0 0;padding:6px;list-style:none;background:var(--aqua);border:2px solid var(--blue);border-radius:0;box-shadow:0 18px 40px rgba(12,40,58,.22);display:none;grid-template-columns:1fr 1fr;gap:2px;z-index:90}
+.navdrop.open .navdrop-menu{display:grid}
+@media (hover:hover) and (pointer:fine){.navdrop:hover .navdrop-menu{display:grid}}
+.navdrop-menu a{display:block;padding:9px 14px;border-radius:0;font-size:.86rem;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.navdrop-menu a:hover{background:var(--white)}
+.navdrop-menu a.now{background:var(--deep);color:var(--white)}
 /* parent gets the active tint when one of its children is the current page */
 .navdrop.open .navdrop-t span,.navdrop:hover .navdrop-t span{display:inline-block;transform:rotate(180deg)}
 .navdrop.here > a{background:var(--aqua-2);color:var(--deep)}
@@ -933,17 +933,17 @@ body.splash-lock{overflow:hidden}
         <div class="areas-split">
           <ol class="areas" id="areas-list">
             <li><a href="baton-rouge.html"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/gretna/" target="_blank" rel="noopener"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/harahan/" target="_blank" rel="noopener"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/" target="_blank" rel="noopener"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener"><i>08</i><b>Mandeville</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener"><i>09</i><b>Metairie</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/river-ridge/" target="_blank" rel="noopener"><i>10</i><b>River Ridge</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener"><i>11</i><b>Slidell</b><em>&rarr;</em></a></li>
-            <li><a href="https://www.turnkeypoolbuilders.com/service-areas/st-rose/" target="_blank" rel="noopener"><i>12</i><b>St. Rose</b><em>&rarr;</em></a></li>
+            <li><a href="covington.html"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+            <li><a href="gretna.html"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+            <li><a href="hammond.html"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+            <li><a href="harahan.html"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+            <li><a href="kenner.html"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+            <li><a href="laplace.html"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+            <li><a href="mandeville.html"><i>08</i><b>Mandeville</b><em>&rarr;</em></a></li>
+            <li><a href="metairie.html"><i>09</i><b>Metairie</b><em>&rarr;</em></a></li>
+            <li><a href="river-ridge.html"><i>10</i><b>River Ridge</b><em>&rarr;</em></a></li>
+            <li><a href="slidell.html"><i>11</i><b>Slidell</b><em>&rarr;</em></a></li>
+            <li><a href="st-rose.html"><i>12</i><b>St. Rose</b><em>&rarr;</em></a></li>
           </ol>
           <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
         </div>
@@ -1126,12 +1126,12 @@ body.splash-lock{overflow:hidden}
         <div class="ft-h">Service Areas</div>
         <ul>
           <li><a href="baton-rouge.html">Baton Rouge</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/covington/" target="_blank" rel="noopener">Covington</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/hammond/" target="_blank" rel="noopener">Hammond</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/kenner/" target="_blank" rel="noopener">Kenner</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/mandeville/" target="_blank" rel="noopener">Mandeville</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/metairie/" target="_blank" rel="noopener">Metairie</a></li>
-          <li><a href="https://www.turnkeypoolbuilders.com/service-areas/slidell/" target="_blank" rel="noopener">Slidell</a></li>
+          <li><a href="covington.html">Covington</a></li>
+          <li><a href="hammond.html">Hammond</a></li>
+          <li><a href="kenner.html">Kenner</a></li>
+          <li><a href="mandeville.html">Mandeville</a></li>
+          <li><a href="metairie.html">Metairie</a></li>
+          <li><a href="slidell.html">Slidell</a></li>
           <li><a href="service-areas.html">All Service Areas</a></li>
         </ul>
       </div>
