@@ -658,6 +658,29 @@ body.splash-lock{overflow:hidden}
 .loc-city-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .loc-city-shot figcaption{font-size:.76rem;color:var(--muted);font-weight:600;padding:10px 14px;background:var(--white)}
 @media (max-width:860px){.loc-city{padding:36px 22px}.loc-city ul,.loc-prose ul{grid-template-columns:1fr}.loc-city-top{grid-template-columns:1fr;gap:22px}}
+/* A city page's opening paragraphs used to sit outside every section, so they
+   ran edge to edge with no measure. Centred band, own heading, readable width. */
+.loc-intro{text-align:center;max-width:840px;margin:0 auto}
+.loc-intro h2{margin-bottom:16px}
+.loc-intro p{color:var(--muted);font-size:1.04rem;line-height:1.74;margin:0 0 14px;max-width:none}
+.loc-intro p:last-child{margin-bottom:0}
+/* Community band: one of the client's own pool photos behind boxed copy. */
+.loc-role{position:relative;border-radius:var(--r);overflow:hidden;padding:56px 40px;background:var(--ink)}
+.loc-role::before{content:"";position:absolute;inset:0;background-image:var(--roleimg);background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1.4s ease}
+.loc-role:hover::before{transform:scale(1)}
+.loc-role::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,58,.72),rgba(12,40,58,.84))}
+.loc-role > *{position:relative;z-index:2}
+.loc-role h2{color:var(--white);text-align:center;margin-bottom:26px}
+.loc-role h2 span{color:#BFE6FA}
+.loc-role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.loc-role-card{background:rgba(255,255,255,.95);border:2px solid var(--blue);border-radius:18px;padding:24px 22px}
+.loc-role-card p{color:var(--ink);font-size:.97rem;line-height:1.68;margin:0}
+.loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.loc-role-grid.anim > *.in{opacity:1;transform:none}
+.loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
+.loc-role-grid.anim > *:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.loc-role::before,.loc-role:hover::before{transform:none;transition:none}.loc-role-grid.anim > *{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.loc-role{padding:34px 18px}.loc-role-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -755,8 +778,16 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-intro">
+      <h2>Pools Built for <span>Harahan Living</span></h2>
       <p>When it comes to building a pool, you need a reliable and experienced team that will transform your backyard into a stunning oasis. With so many pool companies in Harahan, LA, it can be overwhelming to find the right one. However, TurnKey Pool Builders stands out among the competition, consistently delivering quality pool services to satisfied customers.</p>
       <p>At TurnKey Pool Builders, we pride ourselves on providing the best pool services and contractors in Harahan, LA. With our expertise and commitment to customer satisfaction, we guarantee an exceptional pool-building experience that will exceed your expectations. Whether you're looking to construct a new pool or renovate an existing one, we have the skills, resources, and dedication to bring your vision to life.</p>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:0">
   <div class="wrap">
     <div class="loc-prose">
@@ -774,27 +805,6 @@ body.splash-lock{overflow:hidden}
       <p>Pool services and contractors are aware of the local regulations and safety standards in Harahan, LA. They ensure that your pool meets these requirements, especially when it comes to safety features such as barriers, signage, and lighting. By entrusting your pool's care to professionals, you can rest assured that your pool is compliant with all necessary regulations.</p>
       <h3>6. Cost-Effective</h3>
       <p>While it may seem expensive to hire pool services and contractors, it can save you money in the long run. Regular maintenance prevents major issues from arising, reducing the risk of costly repairs. Well-maintained pools also tend to have a longer lifespan, saving you from the financial burden of prematurely replacing the entire pool.</p>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>Types of Pool Services We <span>Offer</span></h2>
-      <p>If you're looking for professional pool services in Florida, look no further than TurnKey Pool Builders. With years of experience in the industry, we offer a wide range of pool services to ensure that your pool is always in top condition and ready for you to enjoy.</p>
-      <p>Whether you need routine maintenance or repairs and upgrades, our team of experts is here to help. Let's take a closer look at the types of pool services we offer:</p>
-      <h3>A. Routine Maintenance</h3>
-      <ul>
-        <li><i aria-hidden="true"></i><span><b>Cleaning and Skimming:</b> Our team will thoroughly clean your pool, removing any debris or leaves that may have accumulated. We will also skim the surface of the water to remove any floating particles, leaving your pool looking clean and inviting.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Water Testing and Chemical Balancing:</b> Ensuring that the chemical levels in your pool are properly balanced is essential for maintaining a safe and healthy swimming environment. Our experts will test the water and make any necessary adjustments to ensure that the pH, chlorine, and other chemical levels are within the recommended range.</span></li>
-      </ul>
-      <h3>B. Repairs and Upgrades</h3>
-      <ul>
-        <li><i aria-hidden="true"></i><span><b>Leak Detection and Repair:</b> If you suspect that your pool has a leak, it's important to address it as soon as possible to prevent further damage. Our team has the necessary tools and expertise to detect and repair any leaks, ensuring that your pool is watertight and ready for use.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Equipment Maintenance (Pumps, Filters, etc.):</b> The proper functioning of your pool's equipment is crucial for its overall performance. We offer complete equipment maintenance services, including inspecting, cleaning, and repairing pumps, filters, heaters, and other components. Our goal is to keep your pool operating efficiently and effectively.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Renovation Services:</b> If you're looking to give your pool a fresh new look or upgrade its features, our renovation services are just what you need. Whether it's adding new tiles, resurfacing the pool, or installing energy-efficient equipment, our team will work closely with you to bring your vision to life.</span></li>
-      </ul>
     </div>
   </div>
 </section>

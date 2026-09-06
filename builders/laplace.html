@@ -658,6 +658,29 @@ body.splash-lock{overflow:hidden}
 .loc-city-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .loc-city-shot figcaption{font-size:.76rem;color:var(--muted);font-weight:600;padding:10px 14px;background:var(--white)}
 @media (max-width:860px){.loc-city{padding:36px 22px}.loc-city ul,.loc-prose ul{grid-template-columns:1fr}.loc-city-top{grid-template-columns:1fr;gap:22px}}
+/* A city page's opening paragraphs used to sit outside every section, so they
+   ran edge to edge with no measure. Centred band, own heading, readable width. */
+.loc-intro{text-align:center;max-width:840px;margin:0 auto}
+.loc-intro h2{margin-bottom:16px}
+.loc-intro p{color:var(--muted);font-size:1.04rem;line-height:1.74;margin:0 0 14px;max-width:none}
+.loc-intro p:last-child{margin-bottom:0}
+/* Community band: one of the client's own pool photos behind boxed copy. */
+.loc-role{position:relative;border-radius:var(--r);overflow:hidden;padding:56px 40px;background:var(--ink)}
+.loc-role::before{content:"";position:absolute;inset:0;background-image:var(--roleimg);background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1.4s ease}
+.loc-role:hover::before{transform:scale(1)}
+.loc-role::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,58,.72),rgba(12,40,58,.84))}
+.loc-role > *{position:relative;z-index:2}
+.loc-role h2{color:var(--white);text-align:center;margin-bottom:26px}
+.loc-role h2 span{color:#BFE6FA}
+.loc-role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.loc-role-card{background:rgba(255,255,255,.95);border:2px solid var(--blue);border-radius:18px;padding:24px 22px}
+.loc-role-card p{color:var(--ink);font-size:.97rem;line-height:1.68;margin:0}
+.loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.loc-role-grid.anim > *.in{opacity:1;transform:none}
+.loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
+.loc-role-grid.anim > *:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.loc-role::before,.loc-role:hover::before{transform:none;transition:none}.loc-role-grid.anim > *{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.loc-role{padding:34px 18px}.loc-role-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -755,7 +778,15 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-intro">
+      <h2>Pools Built for <span>Laplace Living</span></h2>
       <p>Known for their top-notch work in Laplace, they guarantee every pool project is beyond what customers expect. Their commitment to excellent service makes them the top pick for anyone wanting a dream pool.</p>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:0">
   <div class="wrap">
     <div class="loc-prose">
@@ -768,37 +799,6 @@ body.splash-lock{overflow:hidden}
         <li><i aria-hidden="true"></i><span>They keep it safe for everyone to use. Seasonal considerations in Laplace also play a part.</span></li>
       <p>Laplace has warm weather all year with clear wet and dry seasons. In the wet season, pools need more cleaning because of extra debris from storms. In contrast, the dry season might focus more on maintaining water levels and equipment checks.</p>
       <p>Understanding these seasonal needs helps professionals provide timely services that protect your investment. This means your pool stays fun for family and friends all year round.</p>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>Types of Pool <span>Services</span></h2>
-      <h3>Routine Maintenance</h3>
-      <ul>
-        <li><i aria-hidden="true"></i><span>Cleaning</span></li>
-      <p>Our team excels in pool care. We ensure cleanliness and proper maintenance.</p>
-      <p>This approach catches issues before they become expensive problems. Our services ultimately save you time and money.</p>
-      <p>Regular cleaning prevents algae growth. We focus on skimming, vacuuming, and brushing walls and tiles. Filter maintenance is also a priority for water quality.</p>
-        <li><i aria-hidden="true"></i><span>Water Testing</span></li>
-      <p>We perform thorough water testing to keep your pool inviting and safe. Regular checks are crucial for maintaining optimal conditions. By doing so, we prevent the adverse effects of imbalanced water on your pool's structure and equipment.</p>
-        <li><i aria-hidden="true"></i><span>Chemical Balancing</span></li>
-      <p>Balanced chemicals are essential for a healthy pool environment. Our experts adjust pH and chlorine levels as needed. This balance protects against corrosion and scaling, ensuring longevity for your pool surfaces.</p>
-      </ul>
-      <h3>Repairs and Troubleshooting</h3>
-      <ul>
-        <li><i aria-hidden="true"></i><span>Equipment Maintenance</span></li>
-      <p>Equipment upkeep is vital for both comfort and preservation purposes. It helps in preventing bacteria formation. Adjustments in chemical levels help maintain a balanced swimming environment.</p>
-        <li><i aria-hidden="true"></i><span>Leak Detection</span></li>
-      <p>We conduct regular inspections to identify leaks early on, saving potential high repair costs. Efficient operations lead to energy savings.</p>
-      </ul>
-      <h3>Installation and Renovations</h3>
-      <ul>
-        <li><i aria-hidden="true"></i><span><b>New Construction:</b> Our construction methods include advanced techniques like dye testing. These practices prevent structural damage, conserve water, and reduce bills.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Upgrades:</b> Custom designs reflect each homeowner's lifestyle while considering Laplace's climate. Compliance with local codes ensures legality along with aesthetic appeal.</span></li>
       </ul>
     </div>
   </div>

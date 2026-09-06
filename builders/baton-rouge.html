@@ -658,6 +658,29 @@ body.splash-lock{overflow:hidden}
 .loc-city-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .loc-city-shot figcaption{font-size:.76rem;color:var(--muted);font-weight:600;padding:10px 14px;background:var(--white)}
 @media (max-width:860px){.loc-city{padding:36px 22px}.loc-city ul,.loc-prose ul{grid-template-columns:1fr}.loc-city-top{grid-template-columns:1fr;gap:22px}}
+/* A city page's opening paragraphs used to sit outside every section, so they
+   ran edge to edge with no measure. Centred band, own heading, readable width. */
+.loc-intro{text-align:center;max-width:840px;margin:0 auto}
+.loc-intro h2{margin-bottom:16px}
+.loc-intro p{color:var(--muted);font-size:1.04rem;line-height:1.74;margin:0 0 14px;max-width:none}
+.loc-intro p:last-child{margin-bottom:0}
+/* Community band: one of the client's own pool photos behind boxed copy. */
+.loc-role{position:relative;border-radius:var(--r);overflow:hidden;padding:56px 40px;background:var(--ink)}
+.loc-role::before{content:"";position:absolute;inset:0;background-image:var(--roleimg);background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1.4s ease}
+.loc-role:hover::before{transform:scale(1)}
+.loc-role::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,58,.72),rgba(12,40,58,.84))}
+.loc-role > *{position:relative;z-index:2}
+.loc-role h2{color:var(--white);text-align:center;margin-bottom:26px}
+.loc-role h2 span{color:#BFE6FA}
+.loc-role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.loc-role-card{background:rgba(255,255,255,.95);border:2px solid var(--blue);border-radius:18px;padding:24px 22px}
+.loc-role-card p{color:var(--ink);font-size:.97rem;line-height:1.68;margin:0}
+.loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.loc-role-grid.anim > *.in{opacity:1;transform:none}
+.loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
+.loc-role-grid.anim > *:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.loc-role::before,.loc-role:hover::before{transform:none;transition:none}.loc-role-grid.anim > *{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.loc-role{padding:34px 18px}.loc-role-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -755,43 +778,27 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-intro">
+      <h2>Pools Built for <span>Baton Rouge Living</span></h2>
       <p>Having a pool in your backyard is a dream for many homeowners in Louisiana. It provides a perfect place to relax, cool off, and entertain guests. However, finding the right pool builder can be a daunting task, with so many options available in the market.</p>
       <p>That's where TurnKey Pool Builders comes in. With years of experience and a reputation for excellence, we are here to make your pool dreams a reality. We understand that every client has unique needs and preferences when it comes to their pool.</p>
       <p>That's why we offer a wide range of services to cater to your specific requirements. From pool design and construction to maintenance and repairs, our team of skilled contractors is dedicated to delivering exceptional results.</p>
       <p>So, if you're in Baton Rouge and looking for the best pool services and contractors, look no further than TurnKey Pool Builders. With our expertise and commitment to customer satisfaction, we guarantee that you'll be thrilled with the pool we create for you.</p>
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>Types of Pool Services <span>Offered</span></h2>
-      <p>Louisiana is known for its beautiful weather and year-round sunshine, making it the perfect place to own a pool. Whether you're a homeowner or a business owner, having a pool can bring endless enjoyment and relaxation.</p>
-      <p>However, maintaining a pool can be a daunting task. That's where TurnKey Pool Builders comes in. We offer a wide range of pool services to ensure that your pool stays in pristine condition and is ready for use at any time. Let's take a closer look at the types of pool services we offer.</p>
-      <h3>1. Pool Construction and Installation</h3>
-      <p>If you're looking to build a new pool, our team of experienced pool builders can turn your dream into a reality. We understand that every customer has unique preferences and requirements, which is why we offer customizable pool designs.</p>
-      <p>Whether you're looking for a classic rectangular pool or a more intricate geometric design, we have the expertise to bring your vision to life. Our pool builders use high-quality materials to ensure the longevity and durability of your pool.</p>
-      <h3>2. Pool Renovation and Remodeling</h3>
-      <p>If your existing pool is outdated or in need of repairs, our pool renovation and remodeling services can breathe new life into it.</p>
-      <p>From simple upgrades like resurfacing and tile replacement to more extensive renovations like adding water features or changing the shape of your pool, our team can transform your pool into a modern and inviting oasis.</p>
-      <p>With our attention to detail and commitment to customer satisfaction, you can trust us to deliver exceptional results.</p>
-      <h3>3. Pool Maintenance and Cleaning</h3>
-      <p>Proper pool maintenance is crucial to keep your pool clean, safe, and functioning optimally. Our pool maintenance services include regular cleaning, water testing, and chemical balancing.</p>
-      <p>Our trained technicians will ensure that your pool's filtration system is working efficiently and that all equipment is in good working order. By entrusting your pool maintenance to us, you can enjoy your pool without the hassle of time-consuming chores.</p>
-      <h3>4. Pool Repair and Troubleshooting</h3>
-      <p>From minor repairs to more complex issues, our pool repair services cover a wide range of problems. Whether it's a leaking pool, malfunctioning pump, or damaged pool deck, our skilled technicians can diagnose the issue and provide prompt and effective solutions.</p>
-      <p>We understand that unexpected pool problems can be stressful, which is why we aim to minimize downtime and restore your pool to its optimal condition as quickly as possible.</p>
-      <h3>5. Pool Upgrades and Additions</h3>
-      <p>If you're looking to enhance your pool experience, we offer a variety of upgrades and additions. From energy-efficient pool equipment like variable speed pumps and LED lighting to safety features like pool covers and alarms, we can help you create a pool that is both functional and stylish.</p>
-      <p>Additionally, we can install water features like fountains or waterfalls to add a touch of luxury to your pool.</p>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="loc-prose">
+    <div class="loc-role" style="--roleimg:url('https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3.jpg')">
       <h2>The Role of Pool Contractors in <span>Baton Rouge Community</span></h2>
-      <p>Pool contractors play a crucial role in the Baton Rouge community. They are responsible for designing, building, and maintaining pools for both residential and commercial properties.</p>
-      <p>These professionals have the expertise and knowledge to create stunning and functional pool designs that enhance the aesthetics and overall value of properties.</p>
-      <p>Pool contractors ensure that pools are constructed following all local regulations and safety standards. They also offer regular maintenance and repair services to keep the pools in optimal condition. Overall, pool contractors contribute to the vibrant and enjoyable lifestyle that the Baton Rouge community offers.</p>
+      <div class="loc-role-grid" id="rolecards">
+        <div class="loc-role-card"><p>Pool contractors play a crucial role in the Baton Rouge community. They are responsible for designing, building, and maintaining pools for both residential and commercial properties.</p></div>
+        <div class="loc-role-card"><p>These professionals have the expertise and knowledge to create stunning and functional pool designs that enhance the aesthetics and overall value of properties.</p></div>
+        <div class="loc-role-card"><p>Pool contractors ensure that pools are constructed following all local regulations and safety standards. They also offer regular maintenance and repair services to keep the pools in optimal condition. Overall, pool contractors contribute to the vibrant and enjoyable lifestyle that the Baton Rouge community offers.</p></div>
+      </div>
     </div>
   </div>
 </section>

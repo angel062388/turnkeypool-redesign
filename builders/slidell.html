@@ -658,6 +658,29 @@ body.splash-lock{overflow:hidden}
 .loc-city-shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .loc-city-shot figcaption{font-size:.76rem;color:var(--muted);font-weight:600;padding:10px 14px;background:var(--white)}
 @media (max-width:860px){.loc-city{padding:36px 22px}.loc-city ul,.loc-prose ul{grid-template-columns:1fr}.loc-city-top{grid-template-columns:1fr;gap:22px}}
+/* A city page's opening paragraphs used to sit outside every section, so they
+   ran edge to edge with no measure. Centred band, own heading, readable width. */
+.loc-intro{text-align:center;max-width:840px;margin:0 auto}
+.loc-intro h2{margin-bottom:16px}
+.loc-intro p{color:var(--muted);font-size:1.04rem;line-height:1.74;margin:0 0 14px;max-width:none}
+.loc-intro p:last-child{margin-bottom:0}
+/* Community band: one of the client's own pool photos behind boxed copy. */
+.loc-role{position:relative;border-radius:var(--r);overflow:hidden;padding:56px 40px;background:var(--ink)}
+.loc-role::before{content:"";position:absolute;inset:0;background-image:var(--roleimg);background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1.4s ease}
+.loc-role:hover::before{transform:scale(1)}
+.loc-role::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,40,58,.72),rgba(12,40,58,.84))}
+.loc-role > *{position:relative;z-index:2}
+.loc-role h2{color:var(--white);text-align:center;margin-bottom:26px}
+.loc-role h2 span{color:#BFE6FA}
+.loc-role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.loc-role-card{background:rgba(255,255,255,.95);border:2px solid var(--blue);border-radius:18px;padding:24px 22px}
+.loc-role-card p{color:var(--ink);font-size:.97rem;line-height:1.68;margin:0}
+.loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.loc-role-grid.anim > *.in{opacity:1;transform:none}
+.loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
+.loc-role-grid.anim > *:nth-child(3){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.loc-role::before,.loc-role:hover::before{transform:none;transition:none}.loc-role-grid.anim > *{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){.loc-role{padding:34px 18px}.loc-role-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -755,8 +778,16 @@ body.splash-lock{overflow:hidden}
   </div>
 </section>
 
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-intro">
+      <h2>Pools Built for <span>Slidell Living</span></h2>
       <p>We know very well that a pool stands for much more than just a luxury; it's an extended part of your home, where family will gather, relax, and do all those special things in memory. That is why, at every stage of construction, we work with you hand in glove so that your dream translates into reality with the finest materials and the latest technology.</p>
       <p>Choose TurnKey Pool Builders for unparalleled service and expertise, and let us build out that backyard retreat of which you have ever thought about.</p>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:0">
   <div class="wrap">
     <div class="loc-prose">
