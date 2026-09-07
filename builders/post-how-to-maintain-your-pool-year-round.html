@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog - TurnKey Pool Builders</title>
-<meta name="description" content="Pool building and maintenance advice from TurnKey Pool Builders in New Orleans: keeping a new pool right, year-round care, and what a custom build gives you.">
+<title>Pool Year-Round Maintenance | TurnKey Pool Builders</title>
+<meta name="description" content="Keep your pool in top shape year-round with TurnKey Pool Builders' expert tips. From cleaning to balancing water chemistry, we make pool maintenance. Call us!">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -833,44 +833,45 @@ body.mnav-open header{z-index:130}
 @media (prefers-reduced-motion:reduce){
   nav[aria-label="Main"],.hd-burger span{transition:none}
 }
-/* ---- blog page only ---- */
-/* Listing to the reference: category rail left, cards right, search above.
-   Filtering is plain client-side text matching, which is honest for three
-   posts and needs no back end a mockup does not have. */
-.blog-search{position:relative;max-width:420px;margin:0 0 26px}
-.blog-search input{width:100%;font:inherit;font-size:.98rem;color:var(--ink);background:var(--white);border:2px solid var(--aqua-2);border-radius:40px;padding:13px 18px 13px 44px}
-.blog-search input:focus{outline:3px solid var(--blue);outline-offset:2px;border-color:var(--blue)}
-.blog-search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:17px;height:17px;fill:none;stroke:var(--muted);stroke-width:2;pointer-events:none}
-.blog-split{display:grid;grid-template-columns:190px 1fr;gap:34px;align-items:start}
-.blog-cats{list-style:none;margin:0;padding:0;position:sticky;top:96px}
-.blog-cats li{margin-bottom:2px}
-.blog-cats button{width:100%;text-align:left;font:inherit;font-size:.95rem;font-weight:600;color:var(--muted);background:transparent;border:0;cursor:pointer;padding:10px 16px;border-radius:30px}
-.blog-cats button:hover{background:var(--aqua);color:var(--deep)}
-.blog-cats button[aria-pressed="true"]{background:var(--aqua-2);color:var(--deep)}
-.blog-cats button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.blog-card{display:flex;flex-direction:column;background:var(--white);border-radius:20px;overflow:hidden;text-decoration:none;box-shadow:0 10px 26px rgba(23,97,143,.09);transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease}
-.blog-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(23,97,143,.17)}
-.blog-card img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
-.blog-card .txt{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
-.blog-card .tag{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.blog-card b{font-size:1.02rem;line-height:1.34;color:var(--ink);letter-spacing:-.01em}
-.blog-card .more{margin-top:auto;padding-top:14px;font-size:.82rem;font-weight:700;color:var(--blue)}
-.blog-none{display:none;color:var(--muted);font-weight:600;padding:20px 0}
-.blog-none.on{display:block}
-/* Hidden state is added by script, so with JavaScript off every post shows */
-.blog-grid.anim .blog-card{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .65s cubic-bezier(.22,1,.36,1)}
-.blog-grid.anim .blog-card.in{opacity:1;transform:none}
-.blog-grid.anim .blog-card:nth-child(2){transition-delay:.09s}
-.blog-grid.anim .blog-card:nth-child(3){transition-delay:.18s}
-@media (prefers-reduced-motion:reduce){.blog-grid.anim .blog-card{opacity:1;transform:none;transition:none}.blog-card{transition:none}.blog-card:hover{transform:none}}
-@media (max-width:980px){.blog-split{grid-template-columns:1fr;gap:20px}.blog-cats{position:static;display:flex;flex-wrap:wrap;gap:8px}.blog-cats li{margin:0}.blog-cats button{width:auto;background:var(--aqua)}.blog-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:660px){.blog-grid{grid-template-columns:1fr}}
+
+/* ---- blog post ---- */
+.post-wrap{max-width:760px;margin:0 auto}
+.post-hero-img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:var(--r);
+  display:block;margin:0 0 26px}
+.post-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+  color:var(--muted);font-size:.86rem;margin:0 0 22px}
+.post-meta .pill{background:var(--aqua);border-radius:30px;padding:5px 14px;
+  font-weight:700;color:var(--deep)}
+.post-toc{background:var(--aqua);border:2px solid var(--aqua-2);border-radius:18px;
+  padding:20px 24px;margin:0 0 30px}
+.post-toc h2{font-family:inherit;font-style:normal;font-size:.78rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:800;
+  color:var(--deep);margin:0 0 12px}
+.post-toc ol{margin:0;padding-left:20px;color:var(--muted);font-size:.94rem;
+  line-height:1.9}
+.post-toc a{color:var(--muted);text-decoration:none}
+.post-toc a:hover{color:var(--deep);text-decoration:underline}
+.post-body h2{font-size:1.5rem;color:var(--deep);margin:34px 0 12px;
+  letter-spacing:-.01em}
+.post-body h3{font-size:1.1rem;color:var(--deep);margin:24px 0 8px}
+.post-body p{color:var(--muted);font-size:1.02rem;line-height:1.8;margin:0 0 16px}
+.post-body ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px}
+.post-body ul li{background:var(--white);border:2px solid var(--aqua-2);
+  border-radius:16px;padding:16px 20px;color:var(--muted);font-size:.98rem;
+  line-height:1.72}
+.post-body ul li b{color:var(--deep);display:block;margin-bottom:4px}
+.post-cta{background:var(--aqua);border-radius:var(--r);padding:34px 36px;
+  margin:38px 0 0;text-align:center}
+.post-cta h2{margin:0 0 10px;color:var(--deep)}
+.post-cta p{color:var(--muted);margin:0 0 18px}
+@media (max-width:640px){
+  .post-cta{padding:26px 20px}
+  .post-body h2{font-size:1.3rem}
+}
 </style>
 </head>
 <body>
 <script>document.documentElement.className += ' js';</script>
-
 <header>
   <div class="wrap hd">
     <a href="index.html"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
@@ -1081,83 +1082,155 @@ body.mnav-open header{z-index:130}
 
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="svc-hero">
-      <div class="svc-hero-copy">
-        <nav class="crumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span aria-hidden="true">&rsaquo;</span>
-          <span>Blog</span>
-        </nav>
-        <h1>Our <em class="hl">Blog</em></h1>
-        <!-- NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off. -->
-        <p class="svc-lede">Straight advice on keeping a pool right, written by the team that builds them. Browse the work on our <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">New Orleans pool builders</a> homepage, or <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">get in touch about your own build</a>.</p>
-        <div class="svc-hero-cta">
-          <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
-          <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
-        </div>
+    <div class="post-wrap">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <a href="blog.html">Blog</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Article</span>
+      </nav>
+      <h1>How to Maintain Your Pool Year-Round</h1>
+      <div class="post-meta">
+        <span class="pill">TurnKey Pool Builders</span>
       </div>
-      <div class="svc-shots">
-        <div class="svc-col"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
-        <div class="svc-col svc-col-b"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
-      </div>
+      <img class="post-hero-img" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/cleaning-leaves-from-the-swimming-pool-2023-11-27-05-01-52-utc-scaled-950x450.jpg" alt="Managing High Pool Usage" loading="eager">
     </div>
-    <div class="marq" id="marq">
-      <div class="marq-track">
-    <div class="marq-set">
-      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
-    </div>
-    <div class="marq-set" aria-hidden="true">
-      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
-    </div>
-    <div class="marq-set" aria-hidden="true">
-      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
-    </div>
-    <div class="marq-set" aria-hidden="true">
-      <span class="mr-star"><i>&#9733;&#9733;&#9733;&#9733;&#9733;</i> Rated by Thousands of Satisfied Customers</span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/google-rating.png" alt="Google Reviews 5 stars"></span>
-      <span class="mr-badge"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/09/facebook-rating.png" alt="Facebook 5 Star Customer Rating"></span>
-    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="post-wrap post-body">
+      <nav class="post-toc" aria-label="Contents">
+        <h2>In this article</h2>
+        <ol>
+          <li><a href="#s1">Spring Pool Maintenance</a></li>
+          <li><a href="#s2">Summer Pool Maintenance</a></li>
+          <li><a href="#s3">Fall Pool Maintenance</a></li>
+          <li><a href="#s4">Winter Pool Maintenance</a></li>
+          <li><a href="#s5">Year-Round Tips and Best Practices</a></li>
+          <li><a href="#s6">Ensure Swimmer Comfort with Professional Pool Maintenance</a></li>
+        </ol>
+      </nav>
+      <p>Keeping your pool in top condition throughout the year is easy with TurnKey Pool Builders. A regular cleaning schedule, proper chemical balance, and quality products are key to maintaining a clean and inviting pool.</p>
+      <p>Whether it's skimming debris or adjusting chemical levels, consistent maintenance makes all the difference. Our team offers expert advice and top-quality products to make your pool care routine simple and effective.</p>
+      <p>Ready to simplify your pool care? Contact TurnKey Pool Builders today for expert tips and products to keep your pool perfect year-round!</p>
+      <h2 id="s1">Spring Pool Maintenance</h2>
+      <p>Spring is the time to get your pool ready for a great swim season. Key steps include cleaning, balancing water chemistry, and checking equipment for any needed repairs. Skipping these can lead to algae growth, equipment issues, and poor water quality, making your pool unsafe and less enjoyable.</p>
+      <h3>Opening Your Pool</h3>
+      <p>To prepare your pool for spring, start by carefully removing the cover to prevent debris from falling in. Inspect all pool equipment, such as pumps and filters, for any damage that may have occurred over the winter. Ensure the water level is correct, adding more if necessary. Thoroughly clean the pool, using a vacuum to remove leaves and dirt that accumulated during the off-season.</p>
+      <h3>Balancing Water Chemistry</h3>
+      <p>Maintaining balanced water chemistry is important for safe swimming. Use a testing kit to check and adjust the pH levels, alkalinity, and calcium hardness. Add the necessary chemicals to correct any imbalances, and use chlorine shock to eliminate bacteria or algae. Applying an algaecide treatment can also help prevent algae growth.</p>
+      <h3>Regular Cleaning Routine</h3>
+      <p>Establish a regular cleaning schedule to keep your pool in top condition. Remove leaves and debris daily, brush the sides and vacuum weekly, and clean the pool filter regularly. This routine will help maintain a clear and inviting pool throughout the season.</p>
+      <h2 id="s2">Summer Pool Maintenance</h2>
+      <p>To keep your pool clean and safe during the summer, it's essential to maintain a regular cleaning schedule, monitor water quality, and check equipment.</p>
+      <p>Here are some key points to consider:</p>
+      <ul>
+        <li><b>Regular Cleaning</b>Skim daily, vacuum weekly, and clean filters to keep the water clear.</li>
+        <li><b>Chemical Balance</b>Test and adjust pH, chlorine, and alkalinity to protect swimmers and pool equipment.</li>
+        <li><b>Water Level</b>Maintain proper water levels for efficient filtration, especially during high evaporation periods.</li>
+      </ul>
+      <h3>Managing High Usage</h3>
+      <p>In the summer, increased pool usage can introduce more contaminants like sunscreen and body oils, which affect water quality.</p>
+      <p>Here's how to manage it:</p>
+      <ul>
+        <li><b>Increased Cleaning</b>With more swimmers, skim and vacuum more frequently.</li>
+        <li><b>Chemical Adjustment</b>Monitor and adjust chemicals to manage the additional load from sunscreen and oils.</li>
+      </ul>
+      <h3>Algae Prevention and Treatment</h3>
+      <p>Warmer temperatures can promote algae growth, making the pool slippery and green.</p>
+      <p>To prevent and treat algae:</p>
+      <ul>
+        <li><b>Chlorine Levels</b>Maintain appropriate chlorine levels and use shock treatments as needed.</li>
+        <li><b>Algaecides</b>Apply regularly and brush the pool to prevent algae growth.</li>
+      </ul>
+      <h3>Equipment Check</h3>
+      <p>Summer puts additional stress on your pool equipment.</p>
+      <p>To ensure everything runs smoothly:</p>
+      <ul>
+        <li><b>Routine Inspections</b>Regularly check pumps, filters, and heaters.</li>
+        <li><b>Prompt Repairs</b>Fix any issues quickly to avoid prolonged downtime.</li>
+      </ul>
+      <h2 id="s3">Fall Pool Maintenance</h2>
+      <p>Fall pool care is key to keeping your pool great all winter. Clean out leaves, balance the water, and winterize if it gets really cold. Skipping this can cost you more for repairs and ruin your spring swim fun.</p>
+      <ul>
+        <li><b>Preparing for Cooler Weather</b></li>
+      </ul>
+      <p>As summer ends and it gets cooler, use less chlorine in your pool because there's less sun to break it down. Make sure your pool's chemicals are balanced for the off-season. This makes reopening easier. Watch the pH levels and alkalinity as the weather changes.</p>
+      <ul>
+        <li><b>Leaf and Debris Management</b></li>
+      </ul>
+      <p>Fall means dealing with leaves in your pool, which can mess up the water. Covering your pool helps keep out leaves, making cleaning easier. Also, remember to skim regularly to avoid algae from growing due to decaying leaves.</p>
+      <ul>
+        <li><b>Winterizing Your Pool</b></li>
+      </ul>
+      <p>As winter comes, it's key to winterize your pool to avoid damage. Drop the water level to stop pipes and filters from freezing. In cold areas, add antifreeze to the plumbing. Don't forget a winter cover to keep out debris and keep the water clean.</p>
+      <h2 id="s4">Winter Pool Maintenance</h2>
+      <p>Winter pool care is key to keeping your pool safe and long-lasting. It includes balancing water, protecting it from freezing and checking the cover for damage or debris. Skipping these steps can cause expensive fixes and spoil your fun when it gets warm again.</p>
+      <h3>Maintaining Water Quality</h3>
+      <p>Maintaining your pool's water balance in winter is key to stopping algae and keeping it clear. Regularly test the water, even when you're not swimming. Using winter care products like algaecides and floaters will keep your pool clean and clear for spring.</p>
+      <h3>Protecting Pool Equipment</h3>
+      <p>Before winter, prepare your pumps and filters to avoid freezing damage. Winterizing boosts their lifespan and efficiency. Store everything dry and safe from the weather to prevent issues when reopening your pool.</p>
+      <h3>Checking Pool Cover and Structure</h3>
+      <p>A quality pool cover keeps out leaves and shields your pool from bad weather. Regularly check it for any damage to avoid issues. Ensure it's tightly secured to withstand strong winds. Don't forget about the pool itself.</p>
+      <p>Check for cracks or wear that could get worse in winter. To prevent expensive repairs, protect against freeze damage by insulating any exposed pipes and surfaces.</p>
+      <h2 id="s5">Year-Round Tips and Best Practices</h2>
+      <p>To keep your pool clean and safe all year, it's important to check the chemicals weekly and clean the surface and bottom regularly. Also, getting a professional to check it twice a year can prevent expensive problems later.</p>
+      <h3>Regular Inspection</h3>
+      <p>Regular inspections keep your pool in top shape, no matter the season. Monthly check-ups are important. They ensure everything from the surface to the filters functions correctly.</p>
+      <p>Inspecting your pool involves checking the equipment for signs of wear or damage. It's also about maintaining water levels and ensuring the circulation system works efficiently. These steps prevent bigger issues down the line.</p>
+      <h3>Professional Services</h3>
+      <p>Hiring a professional can save time and guarantee precision in pool care. Experts bring knowledge and tools that might not be readily available to every pool owner.</p>
+      <p>Choosing the right service means looking for certified professionals with good reviews. Ask for recommendations or consult online forums. The right provider will offer comprehensive services, from inspection to repair.</p>
+      <h3>Product Recommendations</h3>
+      <p>For optimal care, certain products stand out:</p>
+      <ul>
+        <li>Test strips and reagent kits are essential for monitoring water quality.</li>
+        <li>High-quality filters capture debris, keeping water clean.</li>
+        <li>Efficient pumps ensure proper water circulation.</li>
+      </ul>
+      <p>Products from reputable manufacturers often yield the best results. Always follow the manufacturer's guidelines for use and maintenance.</p>
+      <h2 id="s6">Ensure Swimmer Comfort with Professional Pool Maintenance</h2>
+      <p>Keeping your pool in great shape all year might sound tough, but it's easy with the right tips. No matter the season, your pool needs attention to stay swim-ready. Each season has its care checklist. By following these, you'll keep your pool perfect, saving both time and money. So, get started on good pool care today.</p>
+      <p>Don't wait for the weather to change; by staying on top of maintenance, you can have clear, inviting water all the time. Remember, your pool is a big investment, look after it well. Enjoy your swim!</p>
+      <p>Need expert help? Contact TurnKey Pool Builders today for professional pool maintenance and ensure your pool is always ready for a swim!</p>
+      <div class="post-cta">
+        <h2>Thinking about a pool?</h2>
+        <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds across New Orleans and the surrounding parishes. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
+        <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="posts" style="padding-top:0">
+<section id="areas" style="padding-top:0">
   <div class="wrap">
-    <!-- Category names are NEW: the live site publishes none. Needs sign-off. -->
-    <div class="blog-search">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-      <input id="blogQ" type="search" placeholder="Search" autocomplete="off"
-        aria-label="Search the blog" aria-controls="blog-grid">
-    </div>
-    <div class="blog-split">
-      <ul class="blog-cats" id="blogCats" aria-label="Filter posts by category">
-        <li><button type="button" data-cat="All" aria-pressed="true">All</button></li>
-        <li><button type="button" data-cat="Custom Pools" aria-pressed="false">Custom Pools</button></li>
-        <li><button type="button" data-cat="Maintenance" aria-pressed="false">Maintenance</button></li>
-      </ul>
-      <div>
-        <div class="blog-grid" id="blog-grid">
-        <a class="blog-card" href="post-pool-maintenance-guide-after-installation.html" data-cat="Maintenance">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck" loading="lazy">
-          <div class="txt"><span class="tag">Maintenance</span><b>The Ultimate Guide to Pool Maintenance After Installation</b><span class="more">Read more &rarr;</span></div>
-        </a>
-        <a class="blog-card" href="post-benefits-of-custom-pools.html" data-cat="Custom Pools">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/poolremodel-image.jpg" alt="Rock waterfall feeding a curved pool" loading="lazy">
-          <div class="txt"><span class="tag">Custom Pools</span><b>The Benefits of Custom Pools: Why Go Beyond Standard Designs</b><span class="more">Read more &rarr;</span></div>
-        </a>
-        <a class="blog-card" href="post-how-to-maintain-your-pool-year-round.html" data-cat="Maintenance">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/cleaning-leaves-from-the-swimming-pool-2023-11-27-05-01-52-utc-768x512.jpg" alt="Leaf skimmer net lifting leaves from a pool" loading="lazy">
-          <div class="txt"><span class="tag">Maintenance</span><b>How to Maintain Your Pool Year-Round</b><span class="more">Read more &rarr;</span></div>
-        </a>
+    <div class="areas-band">
+      <div class="areas-inner">
+        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
+        <h2>Serving New Orleans <span>and Beyond</span></h2>
+        <p class="areas-count">Thirteen communities across Louisiana.</p>
+        <div class="areas-split">
+          <ol class="areas" id="areas-list">
+            <li><a href="baton-rouge.html"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
+            <li><a href="covington.html"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+            <li><a href="gretna.html"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+            <li><a href="hammond.html"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+            <li><a href="harahan.html"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+            <li><a href="kenner.html"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+            <li><a href="laplace.html"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+            <li><a href="madisonville.html"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
+            <li><a href="mandeville.html"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
+            <li><a href="metairie.html"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
+            <li><a href="river-ridge.html"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
+            <li><a href="slidell.html"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
+            <li><a href="st-rose.html"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
+          </ol>
+          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
         </div>
-        <p class="blog-none" id="blogNone" role="status">No posts match that search.</p>
+        <div class="areas-cta"><a class="btn btn-s" href="contact.html">Get a FREE Estimate!</a></div>
       </div>
     </div>
   </div>
@@ -1298,49 +1371,6 @@ body.mnav-open header{z-index:130}
     hl.classList.add('arm');
     setTimeout(function(){ hl.classList.add('lit'); }, 420);
   }
-})();
-</script>
-<script>
-/* Category rail and search box. Both narrow the same list, so they are applied
-   together rather than one clobbering the other. Plain text matching: three
-   posts need no index, and a mockup has no back end to query.
-
-   The count is announced through a live region, because filtering a list
-   silently leaves a screen reader user with no idea anything happened. */
-(function(){
-  var grid = document.getElementById('blog-grid');
-  var cats = document.getElementById('blogCats');
-  var q = document.getElementById('blogQ');
-  var none = document.getElementById('blogNone');
-  if (!grid || !cats || !q) return;
-  var cards = [].slice.call(grid.getElementsByClassName('blog-card'));
-  var active = 'All';
-
-  function apply(){
-    var term = q.value.trim().toLowerCase();
-    var shown = 0;
-    for (var i = 0; i < cards.length; i++) {
-      var c = cards[i];
-      var okCat = (active === 'All') || c.getAttribute('data-cat') === active;
-      var okTerm = !term || c.textContent.toLowerCase().indexOf(term) > -1;
-      var show = okCat && okTerm;
-      c.hidden = !show;
-      if (show) shown++;
-    }
-    none.className = shown ? 'blog-none' : 'blog-none on';
-  }
-
-  cats.addEventListener('click', function(e){
-    var b = e.target.closest('button[data-cat]');
-    if (!b) return;
-    active = b.getAttribute('data-cat');
-    var all = cats.querySelectorAll('button[data-cat]');
-    for (var i = 0; i < all.length; i++) {
-      all[i].setAttribute('aria-pressed', all[i] === b ? 'true' : 'false');
-    }
-    apply();
-  });
-  q.addEventListener('input', apply);
 })();
 </script>
 <script>
