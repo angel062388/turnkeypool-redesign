@@ -710,6 +710,9 @@ html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp
 html.js .svc-more.on{display:inline-block}
 .svc-more:hover{color:var(--blue)}
 .svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.svc-credit{margin:16px 0 0;font-size:.78rem;color:var(--muted);line-height:1.6}
+.svc-credit a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.svc-credit a:hover{color:var(--deep)}
 @media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
   grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
@@ -797,7 +800,7 @@ body.mnav-open header{z-index:130}
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <span class="navdrop">
-        <a href="services.html">Services</a>
+        <a class="now" href="services.html">Services</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
           aria-controls="sv-menu" aria-label="Show service pages">
           <span aria-hidden="true">&#9662;</span>
@@ -805,7 +808,7 @@ body.mnav-open header{z-index:130}
         <ul class="navdrop-menu navdrop-menu-1" id="sv-menu">
           <li><a href="custom-pools.html">Custom Pools</a></li>
           <li><a href="gunite-pool-construction.html">Gunite Pool Construction</a></li>
-          <li><a class="now" href="inground-pool.html">Inground Pool</a></li>
+          <li><a href="inground-pool.html">Inground Pool</a></li>
           <li><a href="pool-equipment-repairs.html">Pool Equipment Repairs</a></li>
           <li><a href="pool-remodel.html">Pool Remodel</a></li>
           <li><a href="pool-renovation.html">Pool Renovation</a></li>
@@ -931,7 +934,7 @@ body.mnav-open header{z-index:130}
       <h2>Types of Inground Pool <span>Services</span></h2>
       <ul class="svc-cards svc-cards-4" id="svccards">
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1742353980377-b8e42932c590?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwY2xlYW5pbmclMjBtYWludGVuYW5jZSUyMHJvYm90fGVufDF8MHx8fDE3ODg3NTM2Mjd8MA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A robotic pool cleaner is working underwater" loading="lazy">
           <div class="svc-card-body">
             <h3>Routine Maintenance</h3>
             <div class="svc-card-txt">
@@ -941,7 +944,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1760271209941-9e43115ded8c?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8M3x8cG9vbCUyMG5ldCUyMHNraW1taW5nJTIwbGVhdmVzJTIwb2ZmJTIwd2F0ZXIlMjBzdXJmYWNlfGVufDF8MHx8fDE3ODg3NTM4NjF8MA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Autumn leaves floating on water surface" loading="lazy">
           <div class="svc-card-body">
             <h3>Cleaning and Skimming</h3>
             <div class="svc-card-txt">
@@ -951,7 +954,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1656621827127-acced8458f3d?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8Mnx8Y2hsb3JpbmUlMjB0YWJsZXRzJTIwcG9vbCUyMHdhdGVyJTIwdHJlYXRtZW50fGVufDF8MHx8fDE3ODg3NTQxMzN8MA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Chlorine tablets used to treat pool water" loading="lazy">
           <div class="svc-card-body">
             <h3>Chemical Balancing</h3>
             <div class="svc-card-txt">
@@ -961,7 +964,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1609213244695-7d6902be89da?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8cG9vbCUyMHB1bXAlMjBmaWx0ZXIlMjBwaXBlcyUyMGVxdWlwbWVudHxlbnwxfDB8fHwxNzg4NzUzNjMwfDA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Pool pipework and valves at a filtration unit" loading="lazy">
           <div class="svc-card-body">
             <h3>Equipment Checks</h3>
             <div class="svc-card-txt">
@@ -971,6 +974,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
       </ul>
+      <p class="svc-credit">Photography: <a href="https://unsplash.com/@yah_wang?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Zhiqiang Wang</a>, <a href="https://unsplash.com/@neverspillthetea?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Iaconi Valentin</a>, <a href="https://unsplash.com/@giorgiotrovato?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Giorgio Trovato</a>, <a href="https://unsplash.com/@dizy64?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">DongGeun Lee</a> on <a href="https://unsplash.com/?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
     </div>
   </div>
 </section>

@@ -710,6 +710,9 @@ html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp
 html.js .svc-more.on{display:inline-block}
 .svc-more:hover{color:var(--blue)}
 .svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.svc-credit{margin:16px 0 0;font-size:.78rem;color:var(--muted);line-height:1.6}
+.svc-credit a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.svc-credit a:hover{color:var(--deep)}
 @media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
   grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
@@ -797,13 +800,13 @@ body.mnav-open header{z-index:130}
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <span class="navdrop">
-        <a href="services.html">Services</a>
+        <a class="now" href="services.html">Services</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
           aria-controls="sv-menu" aria-label="Show service pages">
           <span aria-hidden="true">&#9662;</span>
         </button>
         <ul class="navdrop-menu navdrop-menu-1" id="sv-menu">
-          <li><a class="now" href="custom-pools.html">Custom Pools</a></li>
+          <li><a href="custom-pools.html">Custom Pools</a></li>
           <li><a href="gunite-pool-construction.html">Gunite Pool Construction</a></li>
           <li><a href="inground-pool.html">Inground Pool</a></li>
           <li><a href="pool-equipment-repairs.html">Pool Equipment Repairs</a></li>
@@ -932,7 +935,7 @@ body.mnav-open header{z-index:130}
       <p>At TurnKey Pool Builders, we are dedicated to turning your backyard into a luxurious oasis. Our comprehensive services are designed to meet all your pool needs, ensuring every detail reflects your unique vision and the vibrant spirit of New Orleans.</p>
       <ul class="svc-cards svc-cards-5" id="svccards">
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1635111300299-e6e677daf7b7?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8bW9kZXJuJTIwY3VzdG9tJTIwc3dpbW1pbmclMjBwb29sJTIwYmFja3lhcmQlMjBhcmNoaXRlY3R1cmV8ZW58MXwwfHx8MTc4ODc1MzYwM3ww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="a pool surrounded by palm trees and landscaping" loading="lazy">
           <div class="svc-card-body">
             <h3>Custom Pool Design and Construction</h3>
             <div class="svc-card-txt">
@@ -942,7 +945,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1614667288602-9ac6e37318a7?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8Mnx8c3dpbW1pbmclMjBwb29sJTIwcmVub3ZhdGlvbiUyMHJlc3VyZmFjaW5nJTIwcmVwYWlyfGVufDF8MHx8fDE3ODg3NTM2MDR8MA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="An underwater view of a blue tiled swimming pool with a drain" loading="lazy">
           <div class="svc-card-body">
             <h3>Pool Renovations</h3>
             <div class="svc-card-txt">
@@ -952,7 +955,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1579625462317-e1475a3906dd?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwbGFuZHNjYXBpbmclMjBnYXJkZW4lMjBwbGFudGluZ3xlbnwxfDB8fHwxNzg4NzUzNjA1fDA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A formal rectangular pool framed by lawn and deep planted borders" loading="lazy">
           <div class="svc-card-body">
             <h3>Pool Landscaping</h3>
             <div class="svc-card-txt">
@@ -962,7 +965,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1775521664490-2cd5c303843a?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8Mnx8c3dpbW1pbmclMjBwb29sJTIwd2F0ZXJmYWxsJTIwZmVhdHVyZSUyMGlsbHVtaW5hdGVkJTIwZXZlbmluZ3xlbnwxfDB8fHwxNzg4NzUzODU2fDA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Illuminated waterfall cascading down rocks at night" loading="lazy">
           <div class="svc-card-body">
             <h3>Water Features and Lighting</h3>
             <div class="svc-card-txt">
@@ -972,7 +975,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1731769196886-22f819ab35fa?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8cG9vbCUyMHB1bXAlMjBmaWx0ZXIlMjBlcXVpcG1lbnQlMjByZXBhaXJ8ZW58MXwwfHx8MTc4ODc1NDA0Nnww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A pool fitting and pipework at the tiled edge of a pool" loading="lazy">
           <div class="svc-card-body">
             <h3>Maintenance and Repairs</h3>
             <div class="svc-card-txt">
@@ -982,6 +985,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
       </ul>
+      <p class="svc-credit">Photography: <a href="https://unsplash.com/@oakandmotion?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Oak + Motion</a>, <a href="https://unsplash.com/@clarktai?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Clark Tai</a>, <a href="https://unsplash.com/@libraryofcongress?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Library of Congress</a>, <a href="https://unsplash.com/@ericstoynov?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Eric Stoynov</a>, <a href="https://unsplash.com/@bored_mongoose?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">R. G</a> on <a href="https://unsplash.com/?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
     </div>
   </div>
 </section>

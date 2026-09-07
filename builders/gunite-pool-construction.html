@@ -710,6 +710,9 @@ html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp
 html.js .svc-more.on{display:inline-block}
 .svc-more:hover{color:var(--blue)}
 .svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.svc-credit{margin:16px 0 0;font-size:.78rem;color:var(--muted);line-height:1.6}
+.svc-credit a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+.svc-credit a:hover{color:var(--deep)}
 @media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
   grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
@@ -797,14 +800,14 @@ body.mnav-open header{z-index:130}
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <span class="navdrop">
-        <a href="services.html">Services</a>
+        <a class="now" href="services.html">Services</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
           aria-controls="sv-menu" aria-label="Show service pages">
           <span aria-hidden="true">&#9662;</span>
         </button>
         <ul class="navdrop-menu navdrop-menu-1" id="sv-menu">
           <li><a href="custom-pools.html">Custom Pools</a></li>
-          <li><a class="now" href="gunite-pool-construction.html">Gunite Pool Construction</a></li>
+          <li><a href="gunite-pool-construction.html">Gunite Pool Construction</a></li>
           <li><a href="inground-pool.html">Inground Pool</a></li>
           <li><a href="pool-equipment-repairs.html">Pool Equipment Repairs</a></li>
           <li><a href="pool-remodel.html">Pool Remodel</a></li>
@@ -932,7 +935,7 @@ body.mnav-open header{z-index:130}
       <p>Gunite pool construction services offer a range of services related to the design, construction, and maintenance of gunite or shotcrete swimming pools. Gunite is a popular material for building durable and customizable pools.</p>
       <ul class="svc-cards svc-cards-8" id="svccards">
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1603901622056-0a5bee231395?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8YXJjaGl0ZWN0dXJlJTIwYmx1ZXByaW50JTIwcGxhbnMlMjBkcmF3aW5nJTIwZGVza3xlbnwxfDB8fHwxNzg4NzUzNjA5fDA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Architectural blueprints with drafting pencils, a metal ruler, and a storage tube" loading="lazy">
           <div class="svc-card-body">
             <h3>Design Consultation</h3>
             <div class="svc-card-txt">
@@ -942,7 +945,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1786477949562-a4f175faff89?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8NXx8c3dpbW1pbmclMjBwb29sJTIwYmx1ZXByaW50JTIwcGxhbiUyMGRyYXdpbmd8ZW58MXwwfHx8MTc4ODc1Mzg1OHww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A pencil sketch of a building floor plan with yellow markers and an eraser" loading="lazy">
           <div class="svc-card-body">
             <h3>Custom Pool Design</h3>
             <div class="svc-card-txt">
@@ -952,7 +955,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1728922385137-ba5bc7c226f7?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8N3x8Y29uY3JldGUlMjBzd2ltbWluZyUyMHBvb2wlMjBzaGVsbCUyMGNvbnN0cnVjdGlvbiUyMHN0ZWVsJTIwcmVpbmZvcmNlbWVudHxlbnwxfDB8fHwxNzg4NzUzODU5fDA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A black and white photo of a construction site" loading="lazy">
           <div class="svc-card-body">
             <h3>Gunite or Shotcrete Construction</h3>
             <div class="svc-card-txt">
@@ -962,7 +965,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1575281923032-f40d94ef6160?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8ZXhjYXZhdG9yJTIwZGlnZ2luZyUyMGNvbnN0cnVjdGlvbiUyMHNpdGV8ZW58MXwwfHx8MTc4ODc1MzYxM3ww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A teal excavator dumping soil into a yellow dump truck at a construction site" loading="lazy">
           <div class="svc-card-body">
             <h3>Excavation and Site Preparation</h3>
             <div class="svc-card-txt">
@@ -972,7 +975,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1598190899675-c0ac07d636da?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8M3x8c3dpbW1pbmclMjBwb29sJTIwdGlsZSUyMG1vc2FpYyUyMGVkZ2V8ZW58MXwwfHx8MTc4ODc1MzYxNXww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Blue mosaic tiling and coping at the edge of a pool" loading="lazy">
           <div class="svc-card-body">
             <h3>Tile and Coping Installation</h3>
             <div class="svc-card-txt">
@@ -982,7 +985,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1693949898631-99ff88151be0?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwZm91bnRhaW4lMjB3YXRlcmZhbGwlMjB3YXRlciUyMGZlYXR1cmV8ZW58MXwwfHx8MTc4ODc1MzYxNnww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="a blue swimming pool with a water spout" loading="lazy">
           <div class="svc-card-body">
             <h3>Water Features</h3>
             <div class="svc-card-txt">
@@ -992,7 +995,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1778154997569-8d10cab6df66?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8c3dpbW1pbmclMjBwb29sJTIwdW5kZXJ3YXRlciUyMGxpZ2h0cyUyMGF0JTIwbmlnaHR8ZW58MXwwfHx8MTc4ODc1MzYxN3ww&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="A glowing blue swimming pool at night" loading="lazy">
           <div class="svc-card-body">
             <h3>Custom Lighting Systems</h3>
             <div class="svc-card-txt">
@@ -1002,7 +1005,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
         <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1769339764809-522564cf34c9?ixid=M3wxMDU4MDIwfDB8MXxzZWFyY2h8MXx8cG9vbCUyMGRlY2slMjBwYXZpbmclMjBzdG9uZSUyMHBhdGlvfGVufDF8MHx8fDE3ODg3NTM2MjJ8MA&ixlib=rb-4.1.0&w=900&h=675&fit=crop&q=75" alt="Rippling blue water in a swimming pool with deck" loading="lazy">
           <div class="svc-card-body">
             <h3>Pool Deck Construction</h3>
             <div class="svc-card-txt">
@@ -1012,6 +1015,7 @@ body.mnav-open header{z-index:130}
           </div>
         </li>
       </ul>
+      <p class="svc-credit">Photography: <a href="https://unsplash.com/@lucaskphoto?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Lucas Kepner</a>, <a href="https://unsplash.com/@chriscreations__?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Christian Agbede</a>, <a href="https://unsplash.com/@noe_kf?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">noe fornells</a>, <a href="https://unsplash.com/@troyscanon?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Troy Mortier</a>, <a href="https://unsplash.com/@zeynepsz?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">ZAINEB S.ZEYANI</a>, <a href="https://unsplash.com/@dimpex?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Dejan Po&#269;ek</a>, <a href="https://unsplash.com/@erwanhesry?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Erwan Hesry</a>, <a href="https://unsplash.com/@deyansight?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Deyan Sight</a> on <a href="https://unsplash.com/?utm_source=turnkey_pool_builders&amp;utm_medium=referral" target="_blank" rel="noopener">Unsplash</a></p>
     </div>
   </div>
 </section>
