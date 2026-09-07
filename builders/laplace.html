@@ -147,6 +147,9 @@ html.js .svcx-panel figure img{transform:scale(1.06);transition:transform 1.3s c
 html.js .svcx-panel.on figure img{transform:none}
 .svcx-body{padding:28px 32px 30px}
 .svcx-body h3{font-size:1.35rem;color:var(--deep);margin-bottom:10px}
+.svcx-body h3 a{color:inherit;text-decoration:none}
+.svcx-body h3 a:hover{text-decoration:underline;text-underline-offset:3px}
+.svcx-body h3 a:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
 .svcx-body h4{font-size:.9rem;margin:16px 0 6px;color:var(--ink)}
 .svcx-body p{font-size:.9rem;color:var(--muted);margin-bottom:10px}
 .svcx-body p:last-of-type{margin-bottom:0}
@@ -672,7 +675,8 @@ body.splash-lock{overflow:hidden}
 .loc-role-card h3{font-size:1rem;margin:0 0 7px;color:var(--deep);letter-spacing:-.01em}
 .loc-role-lede{color:var(--white);text-align:center;max-width:760px;margin:0 auto 24px;font-size:1.05rem;line-height:1.7}
 /* image cards: a photo of the thing, with its description underneath */
-.loc-prose ul.svc-cards{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:22px 0 0;padding:0}
+.loc-prose ul.svc-cards{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin:22px 0 0;padding:0}
+.loc-prose ul.svc-cards > li{flex:0 1 calc((100% - 40px)/3);min-width:0}
 .loc-prose li.svc-card{background:var(--white);border:2px solid var(--aqua-2);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
 .loc-prose .svc-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
 .svc-card-body{padding:18px 20px 20px}
@@ -685,15 +689,18 @@ body.splash-lock{overflow:hidden}
 .svc-cards.anim > *:nth-child(4){transition-delay:.3s}
 .svc-cards.anim > *:nth-child(5){transition-delay:.4s}
 @media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
-@media (max-width:980px){.loc-prose ul.svc-cards{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.loc-prose ul.svc-cards{grid-template-columns:1fr}}
+/* The responsive widths for these cards live at the END of this block, after
+   the per-count rules. When they sat here they LOST: a media query carries no
+   extra specificity, so .svc-cards-3 and .svc-cards-5 overrode them and stayed
+   three-across all the way down to 620px, giving those two pages 220px cards on
+   a tablet where every other page got 340px. */
 /* Column count follows the number of cards, so a row never ends with a single
    card and a hole beside it. Four cards in a three-column grid was 3 + 1 with
    two empty slots, which is what the client saw on Pool Remodel. */
-.loc-prose ul.svc-cards-3{grid-template-columns:repeat(3,1fr)}
-.loc-prose ul.svc-cards-4{grid-template-columns:repeat(4,1fr)}
-.loc-prose ul.svc-cards-5{grid-template-columns:repeat(3,1fr)}
-.loc-prose ul.svc-cards-8{grid-template-columns:repeat(4,1fr)}
+.loc-prose ul.svc-cards-3 > li{flex-basis:calc((100% - 40px)/3)}
+.loc-prose ul.svc-cards-4 > li{flex-basis:calc((100% - 60px)/4)}
+.loc-prose ul.svc-cards-5 > li{flex-basis:calc((100% - 40px)/3)}
+.loc-prose ul.svc-cards-8 > li{flex-basis:calc((100% - 60px)/4)}
 /* The descriptions run from 51 to 147 words, so unclamped cards were wildly
    different heights. Clamped to six lines with a Read more, which makes every
    card in a row the same height.
@@ -713,10 +720,24 @@ html.js .svc-more.on{display:inline-block}
 .svc-credit{margin:16px 0 0;font-size:.78rem;color:var(--muted);line-height:1.6}
 .svc-credit a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
 .svc-credit a:hover{color:var(--deep)}
-@media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
-  grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
-  .loc-prose ul.svc-cards-5,.loc-prose ul.svc-cards-8{grid-template-columns:1fr}}
+/* Trailing rows are CENTRED rather than left-aligned with a hole on the right.
+   Five cards over three columns is 3+2, and five is prime: no column count
+   except 1 or 5 divides it, so the gap cannot be designed away, only centred.
+   Flex wrap plus justify-content:center does that for ANY card count, which
+   matters because the 104 city+service pages are not built yet and their counts
+   are not known. Full rows still fill the width exactly, because the bases sum
+   to 100% minus the gaps.
+
+   These two queries are LAST on purpose. A media query adds no specificity, so
+   they tie with the per-count rules above and win only by coming after them. */
+@media (max-width:980px){.loc-prose ul.svc-cards > li,
+  .loc-prose ul.svc-cards-3 > li,.loc-prose ul.svc-cards-4 > li,
+  .loc-prose ul.svc-cards-5 > li,.loc-prose ul.svc-cards-8 > li{
+  flex-basis:calc((100% - 20px)/2)}}
+@media (max-width:620px){.loc-prose ul.svc-cards > li,
+  .loc-prose ul.svc-cards-3 > li,.loc-prose ul.svc-cards-4 > li,
+  .loc-prose ul.svc-cards-5 > li,.loc-prose ul.svc-cards-8 > li{
+  flex-basis:100%}}
 
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
@@ -799,7 +820,7 @@ body.mnav-open header{z-index:130}
     <nav aria-label="Main" id="mainnav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <span class="navdrop">
+      <span class="navdrop here">
         <a href="services.html">Services</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
           aria-controls="sv-menu" aria-label="Show service pages">
@@ -816,7 +837,7 @@ body.mnav-open header{z-index:130}
           <li><a href="spa-construction.html">Spa Construction</a></li>
         </ul>
       </span>
-      <span class="navdrop here">
+      <span class="navdrop">
         <a href="service-areas.html">Service Areas</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
           aria-controls="sa-menu" aria-label="Show service area pages">
@@ -966,35 +987,35 @@ body.mnav-open header{z-index:130}
       <div class="svcx-stage">
         <div class="svcx-panel on" role="tabpanel" id="span0" aria-labelledby="stab0">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Custom Pools</h3><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/custom-pools/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/custom-pools/">Custom Pools</a></h3><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/custom-pools/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span1" aria-labelledby="stab1">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Gunite Pool Construction</h3><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/gunite-pool-construction/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/gunite-pool-construction/">Gunite Pool Construction</a></h3><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/gunite-pool-construction/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span2" aria-labelledby="stab2">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Inground Pool</h3><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/inground-pool/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/inground-pool/">Inground Pool</a></h3><p>Our highly skilled construction team prioritizes efficiency and minimizes disruption to your property. We follow a well-defined installation process to ensure a smooth and stress-free experience.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/inground-pool/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span3" aria-labelledby="stab3">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Equipment Repairs</h3><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-equipment-repairs/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-equipment-repairs/">Pool Equipment Repairs</a></h3><p>Crystal-clear water and properly functioning equipment are important for a refreshing and enjoyable pool experience.</p><p>Our technicians are experts in pool equipment repair and maintenance. We can diagnose and fix any issues effectively, making sure your pool operates flawlessly throughout the season.</p><h4>Preventative Maintenance Programs</h4><p>We also offer preventative maintenance programs to keep your pool equipment in top condition and avoid costly repairs down the line.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-equipment-repairs/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span4" aria-labelledby="stab4">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Remodel</h3><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-remodel/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-remodel/">Pool Remodel</a></h3><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-remodel/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span5" aria-labelledby="stab5">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Renovation</h3><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-renovation/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-renovation/">Pool Renovation</a></h3><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-renovation/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span6" aria-labelledby="stab6">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Replastering</h3><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-replastering/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-replastering/">Pool Replastering</a></h3><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/pool-replastering/">Explore &rarr;</a></div>
         </div>
         <div class="svcx-panel" role="tabpanel" id="span7" aria-labelledby="stab7">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Spa Construction</h3><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/spa-construction/" target="_blank" rel="noopener">Explore &rarr;</a></div>
+          <div class="svcx-body"><h3><a href="https://www.turnkeypoolbuilders.com/service-areas/laplace/spa-construction/">Spa Construction</a></h3><p>Add a luxurious spa to your outdoor living area to make it even better. We design and construct custom spas for ultimate relaxation and rejuvenation. Imagine soaking in soothing warm water after a long day or spending quality time with loved ones in your own private oasis.</p><a class="go" href="https://www.turnkeypoolbuilders.com/service-areas/laplace/spa-construction/">Explore &rarr;</a></div>
         </div>
       </div>
     </div>
