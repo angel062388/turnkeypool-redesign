@@ -835,38 +835,72 @@ body.mnav-open header{z-index:130}
 }
 
 /* ---- blog post ---- */
-.post-wrap{max-width:760px;margin:0 auto}
-.post-hero-img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:var(--r);
-  display:block;margin:0 0 26px}
-.post-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
-  color:var(--muted);font-size:.86rem;margin:0 0 22px}
-.post-meta .pill{background:var(--aqua);border-radius:30px;padding:5px 14px;
-  font-weight:700;color:var(--deep)}
-.post-toc{background:var(--aqua);border:2px solid var(--aqua-2);border-radius:18px;
-  padding:20px 24px;margin:0 0 30px}
-.post-toc h2{font-family:inherit;font-style:normal;font-size:.78rem;
-  letter-spacing:.14em;text-transform:uppercase;font-weight:800;
-  color:var(--deep);margin:0 0 12px}
-.post-toc ol{margin:0;padding-left:20px;color:var(--muted);font-size:.94rem;
-  line-height:1.9}
-.post-toc a{color:var(--muted);text-decoration:none}
-.post-toc a:hover{color:var(--deep);text-decoration:underline}
-.post-body h2{font-size:1.5rem;color:var(--deep);margin:34px 0 12px;
-  letter-spacing:-.01em}
-.post-body h3{font-size:1.1rem;color:var(--deep);margin:24px 0 8px}
-.post-body p{color:var(--muted);font-size:1.02rem;line-height:1.8;margin:0 0 16px}
-.post-body ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px}
-.post-body ul li{background:var(--white);border:2px solid var(--aqua-2);
+.post-hero{position:relative;overflow:hidden;border-radius:var(--r);
+  min-height:420px;display:grid;place-items:center;text-align:center;
+  padding:60px 28px}
+.post-hero-bg{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0}
+.post-hero-tint{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(9,32,47,.62),rgba(9,32,47,.74))}
+.post-hero-copy{position:relative;z-index:2;max-width:860px}
+.post-hero .crumb{justify-content:center;margin-bottom:14px}
+.post-hero .crumb,.post-hero .crumb a{color:rgba(255,255,255,.86)}
+.post-hero .crumb a:hover{color:#fff}
+.post-hero h1{color:#fff;margin:0 0 10px}
+.post-hero .byline{color:rgba(255,255,255,.8);font-size:.9rem;margin:0 0 22px}
+.post-hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.art-grid{display:grid;grid-template-columns:290px 1fr;gap:44px;
+  align-items:start}
+.art-rail{position:sticky;top:96px;display:grid;gap:20px}
+.rail-box{background:var(--aqua);border:2px solid var(--aqua-2);
+  border-radius:20px;padding:20px 22px}
+.rail-label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:800;color:var(--deep);margin:0 0 12px}
+.rail-toc{display:grid;gap:2px}
+.rail-toc a{display:block;padding:8px 10px;border-radius:10px;
+  color:var(--muted);text-decoration:none;font-size:.9rem;line-height:1.45}
+.rail-toc a:hover{background:var(--white);color:var(--deep)}
+.rail-recent{display:grid;gap:10px}
+.rail-recent a{color:var(--muted);text-decoration:none;font-size:.9rem;
+  line-height:1.5;display:block}
+.rail-recent a:hover{color:var(--deep);text-decoration:underline}
+.rail-cta{display:grid;gap:10px}
+.rail-cta .btn{width:100%;text-align:center}
+
+.art-body{max-width:none}
+.art-body .lede{font-size:1.1rem;line-height:1.75;color:var(--ink);
+  border-left:4px solid var(--blue);padding-left:18px;margin:0 0 26px}
+.art-body h2{font-size:1.55rem;color:var(--deep);margin:36px 0 12px;
+  letter-spacing:-.01em;scroll-margin-top:100px}
+.art-body h3{font-size:1.12rem;color:var(--deep);margin:24px 0 8px}
+.art-body p{color:var(--muted);font-size:1.02rem;line-height:1.82;
+  margin:0 0 16px}
+.art-body ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:12px}
+.art-body ul li{background:var(--white);border:2px solid var(--aqua-2);
   border-radius:16px;padding:16px 20px;color:var(--muted);font-size:.98rem;
   line-height:1.72}
-.post-body ul li b{color:var(--deep);display:block;margin-bottom:4px}
-.post-cta{background:var(--aqua);border-radius:var(--r);padding:34px 36px;
-  margin:38px 0 0;text-align:center}
-.post-cta h2{margin:0 0 10px;color:var(--deep)}
-.post-cta p{color:var(--muted);margin:0 0 18px}
-@media (max-width:640px){
-  .post-cta{padding:26px 20px}
-  .post-body h2{font-size:1.3rem}
+.art-body ul li b{color:var(--deep);display:block;margin-bottom:4px}
+.art-body img{max-width:100%;border-radius:18px}
+
+.post-related{display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-top:22px}
+.post-related a{display:block;background:var(--white);
+  border:2px solid var(--aqua-2);border-radius:20px;overflow:hidden;
+  text-decoration:none}
+.post-related img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.post-related .t{padding:18px 20px;color:var(--deep);font-weight:700;
+  font-size:1rem;line-height:1.45}
+.post-related a:hover .t{text-decoration:underline}
+
+@media (max-width:980px){
+  .art-grid{grid-template-columns:1fr;gap:26px}
+  .art-rail{position:static}
+  .post-hero{min-height:340px;padding:44px 20px}
+}
+@media (max-width:620px){
+  .post-related{grid-template-columns:1fr}
+  .art-body h2{font-size:1.32rem}
 }
 </style>
 </head>
@@ -1082,49 +1116,66 @@ body.mnav-open header{z-index:130}
 
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="post-wrap">
-      <nav class="crumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span aria-hidden="true">&rsaquo;</span>
-        <a href="blog.html">Blog</a>
-        <span aria-hidden="true">&rsaquo;</span>
-        <span aria-current="page">Article</span>
-      </nav>
-      <h1>The Ultimate Guide to Pool Maintenance After Installation</h1>
-      <div class="post-meta">
-        <span class="pill">TurnKey Pool Builders</span>
+    <div class="post-hero">
+      <img class="post-hero-bg" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/pool-contractors-doing-pool-services-scaled.jpeg" alt="Pool contractors - Turnkey Pool Builders">
+            <div class="post-hero-tint"></div>
+      <div class="post-hero-copy">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <h1>The Ultimate Guide to Pool Maintenance After Installation</h1>
+        <p class="byline">TurnKey Pool Builders</p>
+        <div class="post-hero-cta">
+          <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
+          <a class="btn btn-s" href="tel:+12393471697">Call 239-347-1697</a>
+        </div>
       </div>
-      <img class="post-hero-img" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/pool-contractors-doing-pool-services-scaled.jpeg" alt="Pool contractors - Turnkey Pool Builders" loading="eager">
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="post-wrap post-body">
-      <nav class="post-toc" aria-label="Contents">
-        <h2>In this article</h2>
-        <ol>
-          <li><a href="#s1">Understanding the Basics of Pool Maintenance</a></li>
-          <li><a href="#s2">Establish a Maintenance Routine</a></li>
-          <li><a href="#s3">Balancing Pool Water Chemistry</a></li>
-          <li><a href="#s4">Cleaning Pool Filters</a></li>
-          <li><a href="#s5">Addressing Common Pool Issues</a></li>
-          <li><a href="#s6">Seasonal Pool Maintenance Tips</a></li>
-          <li><a href="#s7">Pool Maintenance Tools You Need</a></li>
-          <li><a href="#s8">Final Thoughts</a></li>
-        </ol>
-      </nav>
-      <p>Having a new pool installed is an exciting milestone that turns your backyard into a private oasis. However, maintaining your pool is crucial to keep it clean, safe, and ready for enjoyment.</p>
+  <div class="art-grid">
+    <aside class="art-rail">
+      <div class="rail-box">
+        <p class="rail-label">On this page</p>
+        <nav class="rail-toc" aria-label="Article contents">
+          <a href="#understanding-the-basics-of-pool-maintenance">Understanding the Basics of Pool Maintenance</a>
+          <a href="#establish-a-maintenance-routine">Establish a Maintenance Routine</a>
+          <a href="#balancing-pool-water-chemistry">Balancing Pool Water Chemistry</a>
+          <a href="#cleaning-pool-filters">Cleaning Pool Filters</a>
+          <a href="#addressing-common-pool-issues">Addressing Common Pool Issues</a>
+          <a href="#seasonal-pool-maintenance-tips">Seasonal Pool Maintenance Tips</a>
+          <a href="#pool-maintenance-tools-you-need">Pool Maintenance Tools You Need</a>
+          <a href="#final-thoughts">Final Thoughts</a>
+        </nav>
+      </div>
+      <div class="rail-box">
+        <p class="rail-label">Recent posts</p>
+        <div class="rail-recent">
+          <a href="post-benefits-of-custom-pools.html">The Benefits of Custom Pools: Why Go Beyond Standard Designs</a>
+          <a href="post-how-to-maintain-your-pool-year-round.html">How to Maintain Your Pool Year-Round</a>
+        </div>
+      </div>
+      <div class="rail-cta">
+        <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
+        <a class="btn btn-s" href="tel:+12393471697">Call 239-347-1697</a>
+      </div>
+    </aside>
+    <article class="art-body">
+      <p class="lede">Having a new pool installed is an exciting milestone that turns your backyard into a private oasis. However, maintaining your pool is crucial to keep it clean, safe, and ready for enjoyment.</p>
       <p>At TurnKey Pool Builders, we understand the importance of regular upkeep. This guide will provide you with all the essential tips for pool maintenance after installation, ensuring your investment lasts for years to come.</p>
-      <h2 id="s1">Understanding the Basics of Pool Maintenance</h2>
+      <h2 id="understanding-the-basics-of-pool-maintenance">Understanding the Basics of Pool Maintenance</h2>
       <p>Maintaining a pool involves three primary components:</p>
       <ul>
         <li><b>Water Chemistry</b>Ensuring the right balance of chemicals to keep the water safe and clear.</li>
         <li><b>Cleaning and Skimming</b>Removing debris and cleaning surfaces to prevent algae and buildup.</li>
         <li><b>Equipment Maintenance</b>Keeping the pump, filter, and other systems in good working order.</li>
       </ul>
-      <h2 id="s2">Establish a Maintenance Routine</h2>
+      <h2 id="establish-a-maintenance-routine">Establish a Maintenance Routine</h2>
       <p>Creating a consistent maintenance schedule is the key to hassle-free pool care.</p>
       <p>Here's a general weekly routine to follow:</p>
       <ul>
@@ -1134,7 +1185,7 @@ body.mnav-open header{z-index:130}
         <li><b>Test the Water Chemistry</b>Use a testing kit to check pH levels, chlorine levels, and alkalinity twice a week.</li>
         <li><b>Clean the Filter</b>Rinse or backwash the filter as needed to maintain proper water circulation.</li>
       </ul>
-      <h2 id="s3">Balancing Pool Water Chemistry</h2>
+      <h2 id="balancing-pool-water-chemistry">Balancing Pool Water Chemistry</h2>
       <p>Proper water chemistry ensures a safe swimming environment and protects your pool equipment.</p>
       <p>Key factors to monitor include:</p>
       <ul>
@@ -1144,7 +1195,7 @@ body.mnav-open header{z-index:130}
         <li><b>Calcium Hardness</b>Maintain levels between 200 and 400 ppm to prevent scaling or erosion.</li>
       </ul>
       <p>Use pool chemicals as directed and always add chemicals to water, not the other way around, for safety.</p>
-      <h2 id="s4">Cleaning Pool Filters</h2>
+      <h2 id="cleaning-pool-filters">Cleaning Pool Filters</h2>
       <p>Your pool filter is responsible for keeping the water clear.</p>
       <p>There are three common types of filters:</p>
       <ul>
@@ -1153,21 +1204,21 @@ body.mnav-open header{z-index:130}
         <li><b>Diatomaceous Earth (DE) Filters</b>Backwash and replenish the DE powder after each cleaning.</li>
       </ul>
       <p>Always check the manufacturer's instructions for proper maintenance of your specific filter.</p>
-      <h2 id="s5">Addressing Common Pool Issues</h2>
+      <h2 id="addressing-common-pool-issues">Addressing Common Pool Issues</h2>
       <p>Here are quick solutions to common pool problems:</p>
       <ul>
         <li><b>Cloudy Water</b>Test and adjust pH and chlorine levels. Check and clean the filter.</li>
         <li><b>Algae Growth</b>Brush affected areas and shock the pool with a higher dose of chlorine.</li>
         <li><b>Stains on Pool Surfaces</b>Identify the stain type (organic or metal-based) and use the appropriate cleaning method or stain remover.</li>
       </ul>
-      <h2 id="s6">Seasonal Pool Maintenance Tips</h2>
+      <h2 id="seasonal-pool-maintenance-tips">Seasonal Pool Maintenance Tips</h2>
       <ul>
         <li><b>Spring</b>Inspect equipment, clean the pool thoroughly, and balance the water chemistry before the swimming season starts.</li>
         <li><b>Summer</b>Increase the frequency of skimming, vacuuming, and chemical testing to match heavier pool use.</li>
         <li><b>Fall</b>Remove leaves and debris regularly and prepare the pool for winter.</li>
         <li><b>Winter</b>If you're not in a warm climate, winterize your pool by lowering the water level, adding a pool cover, and protecting equipment from freezing temperatures.</li>
       </ul>
-      <h2 id="s7">Pool Maintenance Tools You Need</h2>
+      <h2 id="pool-maintenance-tools-you-need">Pool Maintenance Tools You Need</h2>
       <p>Invest in these essential tools to make maintenance easier:</p>
       <ul>
         <li>Skimmer net</li>
@@ -1177,13 +1228,27 @@ body.mnav-open header{z-index:130}
         <li>Chemical storage container</li>
         <li>Pool cover</li>
       </ul>
-      <h2 id="s8">Final Thoughts</h2>
+      <h2 id="final-thoughts">Final Thoughts</h2>
       <p>Maintaining a pool doesn't have to be overwhelming. With a consistent routine and the right tools, you can keep your pool looking and functioning perfectly. TurnKey Pool Builders is here to support you every step of the way, from installation to ongoing care. If you need assistance or professional maintenance, don't hesitate to contact us. Your dream pool deserves the best care-start today to enjoy years of worry-free swimming!</p>
-      <div class="post-cta">
-        <h2>Thinking about a pool?</h2>
-        <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds across New Orleans and the surrounding parishes. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
-        <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
-      </div>
+      <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds across New Orleans and the surrounding parishes. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyeb">More reading</div>
+    <h2>From the <span>TurnKey Blog</span></h2>
+    <div class="post-related">
+        <a href="post-benefits-of-custom-pools.html">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/poolremodel-image-950x450.jpg" alt="Swimming Pool - Turnkey Pool Builders" loading="lazy">
+          <div class="t">The Benefits of Custom Pools: Why Go Beyond Standard Designs</div>
+        </a>
+        <a href="post-how-to-maintain-your-pool-year-round.html">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/cleaning-leaves-from-the-swimming-pool-2023-11-27-05-01-52-utc-scaled-950x450.jpg" alt="Managing High Pool Usage" loading="lazy">
+          <div class="t">How to Maintain Your Pool Year-Round</div>
+        </a>
     </div>
   </div>
 </section>

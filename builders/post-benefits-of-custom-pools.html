@@ -835,38 +835,72 @@ body.mnav-open header{z-index:130}
 }
 
 /* ---- blog post ---- */
-.post-wrap{max-width:760px;margin:0 auto}
-.post-hero-img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:var(--r);
-  display:block;margin:0 0 26px}
-.post-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
-  color:var(--muted);font-size:.86rem;margin:0 0 22px}
-.post-meta .pill{background:var(--aqua);border-radius:30px;padding:5px 14px;
-  font-weight:700;color:var(--deep)}
-.post-toc{background:var(--aqua);border:2px solid var(--aqua-2);border-radius:18px;
-  padding:20px 24px;margin:0 0 30px}
-.post-toc h2{font-family:inherit;font-style:normal;font-size:.78rem;
-  letter-spacing:.14em;text-transform:uppercase;font-weight:800;
-  color:var(--deep);margin:0 0 12px}
-.post-toc ol{margin:0;padding-left:20px;color:var(--muted);font-size:.94rem;
-  line-height:1.9}
-.post-toc a{color:var(--muted);text-decoration:none}
-.post-toc a:hover{color:var(--deep);text-decoration:underline}
-.post-body h2{font-size:1.5rem;color:var(--deep);margin:34px 0 12px;
-  letter-spacing:-.01em}
-.post-body h3{font-size:1.1rem;color:var(--deep);margin:24px 0 8px}
-.post-body p{color:var(--muted);font-size:1.02rem;line-height:1.8;margin:0 0 16px}
-.post-body ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px}
-.post-body ul li{background:var(--white);border:2px solid var(--aqua-2);
+.post-hero{position:relative;overflow:hidden;border-radius:var(--r);
+  min-height:420px;display:grid;place-items:center;text-align:center;
+  padding:60px 28px}
+.post-hero-bg{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0}
+.post-hero-tint{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(9,32,47,.62),rgba(9,32,47,.74))}
+.post-hero-copy{position:relative;z-index:2;max-width:860px}
+.post-hero .crumb{justify-content:center;margin-bottom:14px}
+.post-hero .crumb,.post-hero .crumb a{color:rgba(255,255,255,.86)}
+.post-hero .crumb a:hover{color:#fff}
+.post-hero h1{color:#fff;margin:0 0 10px}
+.post-hero .byline{color:rgba(255,255,255,.8);font-size:.9rem;margin:0 0 22px}
+.post-hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.art-grid{display:grid;grid-template-columns:290px 1fr;gap:44px;
+  align-items:start}
+.art-rail{position:sticky;top:96px;display:grid;gap:20px}
+.rail-box{background:var(--aqua);border:2px solid var(--aqua-2);
+  border-radius:20px;padding:20px 22px}
+.rail-label{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:800;color:var(--deep);margin:0 0 12px}
+.rail-toc{display:grid;gap:2px}
+.rail-toc a{display:block;padding:8px 10px;border-radius:10px;
+  color:var(--muted);text-decoration:none;font-size:.9rem;line-height:1.45}
+.rail-toc a:hover{background:var(--white);color:var(--deep)}
+.rail-recent{display:grid;gap:10px}
+.rail-recent a{color:var(--muted);text-decoration:none;font-size:.9rem;
+  line-height:1.5;display:block}
+.rail-recent a:hover{color:var(--deep);text-decoration:underline}
+.rail-cta{display:grid;gap:10px}
+.rail-cta .btn{width:100%;text-align:center}
+
+.art-body{max-width:none}
+.art-body .lede{font-size:1.1rem;line-height:1.75;color:var(--ink);
+  border-left:4px solid var(--blue);padding-left:18px;margin:0 0 26px}
+.art-body h2{font-size:1.55rem;color:var(--deep);margin:36px 0 12px;
+  letter-spacing:-.01em;scroll-margin-top:100px}
+.art-body h3{font-size:1.12rem;color:var(--deep);margin:24px 0 8px}
+.art-body p{color:var(--muted);font-size:1.02rem;line-height:1.82;
+  margin:0 0 16px}
+.art-body ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:12px}
+.art-body ul li{background:var(--white);border:2px solid var(--aqua-2);
   border-radius:16px;padding:16px 20px;color:var(--muted);font-size:.98rem;
   line-height:1.72}
-.post-body ul li b{color:var(--deep);display:block;margin-bottom:4px}
-.post-cta{background:var(--aqua);border-radius:var(--r);padding:34px 36px;
-  margin:38px 0 0;text-align:center}
-.post-cta h2{margin:0 0 10px;color:var(--deep)}
-.post-cta p{color:var(--muted);margin:0 0 18px}
-@media (max-width:640px){
-  .post-cta{padding:26px 20px}
-  .post-body h2{font-size:1.3rem}
+.art-body ul li b{color:var(--deep);display:block;margin-bottom:4px}
+.art-body img{max-width:100%;border-radius:18px}
+
+.post-related{display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-top:22px}
+.post-related a{display:block;background:var(--white);
+  border:2px solid var(--aqua-2);border-radius:20px;overflow:hidden;
+  text-decoration:none}
+.post-related img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.post-related .t{padding:18px 20px;color:var(--deep);font-weight:700;
+  font-size:1rem;line-height:1.45}
+.post-related a:hover .t{text-decoration:underline}
+
+@media (max-width:980px){
+  .art-grid{grid-template-columns:1fr;gap:26px}
+  .art-rail{position:static}
+  .post-hero{min-height:340px;padding:44px 20px}
+}
+@media (max-width:620px){
+  .post-related{grid-template-columns:1fr}
+  .art-body h2{font-size:1.32rem}
 }
 </style>
 </head>
@@ -1082,66 +1116,97 @@ body.mnav-open header{z-index:130}
 
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="post-wrap">
-      <nav class="crumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span aria-hidden="true">&rsaquo;</span>
-        <a href="blog.html">Blog</a>
-        <span aria-hidden="true">&rsaquo;</span>
-        <span aria-current="page">Article</span>
-      </nav>
-      <h1>The Benefits of Custom Pools: Why Go Beyond Standard Designs</h1>
-      <div class="post-meta">
-        <span class="pill">TurnKey Pool Builders</span>
+    <div class="post-hero">
+      <img class="post-hero-bg" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/poolremodel-image-950x450.jpg" alt="Swimming Pool - Turnkey Pool Builders">
+            <div class="post-hero-tint"></div>
+      <div class="post-hero-copy">
+        <nav class="crumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <a href="blog.html">Blog</a>
+        </nav>
+        <h1>The Benefits of Custom Pools: Why Go Beyond Standard Designs</h1>
+        <p class="byline">TurnKey Pool Builders</p>
+        <div class="post-hero-cta">
+          <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
+          <a class="btn btn-s" href="tel:+12393471697">Call 239-347-1697</a>
+        </div>
       </div>
-      <img class="post-hero-img" src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/poolremodel-image-950x450.jpg" alt="Swimming Pool - Turnkey Pool Builders" loading="eager">
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="post-wrap post-body">
-      <nav class="post-toc" aria-label="Contents">
-        <h2>In this article</h2>
-        <ol>
-          <li><a href="#s1">Why Choose a Custom Pool?</a></li>
-          <li><a href="#s2">Personalize Your Pool Design</a></li>
-          <li><a href="#s3">Prioritize Safety and Accessibility</a></li>
-          <li><a href="#s4">Custom Pools: A Seamless Blend of Style and Function</a></li>
-        </ol>
-      </nav>
-      <p>Custom pools are more than just a visual appeal; they offer customized solutions that add to outdoor areas in special ways. With custom designs, homeowners can design a backyard retreat that suits their lifestyle and adds value to the property.</p>
+  <div class="art-grid">
+    <aside class="art-rail">
+      <div class="rail-box">
+        <p class="rail-label">On this page</p>
+        <nav class="rail-toc" aria-label="Article contents">
+          <a href="#why-choose-a-custom-pool">Why Choose a Custom Pool?</a>
+          <a href="#personalize-your-pool-design">Personalize Your Pool Design</a>
+          <a href="#prioritize-safety-and-accessibility">Prioritize Safety and Accessibility</a>
+          <a href="#custom-pools-a-seamless-blend-of-style-and-function">Custom Pools: A Seamless Blend of Style and Function</a>
+        </nav>
+      </div>
+      <div class="rail-box">
+        <p class="rail-label">Recent posts</p>
+        <div class="rail-recent">
+          <a href="post-pool-maintenance-guide-after-installation.html">The Ultimate Guide to Pool Maintenance After Installation</a>
+          <a href="post-how-to-maintain-your-pool-year-round.html">How to Maintain Your Pool Year-Round</a>
+        </div>
+      </div>
+      <div class="rail-cta">
+        <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
+        <a class="btn btn-s" href="tel:+12393471697">Call 239-347-1697</a>
+      </div>
+    </aside>
+    <article class="art-body">
+      <p class="lede">Custom pools are more than just a visual appeal; they offer customized solutions that add to outdoor areas in special ways. With custom designs, homeowners can design a backyard retreat that suits their lifestyle and adds value to the property.</p>
       <p>Integrated spas, energy-saving technology, and custom water features provide more than a swimming area-they create a welcoming retreat that adds long-term value.</p>
       <p>TurnKey Pool Builders excels at realizing these customized visions, guaranteeing aesthetics and functionality in each project.</p>
-      <h2 id="s1">Why Choose a Custom Pool?</h2>
+      <h2 id="why-choose-a-custom-pool">Why Choose a Custom Pool?</h2>
       <p>A custom pool turns a yard into a statement of individual taste and functional need. Well-planned layouts, quality materials, and unique aspects turn bespoke pools into pools of distinction from ordinary ones, which have long-term benefits.</p>
       <ul>
         <li><b>Tailor the Pool to Your Lifestyle</b>Personal pools fit personal preferences, whether for recreation, exercise, or relaxation. Families may prefer large, freeform pools, while those seeking relaxation can opt for waterfalls and spas. Fitness enthusiasts appreciate lap pools for exercise. Additional features like tanning ledges and underwater seating enhance comfort and functionality.</li>
         <li><b>Boost Home Value with Customization</b>Custom-built custom pools can add up to 7% to the value of a home. The presence of exclusive materials, bespoke lighting, and infinity edges makes properties more appealing to buyers. This is why they chose this property for sale. Investing in a personalized pool not only enhances your current lifestyle but also adds to its sale value.</li>
         <li><b>Superior Materials, Lasting Quality</b>The use of durable materials, such as weather-resistant finishes and sturdy tiles, can result in a long life without significant maintenance. Slip-proof surfaces provide added functionality while maintaining their durability. If you invest in the finer details, your pool will be beautiful from start to finish.</li>
       </ul>
-      <h2 id="s2">Personalize Your Pool Design</h2>
+      <h2 id="personalize-your-pool-design">Personalize Your Pool Design</h2>
       <p>With a personalized pool, homeowners can create an environment that seamlessly fits their lifestyle and taste. Their personal touch allows them to design a unique, expressive pool that complements their home beautifully.</p>
       <ul>
         <li><b>Match Pool to Home's Architecture</b>A pool should complement the home's architectural style. Rectangular designs with classic stone finishes suit traditional houses, while modern homes pair well with angular, minimalist pools.</li>
         <li><b>Choose Unique Water Features</b>Water features add personality and functionality. Though splash pads and slides entertain families, rock grottos, bubbling fountains, and flowing waterfalls create a serene atmosphere. Rain curtains and laminar jets are two elements that enhance the aesthetics and functionality of the area.</li>
         <li><b>Select Custom Lighting Options</b>A pool may become a striking focal point with the right lighting. Ambiance is produced via accent uplighting, floating spheres, and underwater LED lights. With the help of smart controllers and customizable colors, energy-efficient LEDs let homeowners adjust the settings remotely for any occasion.</li>
       </ul>
-      <h2 id="s3">Prioritize Safety and Accessibility</h2>
+      <h2 id="prioritize-safety-and-accessibility">Prioritize Safety and Accessibility</h2>
       <p>Custom pool designs integrate safety and accessibility features for users of all ages and abilities.</p>
       <ul>
         <li><b>Customizable Safety Features</b>Pool alarms, reinforcing covers, and fences that comply with local standards are among the security alternatives available. Areas with non-slip surfaces lower the likelihood of accidents and provide a safe atmosphere for families.</li>
         <li><b>Accessibility Options for All</b>Zero-entry pools have progressive inclines that can accommodate wheelchairs. Ramps, handrails, and tanning ledges make the pool accessible to everyone, allowing for easier use.</li>
       </ul>
-      <h2 id="s4">Custom Pools: A Seamless Blend of Style and Function</h2>
+      <h2 id="custom-pools-a-seamless-blend-of-style-and-function">Custom Pools: A Seamless Blend of Style and Function</h2>
       <p>The benefits of custom pools extend beyond luxury-they enhance property value, lifestyle, and long-term savings. TurnKey Pool Builders specializes in crafting stunning, functional pools designed for relaxation, fitness, and entertainment.</p>
       <p>Let's build your dream pool. TurnKey Pool Builders brings your vision to life with expert craftsmanship and personalized designs. Contact us today to get started!</p>
-      <div class="post-cta">
-        <h2>Thinking about a pool?</h2>
-        <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds across New Orleans and the surrounding parishes. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
-        <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
-      </div>
+      <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds across New Orleans and the surrounding parishes. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
+    </article>
+  </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="eyeb">More reading</div>
+    <h2>From the <span>TurnKey Blog</span></h2>
+    <div class="post-related">
+        <a href="post-pool-maintenance-guide-after-installation.html">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/pool-contractors-doing-pool-services-scaled.jpeg" alt="Pool contractors - Turnkey Pool Builders" loading="lazy">
+          <div class="t">The Ultimate Guide to Pool Maintenance After Installation</div>
+        </a>
+        <a href="post-how-to-maintain-your-pool-year-round.html">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/cleaning-leaves-from-the-swimming-pool-2023-11-27-05-01-52-utc-scaled-950x450.jpg" alt="Managing High Pool Usage" loading="lazy">
+          <div class="t">How to Maintain Your Pool Year-Round</div>
+        </a>
     </div>
   </div>
 </section>
