@@ -752,7 +752,16 @@ body.mnav-open header{z-index:130}
     <nav aria-label="Main" id="mainnav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="services.html">Services</a>
+      <span class="navdrop">
+        <a href="services.html">Services</a>
+        <button class="navdrop-t" type="button" aria-expanded="false"
+          aria-controls="sv-menu" aria-label="Show service pages">
+          <span aria-hidden="true">&#9662;</span>
+        </button>
+        <ul class="navdrop-menu navdrop-menu-1" id="sv-menu">
+          <li><a href="custom-pools.html">Custom Pools</a></li>
+        </ul>
+      </span>
       <span class="navdrop here">
         <a href="service-areas.html">Service Areas</a>
         <button class="navdrop-t" type="button" aria-expanded="false"
@@ -1175,7 +1184,7 @@ body.mnav-open header{z-index:130}
       <div>
         <div class="ft-h">Our Services</div>
         <ul>
-          <li><a href="https://www.turnkeypoolbuilders.com/services/custom-pools/" target="_blank" rel="noopener">Custom Pools</a></li>
+          <li><a href="custom-pools.html">Custom Pools</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/services/gunite-pool-construction/" target="_blank" rel="noopener">Gunite Pool Construction</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/services/inground-pool/" target="_blank" rel="noopener">Inground Pool</a></li>
           <li><a href="https://www.turnkeypoolbuilders.com/services/pool-equipment-repairs/" target="_blank" rel="noopener">Pool Equipment Repairs</a></li>
@@ -1592,26 +1601,38 @@ body.mnav-open header{z-index:130}
    to the button, because focus stranded inside a hidden menu is the usual way
    these break. */
 (function(){
-  var drop = document.querySelector('.navdrop');
-  if (!drop) return;
-  var btn = drop.querySelector('.navdrop-t');
-  if (!btn) return;
-  function set(open){
-    drop.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  var drops = [].slice.call(document.querySelectorAll('.navdrop'));
+  if (!drops.length) return;
+  function setAll(except, open){
+    drops.forEach(function(d){
+      if (d === except) return;
+      d.classList.remove('open');
+      var b = d.querySelector('.navdrop-t');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
   }
-  btn.addEventListener('click', function(e){
-    e.stopPropagation();
-    set(btn.getAttribute('aria-expanded') !== 'true');
-  });
-  document.addEventListener('click', function(e){
-    if (!drop.contains(e.target)) set(false);
-  });
-  drop.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') { set(false); btn.focus(); }
-  });
-  drop.addEventListener('focusout', function(e){
-    if (!drop.contains(e.relatedTarget)) set(false);
+  drops.forEach(function(drop){
+    var btn = drop.querySelector('.navdrop-t');
+    if (!btn) return;
+    function set(open){
+      drop.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      /* two menus hanging open over each other is not a state anyone wants */
+      if (open) setAll(drop, false);
+    }
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      set(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('click', function(e){
+      if (!drop.contains(e.target)) set(false);
+    });
+    drop.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') { set(false); btn.focus(); }
+    });
+    drop.addEventListener('focusout', function(e){
+      if (!drop.contains(e.relatedTarget)) set(false);
+    });
   });
 })();
 </script>
