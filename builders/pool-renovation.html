@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services - TurnKey Pool Builders</title>
-<meta name="description" content="Pool services in New Orleans from TurnKey Pool Builders: custom pools, gunite construction, inground pools, equipment repairs, remodels, renovation, replastering and spa construction.">
+<title>New Orleans Pool Renovation Services | TurnKey Pool Builders</title>
+<meta name="description" content="Revitalize your pool with TurnKey Pool Builders' top-rated renovation services. Enhance aesthetics, boost value, and improve safety. Contact us today for a free consultation!">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -693,27 +693,6 @@ body.splash-lock{overflow:hidden}
 .loc-role-grid.anim > *:nth-child(3){transition-delay:.24s}
 @media (prefers-reduced-motion:reduce){.loc-role::before,.loc-role:hover::before{transform:none;transition:none}.loc-role-grid.anim > *{opacity:1;transform:none;transition:none}}
 @media (max-width:860px){.loc-role{padding:34px 18px}.loc-role-grid{grid-template-columns:1fr}}
-/* ---- services page only ---- */
-/* The navy hero, its highlight, lede and drifting photo strip all live in
-   index.html's shared head now, because three builders were about to carry
-   near-identical copies of them. Only what is unique to this page is here. */
-/* Benefits list. Each bullet slides in from the left as it reaches the fold,
-   staggered by row. The hidden state hangs off .anim, which the reveal sweep
-   adds, so with JavaScript off or reduced motion on the list is simply
-   there. The tick is markup, not a CSS content escape. */
-.bene-list{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px;list-style:none;margin:26px 0 0;padding:0}
-.bene-list li{display:flex;align-items:flex-start;gap:14px;font-size:1rem;font-weight:600;color:var(--ink);line-height:1.5}
-.bene-list li i{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;font-style:normal;margin-top:2px}
-.bene-list.anim li{opacity:0;transform:translateX(-22px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1)}
-.bene-list.anim li.in{opacity:1;transform:none}
-.bene-list.anim li:nth-child(1){transition-delay:.04s}
-.bene-list.anim li:nth-child(2){transition-delay:.12s}
-.bene-list.anim li:nth-child(3){transition-delay:.2s}
-.bene-list.anim li:nth-child(4){transition-delay:.28s}
-.bene-list.anim li:nth-child(5){transition-delay:.36s}
-.bene-list.anim li:nth-child(6){transition-delay:.44s}
-@media (prefers-reduced-motion:reduce){.bene-list.anim li{opacity:1;transform:none;transition:none}}
-@media (max-width:780px){.bene-list{grid-template-columns:1fr;gap:14px}}
 
 /* ---- mobile menu and the two header CTA bars, under 980px ---- */
 .hd-burger{display:none;border:0;background:transparent;cursor:pointer;
@@ -778,6 +757,7 @@ body.mnav-open header{z-index:130}
 </head>
 <body>
 <script>document.documentElement.className += ' js';</script>
+
 <header>
   <div class="wrap hd">
     <a href="index.html"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/ftr-logo.png" alt="TurnKey Pool Builders"></a>
@@ -800,7 +780,7 @@ body.mnav-open header{z-index:130}
           <li><a href="inground-pool.html">Inground Pool</a></li>
           <li><a href="pool-equipment-repairs.html">Pool Equipment Repairs</a></li>
           <li><a href="pool-remodel.html">Pool Remodel</a></li>
-          <li><a href="pool-renovation.html">Pool Renovation</a></li>
+          <li><a class="now" href="pool-renovation.html">Pool Renovation</a></li>
           <li><a href="pool-replastering.html">Pool Replastering</a></li>
           <li><a href="spa-construction.html">Spa Construction</a></li>
         </ul>
@@ -850,22 +830,20 @@ body.mnav-open header{z-index:130}
         <nav class="crumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
           <span aria-hidden="true">&rsaquo;</span>
-          <span>Services</span>
+          <a href="services.html">Services</a>
+          <span aria-hidden="true">&rsaquo;</span>
+          <span>Pool Renovation</span>
         </nav>
-        <h1>Big New Orleans <em class="hl">Pool Builders</em> Services</h1>
-        <!-- NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off. -->
-        <p class="svc-lede">Every service on this page is handled by one New Orleans
-          team, from the first design through to the day the water goes in. See how
-          <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders in New Orleans</a> approaches a
-          build from start to finish.</p>
+        <h1>Top-Rated Pool Renovation Services You Can <em class="hl">Trust</em></h1>
+        <p class="svc-lede">Maintaining a pool is essential for both the aesthetic appeal and functionality of your property. Over time, even the best-maintained pools can show signs of wear and tear, necessitating renovation. Renovating your pool not only enhances its appearance but also ensures it remains a safe and enjoyable space for family and friends.</p>
         <div class="svc-hero-cta">
           <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
       </div>
       <div class="svc-shots">
-        <div class="svc-col"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
-        <div class="svc-col svc-col-b"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
+        <div class="svc-col"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
+        <div class="svc-col svc-col-b"><div class="svc-track"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="" aria-hidden="true" loading="lazy"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
       </div>
     </div>
     <div class="marq" id="marq">
@@ -895,23 +873,88 @@ body.mnav-open header{z-index:130}
   </div>
 </section>
 
-<section id="benefits" style="padding-top:0">
+<section style="padding-top:0">
   <div class="wrap">
-    <!-- ============================================================
-         NEW COPY - NOT FROM THE LIVE SITE. Needs client sign-off.
-         Written to avoid every claim class this project cannot invent:
-         no years, counts, ratings, licences, financing or build times.
-         ============================================================ -->
-    <span class="eyeb">Why Hire A Builder</span>
-    <h2>Benefits of Getting A <span>Pool Builder in New Orleans</span></h2>
-    <ul class="bene-list" id="benefits-list">
-      <li><i aria-hidden="true">&#10003;</i><span>A design shaped around your yard rather than a catalogue</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Permits and approvals handled for you</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>See the pool in 3D before anything is dug</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>One team from the first sketch to the first swim</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Equipment specified and installed to work together</span></li>
-      <li><i aria-hidden="true">&#10003;</i><span>Someone to call when the pool needs servicing</span></li>
-    </ul>
+    <div class="loc-intro">
+      <h2>Pool Renovation for <span>New Orleans Homes</span></h2>
+      <p>At <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a>, our team of experts is ready to help you transform your pool into the oasis you've always dreamed of. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact us now</a> for a consultation and see how we can make your pool renovation project a success.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-prose">
+      <h2>Why Renovate Your Pool in <span>New Orleans?</span></h2>
+      <ul class="svc-cards" id="svccards">
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Enhancing Aesthetics and Functionality</h3>
+            <p>A pool is often the centerpiece of a backyard, offering a place for relaxation and entertainment. Renovating your pool can transform its appearance, giving it a fresh, modern look. Whether you choose to update the pool's surface, add new tiles, or install water features, a renovation can significantly enhance its aesthetic appeal. Additionally, modern renovations can improve the functionality of your pool, making it more user-friendly and enjoyable.</p>
+          </div>
+        </li>
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Increasing Property Value</h3>
+            <p>Investing in a pool renovation can substantially increase your property's market value. A well-maintained, aesthetically pleasing pool can be a major selling point for potential buyers. By updating the pool's design and features, you can make your property more attractive in a competitive real estate market. This investment not only provides immediate enjoyment but also pays off in the long term by boosting your property's value.</p>
+          </div>
+        </li>
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Improving Safety and Compliance with Current Standards</h3>
+            <p>Safety is important when it comes to owning a pool. Older pools may not meet current safety standards, posing risks to users. Renovating your pool allows you to update safety features such as pool fencing, non-slip surfaces, and modern filtration systems. Ensuring your pool complies with the latest safety regulations can prevent accidents and provide peace of mind for you and your guests.</p>
+          </div>
+        </li>
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Reducing Maintenance Costs with Modern Technology</h3>
+            <p>Advancements in pool technology have made maintenance easier and more cost-effective. Modern pumps, heaters, and filtration systems are designed to be energy-efficient, reducing your pool's operational costs. Additionally, new surface materials and finishes can be more durable and resistant to algae and staining, cutting down on the time and money spent on maintenance. Renovating your pool with these modern technologies can lead to significant savings over time.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-prose">
+      <h2>Types of Pool Renovation Services to Consider in <span>New Orleans</span></h2>
+      <ul>
+        <li><i aria-hidden="true"></i><span>Renovating a pool involves various services that cater to different aspects of its design and functionality. Here are some of the most common types of pool renovation services:</span></li>
+        <li><i aria-hidden="true"></i><span>Resurfacing and Replastering</span></li>
+        <li><i aria-hidden="true"></i><span>Over time, the surface of your pool can become rough, stained, or cracked. Resurfacing and replastering involve applying a new layer of plaster or an alternative finish to the pool's interior. This process not only restores the pool's appearance but also extends its lifespan. There are various materials and finishes available, including traditional white plaster, colored plaster, and aggregate finishes like pebble or quartz, which offer enhanced durability and aesthetic appeal.</span></li>
+        <li><i aria-hidden="true"></i><span>Tile Replacement and Mosaics</span></li>
+        <li><i aria-hidden="true"></i><span>Replacing old or damaged tiles can give your pool a fresh, updated look. Modern tiles come in a wide range of colors, shapes, and materials, allowing you to customize the pool's design to match your preferences. Custom mosaic designs can also be incorporated, adding a unique and artistic touch to your pool. Tile replacement not only improves the pool's appearance but also helps prevent water leakage and structural damage.</span></li>
+        <li><i aria-hidden="true"></i><span>Deck and Coping Renovation</span></li>
+        <li><i aria-hidden="true"></i><span>The area surrounding your pool, including the deck and coping, plays a significant role in its overall appearance and functionality. Renovating the deck can involve installing new materials such as stamped concrete, natural stone, or pavers, which provide a fresh look and improved durability. Coping, the material that borders the pool's edge, can also be updated to match the new deck design, enhancing the pool's aesthetic appeal and safety.</span></li>
+        <li><i aria-hidden="true"></i><span>Lighting Upgrades</span></li>
+        <li><i aria-hidden="true"></i><span>Upgrading the lighting in and around your pool can dramatically improve its ambiance and functionality. Modern LED and fiber optic lighting systems are energy-efficient and offer a wide range of color options, allowing you to create stunning lighting effects for nighttime swimming. Proper lighting also enhances safety by illuminating the pool area, reducing the risk of accidents after dark.</span></li>
+        <li><i aria-hidden="true"></i><span>Water Feature Installation</span></li>
+        <li><i aria-hidden="true"></i><span>Adding water features such as waterfalls, fountains, and jets can enhance the visual appeal and enjoyment of your pool. These features create a relaxing atmosphere and can be customized to fit your pool's design. Water features also contribute to the soothing sound of flowing water, adding an element of tranquility to your backyard oasis.</span></li>
+        <li><i aria-hidden="true"></i><span>Energy-Efficient Equipment Upgrades</span></li>
+        <li><i aria-hidden="true"></i><span>Modernizing your pool's equipment with energy-efficient options can significantly reduce operational costs. Upgrading to high-efficiency pumps, heaters, and filtration systems can lower energy consumption and improve the pool's overall performance. Solar heating systems are another eco-friendly option that can help maintain comfortable water temperatures while reducing energy costs.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-prose">
+      <h2>Choosing the Right <span>New Orleans Pool Renovation Service Provider</span></h2>
+      <p>Selecting the right service provider is crucial to the success of your pool renovation project. Here are some key factors to consider:</p>
+      <h3>Factors to Consider</h3>
+      <p>When choosing a pool renovation service provider, consider their experience, certifications, portfolio, and customer testimonials. Experienced providers with a strong portfolio demonstrate their ability to handle various renovation projects successfully. Certifications from industry organizations indicate a commitment to maintaining high standards and staying updated with the latest industry trends.</p>
+      <h3>Questions to Ask Potential Service Providers</h3>
+      <p>Before hiring a service provider, it is essential to ask the right questions to ensure they meet your expectations. Inquire about their experience with similar projects, the materials and technologies they use, and their approach to handling unforeseen challenges. Additionally, ask for references from previous clients and visit completed projects if possible to assess the quality of their work firsthand.</p>
+      <h3>Importance of Getting Detailed Quotes and Timelines</h3>
+      <p>Obtaining detailed quotes and timelines from potential service providers is crucial for budgeting and planning purposes. A comprehensive quote should outline all costs, including materials, labor, and any additional fees. A clear timeline helps you understand the duration of the renovation project and plan accordingly. Transparent communication about costs and timelines helps avoid surprises and ensures a smooth renovation process.</p>
+    </div>
   </div>
 </section>
 
@@ -928,9 +971,8 @@ body.mnav-open header{z-index:130}
         <button type="button" role="tab" id="stab2" aria-controls="span2" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></em><span>Inground Pool</span><i>03</i></button>
         <button type="button" role="tab" id="stab3" aria-controls="span3" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Equipment Repairs</span><i>04</i></button>
         <button type="button" role="tab" id="stab4" aria-controls="span4" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Remodel</span><i>05</i></button>
-        <button type="button" role="tab" id="stab5" aria-controls="span5" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Renovation</span><i>06</i></button>
-        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>07</i></button>
-        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>08</i></button>
+        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>06</i></button>
+        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>07</i></button>
       </div>
       <div class="svcx-stage">
         <div class="svcx-panel on" role="tabpanel" id="span0" aria-labelledby="stab0">
@@ -953,10 +995,6 @@ body.mnav-open header{z-index:130}
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy"></figure>
           <div class="svcx-body"><h3>Pool Remodel</h3><p>Is your existing pool outdated or showing signs of wear? We can transform your current pool into a modern space.</p><a class="go" href="pool-remodel.html">Explore &rarr;</a></div>
         </div>
-        <div class="svcx-panel" role="tabpanel" id="span5" aria-labelledby="stab5">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-10-466x520.jpg" alt="Modern pool with a lawn and lounge terrace" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Pool Renovation</h3><p>Our renovation and remodeling services includes a wide range of options, from updating pool tiles and coping to installing new features like waterfalls, lighting, or a sun shelf.</p><a class="go" href="pool-renovation.html">Explore &rarr;</a></div>
-        </div>
         <div class="svcx-panel" role="tabpanel" id="span6" aria-labelledby="stab6">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-4-466x520.jpg" alt="Mosaic tiled pool surface and entry steps" loading="lazy"></figure>
           <div class="svcx-body"><h3>Pool Replastering</h3><p>Over time, pool plaster can become dull or stained. Our professional replastering services will restore your pool&#39;s surface to a pristine condition, enhancing its visual appeal and improving water quality. We offer a variety of finishes and textures to suit your aesthetic preferences.</p><a class="go" href="pool-replastering.html">Explore &rarr;</a></div>
@@ -969,6 +1007,37 @@ body.mnav-open header{z-index:130}
     </div>
     </div>
     <div class="gal-cta"><a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a></div>
+  </div>
+</section>
+
+<section id="areas" style="padding-top:0">
+  <div class="wrap">
+    <div class="areas-band">
+      <div class="areas-inner">
+        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
+        <h2>Serving New Orleans <span>and Beyond</span></h2>
+        <p class="areas-count">Thirteen communities across Louisiana.</p>
+        <div class="areas-split">
+          <ol class="areas" id="areas-list">
+            <li><a href="baton-rouge.html"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
+            <li><a href="covington.html"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
+            <li><a href="gretna.html"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
+            <li><a href="hammond.html"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
+            <li><a href="harahan.html"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
+            <li><a href="kenner.html"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
+            <li><a href="laplace.html"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
+            <li><a href="madisonville.html"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
+            <li><a href="mandeville.html"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
+            <li><a href="metairie.html"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
+            <li><a href="river-ridge.html"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
+            <li><a href="slidell.html"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
+            <li><a href="st-rose.html"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
+          </ol>
+          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
+        </div>
+        <div class="areas-cta"><a class="btn btn-s" href="contact.html">Get a FREE Estimate!</a></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1053,34 +1122,9 @@ body.mnav-open header{z-index:130}
   </div>
 </section>
 
-<section id="areas" style="padding-top:0">
+<section id="touch" style="padding-top:0">
   <div class="wrap">
-    <div class="areas-band">
-      <div class="areas-inner">
-        <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Service Areas</div>
-        <h2>Serving New Orleans <span>and Beyond</span></h2>
-        <p class="areas-count">Thirteen communities across Louisiana.</p>
-        <div class="areas-split">
-          <ol class="areas" id="areas-list">
-            <li><a href="baton-rouge.html"><i>01</i><b>Baton Rouge</b><em>&rarr;</em></a></li>
-            <li><a href="covington.html"><i>02</i><b>Covington</b><em>&rarr;</em></a></li>
-            <li><a href="gretna.html"><i>03</i><b>Gretna</b><em>&rarr;</em></a></li>
-            <li><a href="hammond.html"><i>04</i><b>Hammond</b><em>&rarr;</em></a></li>
-            <li><a href="harahan.html"><i>05</i><b>Harahan</b><em>&rarr;</em></a></li>
-            <li><a href="kenner.html"><i>06</i><b>Kenner</b><em>&rarr;</em></a></li>
-            <li><a href="laplace.html"><i>07</i><b>Laplace</b><em>&rarr;</em></a></li>
-            <li><a href="madisonville.html"><i>08</i><b>Madisonville</b><em>&rarr;</em></a></li>
-            <li><a href="mandeville.html"><i>09</i><b>Mandeville</b><em>&rarr;</em></a></li>
-            <li><a href="metairie.html"><i>10</i><b>Metairie</b><em>&rarr;</em></a></li>
-            <li><a href="river-ridge.html"><i>11</i><b>River Ridge</b><em>&rarr;</em></a></li>
-            <li><a href="slidell.html"><i>12</i><b>Slidell</b><em>&rarr;</em></a></li>
-            <li><a href="st-rose.html"><i>13</i><b>St. Rose</b><em>&rarr;</em></a></li>
-          </ol>
-          <figure class="areas-photo"><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-2-768x512.jpg" alt="Freeform pool with a stone waterfall and adjoining spa" loading="lazy"></figure>
-        </div>
-        <div class="areas-cta"><a class="btn btn-s" href="contact.html">Get a FREE Estimate!</a></div>
-      </div>
-    </div>
+    <p class="loc-touch">Get In Touch To Discuss How We Can Help You! <a href="tel:+12393471697">239-347-1697</a></p>
   </div>
 </section>
 
@@ -1092,7 +1136,7 @@ body.mnav-open header{z-index:130}
         <div class="cta-copy">
           <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Get Started</div>
           <h2>Ready to Make <span>a Splash?</span></h2>
-          <p><a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact TurnKey Pool Builders today</a> for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
+          <p>Contact TurnKey Pool Builders today for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
           <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
@@ -1202,10 +1246,10 @@ body.mnav-open header{z-index:130}
    both reveal on load rather than waiting for an intro that never runs.
 
    The underline is ARMED here as well. The homepage arms it through a
-   '.hero-copy h1 .hl' selector, and this page has no .hero-copy, so without
-   this the line would never animate. Arming is also the only thing that hides
-   it, so under reduced motion we return before arming and the line is simply
-   already drawn. */
+   '.hero-copy h1 .hl' selector, and an inner page has no .hero-copy, so
+   without this the line would never animate. Arming is also the only thing
+   that hides it, so under reduced motion we return before arming and the line
+   is simply already drawn. */
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
