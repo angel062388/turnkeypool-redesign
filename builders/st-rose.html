@@ -687,6 +687,34 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.loc-prose ul.svc-cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards{grid-template-columns:1fr}}
+/* Column count follows the number of cards, so a row never ends with a single
+   card and a hole beside it. Four cards in a three-column grid was 3 + 1 with
+   two empty slots, which is what the client saw on Pool Remodel. */
+.loc-prose ul.svc-cards-3{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-4{grid-template-columns:repeat(4,1fr)}
+.loc-prose ul.svc-cards-5{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-8{grid-template-columns:repeat(4,1fr)}
+/* The descriptions run from 51 to 147 words, so unclamped cards were wildly
+   different heights. Clamped to six lines with a Read more, which makes every
+   card in a row the same height.
+   ONLY WHEN JAVASCRIPT IS ON: without it the button cannot expand anything, so
+   clamping would hide copy with no way to reach it. Same rule as the mobile
+   menu. */
+.svc-card-txt{margin:0}
+html.js .loc-prose .svc-card-txt{display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:6;overflow:hidden}
+html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp:unset}
+.svc-more{display:none;margin-top:10px;padding:6px 0;border:0;background:none;
+  cursor:pointer;font:inherit;font-size:.9rem;font-weight:700;color:var(--deep);
+  text-decoration:underline;text-underline-offset:3px;min-height:24px}
+html.js .svc-more.on{display:inline-block}
+.svc-more:hover{color:var(--blue)}
+.svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
+  grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
+  .loc-prose ul.svc-cards-5,.loc-prose ul.svc-cards-8{grid-template-columns:1fr}}
+
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
 .loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
@@ -1697,6 +1725,38 @@ body.mnav-open header{z-index:130}
      scroll lock on a page whose menu is not a panel any more. */
   window.addEventListener('resize', function(){
     if (window.innerWidth > 980 && document.body.classList.contains('mnav-open')) set(false);
+  });
+})();
+</script>
+<script>
+/* Read more on the service cards. The descriptions run from 51 to 147 words,
+   so unclamped cards in the same row were wildly different heights. The clamp
+   is applied in CSS only under html.js, so with JavaScript off the full text
+   shows and nothing is hidden behind a button that cannot work.
+
+   The button is only shown where the text ACTUALLY overflows: on a short card
+   a Read more that reveals nothing is worse than no button. */
+(function(){
+  var cards = [].slice.call(document.querySelectorAll('.svc-card'));
+  if (!cards.length) return;
+  cards.forEach(function(card){
+    var txt = card.querySelector('.svc-card-txt');
+    var btn = card.querySelector('.svc-more');
+    if (!txt || !btn) return;
+    function fits(){ return txt.scrollHeight <= txt.clientHeight + 1; }
+    function sync(){
+      if (card.classList.contains('open')) { btn.classList.add('on'); return; }
+      btn.classList.toggle('on', !fits());
+    }
+    btn.addEventListener('click', function(){
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+    sync();
+    /* the clamp depends on the column width, so recheck when that changes */
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
   });
 })();
 </script>

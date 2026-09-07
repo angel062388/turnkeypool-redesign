@@ -687,6 +687,34 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.loc-prose ul.svc-cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards{grid-template-columns:1fr}}
+/* Column count follows the number of cards, so a row never ends with a single
+   card and a hole beside it. Four cards in a three-column grid was 3 + 1 with
+   two empty slots, which is what the client saw on Pool Remodel. */
+.loc-prose ul.svc-cards-3{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-4{grid-template-columns:repeat(4,1fr)}
+.loc-prose ul.svc-cards-5{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-8{grid-template-columns:repeat(4,1fr)}
+/* The descriptions run from 51 to 147 words, so unclamped cards were wildly
+   different heights. Clamped to six lines with a Read more, which makes every
+   card in a row the same height.
+   ONLY WHEN JAVASCRIPT IS ON: without it the button cannot expand anything, so
+   clamping would hide copy with no way to reach it. Same rule as the mobile
+   menu. */
+.svc-card-txt{margin:0}
+html.js .loc-prose .svc-card-txt{display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:6;overflow:hidden}
+html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp:unset}
+.svc-more{display:none;margin-top:10px;padding:6px 0;border:0;background:none;
+  cursor:pointer;font:inherit;font-size:.9rem;font-weight:700;color:var(--deep);
+  text-decoration:underline;text-underline-offset:3px;min-height:24px}
+html.js .svc-more.on{display:inline-block}
+.svc-more:hover{color:var(--blue)}
+.svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
+  grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
+  .loc-prose ul.svc-cards-5,.loc-prose ul.svc-cards-8{grid-template-columns:1fr}}
+
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
 .loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
@@ -900,34 +928,46 @@ body.mnav-open header{z-index:130}
     <div class="loc-prose">
       <h2>The Process of Pool <span>Replastering</span></h2>
       <p>Replastering a pool involves several steps to ensure a durable and smooth finish. Here's a breakdown of the process:</p>
-      <ul class="svc-cards" id="svccards">
+      <ul class="svc-cards svc-cards-4" id="svccards">
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy">
           <div class="svc-card-body">
             <h3>1. Initial Assessment and Planning</h3>
-            <p>We begin with a thorough assessment of your pool's condition, identifying any cracks, stains, or peeling plaster. From there, we estimate the size and complexity of the project, helping you understand the costs and timeline. This phase is important for making sure we're on the same page about your pool's needs and the work required.</p>
+            <div class="svc-card-txt">
+              <p>We begin with a thorough assessment of your pool's condition, identifying any cracks, stains, or peeling plaster. From there, we estimate the size and complexity of the project, helping you understand the costs and timeline. This phase is important for making sure we're on the same page about your pool's needs and the work required.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
           <div class="svc-card-body">
             <h3>2. Draining and Surface Preparation</h3>
-            <p>Once the plan is in place, the pool is drained. This step is done carefully to prevent damage, especially in areas like New Orleans where hydrostatic pressure can be an issue. Once drained, we remove the old plaster and prepare the surface, ensuring it is smooth, clean, and free from debris. Proper surface preparation is essential for ensuring the new plaster bonds well and lasts for years.</p>
+            <div class="svc-card-txt">
+              <p>Once the plan is in place, the pool is drained. This step is done carefully to prevent damage, especially in areas like New Orleans where hydrostatic pressure can be an issue. Once drained, we remove the old plaster and prepare the surface, ensuring it is smooth, clean, and free from debris. Proper surface preparation is essential for ensuring the new plaster bonds well and lasts for years.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
           <div class="svc-card-body">
             <h3>3. Application of New Plaster</h3>
-            <p>After preparing the surface, we apply the new plaster. This process is similar to icing a cake, but requires professional skill. We use your chosen plaster material, whether it's standard white plaster or more durable options like quartz or pebble plaster.</p>
-            <p>Each material has different advantages, and our team will help you select the best one for your pool. The plaster is applied evenly to create a smooth, flawless finish that helps avoid future problems and extends your pool's lifespan.</p>
+            <div class="svc-card-txt">
+              <p>After preparing the surface, we apply the new plaster. This process is similar to icing a cake, but requires professional skill. We use your chosen plaster material, whether it's standard white plaster or more durable options like quartz or pebble plaster.</p>
+              <p>Each material has different advantages, and our team will help you select the best one for your pool. The plaster is applied evenly to create a smooth, flawless finish that helps avoid future problems and extends your pool's lifespan.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
           <div class="svc-card-body">
             <h3>4. Curing and Finishing</h3>
-            <p>Once the plaster is applied, the curing process begins. This typically takes 28 days. During this period, we manually brush the pool to help the plaster cure properly. We also monitor the water chemistry, adjusting as needed to ensure a smooth, long-lasting finish. Maintaining a stable environment during this time is essential to allow the plaster to bond and set.</p>
+            <div class="svc-card-txt">
+              <p>Once the plaster is applied, the curing process begins. This typically takes 28 days. During this period, we manually brush the pool to help the plaster cure properly. We also monitor the water chemistry, adjusting as needed to ensure a smooth, long-lasting finish. Maintaining a stable environment during this time is essential to allow the plaster to bond and set.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
       </ul>
@@ -1662,6 +1702,38 @@ body.mnav-open header{z-index:130}
      scroll lock on a page whose menu is not a panel any more. */
   window.addEventListener('resize', function(){
     if (window.innerWidth > 980 && document.body.classList.contains('mnav-open')) set(false);
+  });
+})();
+</script>
+<script>
+/* Read more on the service cards. The descriptions run from 51 to 147 words,
+   so unclamped cards in the same row were wildly different heights. The clamp
+   is applied in CSS only under html.js, so with JavaScript off the full text
+   shows and nothing is hidden behind a button that cannot work.
+
+   The button is only shown where the text ACTUALLY overflows: on a short card
+   a Read more that reveals nothing is worse than no button. */
+(function(){
+  var cards = [].slice.call(document.querySelectorAll('.svc-card'));
+  if (!cards.length) return;
+  cards.forEach(function(card){
+    var txt = card.querySelector('.svc-card-txt');
+    var btn = card.querySelector('.svc-more');
+    if (!txt || !btn) return;
+    function fits(){ return txt.scrollHeight <= txt.clientHeight + 1; }
+    function sync(){
+      if (card.classList.contains('open')) { btn.classList.add('on'); return; }
+      btn.classList.toggle('on', !fits());
+    }
+    btn.addEventListener('click', function(){
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+    sync();
+    /* the clamp depends on the column width, so recheck when that changes */
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
   });
 })();
 </script>

@@ -687,6 +687,34 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.loc-prose ul.svc-cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards{grid-template-columns:1fr}}
+/* Column count follows the number of cards, so a row never ends with a single
+   card and a hole beside it. Four cards in a three-column grid was 3 + 1 with
+   two empty slots, which is what the client saw on Pool Remodel. */
+.loc-prose ul.svc-cards-3{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-4{grid-template-columns:repeat(4,1fr)}
+.loc-prose ul.svc-cards-5{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-8{grid-template-columns:repeat(4,1fr)}
+/* The descriptions run from 51 to 147 words, so unclamped cards were wildly
+   different heights. Clamped to six lines with a Read more, which makes every
+   card in a row the same height.
+   ONLY WHEN JAVASCRIPT IS ON: without it the button cannot expand anything, so
+   clamping would hide copy with no way to reach it. Same rule as the mobile
+   menu. */
+.svc-card-txt{margin:0}
+html.js .loc-prose .svc-card-txt{display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:6;overflow:hidden}
+html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp:unset}
+.svc-more{display:none;margin-top:10px;padding:6px 0;border:0;background:none;
+  cursor:pointer;font:inherit;font-size:.9rem;font-weight:700;color:var(--deep);
+  text-decoration:underline;text-underline-offset:3px;min-height:24px}
+html.js .svc-more.on{display:inline-block}
+.svc-more:hover{color:var(--blue)}
+.svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
+  grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
+  .loc-prose ul.svc-cards-5,.loc-prose ul.svc-cards-8{grid-template-columns:1fr}}
+
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
 .loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
@@ -901,33 +929,45 @@ body.mnav-open header{z-index:130}
   <div class="wrap">
     <div class="loc-prose">
       <h2>Types of Inground Pool <span>Services</span></h2>
-      <ul class="svc-cards" id="svccards">
+      <ul class="svc-cards svc-cards-4" id="svccards">
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-3-768x512.jpg" alt="Rectangular pool with a paver deck and loungers" loading="lazy">
           <div class="svc-card-body">
             <h3>Routine Maintenance</h3>
-            <p>Routine maintenance is one of the essential types of inground pool services that homeowners should take advantage of. This service includes regular cleaning and balancing of chemicals in the pool water. It involves tasks such as skimming the surface for debris, vacuuming the pool floor, and brushing the sides and steps to prevent algae and bacteria buildup. Additionally, routine maintenance entails checking and adjusting the pool's pH levels, chlorine levels, and other chemical balances to ensure a safe and healthy swimming environment.</p>
+            <div class="svc-card-txt">
+              <p>Routine maintenance is one of the essential types of inground pool services that homeowners should take advantage of. This service includes regular cleaning and balancing of chemicals in the pool water. It involves tasks such as skimming the surface for debris, vacuuming the pool floor, and brushing the sides and steps to prevent algae and bacteria buildup. Additionally, routine maintenance entails checking and adjusting the pool's pH levels, chlorine levels, and other chemical balances to ensure a safe and healthy swimming environment.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-1-768x512.jpg" alt="Inground pool beside a single storey home" loading="lazy">
           <div class="svc-card-body">
             <h3>Cleaning and Skimming</h3>
-            <p>Cleaning involves removing any debris, leaves, or dirt that may have accumulated in the pool. This is typically done using a pool vacuum or net to skim the surface and bottom of the pool. Skimming, on the other hand, involves removing any floating debris or contaminants from the surface of the water. This is usually done using a skimmer or net to skim the surface and capture any leaves, bugs, or other floating objects</p>
+            <div class="svc-card-txt">
+              <p>Cleaning involves removing any debris, leaves, or dirt that may have accumulated in the pool. This is typically done using a pool vacuum or net to skim the surface and bottom of the pool. Skimming, on the other hand, involves removing any floating debris or contaminants from the surface of the water. This is usually done using a skimmer or net to skim the surface and capture any leaves, bugs, or other floating objects</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
           <div class="svc-card-body">
             <h3>Chemical Balancing</h3>
-            <p>Chemical balancing is one of the key services provided for inground pools. This involves regular testing and adjustment of the water's chemical levels to ensure a safe and healthy swimming environment. Chemical balancing typically includes monitoring and adjusting the pH levels, alkalinity, and calcium hardness of the pool water. It also involves adding the appropriate amounts of sanitizers, such as chlorine or bromine, to keep the water free from harmful bacteria and viruses.</p>
+            <div class="svc-card-txt">
+              <p>Chemical balancing is one of the key services provided for inground pools. This involves regular testing and adjustment of the water's chemical levels to ensure a safe and healthy swimming environment. Chemical balancing typically includes monitoring and adjusting the pH levels, alkalinity, and calcium hardness of the pool water. It also involves adding the appropriate amounts of sanitizers, such as chlorine or bromine, to keep the water free from harmful bacteria and viruses.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
         <li class="svc-card">
           <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy">
           <div class="svc-card-body">
             <h3>Equipment Checks</h3>
-            <p>Equipment checks are a crucial type of inground pool service that ensures the proper functioning and safety of the pool equipment. This service involves inspecting and testing various pool equipment components, such as pumps, filters, and heaters, to identify any issues or malfunctions. Regular equipment checks help prevent potential breakdowns and extend the lifespan of the equipment by addressing small problems before they escalate into more significant and costly repairs.</p>
+            <div class="svc-card-txt">
+              <p>Equipment checks are a crucial type of inground pool service that ensures the proper functioning and safety of the pool equipment. This service involves inspecting and testing various pool equipment components, such as pumps, filters, and heaters, to identify any issues or malfunctions. Regular equipment checks help prevent potential breakdowns and extend the lifespan of the equipment by addressing small problems before they escalate into more significant and costly repairs.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
           </div>
         </li>
       </ul>
@@ -1662,6 +1702,38 @@ body.mnav-open header{z-index:130}
      scroll lock on a page whose menu is not a panel any more. */
   window.addEventListener('resize', function(){
     if (window.innerWidth > 980 && document.body.classList.contains('mnav-open')) set(false);
+  });
+})();
+</script>
+<script>
+/* Read more on the service cards. The descriptions run from 51 to 147 words,
+   so unclamped cards in the same row were wildly different heights. The clamp
+   is applied in CSS only under html.js, so with JavaScript off the full text
+   shows and nothing is hidden behind a button that cannot work.
+
+   The button is only shown where the text ACTUALLY overflows: on a short card
+   a Read more that reveals nothing is worse than no button. */
+(function(){
+  var cards = [].slice.call(document.querySelectorAll('.svc-card'));
+  if (!cards.length) return;
+  cards.forEach(function(card){
+    var txt = card.querySelector('.svc-card-txt');
+    var btn = card.querySelector('.svc-more');
+    if (!txt || !btn) return;
+    function fits(){ return txt.scrollHeight <= txt.clientHeight + 1; }
+    function sync(){
+      if (card.classList.contains('open')) { btn.classList.add('on'); return; }
+      btn.classList.toggle('on', !fits());
+    }
+    btn.addEventListener('click', function(){
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+    sync();
+    /* the clamp depends on the column width, so recheck when that changes */
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
   });
 })();
 </script>

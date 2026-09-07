@@ -687,6 +687,34 @@ body.splash-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
 @media (max-width:980px){.loc-prose ul.svc-cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.loc-prose ul.svc-cards{grid-template-columns:1fr}}
+/* Column count follows the number of cards, so a row never ends with a single
+   card and a hole beside it. Four cards in a three-column grid was 3 + 1 with
+   two empty slots, which is what the client saw on Pool Remodel. */
+.loc-prose ul.svc-cards-3{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-4{grid-template-columns:repeat(4,1fr)}
+.loc-prose ul.svc-cards-5{grid-template-columns:repeat(3,1fr)}
+.loc-prose ul.svc-cards-8{grid-template-columns:repeat(4,1fr)}
+/* The descriptions run from 51 to 147 words, so unclamped cards were wildly
+   different heights. Clamped to six lines with a Read more, which makes every
+   card in a row the same height.
+   ONLY WHEN JAVASCRIPT IS ON: without it the button cannot expand anything, so
+   clamping would hide copy with no way to reach it. Same rule as the mobile
+   menu. */
+.svc-card-txt{margin:0}
+html.js .loc-prose .svc-card-txt{display:-webkit-box;-webkit-box-orient:vertical;
+  -webkit-line-clamp:6;overflow:hidden}
+html.js .loc-prose .svc-card.open .svc-card-txt{display:block;-webkit-line-clamp:unset}
+.svc-more{display:none;margin-top:10px;padding:6px 0;border:0;background:none;
+  cursor:pointer;font:inherit;font-size:.9rem;font-weight:700;color:var(--deep);
+  text-decoration:underline;text-underline-offset:3px;min-height:24px}
+html.js .svc-more.on{display:inline-block}
+.svc-more:hover{color:var(--blue)}
+.svc-more:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:980px){.loc-prose ul.svc-cards-4,.loc-prose ul.svc-cards-8{
+  grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.loc-prose ul.svc-cards-3,.loc-prose ul.svc-cards-4,
+  .loc-prose ul.svc-cards-5,.loc-prose ul.svc-cards-8{grid-template-columns:1fr}}
+
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
 .loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
@@ -885,38 +913,6 @@ body.mnav-open header{z-index:130}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="loc-prose">
-      <h2>Our Spa Construction <span>Services</span></h2>
-      <p>Transform your outdoor space with our expert spa construction services, designed to create the perfect retreat for relaxation and luxury. At TurnKey Pool Builders, we specialize in custom spa designs that are tailored to your style and built to last.</p>
-      <ul class="svc-cards" id="svccards">
-        <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
-          <div class="svc-card-body">
-            <h3>Custom Spa Design</h3>
-            <p>Our custom spa designs are created to reflect your personal style and meet your specific needs. Whether you desire a classic design or a more modern setup with unique features, we ensure every detail is perfect, from water jets to heating systems.</p>
-          </div>
-        </li>
-        <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy">
-          <div class="svc-card-body">
-            <h3>Spa Construction Methods</h3>
-            <p>We offer a variety of construction methods to fit your budget and style, including:</p>
-          </div>
-        </li>
-        <li class="svc-card">
-          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy">
-          <div class="svc-card-body">
-            <h3>Spa Features & Add-Ons</h3>
-            <p>We believe your spa should be a sanctuary. That's why we offer a variety of features and add-ons that enhance both beauty and function:</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
       <h2>The Benefits of a Custom Spa in Your <span>New Orleans Home</span></h2>
       <ul>
         <li><i aria-hidden="true"></i><span>Investing in a custom spa offers numerous advantages, enhancing both the aesthetics and functionality of your New Orleans home. Beyond luxury, a spa provides practical benefits that make it a valuable addition to your property.</span></li>
@@ -925,6 +921,47 @@ body.mnav-open header{z-index:130}
         <li><i aria-hidden="true"></i><span><b>Increased Home Value:</b> A custom spa adds value to your home by enhancing its appeal and outdoor living space. In New Orleans, where outdoor areas are highly prized, a well-designed spa can make your property stand out and increase its market value.</span></li>
         <li><i aria-hidden="true"></i><span><b>Customization to Fit Your Needs:</b> TurnKey Pool Builders offers full customization, ensuring your spa reflects your style and matches your outdoor space. From design to materials and features, everything is tailored to create the perfect spa for you.</span></li>
         <li><i aria-hidden="true"></i><span><b>Enhanced Outdoor Living Space:</b> A custom spa transforms your backyard into a relaxing, social, and entertaining space. With added features like custom lighting and comfortable seating, it turns your outdoor area into a year-round retreat.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-prose">
+      <h2>Our Spa Construction <span>Services</span></h2>
+      <p>Transform your outdoor space with our expert spa construction services, designed to create the perfect retreat for relaxation and luxury. At TurnKey Pool Builders, we specialize in custom spa designs that are tailored to your style and built to last.</p>
+      <ul class="svc-cards svc-cards-3" id="svccards">
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Custom Spa Design</h3>
+            <div class="svc-card-txt">
+              <p>Our custom spa designs are created to reflect your personal style and meet your specific needs. Whether you desire a classic design or a more modern setup with unique features, we ensure every detail is perfect, from water jets to heating systems.</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
+          </div>
+        </li>
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-13-768x512.jpg" alt="Lap pool with fire bowls at dusk" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Spa Construction Methods</h3>
+            <div class="svc-card-txt">
+              <p>We offer a variety of construction methods to fit your budget and style, including:</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
+          </div>
+        </li>
+        <li class="svc-card">
+          <img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-7-768x512.jpg" alt="Modern pool with turquoise tile and poolside seating" loading="lazy">
+          <div class="svc-card-body">
+            <h3>Spa Features & Add-Ons</h3>
+            <div class="svc-card-txt">
+              <p>We believe your spa should be a sanctuary. That's why we offer a variety of features and add-ons that enhance both beauty and function:</p>
+            </div>
+            <button class="svc-more" type="button" aria-expanded="false">Read more</button>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -1657,6 +1694,38 @@ body.mnav-open header{z-index:130}
      scroll lock on a page whose menu is not a panel any more. */
   window.addEventListener('resize', function(){
     if (window.innerWidth > 980 && document.body.classList.contains('mnav-open')) set(false);
+  });
+})();
+</script>
+<script>
+/* Read more on the service cards. The descriptions run from 51 to 147 words,
+   so unclamped cards in the same row were wildly different heights. The clamp
+   is applied in CSS only under html.js, so with JavaScript off the full text
+   shows and nothing is hidden behind a button that cannot work.
+
+   The button is only shown where the text ACTUALLY overflows: on a short card
+   a Read more that reveals nothing is worse than no button. */
+(function(){
+  var cards = [].slice.call(document.querySelectorAll('.svc-card'));
+  if (!cards.length) return;
+  cards.forEach(function(card){
+    var txt = card.querySelector('.svc-card-txt');
+    var btn = card.querySelector('.svc-more');
+    if (!txt || !btn) return;
+    function fits(){ return txt.scrollHeight <= txt.clientHeight + 1; }
+    function sync(){
+      if (card.classList.contains('open')) { btn.classList.add('on'); return; }
+      btn.classList.toggle('on', !fits());
+    }
+    btn.addEventListener('click', function(){
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Read less' : 'Read more';
+    });
+    sync();
+    /* the clamp depends on the column width, so recheck when that changes */
+    window.addEventListener('resize', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
   });
 })();
 </script>
