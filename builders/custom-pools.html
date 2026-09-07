@@ -671,6 +671,22 @@ body.splash-lock{overflow:hidden}
 .loc-role-card p{color:var(--ink);font-size:.95rem;line-height:1.66;margin:0}
 .loc-role-card h3{font-size:1rem;margin:0 0 7px;color:var(--deep);letter-spacing:-.01em}
 .loc-role-lede{color:var(--white);text-align:center;max-width:760px;margin:0 auto 24px;font-size:1.05rem;line-height:1.7}
+/* image cards: a photo of the thing, with its description underneath */
+.svc-cards{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:22px 0 0;padding:0}
+.svc-card{background:var(--white);border:2px solid var(--aqua-2);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.svc-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.svc-card-body{padding:18px 20px 20px}
+.svc-card h3{font-size:1.02rem;margin:0 0 7px;color:var(--deep);letter-spacing:-.01em}
+.svc-card p{color:var(--muted);font-size:.94rem;line-height:1.65;margin:0}
+.svc-cards.anim > *{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
+.svc-cards.anim > *.in{opacity:1;transform:none}
+.svc-cards.anim > *:nth-child(2){transition-delay:.1s}
+.svc-cards.anim > *:nth-child(3){transition-delay:.2s}
+.svc-cards.anim > *:nth-child(4){transition-delay:.3s}
+.svc-cards.anim > *:nth-child(5){transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){.svc-cards.anim > *{opacity:1;transform:none;transition:none}}
+@media (max-width:980px){.svc-cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.svc-cards{grid-template-columns:1fr}}
 .loc-role-grid.anim > *{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .6s ease,transform .75s cubic-bezier(.22,1,.36,1)}
 .loc-role-grid.anim > *.in{opacity:1;transform:none}
 .loc-role-grid.anim > *:nth-child(2){transition-delay:.12s}
@@ -852,7 +868,8 @@ body.mnav-open header{z-index:130}
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="loc-prose">
+    <div class="loc-intro">
+      <h2>Custom Pools for <span>New Orleans Homes</span></h2>
       <p>Having a custom pool in New Orleans not only adds value to your property but also provides you and your family with endless hours of relaxation and entertainment. Finding the right pool service company to bring your vision to life can be challenging. That's where we step in. With our expertise and commitment to customer satisfaction, we are the top choice for all your pool design and building needs in New Orleans.</p>
       <p>At <a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a>, we don't just build pools; we create immersive experiences. Your backyard transforms into a sanctuary of relaxation, entertainment, and the pure joy of living in New Orleans.</p>
       <p>Let's turn your aquatic dreams into a reality! Call us today!</p>
@@ -864,25 +881,10 @@ body.mnav-open header{z-index:130}
   <div class="wrap">
     <div class="loc-prose">
       <h2>Overview of the Importance and Popularity of Pools in <span>New Orleans</span></h2>
-      <p>Pools are a significant and popular feature in New Orleans, thanks to the city's warm climate and proximity to water. With its abundance of canals and access to the Gulf of Mexico, New Orleans offers residents and tourists numerous opportunities for water-related activities.</p>
-      <p>Pools provide a convenient and private space for individuals and families to cool off and relax in the comfort of their own homes. The popularity of pools in New Orleans is further enhanced by the city's emphasis on outdoor living and recreational amenities.</p>
-      <p>Many homes and communities in New Orleans are designed with pools as a central feature, making them highly sought after by potential buyers and contributing to the overall appeal and value of properties in the area.</p>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>Why Choose Our Custom Pool Services in <span>New Orleans?</span></h2>
-      <p>At TurnKey Pool Builders, we believe in creating more than just pools; we create personal oases that enhance your lifestyle and elevate your home. Our dedication to excellence and attention to detail ensures that every pool we design is a masterpiece. We understand the unique charm of New Orleans and integrate that essence into our custom pool designs.</p>
-      <p>Here's why you should choose us for your custom pool needs in New Orleans:</p>
       <ul>
-        <li><i aria-hidden="true"></i><span><b>Tailored Elegance:</b> Every homeowner has a unique vision for their dream pool. Our team specializes in turning your ideas into reality, creating bespoke pools that reflect your taste, lifestyle, and the aesthetic charm of New Orleans.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Expert Design and Construction:</b> Backed by years of experience, our skilled designers and builders are masters of their craft. We bring technical expertise, innovative design concepts, and a commitment to quality to every pool project we undertake.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Quality Materials and Craftsmanship:</b> We believe in building not just pools, but lasting impressions. That's why we use premium materials and employ meticulous craftsmanship to ensure the longevity, durability, and stunning aesthetics of every pool we create.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Seamless Project Management:</b> Your peace of mind matters to us. From the initial design consultation to the final splash, our project management is as smooth as the water in your future pool. Timely completion and transparent communication are our hallmarks.</span></li>
-        <li><i aria-hidden="true"></i><span><b>Comprehensive Services:</b> Whether you envision a sleek modern design, a tropical paradise, or a classic retreat, our custom pool services cover a spectrum of styles and features. From infinity edges to unique lighting, we bring your dreams to life.</span></li>
+        <li><i aria-hidden="true"></i><span>Pools are a significant and popular feature in New Orleans, thanks to the city's warm climate and proximity to water. With its abundance of canals and access to the Gulf of Mexico, New Orleans offers residents and tourists numerous opportunities for water-related activities.</span></li>
+        <li><i aria-hidden="true"></i><span>Pools provide a convenient and private space for individuals and families to cool off and relax in the comfort of their own homes. The popularity of pools in New Orleans is further enhanced by the city's emphasis on outdoor living and recreational amenities.</span></li>
+        <li><i aria-hidden="true"></i><span>Many homes and communities in New Orleans are designed with pools as a central feature, making them highly sought after by potential buyers and contributing to the overall appeal and value of properties in the area.</span></li>
       </ul>
     </div>
   </div>
@@ -907,28 +909,6 @@ body.mnav-open header{z-index:130}
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>The Impact of Custom Pools on <span>New Orleans Community</span></h2>
-      <p>The impact of custom pools on the New Orleans community can be significant in various ways. Firstly, custom pools can enhance the aesthetic appeal of the community, adding value to the properties in the area. This can attract potential buyers and increase property values, benefiting homeowners and the local economy.</p>
-      <p>Secondly, custom pools provide opportunities for leisure and recreation for residents, promoting a healthier lifestyle and a sense of community. The presence of customized pools can also contribute to the overall ambiance and reputation of New Orleans as a desirable place to live and visit.</p>
-      <p>Additionally, the construction of custom pools often creates job opportunities and stimulates the local construction industry, providing a boost to the community's economy. Overall, the impact of custom pools on the New Orleans community can be seen as a positive one, both economically and socially.</p>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="loc-prose">
-      <h2>Beautiful and Stylish Custom Pool Services for Your <span>New Orleans Home here at TurnKey Pool Builders</span></h2>
-      <p>At TurnKey Pool Builders, we specialize in creating stunning pools designed specifically for New Orleans residents. Our team of experts will work closely with you to bring your vision to life, ensuring that every detail is perfect.</p>
-      <p>Envision stepping into your own personal paradise, lounging by the pool on a hot summer day, and creating lasting memories with family and friends. With our high-quality craftsmanship and attention to detail, you can have the pool of your dreams right in your own backyard.</p>
-      <p><a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact us today</a> to schedule a consultation with our experienced team and start turning your dream pool into a reality. Don't wait any longer to enjoy the luxury and relaxation of a custom pool in beautiful New Orleans.</p>
-    </div>
-  </div>
-</section>
-
 <section id="services" style="padding-top:0">
   <div class="wrap">
     <div class="aquaflat">
@@ -937,21 +917,16 @@ body.mnav-open header{z-index:130}
     <p class="sub">Transform your backyard into a stunning retreat with TurnKey Pool Builders in New Orleans, your trusted pool construction company in New Orleans. We specialize in creating custom pools that perfectly suit your style and needs.</p>
     <div class="svcx" id="svcx">
       <div class="svcx-list" role="tablist" aria-label="Our services">
-        <button type="button" role="tab" id="stab0" aria-controls="span0" aria-selected="true" tabindex="0"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/custom-pools.png" alt="" width="80" height="80" loading="lazy"></em><span>Custom Pools</span><i>01</i></button>
-        <button type="button" role="tab" id="stab1" aria-controls="span1" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Gunite Pool Construction</span><i>02</i></button>
-        <button type="button" role="tab" id="stab2" aria-controls="span2" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></em><span>Inground Pool</span><i>03</i></button>
-        <button type="button" role="tab" id="stab3" aria-controls="span3" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Equipment Repairs</span><i>04</i></button>
-        <button type="button" role="tab" id="stab4" aria-controls="span4" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Remodel</span><i>05</i></button>
-        <button type="button" role="tab" id="stab5" aria-controls="span5" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Renovation</span><i>06</i></button>
-        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>07</i></button>
-        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>08</i></button>
+        <button type="button" role="tab" id="stab1" aria-controls="span1" aria-selected="true" tabindex="0"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/Gunite-Pool-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Gunite Pool Construction</span><i>01</i></button>
+        <button type="button" role="tab" id="stab2" aria-controls="span2" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Inground-Pool.png" alt="" width="80" height="80" loading="lazy"></em><span>Inground Pool</span><i>02</i></button>
+        <button type="button" role="tab" id="stab3" aria-controls="span3" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Equipment-Repairs.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Equipment Repairs</span><i>03</i></button>
+        <button type="button" role="tab" id="stab4" aria-controls="span4" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Remodel.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Remodel</span><i>04</i></button>
+        <button type="button" role="tab" id="stab5" aria-controls="span5" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Renovation.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Renovation</span><i>05</i></button>
+        <button type="button" role="tab" id="stab6" aria-controls="span6" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Pool-Replastering.png" alt="" width="80" height="80" loading="lazy"></em><span>Pool Replastering</span><i>06</i></button>
+        <button type="button" role="tab" id="stab7" aria-controls="span7" aria-selected="false" tabindex="-1"><em><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2023/08/Spa-Construction.png" alt="" width="80" height="80" loading="lazy"></em><span>Spa Construction</span><i>07</i></button>
       </div>
       <div class="svcx-stage">
-        <div class="svcx-panel on" role="tabpanel" id="span0" aria-labelledby="stab0">
-          <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-6-768x512.jpg" alt="Freeform pool with a dark tile infinity edge" loading="lazy"></figure>
-          <div class="svcx-body"><h3>Custom Pools</h3><h4>Collaborative Design Process</h4><p>We believe your pool should be an extension of your home and lifestyle. Our experienced designers will work closely with you to understand your vision, preferred aesthetics, and desired functionality.</p><p>Whether you dream of a classic rectangular pool, a modern infinity pool, or a freeform design with organic curves, we can turn your vision into reality.</p><a class="go" href="custom-pools.html">Explore &rarr;</a></div>
-        </div>
-        <div class="svcx-panel" role="tabpanel" id="span1" aria-labelledby="stab1">
+          <div class="svcx-panel on" role="tabpanel" id="span1" aria-labelledby="stab1">
           <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/06/webimages-5-768x512.jpg" alt="Pool shell under construction with steel reinforcement in place" loading="lazy"></figure>
           <div class="svcx-body"><h3>Gunite Pool Construction</h3><p>We specialize in constructing gunite pools, the industry standard for strength and durability. Gunite is a sprayed concrete mixture that provides unmatched longevity and allows for a wide range of design possibilities.</p><a class="go" href="https://www.turnkeypoolbuilders.com/services/gunite-pool-construction/" target="_blank" rel="noopener">Explore &rarr;</a></div>
         </div>
@@ -1112,7 +1087,7 @@ body.mnav-open header{z-index:130}
         <div class="cta-copy">
           <div class="eyeb" style="background:rgba(255,255,255,.16);color:#DCF1FD">Get Started</div>
           <h2>Ready to Make <span>a Splash?</span></h2>
-          <p>Contact TurnKey Pool Builders today for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
+          <p><a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Contact TurnKey Pool Builders today</a> for a free consultation and quote. Let&#39;s discuss your dream pool and make it happen.</p>
           <a class="btn btn-p" href="contact.html">Get a FREE Estimate!</a>
           <a class="btn btn-s" href="tel:+12393471697">Call Us Today!</a>
         </div>
