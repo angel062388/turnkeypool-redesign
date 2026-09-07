@@ -848,7 +848,20 @@ body.mnav-open header{z-index:130}
 .simple .qa{margin:0 0 24px}
 .simple .qa h3{margin:0 0 6px}
 .simple .empty{color:var(--muted);font-size:1.02rem;line-height:1.8}
-@media (max-width:620px){.simple h2{font-size:1.3rem}}
+.team-row{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  margin:18px 0 26px}
+.team-row figure{margin:0}
+.team-row img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;
+  display:block}
+.team-row figcaption{margin-top:10px;color:var(--deep);font-weight:700;
+  font-size:1rem}
+.draft-note{background:var(--sand);border-radius:14px;padding:14px 18px;
+  color:var(--ink);font-size:.86rem;line-height:1.6;margin:0 0 26px}
+.draft-note b{color:var(--deep)}
+@media (max-width:620px){
+  .simple h2{font-size:1.3rem}
+  .team-row{grid-template-columns:1fr 1fr;gap:16px}
+}
 </style>
 </head>
 <body>
@@ -1111,9 +1124,12 @@ body.mnav-open header{z-index:130}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="simple">
-      <h4>Brian Hong</h4>
-      <h4>Jose Pineda</h4>
-      <h4>Corey Gallagher</h4>
+      <h2>Our Team</h2>
+      <div class="team-row">
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/TurnKeyBrianHong-scaled-348x424.png" alt="Brian Hong" loading="lazy"><figcaption>Brian Hong</figcaption></figure>
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/jose-pineda.jpg" alt="Jose Pineda" loading="lazy"><figcaption>Jose Pineda</figcaption></figure>
+        <figure><img src="https://www.turnkeypoolbuilders.com/wp-content/uploads/2024/07/corey-gallagher.jpg" alt="Corey Gallagher" loading="lazy"><figcaption>Corey Gallagher</figcaption></figure>
+      </div>
       <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds pools across New Orleans. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
     </div>
   </div>

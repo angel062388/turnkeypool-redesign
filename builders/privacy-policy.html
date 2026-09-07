@@ -848,7 +848,20 @@ body.mnav-open header{z-index:130}
 .simple .qa{margin:0 0 24px}
 .simple .qa h3{margin:0 0 6px}
 .simple .empty{color:var(--muted);font-size:1.02rem;line-height:1.8}
-@media (max-width:620px){.simple h2{font-size:1.3rem}}
+.team-row{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  margin:18px 0 26px}
+.team-row figure{margin:0}
+.team-row img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;
+  display:block}
+.team-row figcaption{margin-top:10px;color:var(--deep);font-weight:700;
+  font-size:1rem}
+.draft-note{background:var(--sand);border-radius:14px;padding:14px 18px;
+  color:var(--ink);font-size:.86rem;line-height:1.6;margin:0 0 26px}
+.draft-note b{color:var(--deep)}
+@media (max-width:620px){
+  .simple h2{font-size:1.3rem}
+  .team-row{grid-template-columns:1fr 1fr;gap:16px}
+}
 </style>
 </head>
 <body>
@@ -1111,7 +1124,24 @@ body.mnav-open header{z-index:130}
 <section style="padding-top:0">
   <div class="wrap">
     <div class="simple">
-      <p class="empty">This page has no content on the live site yet. The layout, typography and chrome are in place and ready for copy.</p>
+      <p class="draft-note"><b>Draft for review.</b> This wording is a placeholder written for the mockup, not approved legal text. It should be checked and replaced by the client's own legal adviser before the site goes live.</p>
+      <p>This policy explains what TurnKey Pool Builders collects when you use this website, why we collect it, and what we do with it.</p>
+      <h2>What we collect</h2>
+      <p>When you fill in a form on this site we ask for your name, email address, phone number and a short description of your project. We collect that information only because you chose to send it to us.</p>
+      <p>If you call the number on this site, we may keep a record of the call and any details you give us about the work you want done.</p>
+      <p>Like most websites, this one may also record basic technical information such as the pages you visited and the type of device and browser you used.</p>
+      <h2>Why we collect it</h2>
+      <p>We use what you send us to reply to your enquiry, prepare an estimate, and carry out work you ask us to do. If you become a customer, we use your contact details to keep you informed about your project.</p>
+      <h2>What we do not do</h2>
+      <p>We do not sell your personal information. We do not share it with anyone except the people and services we need in order to run our business and complete your project, and only as far as they need it to do that job.</p>
+      <h2>Cookies</h2>
+      <p>This site may use cookies and similar technology to remember your preferences and to understand how the site is used. Most browsers let you refuse cookies or delete the ones already stored.</p>
+      <h2>Your choices</h2>
+      <p>You can ask us what personal information we hold about you, ask us to correct it, or ask us to delete it. Contact us using the details below and we will help.</p>
+      <h2>Changes to this policy</h2>
+      <p>If this policy changes we will publish the new version on this page.</p>
+      <h2>Contact us</h2>
+      <p>If you have any question about this policy or about the information we hold, please get in touch through the contact page or call 239-347-1697.</p>
       <p><a href="https://www.turnkeypoolbuilders.com/" target="_blank" rel="noopener">TurnKey Pool Builders</a> designs and builds pools across New Orleans. <a href="https://www.turnkeypoolbuilders.com/contact/" target="_blank" rel="noopener">Get in touch</a> for a free estimate.</p>
     </div>
   </div>
